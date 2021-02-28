@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"changyan","storage":true,"lazyload":false,"nav":null,"activeClass":"changyan"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Junyi的小屋">
@@ -122,11 +122,10 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
-        <li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
+        <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
   </ul>
 </nav>
 
@@ -172,9 +171,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -216,7 +227,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2021/02/27/autotvm_multi_gpu_acceleration/">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2021/02/27/tvm/2021-02-27-autotvm_multi_gpu_acceleration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -229,7 +240,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/27/autotvm_multi_gpu_acceleration/" class="post-title-link" itemprop="url">AutoTVM 多 GPU 加速 Tuning</a>
+          <a href="/2021/02/27/tvm/2021-02-27-autotvm_multi_gpu_acceleration/" class="post-title-link" itemprop="url">AutoTVM 多 GPU 加速 Tuning</a>
         </h2>
 
         <div class="post-meta-container">
@@ -239,27 +250,26 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-02-27 23:32:44 / 修改时间：23:44:36" itemprop="dateCreated datePublished" datetime="2021-02-27T23:32:44+08:00">2021-02-27</time>
+      <time title="创建时间：2021-02-27 23:32:44" itemprop="dateCreated datePublished" datetime="2021-02-27T23:32:44+08:00">2021-02-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:07:50" itemprop="dateModified" datetime="2021-02-28T17:07:50+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
     </span>
 
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/02/27/autotvm_multi_gpu_acceleration/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://military-doctor.github.io/2021/02/27/autotvm_multi_gpu_acceleration/" class="cy_cmt_count" data-xid="2021/02/27/autotvm_multi_gpu_acceleration/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
   
 </div>
 
@@ -272,38 +282,628 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>双 NVIDIA 1080Ti, Linux 服务器</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD的没试过）</p>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><blockquote>
-<p>当前场景为tuner和runner都跑在同一台机器上的情况<br>如果需要一台跑tuner，一台跑runner，请配置好 tracker 和 server 的 IP<br>tracker 和 server 都可以放在有显卡的机器里</p>
-</blockquote>
-<ol>
-<li>首先查看一下 GPU 的 id，你可以通过这条命令来查看：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -L</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/27/tvm/2021-02-27-autotvm_multi_gpu_acceleration/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<p>比如我这里输出的是 0 和 1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) admin@deeplearning:~$ nvidia-smi -L</span><br><span class="line">GPU 0: GeForce GTX 1080 Ti (UUID: GPU-a4602aba-35cb-97cd-ef5a-f7d12aabdc88)</span><br><span class="line">GPU 1: GeForce GTX 1080 Ti (UUID: GPU-92deed64-3b37-f0a4-1095-40f0f596d64b)</span><br></pre></td></tr></table></figure>
+    
+    
+    
 
-
-<ol start="2">
-<li>用 <code>screen</code> 创建 1 个 rpc_tracker</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -S tvm_tune_tracker</span><br><span class="line">python -m tvm.exec.rpc_tracker --host=0.0.0.0 --port=9190</span><br></pre></td></tr></table></figure>
-<p>输入完之后，如果 tracker 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</p>
-<ol start="3">
-<li>用 <code>screen</code> 创建 2 个 rpc_server （因为我有 2 个 GPU）</li>
-</ol>
-<p>还记得第一步查看的 GPU id 吗？下面的 CUDA_VISIBLE_DEVICES 就要设置成刚才看的 GPU 的 id</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">screen -S tvm_tune_server0</span><br><span class="line"><span class="built_in">export</span> CUDA_VISIBLE_DEVICES=0</span><br><span class="line">python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</span></span><br><span class="line"></span><br><span class="line">screen -S tvm_tune_server1</span><br><span class="line"><span class="built_in">export</span> CUDA_VISIBLE_DEVICES=1</span><br><span class="line">python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意，上面的 <code>export</code> 是重点！<br>如果在 shell 里直接不写 <code>export</code> ，直接写 <code>CUDA_VISIBLE_DEVICES=0</code> 是无效的！！！！<br>尽管不写 <code>export</code> 时，<code>echo $CUDA_VISIBLE_DEVICES</code> 也会输出 <code>1</code>，但是实际上并没有设置环境变量。<br>原因是 autotvm 会通过 python 的 <code>os.environ[&#39;CUDA_VISIBLE_DEVICES&#39;]</code> 的值来决定使用哪一个 id 的 GPU。</p>
-</blockquote>
-<h3 id="检测效果："><a href="#检测效果：" class="headerlink" title="检测效果："></a>检测效果：</h3><p>按照<a target="_blank" rel="noopener" href="https://tvm.apache.org/docs/tutorials/autotvm/tune_relay_cuda.html">官方教程</a>修改 device 为 1080ti，ip地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py<br>Extract tasks 之后，你应该可以通过 <code>nvidia-smi</code> 看到 GPU 的利用情况：</p>
-<p><code>watch -n 0.5 nvidia-smi</code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）</p>
-<img data-src="/2021/02/27/autotvm_multi_gpu_acceleration/result.png" class="" title="This is an example image">
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
 
-<p>– END –</p>
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2021/01/09/after_processed/2021-01-09-swift-touchbar-procedure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/01/09/after_processed/2021-01-09-swift-touchbar-procedure/" class="post-title-link" itemprop="url">Swift - Touchbar 处理流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-09 13:26:01" itemprop="dateCreated datePublished" datetime="2021-01-09T13:26:01+08:00">2021-01-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:08:33" itemprop="dateModified" datetime="2021-02-28T17:08:33+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Swift/" itemprop="url" rel="index"><span itemprop="name">Swift</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>NSTouchBar discovery by the system proceeds as shown from bottom-to-top in this list:</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/09/after_processed/2021-01-09-swift-touchbar-procedure/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/12/27/tvm/2020-12-27-tvm-%E5%9C%A8macOS%E4%B8%8A%E7%BC%96%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/27/tvm/2020-12-27-tvm-%E5%9C%A8macOS%E4%B8%8A%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">TVM 编译在 macOS 上</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-27 15:02:48" itemprop="dateCreated datePublished" datetime="2020-12-27T15:02:48+08:00">2020-12-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:45:48" itemprop="dateModified" datetime="2021-02-28T17:45:48+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/27/tvm/2020-12-27-tvm-%E5%9C%A8macOS%E4%B8%8A%E7%BC%96%E8%AF%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/12/09/after_processed/2020-12-09-iphone-12-%E5%B1%8F%E5%B9%95%E5%81%8F%E7%BB%BF%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%B4%E6%97%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/12/09/after_processed/2020-12-09-iphone-12-%E5%B1%8F%E5%B9%95%E5%81%8F%E7%BB%BF%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%B4%E6%97%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">iPhone 12 屏幕偏绿问题的临时解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-09 01:39:36" itemprop="dateCreated datePublished" datetime="2020-12-09T01:39:36+08:00">2020-12-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 16:48:40" itemprop="dateModified" datetime="2021-02-28T16:48:40+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">日常</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>偏绿说明绿色比较多，那我们就适当的减少绿色。</p>
+<p>由于红色比蓝色显眼，所以我们应当增加较多的蓝色，增加较少的红色。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/09/after_processed/2020-12-09-iphone-12-%E5%B1%8F%E5%B9%95%E5%81%8F%E7%BB%BF%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%B4%E6%97%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/" class="post-title-link" itemprop="url">TVM Andoird RPC 踩坑记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-07 02:19:35" itemprop="dateCreated datePublished" datetime="2020-03-07T02:19:35+08:00">2020-03-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:46:41" itemprop="dateModified" datetime="2021-02-28T17:46:41+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h1><p>系统环境：Ubuntu 18.04 LTS</p>
+<p>解决方法：卸载 OpenJDK-11，安装 OpenJDK-8</p>
+<p>备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。</p>
+<p>当编译 android_rpc 时，你<font color="red"><strong><u>必须</u></strong></font>在 <code>jni/config.ml</code> 里指定 <code>libOpenCL.so</code>，然后在 GitHub 下载 CL-headers。</p>
+<p>When you compile android_rpc, you <strong>HAVE TO</strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!</p>
+<p><strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!</strong></p>
+<p><strong>仔细阅读官方指南！！</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/03/03/tvm/2020-03-03-TVM%20Android%20%E6%9E%84%E5%BB%BA%E6%97%B6%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/03/tvm/2020-03-03-TVM%20Android%20%E6%9E%84%E5%BB%BA%E6%97%B6%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%81/" class="post-title-link" itemprop="url">TVM Android 构建时千万不要用最新的工具！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-03 00:56:42" itemprop="dateCreated datePublished" datetime="2020-03-03T00:56:42+08:00">2020-03-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:37:08" itemprop="dateModified" datetime="2021-02-28T17:37:08+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>遇到报错 <code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]</code></p>
+<p>修改 <code>AndroidManifest.xml</code> 的 <code>application</code> 字段，添加 <code>android:extractNativeLibs=&quot;true&quot;</code> 即可解决问题</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:extractNativeLibs</span>=<span class="string">&quot;true&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:allowBackup</span>=<span class="string">&quot;true&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:label</span>=<span class="string">&quot;@string/app\_name&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">...</span></span></span><br><span class="line"><span class="tag">             <span class="attr">...</span></span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/tvm/2020-03-03-TVM%20Android%20%E6%9E%84%E5%BB%BA%E6%97%B6%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/03/03/tvm/2020-03-03-tvm-%E5%AE%89%E5%8D%93-rpc-%E9%83%A8%E7%BD%B2%E8%B8%A9%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/03/03/tvm/2020-03-03-tvm-%E5%AE%89%E5%8D%93-rpc-%E9%83%A8%E7%BD%B2%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">TVM Android RPC 安卓部署踩坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-03 00:42:51" itemprop="dateCreated datePublished" datetime="2020-03-03T00:42:51+08:00">2020-03-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:38:04" itemprop="dateModified" datetime="2021-02-28T17:38:04+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h1><p><strong>环境</strong>：Ubuntu 18.04 LTS （非虚拟机）</p>
+<p><strong>手机</strong>：Xiaomi Mi 5s, 3GB RAM, 64GB ROM</p>
+<p><strong>系统</strong>：原生 Android 10</p>
+<p><strong>遇到问题</strong>：android_rpc 无法编译部署</p>
+<p><strong>解决方法</strong>：核心思路是分析 gradle task 执行顺序，分析相关脚本，检查环境变量。这个问题需要具体情况具体分析，请仔细查看本文【问题解决】部分的相关描述。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/tvm/2020-03-03-tvm-%E5%AE%89%E5%8D%93-rpc-%E9%83%A8%E7%BD%B2%E8%B8%A9%E5%9D%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2019/02/19/after_processed/2019-02-19-%E5%85%83%E5%AE%B5%E8%8A%82%E5%BF%AB%E4%B9%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/19/after_processed/2019-02-19-%E5%85%83%E5%AE%B5%E8%8A%82%E5%BF%AB%E4%B9%90/" class="post-title-link" itemprop="url">元宵节快乐</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-02-19 23:58:56" itemprop="dateCreated datePublished" datetime="2019-02-19T23:58:56+08:00">2019-02-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:03:54" itemprop="dateModified" datetime="2021-02-28T17:03:54+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index"><span itemprop="name">日常</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天是2019年2月19日，元宵节，我并不快乐。</p>
 
       
     </div>
@@ -330,7 +930,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2021/02/27/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2018/04/14/after_processed/2018-04-14-%E6%A2%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -343,7 +943,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/27/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+          <a href="/2018/04/14/after_processed/2018-04-14-%E6%A2%A6/" class="post-title-link" itemprop="url">2018-4-14 0:00~10:00 梦</a>
         </h2>
 
         <div class="post-meta-container">
@@ -354,25 +954,25 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-02-27 23:10:29" itemprop="dateCreated datePublished" datetime="2021-02-27T23:10:29+08:00">2021-02-27</time>
+      <time title="创建时间：2018-04-14 11:48:52" itemprop="dateCreated datePublished" datetime="2018-04-14T11:48:52+08:00">2018-04-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:02:08" itemprop="dateModified" datetime="2021-02-28T17:02:08+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">日记</span></a>
+        </span>
     </span>
 
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    
-      <a title="changyan" href="/2021/02/27/hello-world/#SOHUCS" itemprop="discussionUrl">
-        <span id="url::https://military-doctor.github.io/2021/02/27/hello-world/" class="cy_cmt_count" data-xid="2021/02/27/hello-world/" itemprop="commentCount"></span>
-      </a>
-    
-  </span>
-  
   
 </div>
 
@@ -383,19 +983,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <p>一个没有躯壳的人工智能偷了一个神奇的球，当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了….. （黑人问号.jpg）</p>
 
       
     </div>
@@ -414,6 +1002,97 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2018/03/22/after_processed/2018-03-22-on-children/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/03/22/after_processed/2018-03-22-on-children/" class="post-title-link" itemprop="url">On Children</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-03-22 18:35:50" itemprop="dateCreated datePublished" datetime="2018-03-22T18:35:50+08:00">2018-03-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 16:43:46" itemprop="dateModified" datetime="2021-02-28T16:43:46+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/" itemprop="url" rel="index"><span itemprop="name">发发牢骚</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Your children are not your children.</p>
+<p>They are the sons and daughters of Life’s longing for itself.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/03/22/after_processed/2018-03-22-on-children/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 <script>
@@ -511,8 +1190,6 @@ document.addEventListener('pjax:success', () => {
 
     <div class="pjax">
 
-
-  <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyvkucDxd"></script>
 
 
     </div>

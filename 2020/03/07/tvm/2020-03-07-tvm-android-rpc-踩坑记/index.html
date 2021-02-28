@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="先说结论系统环境：Ubuntu 18.04 LTS 解决方法：卸载 OpenJDK-11，安装 OpenJDK-8 备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。 当编译 android_rpc 时，你必须在 jni&#x2F;config.ml 里指定 libOpenCL.so，然后在 GitHub 下载 CL-headers。 When yo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TVM Andoird RPC 踩坑记">
+<meta property="og:url" content="https://military-doctor.github.io/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Junyi的小屋">
+<meta property="og:description" content="先说结论系统环境：Ubuntu 18.04 LTS 解决方法：卸载 OpenJDK-11，安装 OpenJDK-8 备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。 当编译 android_rpc 时，你必须在 jni&#x2F;config.ml 里指定 libOpenCL.so，然后在 GitHub 下载 CL-headers。 When yo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-06T18:19:35.000Z">
+<meta property="article:modified_time" content="2021-02-28T09:46:41.879Z">
+<meta property="article:author" content="Junyi">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://military-doctor.github.io/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>TVM Andoird RPC 踩坑记 | Junyi的小屋</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Junyi的小屋</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
+        <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">先说结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">问题细节</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%A4%A9-No-OpenCL-platform"><span class="nav-number">2.1.</span> <span class="nav-text">第一天 No OpenCL platform</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9-No-OpenCL-device"><span class="nav-number">2.2.</span> <span class="nav-text">第二天 No OpenCL device</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%A4%A9-%E8%A7%A3%E5%86%B3"><span class="nav-number">2.3.</span> <span class="nav-text">第三天 解决</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Junyi"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Junyi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Military-Doctor" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Military-Doctor" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/03/07/tvm/2020-03-07-tvm-android-rpc-%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Junyi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Junyi的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TVM Andoird RPC 踩坑记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-07 02:19:35" itemprop="dateCreated datePublished" datetime="2020-03-07T02:19:35+08:00">2020-03-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-02-28 17:46:41" itemprop="dateModified" datetime="2021-02-28T17:46:41+08:00">2021-02-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/TVM-%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">TVM 系列</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h1><p>系统环境：Ubuntu 18.04 LTS</p>
+<p>解决方法：卸载 OpenJDK-11，安装 OpenJDK-8</p>
+<p>备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。</p>
+<p>当编译 android_rpc 时，你<font color="red"><strong><u>必须</u></strong></font>在 <code>jni/config.ml</code> 里指定 <code>libOpenCL.so</code>，然后在 GitHub 下载 CL-headers。</p>
+<p>When you compile android_rpc, you <strong>HAVE TO</strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!</p>
+<p><strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!</strong></p>
+<p><strong>仔细阅读官方指南！！</strong></p>
+<span id="more"></span>
+
+<h1 id="问题细节"><a href="#问题细节" class="headerlink" title="问题细节"></a>问题细节</h1><h2 id="第一天-No-OpenCL-platform"><a href="#第一天-No-OpenCL-platform" class="headerlink" title="第一天 No OpenCL platform"></a>第一天 No OpenCL platform</h2><p>遇到了一个错误：</p>
+<blockquote>
+<p>tvm/src/runtime/opencl/opencl_device_api.cc:263: No OpenCL platform matched given existing options …</p>
+</blockquote>
+<p>然后找了好多文章，找到了官方的文档，却发现2019年3月就提出了这个问题，是bug，并且被修复了。</p>
+<p>现在是2020年3月7日，我不应该再遇到这个bug，于是看了看源代码，发现获取不到我的CL信息</p>
+<p>终端里输入</p>
+<p><code>$ clinfo</code></p>
+<p>却显示</p>
+<p><code>clinfo number of platforms 0</code></p>
+<p>然后找了找教程，安装了一下驱动（大环境是我已经安装了 opencl-icd-dev 之类的包了）</p>
+<p>sudo apt install mesa-opencl-icd</p>
+<p>然后就修好了， clinfo 能打出来东西了：</p>
+<blockquote>
+<p>Number of platforms 1<br>Platform Name Clover<br>Platform Vendor Mesa<br>Platform Version OpenCL 1.1 Mesa 19.2.8<br>Platform Profile FULL_PROFILE<br>Platform Extensions cl_khr_icd<br>Platform Extensions function suffix MESA</p>
+<p>Platform Name Clover<br>Number of devices 0</p>
+<p>NULL platform behavior<br>clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover<br>clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover<br>clCreateContext(NULL, …) [default] No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform<br>clCreateContextFromType(NULL, CL_DEVICE_TYPE_ALL) No devices found in platform</p>
+<p>ICD loader properties<br>ICD loader Name OpenCL ICD Loader<br>ICD loader Vendor OCL Icd free software<br>ICD loader Version 2.2.11<br>ICD loader Profile OpenCL 2.1</p>
+</blockquote>
+<p>然后我用RPC跑GPU测试，又遇到了</p>
+<blockquote>
+<p> CommandLine Error: Option ‘help-list’ registered more than once!</p>
+</blockquote>
+<p>这个问题，淦！</p>
+<p>.</p>
+<p>搜了一会，发现了这样一篇文章：<a target="_blank" rel="noopener" href="https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10">https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10</a></p>
+<p>其中有一段话：</p>
+<blockquote>
+<p>This happens when you compile TVM runtime with both <code>set(USE_OPENCL ON)</code> and <code>set(USE_LLVM ON)</code><br>You should enable only ONE option but not both.</p>
+</blockquote>
+<p>我试了一下，编译的时候开着OPENCL，LLVM关掉，发现错的更离谱了</p>
+<p>然后我把OPENCL关掉，LLVM打开，Vulkan打开，还是出错</p>
+<p>我试试LLVM打开，OPENCL关闭，Vulkan关闭</p>
+<p>（这不就是之前的状态吗???）</p>
+<hr>
+<h2 id="第二天-No-OpenCL-device"><a href="#第二天-No-OpenCL-device" class="headerlink" title="第二天 No OpenCL device"></a>第二天 No OpenCL device</h2><p>睡了一觉，第二天了，</p>
+<p>遇到了新的错误：</p>
+<blockquote>
+<p>Using CPU OpenCL device<br>No OpenCL device</p>
+</blockquote>
+<p>按照 tqchen 的说法，make clean 然后 make</p>
+<p>还是不行（我重装了llvm）</p>
+<p>后来，在 <a target="_blank" rel="noopener" href="https://askubuntu.com/questions/809450/installing-opencl-for-svga-ii-adapter">https://askubuntu.com/questions/809450/installing-opencl-for-svga-ii-adapter</a></p>
+<p>找到这么一段话：<a target="_blank" rel="noopener" href="https://askubuntu.com/posts/809481/timeline">https://askubuntu.com/posts/809481/timeline</a></p>
+<blockquote>
+<p>According to the top answer to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/27996996/trying-to-install-opencl-on-vm">this question</a>, the Intel SDK does not work on VMWare. It suggests instead trying to use the AMD APP SDK</p>
+</blockquote>
+<p>现在我还是反复遇到 bug，找到这样一段描述：</p>
+<p><font color="red"><strong>TVM DOES NOT SUPPORT openjdk-11 !!!</strong></font></p>
+<p><font color="red"><strong>TVM DOES NOT SUPPORT openjdk-11 !!!</strong></font></p>
+<p><font color="red"><strong>TVM DOES NOT SUPPORT openjdk-11 !!!</strong></font></p>
+<p><code>apt install openjdk-8-jdk</code> <strong>ONLY</strong>!</p>
+<p>Then set <code>JAVA_HOME</code> in your environment!</p>
+<hr>
+<h2 id="第三天-解决"><a href="#第三天-解决" class="headerlink" title="第三天 解决"></a>第三天 解决</h2><p>When you compile android_rpc, you <strong>HAVE TO</strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!</p>
+<p><strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/03/tvm/2020-03-03-TVM%20Android%20%E6%9E%84%E5%BB%BA%E6%97%B6%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%81/" rel="prev" title="TVM Android 构建时千万不要用最新的工具！">
+                  <i class="fa fa-chevron-left"></i> TVM Android 构建时千万不要用最新的工具！
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/09/after_processed/2020-12-09-iphone-12-%E5%B1%8F%E5%B9%95%E5%81%8F%E7%BB%BF%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%B4%E6%97%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="iPhone 12 屏幕偏绿问题的临时解决方案">
+                  iPhone 12 屏幕偏绿问题的临时解决方案 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Junyi</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+    <div class="pjax">
+
+
+<script>
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "Military-Doctor/Military-Doctor.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "preferred-color-scheme");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
+});
+</script>
+
+    </div>
+</body>
+</html>
