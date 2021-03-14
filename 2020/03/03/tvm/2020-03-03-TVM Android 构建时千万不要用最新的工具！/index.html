@@ -17,20 +17,19 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="遇到报错 [INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res&#x3D;-2] 修改 AndroidManifest.xml 的 application 字段，添加 android:extractNativeLibs&#x3D;&quot;true&quot; 即可解决问题 123456&lt;application  androi">
+<meta name="description" content="遇到报错 [INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res&#x3D;-2] 修改 AndroidManifest.xml 的 application 字段，添加 android:extractNativeLibs&#x3D;&quot;true&quot; 即可解决问题 &lt;application   android:ext">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TVM Android 构建时千万不要用最新的工具！">
 <meta property="og:url" content="https://military-doctor.github.io/2020/03/03/tvm/2020-03-03-TVM%20Android%20%E6%9E%84%E5%BB%BA%E6%97%B6%E5%8D%83%E4%B8%87%E4%B8%8D%E8%A6%81%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%81/index.html">
 <meta property="og:site_name" content="Junyi的小屋">
-<meta property="og:description" content="遇到报错 [INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res&#x3D;-2] 修改 AndroidManifest.xml 的 application 字段，添加 android:extractNativeLibs&#x3D;&quot;true&quot; 即可解决问题 123456&lt;application  androi">
+<meta property="og:description" content="遇到报错 [INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res&#x3D;-2] 修改 AndroidManifest.xml 的 application 字段，添加 android:extractNativeLibs&#x3D;&quot;true&quot; 即可解决问题 &lt;application   android:ext">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-02T16:56:42.000Z">
 <meta property="article:modified_time" content="2021-02-28T09:37:08.272Z">
@@ -93,7 +92,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -129,8 +128,8 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
         <li class="menu-item menu-item-friends"><a href="/friends/" rel="section"><i class="fa fa-user-friends fa-fw"></i>友情链接</a></li>
   </ul>
@@ -178,14 +177,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -290,8 +289,13 @@
     <div class="post-body" itemprop="articleBody">
         <p>遇到报错 <code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]</code></p>
 <p>修改 <code>AndroidManifest.xml</code> 的 <code>application</code> 字段，添加 <code>android:extractNativeLibs=&quot;true&quot;</code> 即可解决问题</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">application</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:extractNativeLibs</span>=<span class="string">&quot;true&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:allowBackup</span>=<span class="string">&quot;true&quot;</span>  </span></span><br><span class="line"><span class="tag"><span class="attr">android:label</span>=<span class="string">&quot;@string/app\_name&quot;</span></span></span><br><span class="line"><span class="tag">             <span class="attr">...</span></span></span><br><span class="line"><span class="tag">             <span class="attr">...</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;application  
+android:extractNativeLibs=&quot;true&quot;  
+android:allowBackup=&quot;true&quot;  
+android:label=&quot;@string/app\_name&quot;
+             ...
+             ...
+</code></pre>
 <span id="more"></span>
 
 <p>改成 false 也可以</p>
@@ -390,7 +394,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',

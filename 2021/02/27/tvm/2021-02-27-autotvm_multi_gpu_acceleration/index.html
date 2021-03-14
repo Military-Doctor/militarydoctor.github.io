@@ -17,13 +17,12 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 <meta name="description" content="场景双 NVIDIA 1080Ti, Linux 服务器 需求AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD的没试过）">
 <meta property="og:type" content="article">
@@ -97,7 +96,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -133,8 +132,8 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
         <li class="menu-item menu-item-friends"><a href="/friends/" rel="section"><i class="fa fa-user-friends fa-fw"></i>友情链接</a></li>
   </ul>
@@ -183,14 +182,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -303,23 +302,36 @@
 <ol>
 <li>首先查看一下 GPU 的 id，你可以通过这条命令来查看：</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -L</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">nvidia-smi -L
+</code></pre>
 <p>比如我这里输出的是 0 和 1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(base) admin@deeplearning:~$ nvidia-smi -L</span><br><span class="line">GPU 0: GeForce GTX 1080 Ti (UUID: GPU-a4602aba-35cb-97cd-ef5a-f7d12aabdc88)</span><br><span class="line">GPU 1: GeForce GTX 1080 Ti (UUID: GPU-92deed64-3b37-f0a4-1095-40f0f596d64b)</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="bash">(base) admin@deeplearning:~$ nvidia-smi -L
+GPU 0: GeForce GTX 1080 Ti (UUID: GPU-a4602aba-35cb-97cd-ef5a-f7d12aabdc88)
+GPU 1: GeForce GTX 1080 Ti (UUID: GPU-92deed64-3b37-f0a4-1095-40f0f596d64b)
+</code></pre>
 <ol start="2">
 <li>用 <code>screen</code> 创建 1 个 rpc_tracker</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -S tvm_tune_tracker</span><br><span class="line">python -m tvm.exec.rpc_tracker --host=0.0.0.0 --port=9190</span><br></pre></td></tr></table></figure>
+<pre><code class="bash">screen -S tvm_tune_tracker
+python -m tvm.exec.rpc_tracker --host=0.0.0.0 --port=9190
+</code></pre>
 <p>输入完之后，如果 tracker 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</p>
 <ol start="3">
 <li>用 <code>screen</code> 创建 2 个 rpc_server （因为我有 2 个 GPU）</li>
 </ol>
 <p>还记得第一步查看的 GPU id 吗？下面的 CUDA_VISIBLE_DEVICES 就要设置成刚才看的 GPU 的 id</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">screen -S tvm_tune_server0</span><br><span class="line"><span class="built_in">export</span> CUDA_VISIBLE_DEVICES=0</span><br><span class="line">python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</span></span><br><span class="line"></span><br><span class="line">screen -S tvm_tune_server1</span><br><span class="line"><span class="built_in">export</span> CUDA_VISIBLE_DEVICES=1</span><br><span class="line">python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen</span></span><br></pre></td></tr></table></figure>
+<pre><code class="bash">screen -S tvm_tune_server0
+export CUDA_VISIBLE_DEVICES=0
+python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti
 
+# 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen
+
+screen -S tvm_tune_server1
+export CUDA_VISIBLE_DEVICES=1
+python -m tvm.exec.rpc_server --tracker=127.0.0.1:9190 --key=1080ti
+
+# 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen
+</code></pre>
 <blockquote>
 <p>注意，上面的 <code>export</code> 是重点！<br>如果在 shell 里直接不写 <code>export</code> ，直接写 <code>CUDA_VISIBLE_DEVICES=0</code> 是无效的！！！！<br>尽管不写 <code>export</code> 时，<code>echo $CUDA_VISIBLE_DEVICES</code> 也会输出 <code>1</code>，但是实际上并没有设置环境变量。<br>原因是 autotvm 会通过 python 的 <code>os.environ[&#39;CUDA_VISIBLE_DEVICES&#39;]</code> 的值来决定使用哪一个 id 的 GPU。</p>
 </blockquote>
@@ -412,7 +424,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',

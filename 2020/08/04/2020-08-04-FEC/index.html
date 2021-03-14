@@ -17,20 +17,19 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="FEC：Forward Error Correction，前向纠错   FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;104579290  Parity Check 奇偶校验123&#x2F;&#x2F; 例如：求 10100001 中 1 的数量是奇数还是偶数&#x2F;&#x2F; 结果为">
+<meta name="description" content="FEC：Forward Error Correction，前向纠错   FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;104579290  Parity Check 奇偶校验&#x2F;&#x2F; 例如：求 10100001 中 1 的数量是奇数还是偶数 &#x2F;&#x2F; 结果为 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FEC - 前向纠错技术">
 <meta property="og:url" content="https://military-doctor.github.io/2020/08/04/2020-08-04-FEC/index.html">
 <meta property="og:site_name" content="Junyi的小屋">
-<meta property="og:description" content="FEC：Forward Error Correction，前向纠错   FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;104579290  Parity Check 奇偶校验123&#x2F;&#x2F; 例如：求 10100001 中 1 的数量是奇数还是偶数&#x2F;&#x2F; 结果为">
+<meta property="og:description" content="FEC：Forward Error Correction，前向纠错   FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;104579290  Parity Check 奇偶校验&#x2F;&#x2F; 例如：求 10100001 中 1 的数量是奇数还是偶数 &#x2F;&#x2F; 结果为 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-04T07:19:38.000Z">
 <meta property="article:modified_time" content="2021-03-08T08:13:53.269Z">
@@ -93,7 +92,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -129,8 +128,8 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
         <li class="menu-item menu-item-friends"><a href="/friends/" rel="section"><i class="fa fa-user-friends fa-fw"></i>友情链接</a></li>
   </ul>
@@ -179,14 +178,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -294,34 +293,87 @@
 <p> FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104579290">https://zhuanlan.zhihu.com/p/104579290</a></p>
 </blockquote>
-<h3 id="Parity-Check-奇偶校验"><a href="#Parity-Check-奇偶校验" class="headerlink" title="Parity Check 奇偶校验"></a>Parity Check 奇偶校验</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 例如：求 10100001 中 1 的数量是奇数还是偶数</span><br><span class="line">// 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1</span><br><span class="line">1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1   </span><br></pre></td></tr></table></figure>
-
+<h3 id="Parity-Check-奇偶校验"><a href="#Parity-Check-奇偶校验" class="headerlink" title="Parity Check 奇偶校验"></a>Parity Check 奇偶校验</h3><pre><code class="text">// 例如：求 10100001 中 1 的数量是奇数还是偶数
+// 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1
+1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1   
+</code></pre>
 <p>每个字节的数据都计算一个校验位，数据和校验位一起发送出去，这样接收方可以根据校验位<strong>粗略地判断</strong>接收到的数据是否有误。</p>
 <h3 id="基于-XOR-的-FEC"><a href="#基于-XOR-的-FEC" class="headerlink" title="基于 XOR 的 FEC"></a>基于 XOR 的 FEC</h3><p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。</p>
 <p>但考虑到每 2 个 packet 就产生 1 个 fec packet，冗余度可能有点高（比较浪费带宽），我们能否每 3 个或者每 N 个 packet 再产生一个 fec packet 呢？当然可以，我们以每 3 个 packet（A、B、C） 产生 1 个 fec packet（D）为例来推导一下：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d = a ^ b ^ c</span><br><span class="line">a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d</span><br><span class="line">b = (a ^ a) ^ b ^ (c ^ c) = (a ^ c) ^ (a ^ b ^ c) = a ^ c ^ d</span><br><span class="line">c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d</span><br></pre></td></tr></table></figure>
-
+<pre><code class="text">d = a ^ b ^ c
+a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d
+b = (a ^ a) ^ b ^ (c ^ c) = (a ^ c) ^ (a ^ b ^ c) = a ^ c ^ d
+c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
+</code></pre>
 <p>由上述公式推导即可知道，这 4 个 packet，任意丢失 1 个 packet，均可以由其他 3 个 packet 恢复出来。</p>
 <h3 id="对象存储-EC纠删码"><a href="#对象存储-EC纠删码" class="headerlink" title="对象存储-EC纠删码"></a>对象存储-EC纠删码</h3><p>通过 K个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。</p>
 <h3 id="Reed-Solomon-Codes"><a href="#Reed-Solomon-Codes" class="headerlink" title="Reed-Solomon Codes"></a>Reed-Solomon Codes</h3><h1 id="RFC-草案-Payload-Flexible-FEC"><a href="#RFC-草案-Payload-Flexible-FEC" class="headerlink" title="RFC 草案 Payload Flexible FEC"></a>RFC 草案 Payload Flexible FEC</h1><h2 id="1-1-奇偶校验码"><a href="#1-1-奇偶校验码" class="headerlink" title="1.1 奇偶校验码"></a>1.1 奇偶校验码</h2><h3 id="1-1-1-一维-Parity-FEC-Protection"><a href="#1-1-1-一维-Parity-FEC-Protection" class="headerlink" title="1.1.1 一维 Parity FEC Protection"></a>1.1.1 一维 Parity FEC Protection</h3><p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）</p>
 <p>一维连续FEC保护</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 1 |    X      X    | 4 |  |R_1|</span><br><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 5 |  | 6 |  | 7 |  | 8 |  |R_2|</span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 9 |  | 10|  | 11|  | 12|  |R_3|</span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>                     +---+                +---+  +===+
+                     | 1 |    X      X    | 4 |  |R_1|
+                     +---+                +---+  +===+
 
+                     +---+  +---+  +---+  +---+  +===+
+                     | 5 |  | 6 |  | 7 |  | 8 |  |R_2|
+                     +---+  +---+  +---+  +---+  +===+
+
+                     +---+  +---+  +---+  +---+  +===+
+                     | 9 |  | 10|  | 11|  | 12|  |R_3|
+                     +---+  +---+  +---+  +---+  +===+
+</code></pre>
 <p>非交错，按列生成，一列里丢一个包可以，丢两个就没法恢复了（Periodic Loss）</p>
 <p>一维隔行FEC保护</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+---+         +---+  +---+</span><br><span class="line">| 1 |    X    | 3 |  | 4 |</span><br><span class="line">+---+         +---+  +---+</span><br><span class="line"></span><br><span class="line">+---+         +---+  +---+</span><br><span class="line">| 5 |    X    | 7 |  | 8 |</span><br><span class="line">+---+         +---+  +---+</span><br><span class="line"></span><br><span class="line">+---+  +---+  +---+  +---+</span><br><span class="line">| 9 |  | 10|  | 11|  | 12|</span><br><span class="line">+---+  +---+  +---+  +---+</span><br><span class="line"></span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">|C_1|  |C_2|  |C_3|  |C_4|</span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br></pre></td></tr></table></figure>
+<pre><code>                        +---+         +---+  +---+
+                        | 1 |    X    | 3 |  | 4 |
+                        +---+         +---+  +---+
 
+                        +---+         +---+  +---+
+                        | 5 |    X    | 7 |  | 8 |
+                        +---+         +---+  +---+
 
+                        +---+  +---+  +---+  +---+
+                        | 9 |  | 10|  | 11|  | 12|
+                        +---+  +---+  +---+  +---+
 
+                        +===+  +===+  +===+  +===+
+                        |C_1|  |C_2|  |C_3|  |C_4|
+                        +===+  +===+  +===+  +===+
+</code></pre>
 <h3 id="1-1-2-二维-Parity-FEC-Protection"><a href="#1-1-2-二维-Parity-FEC-Protection" class="headerlink" title="1.1.2 二维 Parity FEC Protection"></a>1.1.2 二维 Parity FEC Protection</h3><p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）</p>
 <p>这种 FEC 保护被称作 <strong>二维奇偶校验前向纠错保护</strong></p>
 <p>但是如果发生特定的 loss pattern，这种保护模式依然会失效，比如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 1 |    X      X    | 4 |  |R_1|</span><br><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 5 |  | 6 |  | 7 |  | 8 |  |R_2|</span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 9 |    X      X    | 12|  |R_3|</span><br><span class="line">+---+                +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">|C_1|  |C_2|  |C_3|  |C_4|</span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br></pre></td></tr></table></figure>
+<pre><code>                     +---+                +---+  +===+
+                     | 1 |    X      X    | 4 |  |R_1|
+                     +---+                +---+  +===+
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+---+  +---+         +---+</span><br><span class="line">| 1 |  | 2 |    X    | 4 |    X</span><br><span class="line">+---+  +---+         +---+</span><br><span class="line"></span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">| 5 |  | 6 |  | 7 |  | 8 |  |R_2|</span><br><span class="line">+---+  +---+  +---+  +---+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br><span class="line">+---+  +---+         +---+</span><br><span class="line">| 9 |  | 10|    X    | 12|    X</span><br><span class="line">+---+  +---+         +---+</span><br><span class="line"></span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line">|C_1|  |C_2|  |C_3|  |C_4|</span><br><span class="line">+&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+  +&#x3D;&#x3D;&#x3D;+</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                     +---+  +---+  +---+  +---+  +===+
+                     | 5 |  | 6 |  | 7 |  | 8 |  |R_2|
+                     +---+  +---+  +---+  +---+  +===+
 
+                     +---+                +---+  +===+
+                     | 9 |    X      X    | 12|  |R_3|
+                     +---+                +---+  +===+
 
+                     +===+  +===+  +===+  +===+
+                     |C_1|  |C_2|  |C_3|  |C_4|
+                     +===+  +===+  +===+  +===+
+</code></pre>
+<pre><code>                     +---+  +---+         +---+
+                     | 1 |  | 2 |    X    | 4 |    X
+                     +---+  +---+         +---+
 
+                     +---+  +---+  +---+  +---+  +===+
+                     | 5 |  | 6 |  | 7 |  | 8 |  |R_2|
+                     +---+  +---+  +---+  +---+  +===+
+
+                     +---+  +---+         +---+
+                     | 9 |  | 10|    X    | 12|    X
+                     +---+  +---+         +---+
+
+                     +===+  +===+  +===+  +===+
+                     |C_1|  |C_2|  |C_3|  |C_4|
+                     +===+  +===+  +===+  +===+
+</code></pre>
 <h3 id="1-1-3-开销计算-Overhead-Computation"><a href="#1-1-3-开销计算-Overhead-Computation" class="headerlink" title="1.1.3 开销计算 Overhead Computation"></a>1.1.3 开销计算 Overhead Computation</h3><p>开销（overhead）被定义为：</p>
 <p>修复包大小 / 源包大小</p>
 <p>单位：Bytes</p>
@@ -337,17 +389,41 @@
 <h1 id="4-包格式"><a href="#4-包格式" class="headerlink" title="4. 包格式"></a>4. 包格式</h1><p>这一小节定义了源包和修复包的格式</p>
 <h2 id="4-1-源包"><a href="#4-1-源包" class="headerlink" title="4.1 源包"></a>4.1 源包</h2><h2 id="4-2-修复包"><a href="#4-2-修复包" class="headerlink" title="4.2 修复包"></a>4.2 修复包</h2><p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的RTP报头以及RTP有效负载中的另一个报头，我们将其称为FEC报头，如图9所示。</p>
 <p>（注意，受特定FEC包保护的所有源流包都需要在同一个RTP会话中。）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+------------------------------+</span><br><span class="line">|          IP Header           |</span><br><span class="line">+------------------------------+</span><br><span class="line">|       Transport Header       |</span><br><span class="line">+------------------------------+</span><br><span class="line">|          RTP Header          | __</span><br><span class="line">+------------------------------+   |</span><br><span class="line">|          FEC Header          |    \</span><br><span class="line">+------------------------------+     &gt; RTP Payload</span><br><span class="line">|        Repair Symbols        |    &#x2F;</span><br><span class="line">+------------------------------+ __|</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code>            +------------------------------+
+            |          IP Header           |
+            +------------------------------+
+            |       Transport Header       |
+            +------------------------------+
+            |          RTP Header          | __
+            +------------------------------+   |
+            |          FEC Header          |    \
+            +------------------------------+     &gt; RTP Payload
+            |        Repair Symbols        |    /
+            +------------------------------+ __|
+</code></pre>
 <p>Marker (M) Bit: 应该被设置成 0 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 0                   1                   2                   3</span><br><span class="line"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|R|F| P|X|  CC   |M| PT recovery |         length recovery      |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                          TS recovery                          |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|   SSRCCount   |                    reserved                   |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                             SSRC_i                            |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|           SN base_i           |k|          Mask [0-14]        |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|k|                   Mask [15-45] (optional)                   |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|k|                                                             |</span><br><span class="line">+-+                   Mask [46-108] (optional)                  |</span><br><span class="line">|                                                               |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                     ... next in SSRC_i ...                    |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code>        0                   1                   2                   3
+        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |R|F| P|X|  CC   |M| PT recovery |         length recovery      |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |                          TS recovery                          |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |   SSRCCount   |                    reserved                   |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |                             SSRC_i                            |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |           SN base_i           |k|          Mask [0-14]        |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |k|                   Mask [15-45] (optional)                   |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |k|                                                             |
+       +-+                   Mask [46-108] (optional)                  |
+       |                                                               |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+       |                     ... next in SSRC_i ...                    |
+       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre>
 <h1 id="8-拥塞控制考虑"><a href="#8-拥塞控制考虑" class="headerlink" title="8.拥塞控制考虑"></a>8.拥塞控制考虑</h1><p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.</p>
 <p>In particular, in bandwidth-limited networks, FEC repair flows may consume most or all of the available bandwidth and consequently may congest the network.  In such cases, the applications MUST NOT arbitrarily increase the amount of FEC protection since doing so may lead to a congestion collapse. If desired, stronger FEC protection MAY be applied only after the source rate has been reduced.</p>
 <h1 id="9-安全性考虑"><a href="#9-安全性考虑" class="headerlink" title="9.安全性考虑"></a>9.安全性考虑</h1>
@@ -429,7 +505,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',

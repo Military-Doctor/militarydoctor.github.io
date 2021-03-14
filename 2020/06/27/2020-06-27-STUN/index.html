@@ -17,13 +17,12 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 <meta name="description" content="说在前面转载请注明作者及出处！ 翻译中遇到的问题：   文章不能很好区分 indication 和 indication transaction  存在不理解的内容以该格式进行标记 ?? 不理解的内容 ??  还未检查的项目：   翻译的名词不会一个单词多个翻译。保证一致性  句子结束的句号是否完整  单词左右两边是否有空格  大小写、拼写问题  或、且，是否全都是左右两边加逗号  译者注： 本翻">
 <meta property="og:type" content="article">
@@ -93,7 +92,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -129,8 +128,8 @@
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
         <li class="menu-item menu-item-friends"><a href="/friends/" rel="section"><i class="fa fa-user-friends fa-fw"></i>友情链接</a></li>
   </ul>
@@ -179,14 +178,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -525,10 +524,19 @@
 <p>All <u>STUN messages</u> MUST start with a 20-byte header followed by zero or more <strong>Attributes</strong>. The STUN header contains a <u>STUN message type</u>, <u>magic cookie</u>, <u>transaction ID</u>, and <u>message length</u>.</p>
 </blockquote>
 <p>所有的 <u>STUN 消息</u> <strong><em><u>必须</u></em></strong> 以 20-byte 长度的头部开始，紧跟着 0 个 或 多个<strong>属性</strong>。STUN 头部包含了 <u>STUN 消息类型</u>、<u>magic cookie</u>、<u>事务ID</u>、<u>消息长度</u>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> 0                   1                   2                   3</span><br><span class="line"> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|0 0|     STUN Message Type    |         Message Length         |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                         Magic Cookie                          |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|                                                               |</span><br><span class="line">|                     Transaction ID (96 bits)                  |</span><br><span class="line">|                                                               |</span><br><span class="line">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">                  Figure 2: Format of STUN Message Header</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|0 0|     STUN Message Type    |         Message Length         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Magic Cookie                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
+|                     Transaction ID (96 bits)                  |
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                  Figure 2: Format of STUN Message Header
+</code></pre>
 <blockquote>
 <p>The most significant 2 bits of every <u>STUN message</u> MUST be zeroes. This can be used to differentiate <u>STUN packet</u>s from other protocols when STUN is multiplexed with other protocols on the same port.</p>
 </blockquote>
@@ -555,10 +563,14 @@
 <p>The message type field is decomposed further into the following structure:</p>
 </blockquote>
 <p><strong>STUN Message Type</strong> 字段被分解成以下结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> 0                 1</span><br><span class="line"> 2  3  4 5 6 7 8 9 0 1 2 3 4 5 </span><br><span class="line">+--+--+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">|M |M |M|M|M|C|M|M|M|C|M|M|M|M|</span><br><span class="line">|11|10|9|8|7|1|6|5|4|0|3|2|1|0|</span><br><span class="line">+--+--+-+-+-+-+-+-+-+-+-+-+-+-+</span><br><span class="line">Figure 3: Format of STUN Message Type Field</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code> 0                 1
+ 2  3  4 5 6 7 8 9 0 1 2 3 4 5 
++--+--+-+-+-+-+-+-+-+-+-+-+-+-+
+|M |M |M|M|M|C|M|M|M|C|M|M|M|M|
+|11|10|9|8|7|1|6|5|4|0|3|2|1|0|
++--+--+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 3: Format of STUN Message Type Field
+</code></pre>
 <blockquote>
 <p>Here the bits in the message type field are shown as most significant (M11) through least significant (M0). M11 through M0 represent a 12-bit encoding of the <u>method</u>. C1 and C0 represent a 2-bit encoding of the <u>class</u>. A class of 0b00 is a <u>request</u>, a class of 0b01 is an <u>indication</u>, a class of 0b10 is a <u>success response</u>, and a class of 0b11 is an <u>error response</u>. This specification defines a single method, Binding. <strong>The method and class are orthogonal, so that for each method, a <u>request</u>, <u>success response</u>, <u>error response</u>, and <u>indication</u> are possible for that method.</strong> Extensions defining new methods MUST indicate which <u>classes</u> are permitted for that method.</p>
 </blockquote>
@@ -655,7 +667,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
