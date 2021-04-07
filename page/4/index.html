@@ -123,7 +123,7 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">37</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
@@ -186,7 +186,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -371,7 +371,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>今天石XX问了我一个问题：</p>
-<pre><code class="c++">#include &lt;stdio.h&gt;
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
 
 union TT&#123;
   int a;
@@ -379,12 +379,13 @@ union TT&#123;
 &#125; t; 
 
 int main() &#123; 
-  t.a = 0x1234;
+  t.a &#x3D; 0x1234;
   printf(&quot;%x\n&quot;, t.ch[0]);
   printf(&quot;%x\n&quot;, t.ch[1]);
   return 0; 
 &#125;
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>石XX：“这个程序你猜输出啥？”</p>
           <!--noindex-->
             <div class="post-button">

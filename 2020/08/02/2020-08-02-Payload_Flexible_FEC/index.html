@@ -127,7 +127,7 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">37</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
@@ -191,7 +191,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -293,35 +293,37 @@
 <span id="more"></span>
 
 <h1 id="Payload-Flexible-FEC"><a href="#Payload-Flexible-FEC" class="headerlink" title="Payload Flexible FEC"></a>Payload Flexible FEC</h1><h1 id="3-Definitions-and-Notations"><a href="#3-Definitions-and-Notations" class="headerlink" title="3. Definitions and Notations"></a>3. Definitions and Notations</h1><h2 id="3-1-Definitions"><a href="#3-1-Definitions" class="headerlink" title="3.1 Definitions"></a>3.1 Definitions</h2><h2 id="3-2-Notations"><a href="#3-2-Notations" class="headerlink" title="3.2 Notations"></a>3.2 Notations</h2><h1 id="4-Packet-Formats-包格式"><a href="#4-Packet-Formats-包格式" class="headerlink" title="4. Packet Formats 包格式"></a>4. Packet Formats 包格式</h1><p>这一节定义了源包和修复包的格式</p>
-<h2 id="4-1-Source-Packets-源包"><a href="#4-1-Source-Packets-源包" class="headerlink" title="4.1. Source Packets 源包"></a>4.1. Source Packets 源包</h2><pre><code>   The source packets MUST contain the information that identifies the
-   source block and the position within the source block occupied by the
-   packet.  Since the source packets that are carried within an RTP
-   stream already contain unique sequence numbers in their RTP headers
-   [RFC3550], we can identify the source packets in a straightforward
-   manner and there is no need to append additional field(s).  The
-   primary advantage of not modifying the source packets in any way is
-   that it provides backward compatibility for the receivers that do not
-   support FEC at all.  In multicast scenarios, this backward
-   compatibility becomes quite useful as it allows the non-FEC-capable
-   and FEC-capable receivers to receive and interpret the same source
-   packets sent in the same multicast session.
-</code></pre>
+<h2 id="4-1-Source-Packets-源包"><a href="#4-1-Source-Packets-源包" class="headerlink" title="4.1. Source Packets 源包"></a>4.1. Source Packets 源包</h2><pre class="line-numbers language-none"><code class="language-none">The source packets MUST contain the information that identifies the
+source block and the position within the source block occupied by the
+packet.  Since the source packets that are carried within an RTP
+stream already contain unique sequence numbers in their RTP headers
+[RFC3550], we can identify the source packets in a straightforward
+manner and there is no need to append additional field(s).  The
+primary advantage of not modifying the source packets in any way is
+that it provides backward compatibility for the receivers that do not
+support FEC at all.  In multicast scenarios, this backward
+compatibility becomes quite useful as it allows the non-FEC-capable
+and FEC-capable receivers to receive and interpret the same source
+packets sent in the same multicast session.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="4-2-Repair-Packets-修复包"><a href="#4-2-Repair-Packets-修复包" class="headerlink" title="4.2. Repair Packets 修复包"></a>4.2. Repair Packets 修复包</h2><p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.</p>
 <p>针对这个要求，修复包使用 RTP 的头，以及 RTP 载荷中的另一个头，我们把它叫做 FEC 头，具体请看 Figure 9</p>
-<pre><code>            +------------------------------+
-            |          IP Header           |
-            +------------------------------+
-            |       Transport Header       |
-            +------------------------------+
-            |          RTP Header          | __
-            +------------------------------+   |
-            |          FEC Header          |    \
-            +------------------------------+     &gt; RTP Payload
-            |        Repair Symbols        |    /
-            +------------------------------+ __|
+<pre class="line-numbers language-none"><code class="language-none">+------------------------------+
+|          IP Header           |
++------------------------------+
+|       Transport Header       |
++------------------------------+
+|          RTP Header          | __
++------------------------------+   |
+|          FEC Header          |    \
++------------------------------+     &gt; RTP Payload
+|        Repair Symbols        |    &#x2F;
++------------------------------+ __|
 
-                    Figure 9: Format of repair packets
-</code></pre>
+        Figure 9: Format of repair packets<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>注意，被 FEC 保护的所有 包，必须在同一个 RTP session 里</p>
 <p>RTP 的头部根据 RFC3550 所定义，添加了进一步的 clarifications：</p>
 <ul>
@@ -332,30 +334,31 @@
 <li>Synchronization Source（SSRC）：根据 RFC3550，这个 SSRC 值应该被随机分配。这允许发送者在同一个端口复用源包和修复包，或者在同一端口复用多个修复包。<strong>修复流</strong> SHOULD 使用 RTCP CNAME 字段把自己跟<strong>源流</strong>关联。在一些网络里，同时产生源包和修复包的RTP源可能不是同一个主机。在这个场景里，给源流和修复流使用同样的 CNAME 意味着RTP源和FEC源必须共享同一个 CNAME。基于一个已知的算法和RTP、FEC源，一个公共的 CNAME 可能被产生（RFC7022）。这个用法符合 RFC3550 中的定义。<font color="red"><strong>注意，由于是随机分配 SSRC，这里有可能会造成 SSRC 冲突。发生冲突时，必须按照 RFC3550 中的定义去解决冲突。</strong></font></li>
 </ul>
 <ul>
-<li><pre><code>      0                   1                   2                   3
-      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |R|F| P|X|  CC   |M| PT recovery |         length recovery      |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |                          TS recovery                          |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |   SSRCCount   |                    reserved                   |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |                             SSRC_i                            |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |           SN base_i           |k|          Mask [0-14]        |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |k|                   Mask [15-45] (optional)                   |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |k|                                                             |
-     +-+                   Mask [46-108] (optional)                  |
-     |                                                               |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-     |                     ... next in SSRC_i ...                    |
-     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+<li><pre class="line-numbers language-none"><code class="language-none"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|R|F| P|X|  CC   |M| PT recovery |         length recovery      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          TS recovery                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   SSRCCount   |                    reserved                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             SSRC_i                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           SN base_i           |k|          Mask [0-14]        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k|                   Mask [15-45] (optional)                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k|                                                             |
++-+                   Mask [46-108] (optional)                  |
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                     ... next in SSRC_i ...                    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-                  Figure 10: Format of the FEC header
-</code></pre>
+             Figure 10: Format of the FEC header<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 </li>
 </ul>
 <p>FEC 头部包含以下字段：</p>
@@ -364,16 +367,15 @@
 </li>
 <li><p>F 字段表示 mask 的类型：</p>
 </li>
-<li><pre><code>    +---------------+-------------------------------------+
-    |     F bit     | Use                                 |
-    +---------------+-------------------------------------+
-    |       0       | flexible mask                       |
-    |       1       | packets indicated by offset M and N |
-    +---------------+-------------------------------------+
-
-
-                          Figure 11: F-bit values
-</code></pre>
+<li><pre class="line-numbers language-none"><code class="language-none">+---------------+-------------------------------------+
+|     F bit     | Use                                 |
++---------------+-------------------------------------+
+|       0       | flexible mask                       |
+|       1       | packets indicated by offset M and N |
++---------------+-------------------------------------+
+  
+  
+                      Figure 11: F-bit values<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>P, X, CC, M 和 PT recovery 字段用户确定被恢复包的字段</p>
 </li>
@@ -395,83 +397,80 @@
 </li>
 <li><p>$$<br>size_of_next_bitmast = 2^{count(k)+3}-1<br>$$</p>
 </li>
-<li><pre><code>    0                   1                   2                   3
-    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |0|0| P|X|  CC  |M| PT recovery |         length recovery       |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                          TS recovery                          |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |   SSRCCount   |                    reserved                   |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                             SSRC_i                            |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |           SN base_i           |k|          Mask [0-14]        |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |k|                   Mask [15-45] (optional)                   |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |k|                                                             |
-   +-+                   Mask [46-108] (optional) 
-   |
-   |                                                               |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-   |                     ... next in SSRC_i ...                    |
-   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             Figure 12: Protocol format for F=0
-</code></pre>
+<li><pre class="line-numbers language-none"><code class="language-none"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|0|0| P|X|  CC  |M| PT recovery |         length recovery       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          TS recovery                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   SSRCCount   |                    reserved                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             SSRC_i                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           SN base_i           |k|          Mask [0-14]        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k|                   Mask [15-45] (optional)                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k|                                                             |
++-+                   Mask [46-108] (optional) 
+|
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                     ... next in SSRC_i ...                    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+          Figure 12: Protocol format for F&#x3D;0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>如果 F-bit 被设置成1，它表示被这个特定修复包所保护的源包中的所有 SSRC 使用固定 offset</p>
 </li>
-<li><pre><code>        0                   1                   2                   3
-        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |1|0| P|X|  CC  |M| PT recovery |         length recovery       |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |                          TS recovery                          |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |   SSRCCount   |                    reserved                   |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |                             SSRC_i                            |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |           SN base_i           |  M (columns)  |    N (rows)   |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-                    Figure 13: Protocol format for F=1
-</code></pre>
+<li><pre class="line-numbers language-none"><code class="language-none"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|1|0| P|X|  CC  |M| PT recovery |         length recovery       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          TS recovery                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|   SSRCCount   |                    reserved                   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             SSRC_i                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           SN base_i           |  M (columns)  |    N (rows)   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             Figure 13: Protocol format for F&#x3D;1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><pre><code>   Consequently, the following conditions occur for M and N values:
+<li><pre class="line-numbers language-none"><code class="language-none">Consequently, the following conditions occur for M and N values:
 
-   If M&gt;0, N=0,  is Row FEC, and no column FEC will follow
-               Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
-    
-   If M&gt;0, N=1,  is Row FEC, and column FEC will follow.
-                 Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
-            and more to come
-    
-   If M&gt;0, N&gt;1,  indicates column FEC of every M packet
-                    in a group of N packets starting at SN base.
-                 Hence, FEC = SN+(Mx0), SN+(Mx1), ... , SN+(MxN).
+If M&gt;0, N&#x3D;0,  is Row FEC, and no column FEC will follow
+            Hence, FEC &#x3D; SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
+ 
+If M&gt;0, N&#x3D;1,  is Row FEC, and column FEC will follow.
+              Hence, FEC &#x3D; SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
+         and more to come
+ 
+If M&gt;0, N&gt;1,  indicates column FEC of every M packet
+                 in a group of N packets starting at SN base.
+              Hence, FEC &#x3D; SN+(Mx0), SN+(Mx1), ... , SN+(MxN).
 
-             Figure 14: Interpreting the M and N field values
-</code></pre>
+          Figure 14: Interpreting the M and N field values<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>通过设置 R 为 1，F 为 1，这个 FEC 就只保护一个包了。比如，SN Base_i 表示了FEC 载荷承载着的包，这是一种非常有效的重传包的方法。特别注意的是，解析这种包非常特别。序列号（SN base_i）替代了 FEC 包中 length recovery 字段。SSRC_count 应该为 1，M 和 N 应该为 0，并且 FEC 头的 reserved bits 也不复存在。通过这个方法我们可以省下 64 bits。</p>
 </li>
-<li><pre><code>        0                   1                   2                   3
-        0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |1|1| P|X|  CC  |M| PT recovery |        sequence number        |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |                           timestamp                           |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |                              SSRC                             |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-       |                         Retransmission                        |
-       :                            payload                            :
-       |                                                               |
-       +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+<li><pre class="line-numbers language-none"><code class="language-none"> 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|1|1| P|X|  CC  |M| PT recovery |        sequence number        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           timestamp                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                              SSRC                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         Retransmission                        |
+:                            payload                            :
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  
+        Figure 15: Protocol format for Retransmission<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-               Figure 15: Protocol format for Retransmission
-</code></pre>
 </li>
 </ul>
 <p>在 Section 6.2 里描述了设置这些字段的细节</p>
@@ -684,39 +683,45 @@
 <h4 id="6-3-1-3-Using-M-and-Offsets"><a href="#6-3-1-3-Using-M-and-Offsets" class="headerlink" title="6.3.1.3. Using M and Offsets"></a>6.3.1.3. Using M and Offsets</h4><p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset </p>
 <p>通过组合 interleaved 和 non-interleaved FEC包，我们可以组成 2-D protection patterns。</p>
 <p>数学上来讲，对于任意接收到的修复包 p*，我们可以通过以下方式确定被保护的源包的 sequence number：</p>
-<pre><code>When N = 0:
+<pre class="line-numbers language-none"><code class="language-none">When N &#x3D; 0:
   p*_snb, p*_snb+1,..., p*_snb+(M-1), p*_snb+M
 When N &gt; 0:
-  p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
-</code></pre>
+  p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h3 id="6-3-2-Recovering-the-RTP-Header-恢复-RTP-头"><a href="#6-3-2-Recovering-the-RTP-Header-恢复-RTP-头" class="headerlink" title="6.3.2. Recovering the RTP Header 恢复 RTP 头"></a>6.3.2. Recovering the RTP Header 恢复 RTP 头</h3><p>略过，因为不需要实现</p>
 <h1 id="7-SDP-Examples-有关-SDP-的例子"><a href="#7-SDP-Examples-有关-SDP-的例子" class="headerlink" title="7. SDP Examples 有关 SDP 的例子"></a>7. SDP Examples 有关 SDP 的例子</h1><p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。</p>
 <h2 id="7-1-Example-SDP-for-Flexible-FEC-Protection-with-in-band-SSRC-mapping"><a href="#7-1-Example-SDP-for-Flexible-FEC-Protection-with-in-band-SSRC-mapping" class="headerlink" title="7.1. Example SDP for Flexible FEC Protection with in-band SSRC mapping"></a>7.1. Example SDP for Flexible FEC Protection with in-band SSRC mapping</h2><p>在这个例子里，我们有一个视频源流和一个FEC修复包流。源和修复包流被复用在不同的SSRC里。repair-window被设置成 200ms</p>
-<pre><code>        v=0
-        o=mo 1122334455 1122334466 IN IP4 fec.example.com
-        s=FlexFEC minimal SDP signalling Example
-        t=0 0
-        m=video 30000 RTP/AVP 96 98
-        c=IN IP4 143.163.151.157
-        a=rtpmap:96 VP8/90000
-        a=rtpmap:98 flexfec/90000
-        a=fmtp:98; repair-window=200ms
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">v&#x3D;0
+o&#x3D;mo 1122334455 1122334466 IN IP4 fec.example.com
+s&#x3D;FlexFEC minimal SDP signalling Example
+t&#x3D;0 0
+m&#x3D;video 30000 RTP&#x2F;AVP 96 98
+c&#x3D;IN IP4 143.163.151.157
+a&#x3D;rtpmap:96 VP8&#x2F;90000
+a&#x3D;rtpmap:98 flexfec&#x2F;90000
+a&#x3D;fmtp:98; repair-window&#x3D;200ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="7-2-Example-SDP-for-Flex-FEC-Protection-with-explicit-signalling-in-the-SDP"><a href="#7-2-Example-SDP-for-Flex-FEC-Protection-with-explicit-signalling-in-the-SDP" class="headerlink" title="7.2. Example SDP for Flex FEC Protection with explicit signalling in the SDP"></a>7.2. Example SDP for Flex FEC Protection with explicit signalling in the SDP</h2><p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。</p>
 <p>我们跟<code>a=ssrc-group:FEC-FR 1234 2345</code>构建一个 FEC groups。源和修复包流复用在不同的 SSRC 里。repair-window 被设置成 200ms</p>
-<pre><code>        v=0
-        o=ali 1122334455 1122334466 IN IP4 fec.example.com
-        s=2-D Parity FEC with no in band signalling Example
-        t=0 0
-        m=video 30000 RTP/AVP 100 110
-        c=IN IP4 233.252.0.1/127
-        a=rtpmap:100 MP2T/90000
-        a=rtpmap:110 flexfec/90000
-        a=fmtp:110 L:5; D:10; ToP:2; repair-window:200000
-        a=ssrc:1234
-        a=ssrc:2345
-        a=ssrc-group:FEC-FR 1234 2345
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">v&#x3D;0
+o&#x3D;ali 1122334455 1122334466 IN IP4 fec.example.com
+s&#x3D;2-D Parity FEC with no in band signalling Example
+t&#x3D;0 0
+m&#x3D;video 30000 RTP&#x2F;AVP 100 110
+c&#x3D;IN IP4 233.252.0.1&#x2F;127
+a&#x3D;rtpmap:100 MP2T&#x2F;90000
+a&#x3D;rtpmap:110 flexfec&#x2F;90000
+a&#x3D;fmtp:110 L:5; D:10; ToP:2; repair-window:200000
+a&#x3D;ssrc:1234
+a&#x3D;ssrc:2345
+a&#x3D;ssrc-group:FEC-FR 1234 2345<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="8-Congestion-Control-Considerations-拥塞控制的考虑"><a href="#8-Congestion-Control-Considerations-拥塞控制的考虑" class="headerlink" title="8. Congestion Control Considerations 拥塞控制的考虑"></a>8. Congestion Control Considerations 拥塞控制的考虑</h1><p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。</p>
 <p>特别的是，在带宽限制的网络中，FEC 修复包的流动，可能成为带宽消耗的罪魁祸首，有可能会堵塞网络。在这个情况里，应用程序 MUST NOT 随意增加 FEC 保护的次数，因为这么做会有可能导致拥塞崩溃（Congestion Collapse）。</p>
 <p>Congestive collapse (or congestion collapse) is the condition in which congestionprevents or limits useful communication.</p>
@@ -725,18 +730,22 @@ When N &gt; 0:
 <p>在多播的情景里，为每一个接收端去优化 FEC 保护是非常困难的。如果你有一堆不同的接受者，并且这些接受者都要求使用不同的 FEC 保护级别的话，这里 RECOMMENDED 发送者提供多个修复流，每个修复流都是不同的 FEC 保护级别，让接受者加入对应的多播session 去接收最适合他们的修复流。</p>
 <p>编者注：2-D的奇偶码应该也加入到 “多余的拥塞控制考虑” 里</p>
 <p>（不是译者注）</p>
-<h1 id="9-Security-Considerations-安全考虑"><a href="#9-Security-Considerations-安全考虑" class="headerlink" title="9. Security Considerations 安全考虑"></a>9. Security Considerations 安全考虑</h1><h1 id="10-IANA-Considerations"><a href="#10-IANA-Considerations" class="headerlink" title="10. IANA Considerations"></a>10. IANA Considerations</h1><pre><code>   New media subtypes are subject to IANA registration.  For the
-   registration of the payload formats and their parameters introduced
-   in this document, refer to Section 5.
-</code></pre>
-<h1 id="11-Acknowledgements"><a href="#11-Acknowledgements" class="headerlink" title="11. Acknowledgements"></a>11. Acknowledgements</h1><pre><code>   Some parts of this document are borrowed from [RFC5109].  Thus, the
-   author would like to thank the editor of [RFC5109] and those who
-   contributed to [RFC5109].
+<h1 id="9-Security-Considerations-安全考虑"><a href="#9-Security-Considerations-安全考虑" class="headerlink" title="9. Security Considerations 安全考虑"></a>9. Security Considerations 安全考虑</h1><h1 id="10-IANA-Considerations"><a href="#10-IANA-Considerations" class="headerlink" title="10. IANA Considerations"></a>10. IANA Considerations</h1><pre class="line-numbers language-none"><code class="language-none">New media subtypes are subject to IANA registration.  For the
+registration of the payload formats and their parameters introduced
+in this document, refer to Section 5.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-   Thanks to Bernard Aboba , Rasmus Brandt , Roni Even , Stefan Holmer ,
-   Jonathan Lennox , and Magnus Westerlund for providing valuable
-   feedback on earlier versions of this draft.
-</code></pre>
+
+
+<h1 id="11-Acknowledgements"><a href="#11-Acknowledgements" class="headerlink" title="11. Acknowledgements"></a>11. Acknowledgements</h1><pre class="line-numbers language-none"><code class="language-none">Some parts of this document are borrowed from [RFC5109].  Thus, the
+author would like to thank the editor of [RFC5109] and those who
+contributed to [RFC5109].
+
+Thanks to Bernard Aboba , Rasmus Brandt , Roni Even , Stefan Holmer ,
+Jonathan Lennox , and Magnus Westerlund for providing valuable
+feedback on earlier versions of this draft.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>剩下的我就不翻译了</p>
 
     </div>

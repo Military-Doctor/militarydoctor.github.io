@@ -127,7 +127,7 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">37</span></a></li>
         <li class="menu-item menu-item-imwpc2021"><a href="/2021imwpc/" rel="section"><i class="fa fa-chess fa-fw"></i>2021 IMWPC</a></li>
@@ -191,7 +191,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -529,7 +529,7 @@
 <p>All <u>STUN messages</u> MUST start with a 20-byte header followed by zero or more <strong>Attributes</strong>. The STUN header contains a <u>STUN message type</u>, <u>magic cookie</u>, <u>transaction ID</u>, and <u>message length</u>.</p>
 </blockquote>
 <p>所有的 <u>STUN 消息</u> <strong><em><u>必须</u></em></strong> 以 20-byte 长度的头部开始，紧跟着 0 个 或 多个<strong>属性</strong>。STUN 头部包含了 <u>STUN 消息类型</u>、<u>magic cookie</u>、<u>事务ID</u>、<u>消息长度</u>。</p>
-<pre><code> 0                   1                   2                   3
+<pre class="line-numbers language-none"><code class="language-none"> 0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |0 0|     STUN Message Type    |         Message Length         |
@@ -540,8 +540,10 @@
 |                     Transaction ID (96 bits)                  |
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-                  Figure 2: Format of STUN Message Header
-</code></pre>
+                  Figure 2: Format of STUN Message Header<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <blockquote>
 <p>The most significant 2 bits of every <u>STUN message</u> MUST be zeroes. This can be used to differentiate <u>STUN packet</u>s from other protocols when STUN is multiplexed with other protocols on the same port.</p>
 </blockquote>
@@ -568,14 +570,16 @@
 <p>The message type field is decomposed further into the following structure:</p>
 </blockquote>
 <p><strong>STUN Message Type</strong> 字段被分解成以下结构：</p>
-<pre><code> 0                 1
+<pre class="line-numbers language-none"><code class="language-none"> 0                 1
  2  3  4 5 6 7 8 9 0 1 2 3 4 5 
 +--+--+-+-+-+-+-+-+-+-+-+-+-+-+
 |M |M |M|M|M|C|M|M|M|C|M|M|M|M|
 |11|10|9|8|7|1|6|5|4|0|3|2|1|0|
 +--+--+-+-+-+-+-+-+-+-+-+-+-+-+
-Figure 3: Format of STUN Message Type Field
-</code></pre>
+Figure 3: Format of STUN Message Type Field<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <blockquote>
 <p>Here the bits in the message type field are shown as most significant (M11) through least significant (M0). M11 through M0 represent a 12-bit encoding of the <u>method</u>. C1 and C0 represent a 2-bit encoding of the <u>class</u>. A class of 0b00 is a <u>request</u>, a class of 0b01 is an <u>indication</u>, a class of 0b10 is a <u>success response</u>, and a class of 0b11 is an <u>error response</u>. This specification defines a single method, Binding. <strong>The method and class are orthogonal, so that for each method, a <u>request</u>, <u>success response</u>, <u>error response</u>, and <u>indication</u> are possible for that method.</strong> Extensions defining new methods MUST indicate which <u>classes</u> are permitted for that method.</p>
 </blockquote>
