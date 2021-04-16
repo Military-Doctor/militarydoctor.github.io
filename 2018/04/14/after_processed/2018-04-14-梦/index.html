@@ -22,7 +22,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 <meta name="description" content="一个没有躯壳的人工智能偷了一个神奇的球，当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了….. （黑人问号.jpg）">
 <meta property="og:type" content="article">
@@ -320,7 +320,7 @@
 
 
 
-    <div class="comments gitalk-container"></div>
+    <div class="comments utterances-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -436,24 +436,16 @@ document.addEventListener('pjax:success', () => {
     <div class="pjax">
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
-
 <script>
-NexT.utils.loadComments('.gitalk-container', () => {
-  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : 'b2ccd03a72acd08455b6',
-      clientSecret: 'df88f2bcc7dab80520e0beb77672adad01189e00',
-      repo        : 'Military-Doctor.github.io',
-      owner       : 'Military-Doctor',
-      admin       : ['Military-Doctor# GitHub repo owner and collaborators, only these guys can initialize gitHub issues'],
-      id          : 'de63752bc99fa696c6285f2a530c8f07',
-      proxy       : 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render(document.querySelector('.gitalk-container'));
-  }, window.Gitalk);
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "Military-Doctor/Military-Doctor.github.io");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "preferred-color-scheme");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
 });
 </script>
 
