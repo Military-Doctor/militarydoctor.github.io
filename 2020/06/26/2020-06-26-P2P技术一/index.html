@@ -22,25 +22,25 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"military-doctor.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+    var CONFIG = {"hostname":"blog.junyi.pw","root":"/","images":"/images","scheme":"Gemini","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown animate__faster","post_body":"fadeInDown animate__faster","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 <meta name="description" content="本文主要记录自己学习的 P2P 技术 在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别 具体内容请点击「阅读全文」">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P2P 技术 （一）">
-<meta property="og:url" content="https://military-doctor.github.io/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/index.html">
+<meta property="og:url" content="https://blog.junyi.pw/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/index.html">
 <meta property="og:site_name" content="Junyi的小屋">
 <meta property="og:description" content="本文主要记录自己学习的 P2P 技术 在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别 具体内容请点击「阅读全文」">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://military-doctor.github.io/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Port_Restricted_Cone_NAT.svg.png">
-<meta property="og:image" content="https://military-doctor.github.io/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Symmetric_NAT.svg.png">
+<meta property="og:image" content="https://blog.junyi.pw/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Port_Restricted_Cone_NAT.svg.png">
+<meta property="og:image" content="https://blog.junyi.pw/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Symmetric_NAT.svg.png">
 <meta property="article:published_time" content="2020-06-26T05:06:35.000Z">
 <meta property="article:modified_time" content="2021-03-20T08:54:32.040Z">
 <meta property="article:author" content="Junyi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://military-doctor.github.io/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Port_Restricted_Cone_NAT.svg.png">
+<meta name="twitter:image" content="https://blog.junyi.pw/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/800px-Port_Restricted_Cone_NAT.svg.png">
 
 
-<link rel="canonical" href="https://military-doctor.github.io/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/">
+<link rel="canonical" href="https://blog.junyi.pw/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/">
 
 
 <script data-pjax class="page-configurations">
@@ -238,7 +238,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://military-doctor.github.io/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/">
+    <link itemprop="mainEntityOfPage" href="https://blog.junyi.pw/2020/06/26/2020-06-26-P2P%E6%8A%80%E6%9C%AF%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
