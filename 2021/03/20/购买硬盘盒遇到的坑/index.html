@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://military-doctor.github.io/2021/03/20/%E8%B4%AD%E4%B9%B0%E7%A1%AC%E7%9B%98%E7%9B%92%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/image-20210320204416714.png">
 <meta property="og:image" content="https://military-doctor.github.io/2021/03/20/%E8%B4%AD%E4%B9%B0%E7%A1%AC%E7%9B%98%E7%9B%92%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/image-20210320204501188.png">
 <meta property="article:published_time" content="2021-03-20T12:41:30.000Z">
-<meta property="article:modified_time" content="2021-04-18T02:45:40.778Z">
+<meta property="article:modified_time" content="2021-04-18T03:10:59.531Z">
 <meta property="article:author" content="Junyi">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://military-doctor.github.io/2021/03/20/%E8%B4%AD%E4%B9%B0%E7%A1%AC%E7%9B%98%E7%9B%92%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/image-20210320204416714.png">
@@ -268,7 +268,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-04-18 10:45:40" itemprop="dateModified" datetime="2021-04-18T10:45:40+08:00">2021-04-18</time>
+        <time title="修改时间：2021-04-18 11:10:59" itemprop="dateModified" datetime="2021-04-18T11:10:59+08:00">2021-04-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
 <p>12V，0.37A，够了呀，内置电源是 12V 1A 的，电流都多出来3倍了。</p>
 <p><strong>实际上并不够。</strong></p>
 <p>在查阅了 <a target="_blank" rel="noopener" href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册</a> 之后发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是</p>
-<p><strong><code>「Startup Current, Typical (12V, A) 」</code></strong></p>
+<p><strong><code>「Startup Current, Typical (12V, 1.8A) 」</code></strong></p>
 <p>这个指的是硬盘刚开始工作时的瞬间电流，ST4000VX007 这块硬盘的瞬间电流可以达到 1.8A</p>
 <p>这就是为什么这个硬盘盒的电源根本不能用的原因了：</p>
 <p><code>主控芯片自带的「自动休眠功能」会让硬盘自动休眠，停止电机的转动。在每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」</code></p>
