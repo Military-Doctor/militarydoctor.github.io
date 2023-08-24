@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Aug 2023 19:04:45 +0800</lastBuildDate><atom:link href="https://junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Experiment Experience</title><link>https://junyi.dev/posts/experiment-experience/</link><pubDate>Wed, 23 Aug 2023 19:04:45 +0800</pubDate><guid>https://junyi.dev/posts/experiment-experience/</guid><description>&lt;p>test&lt;/p></description></item><item><title>My First Post</title><link>https://junyi.dev/posts/my-first-post/</link><pubDate>Wed, 23 Aug 2023 18:35:03 +0800</pubDate><guid>https://junyi.dev/posts/my-first-post/</guid><description>&lt;p>Hello&lt;/p></description></item><item><title>Zero Mq 注意事项</title><link>https://junyi.dev/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><guid>https://junyi.dev/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D(https://zeromq.org/)">ZeroMQ&lt;/a>&lt;/p>
+&lt;p>我用的实现版本：&lt;a href="https://github.com/zeromq/libzmq">libzmq&lt;/a>&lt;/p>
+&lt;p>对我个人来说，ZMQ 可以免去我「维持 socket 通信可靠性」、「高性能并发」等任务。&lt;/p>
+&lt;p>（虽然之前自己也写了一整套）&lt;/p>
+&lt;p>ZMQ 的设计思路大体上跟我自己的想法很接近。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// client.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>requester &lt;span style="color:#f92672">=&lt;/span> zmq_socket (context, ZMQ_REQ);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// server.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>requester &lt;span style="color:#f92672">=&lt;/span> zmq_socket (context, ZMQ_REP);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你的 client 和 server 是上面这样写的（REQ-REP），那就要注意，zmq_send () 之后要接一个 zmq_recv ()&lt;/p>
+&lt;p>send 和 recv 要&lt;strong>成对出现&lt;/strong>，才能维护 REQ-REP 的状态机。&lt;/p></description></item><item><title>How to get motivated</title><link>https://junyi.dev/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><guid>https://junyi.dev/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
+&lt;h1 id="1-get-ready-the-night-before" >1. Get ready the night before
+&lt;span>
+&lt;a href="#1-get-ready-the-night-before">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Clean your desk&lt;/li>
+&lt;li>Get everything that you need within reach pens, paper, charges …&lt;/li>
+&lt;li>Make a to-do list&lt;/li>
+&lt;li>Choose your clothes for the next day.&lt;/li>
+&lt;/ul>
+&lt;h1 id="2-write-a-to-do-list-everyday" >2. Write a to-do list everyday
+&lt;span>
+&lt;a href="#2-write-a-to-do-list-everyday">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Have a clear plan of what you need to do&lt;/li>
+&lt;li>Spread out your tasks over the week to have realistic expectations&lt;/li>
+&lt;li>Easy, difficult, long, short tasks to keep totivation throughout the day&lt;/li>
+&lt;/ul>
+&lt;p>Using what works best for you:&lt;/p>
+&lt;ul>
+&lt;li>Microsoft To-Do&lt;/li>
+&lt;/ul>
+&lt;h1 id="3-block-your-time-in-your-calendar" >3. Block your time in your calendar
+&lt;span>
+&lt;a href="#3-block-your-time-in-your-calendar">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="4-use-the-pomodoro-method-to-manage-your-time--tasks" >4. Use the Pomodoro method to manage your time &amp;amp; tasks
+&lt;span>
+&lt;a href="#4-use-the-pomodoro-method-to-manage-your-time--tasks">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ol>
+&lt;li>Pick a task&lt;/li>
+&lt;li>Start a 25-minutes timer - FOCUS TIME&lt;/li>
+&lt;li>Take a 5 minutes break - you just finished 1 pomodoro session&lt;/li>
+&lt;li>After 4 pomodoros, take a longer 15 - 30 min break&lt;/li>
+&lt;/ol>
+&lt;p>Choose your &lt;strong>personal session and breaks&lt;/strong>.&lt;/p>
+&lt;h1 id="5-using-virtual-study-group" >5. Using virtual study group
+&lt;span>
+&lt;a href="#5-using-virtual-study-group">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="6-use-time-tracking" >6. Use time tracking
+&lt;span>
+&lt;a href="#6-use-time-tracking">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>To motivate you as see how much work you did.&lt;/p>
+&lt;h1 id="7-start-your-day-with-an-easy-task-that-you-want-to-do" >7. Start your day with an easy task that you WANT to do
+&lt;span>
+&lt;a href="#7-start-your-day-with-an-easy-task-that-you-want-to-do">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="8-create-a-study-routine-and-build-habits" >8. Create a study routine and build habits
+&lt;span>
+&lt;a href="#8-create-a-study-routine-and-build-habits">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>When motivation is low, your routine and habits hat you’ve built will come to the rescue.&lt;/p>
+&lt;ul>
+&lt;li>Create a story routine&lt;/li>
+&lt;li>Iteratively improve it + make it realistic for you&lt;/li>
+&lt;li>Then it will less be anout motivation.&lt;/li>
+&lt;/ul>
+&lt;h1 id="9-remember-why-you-want-to-get-these-tasks-done" >9. Remember WHY you want to get these tasks done.
+&lt;span>
+&lt;a href="#9-remember-why-you-want-to-get-these-tasks-done">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Write it down, and go back to the note when you’re lacking motivation&lt;/p>
+&lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >10. Create a motivating poster in front of your desk!
+&lt;span>
+&lt;a href="#10-create-a-motivating-poster-in-front-of-your-desk">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="11-make-studying-fun" >11. Make studying fun
+&lt;span>
+&lt;a href="#11-make-studying-fun">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Create flashcards -&amp;gt; Quizlet&lt;/li>
+&lt;li>Watch online videos&lt;/li>
+&lt;/ul>
+&lt;h1 id="12-trick-your-brain-with-the-2-minute-rule" >12. Trick your brain with the 2 minute rule
+&lt;span>
+&lt;a href="#12-trick-your-brain-with-the-2-minute-rule">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;blockquote>
+&lt;p>“Ok, I know I don’t fell like studying right now. But, I’m going to get up, go to my desk, and work for 2 minutes. If I still don’t feel like it, I can stop working.”&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="13-exercise-and-come-back-to-work" >13. Exercise and come back to work.
+&lt;span>
+&lt;a href="#13-exercise-and-come-back-to-work">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >14. Join a study Discord community!
+&lt;span>
+&lt;a href="#14-join-a-study-discord-community">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >15. Still can’t find motivation? Take a productive break!
+&lt;span>
+&lt;a href="#15-still-cant-find-motivation-take-a-productive-break">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="reference" >Reference
+&lt;span>
+&lt;a href="#reference">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Marine. &lt;a href="https://m.twitch.tv/videos/934263167">https://m.twitch.tv/videos/934263167&lt;/a>&lt;/p>
+&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>没想到已经过去了这么久，可惜自己好像从未尝试过文中的方法&lt;/p>
+&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>Unity 开发学习(一)</title><link>https://junyi.dev/posts/unity-learning-1/</link><pubDate>Thu, 13 May 2021 01:47:05 +0800</pubDate><guid>https://junyi.dev/posts/unity-learning-1/</guid><description>&lt;p>今天跟 YZX 学了 Unity 的基本开发&lt;/p>
+&lt;p>内容包括：&lt;/p>
+&lt;p>场景创建与 Object 布局，Prefab，Material，Physics
+实现 WASD 移动角色
+Collision 检测
+Scripts 编写
+最后还弄明白了 Unity C# 的 public attribute 与 Object 的关系&lt;/p>
+&lt;p>即函数 &lt;code>GameObject.GetComponent&amp;lt;Type&amp;gt;()&lt;/code>&lt;/p>
+&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>我已经忘了自己学过这些了&lt;/p></description></item><item><title>整理了一下博客</title><link>https://junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
+&lt;p>这些文章都是我写了好久的。&lt;/p>
+&lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
+&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img src="md1.png" alt="md1.png">&lt;/p></description></item><item><title>TVM Dockerfile (CPU only)</title><link>https://junyi.dev/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><guid>https://junyi.dev/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
+&lt;p>映射 container 端口 22 即可使用 ssh，用户名密码都是 tvm&lt;/p>
+&lt;p>&lt;a href="https://gist.github.com/Junyi-99/dbfe984fe3e3af4d2a2c7d11a48ad151">在 GitHub 查看 Dockerfile&lt;/a>&lt;/p>
+&lt;p>构建指令：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker build -t tvm_cpu:0.7.0-x86_64 .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>或者你也可以直接拉取我的镜像：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker pull dockerjunyi/tvm_cpu:0.7.0-x86_64
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>使用方法：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -p 容器内 22 端口映射到本地 2222&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -i 交互模式运行容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -t 开启伪输入终端（与 -i 连用）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 运行一个容器，将容器内 22 端口映射到本地 2222，容器设置为交互模式，开启伪输入终端，容器 image 叫做 dockerjunyi/tvm_cpu:0.7.0-x86_64，同时执行容器内的 /bin/bash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 2222:22 -it dockerjunyi/tvm_cpu:0.7.0-x86_64 /bin/bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>树莓派编译使用 USB 无线网卡</title><link>https://junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
+&lt;p>环境仅适用于 Raspbery Pi OS&lt;/p>
+&lt;p>其他环境并未测试！&lt;/p>
+&lt;h1 id="安装-rtl8812au-驱动" >安装 RTL8812AU 驱动
+&lt;span>
+&lt;a href="#%e5%ae%89%e8%a3%85-rtl8812au-%e9%a9%b1%e5%8a%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install raspberrypi-kernel-headers build-essential dkms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gnab/rtl8812au.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd rtl8812au
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_POWER_SAVING = y/CONFIG_POWER_SAVING = n/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod +x install.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot &lt;span style="color:#75715e"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-rtl8814au-驱动" >安装 RTL8814AU 驱动
+&lt;span>
+&lt;a href="#%e5%ae%89%e8%a3%85-rtl8814au-%e9%a9%b1%e5%8a%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/morrownr/8814au.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd 8814au
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./raspi32.sh &lt;span style="color:#75715e"># for 32-bit operating system only&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install-driver.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-docker" >安装 Docker
+&lt;span>
+&lt;a href="#%e5%ae%89%e8%a3%85-docker">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash getdocker.sh --mirror&lt;span style="color:#f92672">=&lt;/span>Aliyun
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>newgrp docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 登出，再次登入&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world &lt;span style="color:#75715e"># 以普通用户登入&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install python3-pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pip3 install docker-compose
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-zsh" >安装 ZSH
+&lt;span>
+&lt;a href="#%e5%ae%89%e8%a3%85-zsh">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y zsh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sh install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置蓝牙自动连接" >设置蓝牙自动连接
+&lt;span>
+&lt;a href="#%e8%ae%be%e7%bd%ae%e8%93%9d%e7%89%99%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>～# sudo bluetoothctl &lt;span style="color:#75715e"># 进入蓝牙操作模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># power on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># agent on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pairable on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># scan on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pair 34:88:5D:67:38:DF &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo nano /etc/init.d/keyboard &lt;span style="color:#75715e"># 新建一个叫 keyboard 的文件（开机自启）&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>sudo hcitool spinq &lt;span style="color:#75715e"># Start periodic inquiry&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>exit &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>设置开机自动加载&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/init.d/keyboard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-rc.d keyboard defaults
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service keyboard start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置无线网络自动连接" >设置无线网络自动连接
+&lt;span>
+&lt;a href="#%e8%ae%be%e7%bd%ae%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>略&lt;/p>
+&lt;h1 id="安装最新版-smart-monitoring-tools" >安装最新版 SMART Monitoring Tools
+&lt;span>
+&lt;a href="#%e5%ae%89%e8%a3%85%e6%9c%80%e6%96%b0%e7%89%88-smart-monitoring-tools">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd smartmontools-7.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> cd build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>../configure
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo make install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="挂载硬盘" >挂载硬盘
+&lt;span>
+&lt;a href="#%e6%8c%82%e8%bd%bd%e7%a1%ac%e7%9b%98">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U 这里写你的UUID /mnt/seagate/storage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 容易掉盘」&lt;/p>
+&lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
+&lt;p>后来做了多方面调查，得出结论：&lt;/p>
+&lt;p>&lt;strong>硬盘盒、USB 等毁硬盘的情况主要是供电不足导致的！&lt;/strong>&lt;/p>
+&lt;p>（举个例子，比如这款硬盘盒，就「可能」会毁掉你的硬盘。它自带 12V 1A 电源）&lt;/p>
+&lt;img src="fig1.png" alt="drawing" width="200"/>
+&lt;p>我们的硬盘上面写工作电压电流是 5V 0.55A, 12V 0.37A（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
+&lt;img src="fig2.png" alt="drawing" width="400"/>
+&lt;p>12V，0.37A，够了呀，内置电源是 12V 1A 的，电流都多出来 3 倍了。&lt;/p>
+&lt;p>&lt;strong>实际上并不够。&lt;/strong>&lt;/p>
+&lt;p>在查阅了&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>之后发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
+&lt;p>&lt;strong>&lt;code>「Startup Current, Typical (12V, 1.8A) 」&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>这个指的是硬盘刚开始工作时的瞬间电流，ST4000VX007 这块硬盘的瞬间电流可以达到 1.8A&lt;/p>
+&lt;p>这就是为什么这个硬盘盒的电源根本不能用的原因了：&lt;/p>
+&lt;p>&lt;strong>主控芯片自带的「自动休眠功能」会让硬盘自动休眠，停止电机的转动。在每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
+&lt;p>解决方案是买个好点的电源。&lt;/p></description></item><item><title>2021 好书推荐</title><link>https://junyi.dev/posts/books/</link><pubDate>Mon, 08 Mar 2021 16:27:52 +0800</pubDate><guid>https://junyi.dev/posts/books/</guid><description>&lt;ul>
+&lt;li>High Performance Browser Networking What every web developer should know about networking and web performance Kindle Edition by Ilya Grigorik - 2013&lt;/li>
+&lt;/ul></description></item><item><title>TVM AutoTVM 多 GPU 加速 Tuning</title><link>https://junyi.dev/posts/tvm-autotvm-tuning/</link><pubDate>Sat, 27 Feb 2021 23:32:44 +0800</pubDate><guid>https://junyi.dev/posts/tvm-autotvm-tuning/</guid><description>&lt;p>&lt;strong>场景&lt;/strong>
+双 NVIDIA 1080Ti, Linux 服务器&lt;/p>
+&lt;p>&lt;strong>需求&lt;/strong>
+AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD 的没试过）&lt;/p>
+&lt;p>&lt;strong>过程&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>当前场景为 tuner 和 runner 都跑在同一台机器上的情况
+如果需要一台跑 tuner，一台跑 runner，请配置好 tracker 和 server 的 IP
+tracker 和 server 都可以放在有显卡的机器里&lt;/p>
+&lt;/blockquote>
+&lt;ol>
+&lt;li>首先查看一下 GPU 的 id，你可以通过这条命令来查看：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nvidia-smi -L
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>比如我这里输出的是 0 和 1：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>base&lt;span style="color:#f92672">)&lt;/span> admin@deeplearning:~$ nvidia-smi -L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GPU 0: GeForce GTX &lt;span style="color:#ae81ff">1080&lt;/span> Ti &lt;span style="color:#f92672">(&lt;/span>UUID: GPU-a4602aba-35cb-97cd-ef5a-f7d12aabdc88&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GPU 1: GeForce GTX &lt;span style="color:#ae81ff">1080&lt;/span> Ti &lt;span style="color:#f92672">(&lt;/span>UUID: GPU-92deed64-3b37-f0a4-1095-40f0f596d64b&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>用 screen 创建 1 个 rpc_tracker&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>screen -S tvm_tune_tracker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_tracker --host&lt;span style="color:#f92672">=&lt;/span>0.0.0.0 --port&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">9190&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输入完之后，如果 tracker 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/p>
+&lt;ol start="3">
+&lt;li>用 screen 创建 2 个 rpc_server（因为我有 2 个 GPU）&lt;/li>
+&lt;/ol>
+&lt;p>还记得第一步查看的 GPU id 吗？下面的 `CUDA_VISIBLE_DEVICES`` 就要设置成刚才看的 GPU 的 id&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>screen -S tvm_tune_server0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>screen -S tvm_tune_server1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，上面的 &lt;code>export&lt;/code> 是重点！
+如果在 shell 里直接不写 &lt;code>export&lt;/code> ，直接写 &lt;code>CUDA_VISIBLE_DEVICES=0&lt;/code> 是无效的！！！！
+尽管不写 &lt;code>export&lt;/code> 时，&lt;code>echo $CUDA_VISIBLE_DEVICES&lt;/code> 也会输出 1，但是实际上并没有设置环境变量。
+原因是 autotvm 会通过 python 的 &lt;code>os.environ['CUDA_VISIBLE_DEVICES']&lt;/code> 的值来决定使用哪一个 id 的 GPU。&lt;/p>
+&lt;h1 id="检测效果" >检测效果：
+&lt;span>
+&lt;a href="#%e6%a3%80%e6%b5%8b%e6%95%88%e6%9e%9c">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
+Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看到 GPU 的利用情况：&lt;/p>
+&lt;p>&lt;code>watch -n 0.5 nvidia-smi&lt;/code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）&lt;/p>
+&lt;img src="result.png" alt="drawing" width="800"/>
+&lt;p>可以看到两张显卡都已经利用起来了。&lt;/p>
+&lt;p>– END –&lt;/p>
+&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
+&lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >Build TVM Runtim on Raspberry Pi 4B
+&lt;span>
+&lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>我们只用树莓派跑模型，所以只需要构建 Runtime&lt;/p>
+&lt;p>网络条件差的话记得更换 apt 的源&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd tvm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp cmake/config.cmake build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cmake ..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make runtime -j4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果在 &lt;code>cmake ..&lt;/code> 的时候说找不到 cmake 那就&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install -y cmake
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果在 &lt;code>cmake ..&lt;/code> 的时候找不到 llvm 那就&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y llvm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>我执行这条指令的时间是 2021 年 2 月 19 日，清华源 apt 给我装的是 llvm-7&lt;/p>
+&lt;/blockquote>
+&lt;p>编译好 runtime 之后，我们需要设置 &lt;code>PYTHONPATH&lt;/code> 环境变量（如果你用的是 bash，那你编辑 .bashrc，如果是 zsh，那你编辑 .zshrc）&lt;/p>
+&lt;p>(下面这条命令的 current working directory 为：&lt;code>~&lt;/code>，使用的是 &lt;code>zsh&lt;/code>)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;export PYTHONPATH=&lt;/span>$PYTHONPATH&lt;span style="color:#e6db74">:~/tvm/python&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.zshrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="config-rpc-server-on-raspberry-pi-4b" >Config RPC Server on Raspberry Pi 4B
+&lt;span>
+&lt;a href="#config-rpc-server-on-raspberry-pi-4b">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>由于 Raspberry OS 里，python 默认是 python2.7 ，所以我们这里强制使用 python3&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python3 -m tvm.exec.rpc_server --host 0.0.0.0 --port&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">9090&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>（Tips：共建和谐未来，建议所有项目都是用 python3， 抛弃 python2 人人有责）&lt;/p>
+&lt;p>如果你看到了这样的字眼，说明你成功在树莓派上启动了 RPC 服务器：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>INFO:RPCServer:bind to 0.0.0.0:9090
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="prepare-pre-trained-model" >Prepare Pre-trained model
+&lt;span>
+&lt;a href="#prepare-pre-trained-model">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>查看 target (-mtriple 的值)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>➜ ~ gcc -dumpmachine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aarch64-linux-gnu
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 通过 gcc -dumpmachine 即可了解到 -mtriple 要写的值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这条指令是在树莓派上运行的&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>target &lt;span style="color:#f92672">=&lt;/span> tvm.target.Target&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;llvm -device=arm_cpu -model=bcm2711 -mtriple=aarch64-linux-gnu -mattr=+neon&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个代码是在训练机上运行的&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>树莓派的 CPU 为 bcm2711，mtriple 是 aarch64-linux-gnu，mattr 一律写 +neon&lt;/p>
+&lt;h1 id="踩坑记录注意事项" >踩坑记录（注意事项）
+&lt;span>
+&lt;a href="#%e8%b8%a9%e5%9d%91%e8%ae%b0%e5%bd%95%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>RPC tracker - server 的模式，不能通过 frp 反代使用。&lt;/p>
+&lt;p>没有公网 IP 的话，必须 VPN 异地组网打洞才可以。&lt;/p>
+&lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>https://junyi.dev/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>https://junyi.dev/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>https://junyi.dev/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><guid>https://junyi.dev/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
+&lt;p>在 macOS 上编译 TVM 库，其实大家放弃就可以了，大家可能会很惊讶在 macOS 上怎么会放弃编译 TVM 库呢？但事实就是这样，小编也感到非常惊讶。&lt;/p>
+&lt;p>&lt;strong>前排提示：放弃吧！别想着在 macOS 上部署 TVM 了！老老实实在 Linux 上搞吧！&lt;/strong>&lt;/p>
+&lt;p>大概耗时：10 分钟～1 小时 （使用 llvm 10.0 的二进制发布版会快一些，在这里我自己编译了一份）&lt;/p>
+&lt;p>提示：使用 llvm 11.0 binary release 会在编译时报错&lt;/p>
+&lt;p>操作系统：macOS Catalina 10.15.7&lt;/p>
+&lt;p>Homebrew: 2.7.0&lt;/p>
+&lt;p>Homebrew/homebrew-core: git revision 8df7a0; last commit 2020-12-26&lt;/p>
+&lt;p>参考教程：&lt;a href="https://tvm.apache.org/docs/install/from_source.html#build-the-shared-library">tvm0.8.0dev0&lt;/a>&lt;/p>
+&lt;h1 id="step1-在-github-上获取源代码" >Step1: 在 Github 上获取源代码
+&lt;span>
+&lt;a href="#step1-%e5%9c%a8-github-%e4%b8%8a%e8%8e%b7%e5%8f%96%e6%ba%90%e4%bb%a3%e7%a0%81">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="step2-弃坑macos-根本搞不了坑太多" >Step2: 弃坑，macOS 根本搞不了，坑太多
+&lt;span>
+&lt;a href="#step2-%e5%bc%83%e5%9d%91macos-%e6%a0%b9%e6%9c%ac%e6%90%9e%e4%b8%8d%e4%ba%86%e5%9d%91%e5%a4%aa%e5%a4%9a">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
+&lt;p>&lt;strong>这就是关于在 macOS 上编译 TVM 库的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！&lt;/strong>&lt;/p>
+&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>小想法</title><link>https://junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;p>Automation 类的工具也可以啊。&lt;/p>
+&lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
+&lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
+&lt;p>那为什么不能利用「蓝牙 + 屏幕共享」这两个技术，实现一个自动化工具呢？&lt;/p>
+&lt;p>也不知道现在市面上有没有这种工具。。。&lt;/p>
+&lt;p>我的想法是直接用电脑的蓝牙模块跟手机连接，把电脑模拟成蓝牙鼠标。&lt;/p>
+&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>https://junyi.dev/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><guid>https://junyi.dev/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
+&lt;p>9 月 28 日电动车被偷&lt;/p>
+&lt;p>10 月 1 日买了新的电动车&lt;/p>
+&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>https://junyi.dev/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><guid>https://junyi.dev/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
+&lt;p>艹！&lt;/p>
+&lt;p>跟朋友一起上下学，三个人把三辆电动车都放在了横琴口岸&lt;/p>
+&lt;p>舍友 A：电动滑板车&lt;/p>
+&lt;p>舍友 B 和 我：同一品牌的电动车&lt;/p>
+&lt;p>然后我的被偷了&lt;/p>
+&lt;p>虽然第一时间联系了朋友，并且另一位跟我一起回来的朋友帮我找了一圈电动车，没有找到。然后我报了警。警察说你可以去做一下笔录，但是帮助不大，&lt;/p>
+&lt;p>估计是找不到了。&lt;/p>
+&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>FEC - 前向纠错技术</title><link>https://junyi.dev/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>https://junyi.dev/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
+&lt;blockquote>
+&lt;p>FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。
+&lt;a href="https://zhuanlan.zhihu.com/p/104579290">https://zhuanlan.zhihu.com/p/104579290&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="parity-check-奇偶校验" >Parity Check 奇偶校验
+&lt;span>
+&lt;a href="#parity-check-%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;pre tabindex="0">&lt;code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
+// 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1
+1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1
+&lt;/code>&lt;/pre>&lt;p>每个字节的数据都计算一个校验位，数据和校验位一起发送出去，这样接收方可以根据校验位粗略地判断接收到的数据是否有误。&lt;/p>
+&lt;h1 id="基于-xor-的-fec" >基于 XOR 的 FEC
+&lt;span>
+&lt;a href="#%e5%9f%ba%e4%ba%8e-xor-%e7%9a%84-fec">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。&lt;/p>
+&lt;p>但考虑到每 2 个 packet 就产生 1 个 fec packet，冗余度可能有点高（比较浪费带宽），我们能否每 3 个或者每 N 个 packet 再产生一个 fec packet 呢？当然可以，我们以每 3 个 packet（A、B、C） 产生 1 个 fec packet（D）为例来推导一下：&lt;/p>
+&lt;pre tabindex="0">&lt;code>d = a ^ b ^ c
+a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d
+b = (a ^ a) ^ b ^ (c ^ c) = (a ^ c) ^ (a ^ b ^ c) = a ^ c ^ d
+c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
+&lt;/code>&lt;/pre>&lt;p>由上述公式推导即可知道，这 4 个 packet，任意丢失 1 个 packet，均可以由其他 3 个 packet 恢复出来。&lt;/p>
+&lt;h1 id="对象存储---ec-纠删码" >对象存储 - EC 纠删码
+&lt;span>
+&lt;a href="#%e5%af%b9%e8%b1%a1%e5%ad%98%e5%82%a8---ec-%e7%ba%a0%e5%88%a0%e7%a0%81">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>通过 K 个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。&lt;/p>
+&lt;h2 id="reed-solomon-codes" >Reed-Solomon Codes
+&lt;span>
+&lt;a href="#reed-solomon-codes">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h1 id="rfc-草案-payload-flexible-fec" >RFC 草案 Payload Flexible FEC
+&lt;span>
+&lt;a href="#rfc-%e8%8d%89%e6%a1%88-payload-flexible-fec">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="11-奇偶校验码" >1.1 奇偶校验码
+&lt;span>
+&lt;a href="#11-%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c%e7%a0%81">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h3 id="111-一维-parity-fec-protection" >1.1.1 一维 Parity FEC Protection
+&lt;span>
+&lt;a href="#111-%e4%b8%80%e7%bb%b4-parity-fec-protection">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）&lt;/p>
+&lt;p>一维连续 FEC 保护&lt;/p>
+&lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
+| 1 | X X | 4 | |R_1|
++---+ +---+ +===+
++---+ +---+ +---+ +---+ +===+
+| 5 | | 6 | | 7 | | 8 | |R_2|
++---+ +---+ +---+ +---+ +===+
++---+ +---+ +---+ +---+ +===+
+| 9 | | 10| | 11| | 12| |R_3|
++---+ +---+ +---+ +---+ +===+
+&lt;/code>&lt;/pre>&lt;p>非交错，按列生成，一列里丢一个包可以，丢两个就没法恢复了（Periodic Loss）&lt;/p>
+&lt;p>一维隔行 FEC 保护&lt;/p>
+&lt;pre tabindex="0">&lt;code>+---+ +---+ +---+
+| 1 | X | 3 | | 4 |
++---+ +---+ +---+
++---+ +---+ +---+
+| 5 | X | 7 | | 8 |
++---+ +---+ +---+
++---+ +---+ +---+ +---+
+| 9 | | 10| | 11| | 12|
++---+ +---+ +---+ +---+
++===+ +===+ +===+ +===+
+|C_1| |C_2| |C_3| |C_4|
++===+ +===+ +===+ +===+
+&lt;/code>&lt;/pre>&lt;h3 id="112-二维-parity-fec-protection" >1.1.2 二维 Parity FEC Protection
+&lt;span>
+&lt;a href="#112-%e4%ba%8c%e7%bb%b4-parity-fec-protection">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）&lt;/p>
+&lt;p>这种 FEC 保护被称作 二维奇偶校验前向纠错保护&lt;/p>
+&lt;p>但是如果发生特定的 loss pattern，这种保护模式依然会失效，比如：&lt;/p>
+&lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
+| 1 | X X | 4 | |R_1|
++---+ +---+ +===+
++---+ +---+ +---+ +---+ +===+
+| 5 | | 6 | | 7 | | 8 | |R_2|
++---+ +---+ +---+ +---+ +===+
++---+ +---+ +===+
+| 9 | X X | 12| |R_3|
++---+ +---+ +===+
++===+ +===+ +===+ +===+
+|C_1| |C_2| |C_3| |C_4|
++===+ +===+ +===+ +===+
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code>+---+ +---+ +---+
+| 1 | | 2 | X | 4 | X
++---+ +---+ +---+
++---+ +---+ +---+ +---+ +===+
+| 5 | | 6 | | 7 | | 8 | |R_2|
++---+ +---+ +---+ +---+ +===+
++---+ +---+ +---+
+| 9 | | 10| X | 12| X
++---+ +---+ +---+
++===+ +===+ +===+ +===+
+|C_1| |C_2| |C_3| |C_4|
++===+ +===+ +===+ +===+
+&lt;/code>&lt;/pre>&lt;h3 id="113-开销计算-overhead-computation" >1.1.3 开销计算 Overhead Computation
+&lt;span>
+&lt;a href="#113-%e5%bc%80%e9%94%80%e8%ae%a1%e7%ae%97-overhead-computation">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>开销（overhead）被定义为：&lt;/p>
+&lt;p>修复包大小 / 源包大小&lt;/p>
+&lt;p>单位：Bytes&lt;/p>
+&lt;p>通常来说，修复包比源包更大。&lt;/p>
+&lt;p>如果我们假设每一个修复包携带与源包等量的 bytes，我们可以计算出每一个不同的 FEC 保护策略的开销：&lt;/p>
+&lt;p>一维连续 FEC 保护：开销 = 1/L&lt;/p>
+&lt;p>一维隔行 FEC 保护：开销 = 1/D&lt;/p>
+&lt;p>二维 FEC 保护：开销 = 1/L + 1/D&lt;/p>
+&lt;p>where L and D are the number of columns and rows in the source block, respectively.&lt;/p>
+&lt;h1 id="3-定义" >3. 定义
+&lt;span>
+&lt;a href="#3-%e5%ae%9a%e4%b9%89">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>L：表示列&lt;/p>
+&lt;p>D：表示行&lt;/p>
+&lt;p>bitmask：由 FEC 包保护的包的运行长度编码。如果掩码中的位 i 被设置为 1，源数据包的编号 N + i 被这个 FEC 包保护。这里，N 是数基数，FEC 包中也有表示。&lt;/p>
+&lt;h1 id="4-包格式" >4. 包格式
+&lt;span>
+&lt;a href="#4-%e5%8c%85%e6%a0%bc%e5%bc%8f">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这一小节定义了源包和修复包的格式&lt;/p>
+&lt;h2 id="41-源包" >4.1 源包
+&lt;span>
+&lt;a href="#41-%e6%ba%90%e5%8c%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h2 id="42-修复包" >4.2 修复包
+&lt;span>
+&lt;a href="#42-%e4%bf%ae%e5%a4%8d%e5%8c%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的 RTP 报头以及 RTP 有效负载中的另一个报头，我们将其称为 FEC 报头，如图 9 所示。&lt;/p>
+&lt;p>（注意，受特定 FEC 包保护的所有源流包都需要在同一个 RTP 会话中。）&lt;/p>
+&lt;pre tabindex="0">&lt;code>+------------------------------+
+| IP Header |
++------------------------------+
+| Transport Header |
++------------------------------+
+| RTP Header | __
++------------------------------+ |
+| FEC Header | \
++------------------------------+ &amp;gt; RTP Payload
+| Repair Symbols | /
++------------------------------+ __|
+&lt;/code>&lt;/pre>&lt;p>Marker (M) Bit: 应该被设置成 0&lt;/p>
+&lt;pre tabindex="0">&lt;code> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|R|F| P|X| CC |M| PT recovery | length recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| TS recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRCCount | reserved |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRC_i |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SN base_i |k| Mask [0-14] |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| Mask [15-45] (optional) |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| |
++-+ Mask [46-108] (optional) |
+| |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| ... next in SSRC_i ... |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+&lt;/code>&lt;/pre>&lt;h1 id="8-拥塞控制考虑" >8. 拥塞控制考虑
+&lt;span>
+&lt;a href="#8-%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e8%80%83%e8%99%91">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.&lt;/p>
+&lt;p>In particular, in bandwidth-limited networks, FEC repair flows may consume most or all of the available bandwidth and consequently may congest the network. In such cases, the applications MUST NOT arbitrarily increase the amount of FEC protection since doing so may lead to a congestion collapse. If desired, stronger FEC protection MAY be applied only after the source rate has been reduced.&lt;/p>
+&lt;h1 id="9-安全性考虑" >9. 安全性考虑
+&lt;span>
+&lt;a href="#9-%e5%ae%89%e5%85%a8%e6%80%a7%e8%80%83%e8%99%91">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>https://junyi.dev/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>https://junyi.dev/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+（呕心沥血的翻译）&lt;/p>
+&lt;h1 id="4-packet-formats-包格式" >4. Packet Formats 包格式
+&lt;span>
+&lt;a href="#4-packet-formats-%e5%8c%85%e6%a0%bc%e5%bc%8f">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这一节定义了源包和修复包的格式&lt;/p>
+&lt;h2 id="41-source-packets-源包" >4.1. Source Packets 源包
+&lt;span>
+&lt;a href="#41-source-packets-%e6%ba%90%e5%8c%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;pre tabindex="0">&lt;code>The source packets MUST contain the information that identifies the
+source block and the position within the source block occupied by the
+packet. Since the source packets that are carried within an RTP
+stream already contain unique sequence numbers in their RTP headers
+[RFC3550], we can identify the source packets in a straightforward
+manner and there is no need to append additional field(s). The
+primary advantage of not modifying the source packets in any way is
+that it provides backward compatibility for the receivers that do not
+support FEC at all. In multicast scenarios, this backward
+compatibility becomes quite useful as it allows the non-FEC-capable
+and FEC-capable receivers to receive and interpret the same source
+packets sent in the same multicast session.
+&lt;/code>&lt;/pre>&lt;h2 id="42-repair-packets-修复包" >4.2. Repair Packets 修复包
+&lt;span>
+&lt;a href="#42-repair-packets-%e4%bf%ae%e5%a4%8d%e5%8c%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.&lt;/p>
+&lt;p>针对这个要求，修复包使用 RTP 的头，以及 RTP 载荷中的另一个头，我们把它叫做 FEC 头，具体请看 Figure 9&lt;/p>
+&lt;pre tabindex="0">&lt;code>+------------------------------+
+| IP Header |
++------------------------------+
+| Transport Header |
++------------------------------+
+| RTP Header | __
++------------------------------+ |
+| FEC Header | \
++------------------------------+ &amp;gt; RTP Payload
+| Repair Symbols | /
++------------------------------+ __|
+Figure 9: Format of repair packets
+&lt;/code>&lt;/pre>&lt;p>注意，被 FEC 保护的所有 包，必须在同一个 RTP session 里&lt;/p>
+&lt;p>RTP 的头部根据 RFC3550 所定义，添加了进一步的 clarifications：&lt;/p>
+&lt;ul>
+&lt;li>Marker (M) Bit：这个 bit 不是给这个 payload type 用的，所以应该被设置成 0&lt;/li>
+&lt;li>Payload Type：修复包的 (动态) 载荷类型由带外方式确定。根据 RFC3550 中的定义，RTP 接受者收到不能识别的 PayloadType 包时，会将整个包丢掉。这个特点提供了后向兼容性。如果一个不支持 FEC 的接受者收到了修复包，它将不能识别修复包的 payload type，从而丢掉修复包&lt;/li>
+&lt;li>Sequence Number（SN）：序列号有一个标准的定义，它的值必须大于上次传输修复包所用的值。初始值应该是随机生成的（不可预测的）&lt;/li>
+&lt;li>Timestamp（TS）：是叫戳应该被设置成修复包被传输时的时间。这个时间戳不是用来给 FEC 做纠错用的，通常是给 jitter calculation 用的。&lt;/li>
+&lt;li>Synchronization Source（SSRC）：根据 RFC3550，这个 SSRC 值应该被随机分配。这允许发送者在同一个端口复用源包和修复包，或者在同一端口复用多个修复包。&lt;strong>修复流&lt;/strong> SHOULD 使用 RTCP CNAME 字段把自己跟&lt;strong>源流&lt;/strong>关联。在一些网络里，同时产生源包和修复包的 RTP 源可能不是同一个主机。在这个场景里，给源流和修复流使用同样的 CNAME 意味着 RTP 源和 FEC 源必须共享同一个 CNAME。基于一个已知的算法和 RTP、FEC 源，一个公共的 CNAME 可能被产生（RFC7022）。这个用法符合 RFC3550 中的定义。
+&lt;span style="color: red;">&lt;b>注意，由于是随机分配 SSRC，这里有可能会造成 SSRC 冲突。发生冲突时，必须按照 RFC3550 中的定义去解决冲突。&lt;/b>&lt;/span>&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|R|F| P|X| CC |M| PT recovery | length recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| TS recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRCCount | reserved |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRC_i |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SN base_i |k| Mask [0-14] |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| Mask [15-45] (optional) |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| |
++-+ Mask [46-108] (optional) |
+| |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| ... next in SSRC_i ... |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 10: Format of the FEC header
+&lt;/code>&lt;/pre>&lt;p>FEC 头部包含以下字段：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>R bit 去表示这是一个重传包的话必须设置成 1，&lt;strong>对于修复包必须设置成&lt;/strong> 0&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>F 字段表示 mask 的类型：&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>+---------------+-------------------------------------+
+| F bit | Use |
++---------------+-------------------------------------+
+| 0 | flexible mask |
+| 1 | packets indicated by offset M and N |
++---------------+-------------------------------------+
+Figure 11: F-bit values
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>P, X, CC, M 和 PT recovery 字段用户确定被恢复包的字段&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Length Recovery （16-bit）字段被用来确定恢复包的长度&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>TS recovery（32-bit）字段被用来确定恢复包的时间戳&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SSRC count（8-bit）字段描述了 FEC 包保护的 SSRC 的数量。0 不是一个有效值，并且这个包 MUST 被忽略。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reserved（24-bit）为了未来的用途而被保留。它 MUST 被发送者设置成 0，并且被接受者忽略&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SSRC_i（32-bit）字段描述了当前这个特定的 FEC 包保护了哪个 SSRC。如果 FEC 包保护了多个 SSRC（SSRC count &amp;gt; 1），那么这里将会有多个 blocks of data 包含 SSRC, SN base 和 Mask Fields.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SN base_i（16-bit）字段表示此修复包保护的特定 SSRC（在 SSRC_i 中指示）的源包的最低序号（考虑到回绕）【译者：我不知道什么是回绕 wrap around into account】&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果 F bit 被设置成 0，则表示这个特定的修复包所保护的源包的所有 SSRC 使用 flexible bitmask 来处理。对于一个被 FEC 保护的特定的 SSRC_i 包，mask 是一个游程编码（run-length encoding）。第 j 位设置成 1 表示 源包的序列号（SN base_i + j + 1）被这个 FEC 包所保护。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bitmask 中的 k-bit 表示这是一个 15-,46 - 或 109-bitmask。k=0 表示这里有一个以上的 k-bit set，k=1 表示这是 bit mask 中最后一个 block。当解析一个头的时候，当前的 k-bit 数量决定了 bit mask v 的大小：&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$$
+size_of_next_bitmast = 2^{count(k)+3}-1
+$$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|0|0| P|X| CC |M| PT recovery | length recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| TS recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRCCount | reserved |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRC_i |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SN base_i |k| Mask [0-14] |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| Mask [15-45] (optional) |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|k| |
++-+ Mask [46-108] (optional)
+|
+| |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| ... next in SSRC_i ... |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 12: Protocol format for F=0
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>如果 F-bit 被设置成 1，它表示被这个特定修复包所保护的源包中的所有 SSRC 使用固定 offset&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|1|0| P|X| CC |M| PT recovery | length recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| TS recovery |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRCCount | reserved |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRC_i |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SN base_i | M (columns) | N (rows) |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 13: Protocol format for F=1
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code>Consequently, the following conditions occur for M and N values:
+If M&amp;gt;0, N=0, is Row FEC, and no column FEC will follow
+Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
+If M&amp;gt;0, N=1, is Row FEC, and column FEC will follow.
+Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
+and more to come
+If M&amp;gt;0, N&amp;gt;1, indicates column FEC of every M packet
+in a group of N packets starting at SN base.
+Hence, FEC = SN+(Mx0), SN+(Mx1), ... , SN+(MxN).
+Figure 14: Interpreting the M and N field values
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>通过设置 R 为 1，F 为 1，这个 FEC 就只保护一个包了。比如，SN Base_i 表示了 FEC 载荷承载着的包，这是一种非常有效的重传包的方法。特别注意的是，解析这种包非常特别。序列号（SN base_i）替代了 FEC 包中 length recovery 字段。SSRC_count 应该为 1，M 和 N 应该为 0，并且 FEC 头的 reserved bits 也不复存在。通过这个方法我们可以省下 64 bits。&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|1|1| P|X| CC |M| PT recovery | sequence number |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| timestamp |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| SSRC |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Retransmission |
+: payload :
+| |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 15: Protocol format for Retransmission
+&lt;/code>&lt;/pre>&lt;p>在 Section 6.2 里描述了设置这些字段的细节&lt;/p>
+&lt;p>需要注意的是，mask-based 的方法（与 RFC2733 和 RFC5109 中很相似）可能不是非常有效的指明在当前 source block 中修复包与哪个源包关联。特别的是，对于想使用 large source block size 的应用程序来说，描述源包 - 修复包 的这个关联，所需的 mask 可能大的令人难以接受。&lt;/p>
+&lt;p>[SMPTE2022-1] 中提出的 8 位字段指示一种系统化的方法。 相反，本文档中的方法使用 8 位字段指示受 FEC 数据包保护的数据包偏移量。 [SMPTE2022-1] 中的方法本质上对于常规模式更有效，但不能提供表示其他保护模式的灵活性（比如：staircase）&lt;/p>
+&lt;h1 id="5-payload-format-parameters-载荷格式参数" >5. Payload Format Parameters 载荷格式参数
+&lt;span>
+&lt;a href="#5-payload-format-parameters-%e8%bd%bd%e8%8d%b7%e6%a0%bc%e5%bc%8f%e5%8f%82%e6%95%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。&lt;/p>
+&lt;h2 id="51-media-type-registration---parity-codes-媒体类型注册---奇偶码" >5.1. Media Type Registration - Parity Codes 媒体类型注册 - 奇偶码
+&lt;span>
+&lt;a href="#51-media-type-registration---parity-codes-%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%e6%b3%a8%e5%86%8c---%e5%a5%87%e5%81%b6%e7%a0%81">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h2 id="52-mapping-to-sdp-parameters-到-sdp-参数的映射" >5.2. Mapping to SDP Parameters 到 SDP 参数的映射
+&lt;span>
+&lt;a href="#52-mapping-to-sdp-parameters-%e5%88%b0-sdp-%e5%8f%82%e6%95%b0%e7%9a%84%e6%98%a0%e5%b0%84">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>The mapping of the media type specification for “non-interleaved-parityfec” and “interleaved-parityfec” and their parameters in SDP is as follows:&lt;/p>
+&lt;ul>
+&lt;li>The media type (e.g., “application”) goes into the “m=” line as the media name.&lt;/li>
+&lt;li>The media subtype goes into the “a=rtpmap” line as the encoding name. The RTP clock rate parameter (“rate”) also goes into the “a=rtpmap” line as the clock rate.&lt;/li>
+&lt;li>The remaining required payload-format-specific parameters go into the “a=fmtp” line by copying them directly from the media type string as a semicolon-separated list of parameter=value pairs.&lt;/li>
+&lt;/ul>
+&lt;p>有关 SDP 的例子请看 Section 7.&lt;/p>
+&lt;h3 id="521-offer-answer-model-considerations" >5.2.1. Offer-Answer Model Considerations
+&lt;span>
+&lt;a href="#521-offer-answer-model-considerations">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>When offering 1-D interleaved parity FEC over RTP using SDP in an Offer/Answer model [RFC3264], the following considerations apply:&lt;/p>
+&lt;ul>
+&lt;li>不同 L 和 D 的组合会产生不同的 FEC 数据，并且无法与其它组合相互使用。发送者可能会想要提供多个有效的 L 和 D 的组合供接收者使用。接收者 SHOULD 正常选择有足够的 interleaving 的 offer。如果多个 offer 存在，接收者可能选择最低开小的或需要最小缓冲区的 offer。具体的选择跟场景要求有关&lt;/li>
+&lt;li>Repair-window 的值依赖于 L 和 D 的值，不能随便写。更具体的来讲，L 和 D 的值决定了 repair-window 大小的下限（最小值）。repair-window 的上限并不由 L 和 D 来决定。&lt;/li>
+&lt;li>在相同的 L 和 D 条件下，就算 repair-window 的值不同，也会产生相同的 FEC 数据，不过，不同的 repair-window 和 相同 L/D 的组合，仍然被视作不同的 offer。repair-window 会影响到传输源包的最大延迟，因为直接影响到了 receiver 的 buffering 的条件，所以在选择 offer 的时候 receiver 必须考虑延迟。&lt;/li>
+&lt;li>There are no optional format parameters defined for this payload. Any unknown option in the offer MUST be ignored and deleted from the answer. 如果客户端不想要 FEC，那么 answer 里就会把 FEC 去掉&lt;/li>
+&lt;/ul>
+&lt;p>这里说的 offer 指的是 L、D 和 repair-window 的组合&lt;/p>
+&lt;h3 id="522-declarative-considerations" >5.2.2. Declarative Considerations
+&lt;span>
+&lt;a href="#522-declarative-considerations">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>In declarative usage, like SDP in the Real-time Streaming Protocol (RTSP) [RFC2326] or the Session Announcement Protocol (SAP) [RFC2974], the following considerations apply:&lt;/p>
+&lt;ul>
+&lt;li>载荷的格式配置参数全都是声明的，参与者 MUST 使用在 session 中被提供的配置&lt;/li>
+&lt;li>通过声明多个 RTP 载荷类型，一个以上的配置可能被提供。在这种情况下，receivers 应当选择一个最适合的 repair flow&lt;/li>
+&lt;/ul>
+&lt;h1 id="6-protection-and-recovery-procedures---parity-codes-保护和恢复过程---奇偶码" >6. Protection and Recovery Procedures - Parity Codes 保护和恢复过程 - 奇偶码
+&lt;span>
+&lt;a href="#6-protection-and-recovery-procedures---parity-codes-%e4%bf%9d%e6%8a%a4%e5%92%8c%e6%81%a2%e5%a4%8d%e8%bf%87%e7%a8%8b---%e5%a5%87%e5%81%b6%e7%a0%81">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这一章提供了对 1-D 和 2-D 奇偶码的完整定义和它们的 RTP 载荷格式&lt;/p>
+&lt;h2 id="61-overview-概览" >6.1. Overview 概览
+&lt;span>
+&lt;a href="#61-overview-%e6%a6%82%e8%a7%88">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>下面的章节详细介绍了生成修复包、通过修复包重建源包的具体步骤。&lt;/p>
+&lt;h2 id="62-repair-packet-construction-修复包的构造" >6.2. Repair Packet Construction 修复包的构造
+&lt;span>
+&lt;a href="#62-repair-packet-construction-%e4%bf%ae%e5%a4%8d%e5%8c%85%e7%9a%84%e6%9e%84%e9%80%a0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>修复包的头部已经在 Section 4.2 有了详细说明&lt;/p>
+&lt;p>FEC 的头部包含 12 字节（有可能扩展到 28 字节）。通过对每个源包的每一位进行异或操作来生成特定的修复包。给你一个修复包，那么源包的集合，可以通过 Section 6.3.1 中的公式计算出来。&lt;/p>
+&lt;p>通过将每个源包按照以下字段的顺序拼接在一起，我们就可以生成 bit string。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>RTP 头部的前 64 bits&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>无符号网络序的 16-bit 源包字节大小除以 12（因为固定的 RTP 头）。说人话就是网络序的 uin16_t 的变量 = 源包字节数 / 12&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>比如以下参数的长度和（如果有的话）：CSRC list，extension header, RTP payload 和 RTP padding (16 bits).&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>通过对源包的 bit string 应用奇偶操作，我们就可以生成 FEC bit string。&lt;/strong>&lt;/p>
+&lt;p>FEC 头是从 FEC bit string 按照以下结构生成的：&lt;/p>
+&lt;ul>
+&lt;li>忽略掉 FEC bit string 中的 2 bits 最高有效位。设置 FEC 头的 MSK bits 成合适的值，比如，它跟 bitmask 长度有关&lt;/li>
+&lt;li>FEC bit string 的下一位 被写入 FEC 头的 P recovery bit&lt;/li>
+&lt;li>下 1 位被写入 FEC 头的 X recovery bit&lt;/li>
+&lt;li>下 4 位被写入 FEC 头的 CC recovery field&lt;/li>
+&lt;li>下 1 位被写入 FEC 头的 M recovery bit&lt;/li>
+&lt;li>下 7 位被写入 FEC 头的 PT recovery field&lt;/li>
+&lt;li>下 16 位被跳过&lt;/li>
+&lt;li>下 32 位被写入 FEC 头的 TS recovery field&lt;/li>
+&lt;li>下 16 位被写入 FEC 头的 length recovery field&lt;/li>
+&lt;li>根据选择的 MSK 值， bit mask of appropriate length will be set to the appropriate values.&lt;/li>
+&lt;/ul>
+&lt;p>就像 Section 4.2 中描述的那样，FEC 头部的 SN base field 必须设置成 the lowest sequence number of the source packets protected by this repair packet. 当 MSK 表示一个 bitmask（MSK=00,01,10）的时候，SN base field corresponds to the lowest sequence number indicated in the bitmask. 当 MSK=11，以下的情况：&lt;/p>
+&lt;ol>
+&lt;li>对于 interleaved FEC 包，这对应着源包的最低 sequence number，按照列进行构建&lt;/li>
+&lt;li>对于 non-interleaved FEC 包，SN base field 必须设置成源包的最低 sequence number，按照行进行构建。&lt;/li>
+&lt;/ol>
+&lt;p>修复包的载荷数据包含了源包 XOR 之后的数据。如果源包的载荷长度各不相同，那么短的包必须补零补到长的包那么长。&lt;/p>
+&lt;p>由于这种可能的 padding 和 强制的 FEC 头，一个修复包的大小要比源包的大。&lt;strong>这可能导致修复包的大小超过 MTU。&lt;/strong>&lt;/p>
+&lt;h2 id="63-source-packet-reconstruction-重建源包" >6.3. Source Packet Reconstruction 重建源包
+&lt;span>
+&lt;a href="#63-source-packet-reconstruction-%e9%87%8d%e5%bb%ba%e6%ba%90%e5%8c%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>这一小节描述了重建丢失源包的修复过程。&lt;/p>
+&lt;p>修复过程有两步：&lt;/p>
+&lt;ol>
+&lt;li>FEC decoder 决定应该使用哪一个源包和修复包来恢复丢失的包&lt;/li>
+&lt;li>decoder 修复丢失的包，包括 RTP 头部和 RTP 载荷&lt;/li>
+&lt;/ol>
+&lt;p>在下面几个小节，我们描述了一些步骤一和步骤二的 RECOMMENDED 的算法。基于这个实现，某些算法可能会被抛弃使用。&lt;/p>
+&lt;p>然而，最终实现 MUST 与下面的描述一致。&lt;/p>
+&lt;p>注意，不管 FEC 保护应用在行还是列，1-D 奇偶码所使用的算法相同。而 2-D 奇偶码，通常需要多次迭代，这个迭代解码算法被 Section 6.3.4 进一步解释。&lt;/p>
+&lt;h3 id="631-associating-the-source-and-repair-packets-源包与修复包之间的关联" >6.3.1. Associating the Source and Repair Packets 源包与修复包之间的关联
+&lt;span>
+&lt;a href="#631-associating-the-source-and-repair-packets-%e6%ba%90%e5%8c%85%e4%b8%8e%e4%bf%ae%e5%a4%8d%e5%8c%85%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e8%81%94">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>根据&lt;strong>修复包&lt;/strong> p ，得出&lt;strong>源包&lt;/strong>的集合 T (p)。&lt;/p>
+&lt;p>注意的是，对于 L 列、 D 行的 source block， 集合 T 包含了 D 个源包 + 一个列修复包，还有 L 个源包 + 一个行修复包&lt;/p>
+&lt;p>列修复包：通过一列源包计算出来的修复包&lt;/p>
+&lt;p>行修复包：通过一行源包计算出来的修复包&lt;/p>
+&lt;p>集合 T 中如果只丢了一个源包，那么数据可以被恢复。如果集合 T 中丢失超过一个源包，那么 1-D FEC protection 将失效。&lt;/p>
+&lt;h4 id="6311-signaled-in-sdp-在-sdp-中的交互" >6.3.1.1. Signaled in SDP 在 SDP 中的交互
+&lt;span>
+&lt;a href="#6311-signaled-in-sdp-%e5%9c%a8-sdp-%e4%b8%ad%e7%9a%84%e4%ba%a4%e4%ba%92">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h4>&lt;p>第一步是关联源包和修复包。如果 endpoint 整个依赖 out-of-band signaling（MSK=11, M=N=0），可以从 SDP 描述的 media type parameters 推断出这个信息。进一步来讲，RTP 头部的 payload type field 可以辅助 receiver 去 distinguish 交错的或非交错的 FEC 包。&lt;/p>
+&lt;p>数学上来讲，对于接收到的任意的修复包 p， 我们可以确定出被保护的源包的 sequence number：
+$$
+p_snb + i \times {X_1} \left( modulo 65535 \right)
+$$
+p*_snb 表示 p* 的 FEC 头，里面的 SN base filed 的。&lt;/p>
+&lt;p>X_1，如果 FEC 包是交错式的，就被设置成 L，如果是非交错式的，那就是 1
+$$
+0 \le i \lt X_2
+$$
+X_2，如果 FEC 包是交错式的，就被设置成 D，如果是非交错式的，那就是 L&lt;/p>
+&lt;h4 id="6312-using-bitmasks" >6.3.1.2. Using bitmasks
+&lt;span>
+&lt;a href="#6312-using-bitmasks">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h4>&lt;p>当使用固定大小的 bitmasks （16-, 48-, 122-bits）的时候，FEC 头部的 SN base field 表示 lowest sequence number of the 源包 that forms the FEC packet.&lt;/p>
+&lt;p>bitmask 中的 “1” 其实是从 SN base 开始的 offset，表示被 FEC 保护的剩余 packet。&lt;/p>
+&lt;p>bitmasks 有能力表示任意的 protection patterns，比如 1-D interleaved，1-D non-interleaved, 2-D, staircase。&lt;/p>
+&lt;h4 id="6313-using-m-and-offsets" >6.3.1.3. Using M and Offsets
+&lt;span>
+&lt;a href="#6313-using-m-and-offsets">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h4>&lt;p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&amp;gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset&lt;/p>
+&lt;p>通过组合 interleaved 和 non-interleaved FEC 包，我们可以组成 2-D protection patterns。&lt;/p>
+&lt;p>数学上来讲，对于任意接收到的修复包 p*，我们可以通过以下方式确定被保护的源包的 sequence number：&lt;/p>
+&lt;pre tabindex="0">&lt;code>When N = 0:
+p*_snb, p*_snb+1,..., p*_snb+(M-1), p*_snb+M
+When N &amp;gt; 0:
+p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
+&lt;/code>&lt;/pre>&lt;h3 id="632-recovering-the-rtp-header-恢复-rtp-头" >6.3.2. Recovering the RTP Header 恢复 RTP 头
+&lt;span>
+&lt;a href="#632-recovering-the-rtp-header-%e6%81%a2%e5%a4%8d-rtp-%e5%a4%b4">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>略过，因为不需要实现&lt;/p>
+&lt;h1 id="7-sdp-examples-有关-sdp-的例子" >7. SDP Examples 有关 SDP 的例子
+&lt;span>
+&lt;a href="#7-sdp-examples-%e6%9c%89%e5%85%b3-sdp-%e7%9a%84%e4%be%8b%e5%ad%90">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。&lt;/p>
+&lt;h2 id="71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping" >7.1. Example SDP for Flexible FEC Protection with in-band SSRC mapping
+&lt;span>
+&lt;a href="#71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>在这个例子里，我们有一个视频源流和一个 FEC 修复包流。源和修复包流被复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
+&lt;pre tabindex="0">&lt;code>v=0
+o=mo 1122334455 1122334466 IN IP4 fec.example.com
+s=FlexFEC minimal SDP signalling Example
+t=0 0
+m=video 30000 RTP/AVP 96 98
+c=IN IP4 143.163.151.157
+a=rtpmap:96 VP8/90000
+a=rtpmap:98 flexfec/90000
+a=fmtp:98; repair-window=200ms
+&lt;/code>&lt;/pre>&lt;h2 id="72-example-sdp-for-flex-fec-protection-with-explicit-signalling-in-the-sdp" >7.2. Example SDP for Flex FEC Protection with explicit signalling in the SDP
+&lt;span>
+&lt;a href="#72-example-sdp-for-flex-fec-protection-with-explicit-signalling-in-the-sdp">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。&lt;/p>
+&lt;p>我们跟 &lt;code>a=ssrc-group:FEC-FR 1234 2345&lt;/code> 构建一个 FEC groups。源和修复包流复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
+&lt;pre tabindex="0">&lt;code>v=0
+o=ali 1122334455 1122334466 IN IP4 fec.example.com
+s=2-D Parity FEC with no in band signalling Example
+t=0 0
+m=video 30000 RTP/AVP 100 110
+c=IN IP4 233.252.0.1/127
+a=rtpmap:100 MP2T/90000
+a=rtpmap:110 flexfec/90000
+a=fmtp:110 L:5; D:10; ToP:2; repair-window:200000
+a=ssrc:1234
+a=ssrc:2345
+a=ssrc-group:FEC-FR 1234 2345
+&lt;/code>&lt;/pre>&lt;h1 id="8-congestion-control-considerations-拥塞控制的考虑" >8. Congestion Control Considerations 拥塞控制的考虑
+&lt;span>
+&lt;a href="#8-congestion-control-considerations-%e6%8b%a5%e5%a1%9e%e6%8e%a7%e5%88%b6%e7%9a%84%e8%80%83%e8%99%91">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。&lt;/p>
+&lt;p>特别的是，在带宽限制的网络中，FEC 修复包的流动，可能成为带宽消耗的罪魁祸首，有可能会堵塞网络。在这个情况里，应用程序 MUST NOT 随意增加 FEC 保护的次数，因为这么做会有可能导致拥塞崩溃（Congestion Collapse）。&lt;/p>
+&lt;p>Congestive collapse (or congestion collapse) is the condition in which congestionprevents or limits useful communication.&lt;/p>
+&lt;p>如果你真的很想要 FEC 保护，那么你或许可以在源码率降低的时候采用更强的 FEC 保护。&lt;/p>
+&lt;p>在一个网络友好的实现里，如果应用程序知道 发送 / 接受 FEC 修复流 并不能帮助恢复丢失的包的时候，应用程序 SHOULD NOT 发送 / 接收 FEC 修复流。然而，如果考虑用于带宽估计，而不是通过推测方式探寻额外的容量，应用程序 MAY still continue 去使用 FEC。这里 RECOMMENDED 去基于应用程序观察到的丢包率，动态地调整 FEC 保护。&lt;/p>
+&lt;p>在多播的情景里，为每一个接收端去优化 FEC 保护是非常困难的。如果你有一堆不同的接受者，并且这些接受者都要求使用不同的 FEC 保护级别的话，这里 RECOMMENDED 发送者提供多个修复流，每个修复流都是不同的 FEC 保护级别，让接受者加入对应的多播 session 去接收最适合他们的修复流。&lt;/p>
+&lt;p>编者注：2-D 的奇偶码应该也加入到 “多余的拥塞控制考虑” 里&lt;/p>
+&lt;p>（不是译者注）&lt;/p>
+&lt;h1 id="9-security-considerations-安全考虑" >9. Security Considerations 安全考虑
+&lt;span>
+&lt;a href="#9-security-considerations-%e5%ae%89%e5%85%a8%e8%80%83%e8%99%91">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="10-iana-considerations" >10. IANA Considerations
+&lt;span>
+&lt;a href="#10-iana-considerations">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;pre tabindex="0">&lt;code>New media subtypes are subject to IANA registration. For the
+registration of the payload formats and their parameters introduced
+in this document, refer to Section 5.
+&lt;/code>&lt;/pre>&lt;h1 id="11-acknowledgements" >11. Acknowledgements
+&lt;span>
+&lt;a href="#11-acknowledgements">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;pre tabindex="0">&lt;code>Some parts of this document are borrowed from [RFC5109]. Thus, the
+author would like to thank the editor of [RFC5109] and those who
+contributed to [RFC5109].
+Thanks to Bernard Aboba , Rasmus Brandt , Roni Even , Stefan Holmer ,
+Jonathan Lennox , and Magnus Westerlund for providing valuable
+feedback on earlier versions of this draft.
+&lt;/code>&lt;/pre>&lt;p>剩下的我就不翻译了。
+转载请注明作者 Junyi 并且附带原文链接！&lt;/p>
+&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+&lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
+&lt;h1 id="说在前面" >说在前面
+&lt;span>
+&lt;a href="#%e8%af%b4%e5%9c%a8%e5%89%8d%e9%9d%a2">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
+&lt;p>翻译中遇到的问题：&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> 文章不能很好区分 indication 和 indication transaction&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 存在不理解的内容以该格式进行标记 &lt;span style="color: red;">?? 不理解的内容？？&lt;/span>&lt;/li>
+&lt;/ul>
+&lt;p>还未检查的项目：&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> 翻译的名词不会一个单词多个翻译。保证一致性&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 句子结束的句号是否完整&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 单词左右两边是否有空格&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 大小写、拼写问题&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> 或、且，是否全都是左右两边加逗号&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>译者注：&lt;/strong>&lt;/p>
+&lt;p>本翻译仅供参考，目的是让读者更好地理解 STUN 协议（&lt;a href="">RFC 5389&lt;/a>）。&lt;/p>
+&lt;p>&lt;strong>我个人&lt;/strong>对翻译的要求是逻辑严密准确，且文章&lt;strong>核心内容&lt;/strong>与英文原版一致。&lt;/p>
+&lt;p>为了更方便读者理解，本翻译 &lt;strong>不保证&lt;/strong> 部分措辞细节与英文原版一致。&lt;/p>
+&lt;p>为了保证文章的准确性，个别名词将不会进行翻译。&lt;/p>
+&lt;p>同样，为了保证文章的准确性，每句话的翻译都会附上英文原版供读者参考。&lt;/p>
+&lt;p>译者语文和英语的水平都不高，再次强调，本翻译仅供参考。&lt;/p>
+&lt;p>译者：Junyi&lt;/p>
+&lt;p>联系邮箱：hhh#u.nus.edu (自行替换成 at 符号)&lt;/p>
+&lt;h1 id="stun" >STUN
+&lt;span>
+&lt;a href="#stun">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
+&lt;p>最新定义在 &lt;a href="https://datatracker.ietf.org/doc/rfc5389/">RFC 5389&lt;/a>&lt;/p>
+&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+&lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透条件检测工具。&lt;/p>
+&lt;p>STUN 最初定义在 RFC 3489，有时我们也说这个最初版本为 “经典 STUN” （classic STUN）&lt;/p>
+&lt;p>在那时候其实已经是一个完整的 NAT 穿透问题的解决方案了，客户端可以去发现自己是否在 NAT 之后，确定其所在 NAT 的类型，发现其经过 NAT 转换后的 IP 地址和端口号，利用这个 IP 地址和端口号执行 SIP（Session Initiation Protocol）。&lt;/p>
+&lt;p>&lt;strong>听起来挺美好的哈，但是随着我们的应用部署，发现经典的 STUN 有时候根本不工作！&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过 STUN 获取到的 IP 地址和端口信息有时候可以让两个 peer 互通，有时候不行&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在 peer 不互通时，经典 STUN 没有提供补救措施&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在有些 NAT 内，经典 STUN 的算法是错误的&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>经典 STUN 存在安全漏洞（攻击者可以给 peer 提供错误的映射地址、拓扑、约束）。这个问题无法从根本解决，我们最新的协议也只能缓解这个问题。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>基于以上原因，RFC 3489 &lt;strong>已经被废弃&lt;/strong>。&lt;/p>
+&lt;h1 id="3-操作概述-overview-of-operation" >3. 操作概述 Overview of Operation
+&lt;span>
+&lt;a href="#3-%e6%93%8d%e4%bd%9c%e6%a6%82%e8%bf%b0-overview-of-operation">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;blockquote>
+&lt;p>This section is descriptive only.&lt;/p>
+&lt;/blockquote>
+&lt;p>本节仅作描述性用途。&lt;/p>
+&lt;blockquote>
+&lt;p>STUN is a client-server protocol.&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 是一种 client-server 协议，换句话讲，运行 STUN 协议实现的主机既可以充当客户端也可以充当服务器。&lt;/p>
+&lt;blockquote>
+&lt;p>It supports two types of transactions.&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 支持两种类型的事务。&lt;/p>
+&lt;blockquote>
+&lt;p>One is a &lt;strong>request/response transaction&lt;/strong> in which a client sends a request to a server, and the server returns a response.&lt;/p>
+&lt;/blockquote>
+&lt;p>其中一种是&lt;strong>请求/响应型事务&lt;/strong>。就是说客户端发送一个 request 给服务器，服务器返回给客户端一个 response 。&lt;/p>
+&lt;blockquote>
+&lt;p>The second is an &lt;strong>indication transaction&lt;/strong> in which either agent – client or server – sends an indication that generates no response.&lt;/p>
+&lt;/blockquote>
+&lt;p>另一种是&lt;strong>指示型事务&lt;/strong>。客户端或服务器只是??发送一个指示，并没有任何 response。??&lt;/p>
+&lt;blockquote>
+&lt;p>Both types of transactions include a &lt;strong>transaction ID&lt;/strong>, which is a randomly selected 96-bit number.&lt;/p>
+&lt;/blockquote>
+&lt;p>上述的两种事务类型，都包含一个随机选择的96位的事务ID。&lt;/p>
+&lt;blockquote>
+&lt;p>For &lt;strong>request/response transactions&lt;/strong>, this transaction ID allows the client to associate the response with the request that generated it; for &lt;strong>indications&lt;/strong>, the transaction ID serves as a debugging aid.&lt;/p>
+&lt;/blockquote>
+&lt;p>对于&lt;strong>请求/响应型事务&lt;/strong>，??事务ID允许客户端将其生成的请求事务与收到的响应事务相关联。??&lt;/p>
+&lt;p>对于&lt;strong>指示型事务&lt;/strong>，事务ID充当调试工具的角色。&lt;/p>
+&lt;blockquote>
+&lt;p>All STUN messages start with a fixed header that includes a &lt;strong>method&lt;/strong>, a &lt;strong>class&lt;/strong>, and the &lt;strong>transaction ID&lt;/strong>.&lt;/p>
+&lt;/blockquote>
+&lt;p>所有的 STUN 消息都以一个固定的头部开始。这个头部包含&lt;strong>方法&lt;/strong>、&lt;strong>类&lt;/strong>、&lt;strong>事务ID&lt;/strong>[^1]&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;blockquote>
+&lt;p>The &lt;strong>method&lt;/strong> indicates which of the various requests or indications this is; this specification defines just one method, Binding, but other methods are expected to be defined in other documents.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>方法&lt;/strong>表示这是哪种请求，或，这是哪种&lt;strong>指示&lt;/strong>。在当前您阅读的这个 RFC 规范里，我们只规定了一种方法：Binding。（其他的方法有望在其他文档中定义）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;blockquote>
+&lt;p>The &lt;strong>class&lt;/strong> indicates whether this is a request, a &lt;strong>success response&lt;/strong>, an &lt;strong>error response&lt;/strong>, or an &lt;strong>indication&lt;/strong>.&lt;/p>
+&lt;/blockquote>
+&lt;p>类表示这是一个请求、成功的响应、错误的响应还是一个指示。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Following the fixed header comes zero or more attributes, which are &lt;strong>Type-Length-Value&lt;/strong> extensions that convey additional information for the specific message.&lt;/p>
+&lt;/blockquote>
+&lt;p>紧跟在固定头部后面的是 0 个或多个 &lt;strong>Type-Length-Value&lt;/strong> 扩展属性。不用细说，相信你也明白这个扩展属性的用途是为了传递附加信息。&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>This document defines a single method called Binding. The Binding method can be used either in request/response transactions or in indication transactions.&lt;/p>
+&lt;/blockquote>
+&lt;p>这份文档只定义了 Binding 这个方法，这个方法既可以用在请求/响应型事务，又可以用在指示型事物。&lt;/p>
+&lt;blockquote>
+&lt;p>When used in request/response transactions, the Binding method can be used to determine the particular “binding” a NAT has allocated to a STUN client. When used in either request/ response &lt;strong>or&lt;/strong> in indication transactions, the Binding method can also be used to keep these “bindings” alive.&lt;/p>
+&lt;/blockquote>
+&lt;p>当在请求/响应型事务中使用 Binding 方法时，它可以用来确定一个 NAT 分配给 STUN 客户端的特定 “绑定”。&lt;/p>
+&lt;p>当在请求/响应型事务&lt;strong>或&lt;/strong>指示型事物中使用 Binding 方法时，这个方法还可以用来维持这些特定 “绑定” 是活动的。&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>In the Binding request/response transaction, a Binding request is sent from a STUN client to a STUN server.&lt;/p>
+&lt;/blockquote>
+&lt;p>在使用 Binding 方法的请求/响应型事务中，一条 Binding 请求 会从 STUN 客户端发往 STUN 服务器。&lt;/p>
+&lt;blockquote>
+&lt;p>When the Binding request arrives at the STUN server, it may have passed through one or more NATs between the STUN client and the STUN server (in Figure 1, there were two such NATs).&lt;/p>
+&lt;/blockquote>
+&lt;p>一条 Binding 请求 到达 STUN 服务器的过程里，可能会穿越 1 个或多个 NAT 设备。（在 Figure 1 中穿越了两个 NAT 设备）&lt;/p>
+&lt;blockquote>
+&lt;p>As the Binding request message passes through a NAT, the NAT will modify the source transport address (that is, the source IP address and the source port) of the packet. As a result, the source transport address of the request received by the server will be the public IP address and port created &lt;strong>by the NAT closest to the server&lt;/strong>. This is called a reflexive transport address.&lt;/p>
+&lt;/blockquote>
+&lt;p>在一个 Bingding 请求 数据包经过 NAT 的时候，NAT 会修改该数据包的来源地址和端口。&lt;/p>
+&lt;p>对于服务器来说，接收到的这份数据包的来源地址和端口其实是&lt;strong>离服务器最近的 NAT的公网 IP 地址和端口&lt;/strong> 。&lt;/p>
+&lt;p>这叫做 reflexive transport address。&lt;/p>
+&lt;p>??这个请求数据包的source地址叫做 reflexive transport address？??&lt;/p>
+&lt;blockquote>
+&lt;p>The STUN server copies that source transport address into an XOR-MAPPED-ADDRESS attribute in the STUN Binding response and sends the Binding response back to the STUN client. As this packet passes back through a NAT, the NAT will modify the &lt;strong>destination&lt;/strong> transport address in the IP header, but the transport address in the XOR-MAPPED-ADDRESS attribute within the body of the STUN response will remain untouched.&lt;/p>
+&lt;/blockquote>
+&lt;p>接着，STUN 服务器会产生一个 Binding 响应，然后复制收到数据包的 来源地址和端口 到 Binding 响应 里的一个叫做 XOR-MAPPED-ADDRESS 的属性中，然后将 Binding 响应 发回 STUN 客户端。&lt;/p>
+&lt;p>这个响应数据包也会经过 NAT，NAT 会修改该数据包的&lt;strong>目标&lt;/strong>地址和端口。&lt;/p>
+&lt;p>注意，NAT 只会修改 IP 报头的地址和端口（来源或目标），不会修改 XOR-MAPPED-ADDRESS 中的内容。也就是说，NAT 只修改头部，不修改 Payload。&lt;/p>
+&lt;blockquote>
+&lt;p>In this way, the client can learn its reflexive transport address allocated by the outermost NAT with respect to the STUN server.&lt;/p>
+&lt;/blockquote>
+&lt;p>通过这种方式，客户端可以了解到自己 最外部 NAT 给自己分配的的 reflexive transport address。&lt;/p>
+&lt;p>这里说的最外部，指的是相对于 STUN server 的最外部。套娃你懂吧，STUN server 有可能在一个非常大的子网里，这个时候客户端了解到的只是离 STUN 最近的那个 NAT 反射回的地址。&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>In some usages, STUN must be multiplexed with other protocols (e.g., [MMUSIC-ICE], [SIP-OUTBOUND]). In these usages, there must be a way to inspect a packet and determine if it is a STUN packet or not.&lt;/p>
+&lt;/blockquote>
+&lt;p>在某些情况下， STUN 必须与其他协议复用（比如 MMUSIC-ICE, SIP-OUTBOUND）。在这些情况下，必须有一种方式来检测数据包是否为 STUN 协议类型。&lt;/p>
+&lt;blockquote>
+&lt;p>STUN provides three fields in the STUN header with fixed values that can be used for this purpose. If this is not sufficient, then STUN packets can also contain a FINGERPRINT value, which can further be used to distinguish the packets.&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 在头部提供了三个字段用于其特殊情况下检测协议类型的目的。如果这三个字段仍然不够完成检测工作，那么 STUN 数据包中还可以通过包含 FINGERPRINT 值 来进一步区分数据包的协议类型。&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>STUN defines a set of optional procedures that a usage can decide to use, called mechanisms. These mechanisms include DNS discovery, a redirection technique to an alternate server, a fingerprint attribute for demultiplexing, and two authentication and message-integrity exchanges. The authentication mechanisms revolve around the use of a username, password, and message-integrity value. Two authentication mechanisms, the long-term credential mechanism and the short-term credential mechanism, are defined in this specification.&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 定义了一系列的可选操作，称为机制。这些机制包含了：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>DNS发现机制&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>备选服务器的重定向机制&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>解多路复用[^2]的 fingerprint 属性机制&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>双授权机制&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>信息完整性交换机制&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>其中，双授权机制，在本手册中定义为长期凭据机制和短期凭据机制。&lt;/p>
+&lt;blockquote>
+&lt;p>Each usage specifies the mechanisms allowed with that usage.&lt;/p>
+&lt;/blockquote>
+&lt;p>不同的使用场景决定了这些机制的具体用法。换句话讲，不同的使用场景被允许使用的机制是不同的。&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>In the long-term credential mechanism, the client and server share a pre-provisioned username and password and perform a digest challenge / response exchange inspired by (but differing in details) to the one defined for HTTP [RFC2617].&lt;/p>
+&lt;/blockquote>
+&lt;p>在长期凭据机制里，客户端和服务器共享一个预先分配好的用户名和密码，然后执行 digest challenge / response exchange。&lt;/p>
+&lt;p>这个长期凭据机制受到 RFC 2617 的启发，但是具体细节上与 RFC 2617 不同。&lt;/p>
+&lt;blockquote>
+&lt;p>In the short-term credential mechanism, the client and the server exchange a username and password through some out-of-band method prior to the STUN exchange. For example, in the ICE usage [MMUSIC-ICE] the two endpoints use out-of-band signaling to exchange a username and password. These are used to integrity protect and authenticate the request and response. There is no challenge or nonce used.&lt;/p>
+&lt;/blockquote>
+&lt;p>在短期凭据机制里，客户端和服务器在 STUN 交换 之前，通过一些 out-of-band 的方式[^3]来交换用户名和密码。举个例子，在 ICE中，两个端点使用 out-of-band 信令 来交换用户名和密码。它们被用来保证消息的完整性和对请求和响应进行授权。没有使用 challenge 或 nonce[^4]。&lt;/p>
+&lt;h2 id="4-术语-terminology-4-术语-terminology4-术语-terminology" >&lt;a href="#4-%E6%9C%AF%E8%AF%AD-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
+&lt;span>
+&lt;a href="#4-%e6%9c%af%e8%af%ad-terminology-4-%e6%9c%af%e8%af%ad-terminology4-%e6%9c%af%e8%af%ad-terminology">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;blockquote>
+&lt;p>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119 [RFC2119] and indicate requirement levels for compliant STUN implementations.&lt;/p>
+&lt;/blockquote>
+&lt;p>在这份文档中，“**&lt;em>必须&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必须不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必需要&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>不应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>建议&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>或许&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>可选&lt;/em>**”，将按照 BCP 14，RFC 2119 来解释说明 STUN 所需的的实现级别。&lt;/p>
+&lt;p>因为中英文单词差异，所以在本翻译中，涉及到的上述词汇都会用**&lt;em>粗体倾斜下划线&lt;/em>**来表示。&lt;/p>
+&lt;h2 id="5-定义-definitions-5-定义-definitions5-定义-definitions" >&lt;a href="#5-%E5%AE%9A%E4%B9%89-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
+&lt;span>
+&lt;a href="#5-%e5%ae%9a%e4%b9%89-definitions-5-%e5%ae%9a%e4%b9%89-definitions5-%e5%ae%9a%e4%b9%89-definitions">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;blockquote>
+&lt;p>STUN Agent: A STUN agent is an entity that implements the STUN protocol. The entity can be either a STUN client or a STUN server.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>STUN 代理&lt;/strong>：一个实现了 STUN 协议的实体被称为 STUN 代理。（既可以为客户端又可以为服务器）&lt;/p>
+&lt;blockquote>
+&lt;p>STUN Client: A STUN client is an entity that sends STUN requests and receives STUN responses. A STUN client can also send indications. In this specification, the terms STUN client and client are synonymous.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>STUN 客户端&lt;/strong>：一个可以发送 STUN 请求，且，接受 STUN 响应的实体，被称为 STUN 客户端。STUN 客户端也可以发送指示[^5]。您可以理解 STUN 客户端和客户端是同义词。&lt;/p>
+&lt;blockquote>
+&lt;p>STUN Server: A STUN server is an entity that receives STUN requests and sends STUN responses. A STUN server can also send indications. In this specification, the terms STUN server and server are synonymous.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>STUN 服务器&lt;/strong>：一个可以接收 STUN 请求，且，发送 STUN 响应的实体，被称为 STUN 服务器。STUN 服务器也可以发送指示[^5]。您可以理解 STUN 服务器和服务器是同义词。&lt;/p>
+&lt;blockquote>
+&lt;p>Transport Address: The combination of an IP address and port number (such as a UDP or TCP port number).&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>传输地址&lt;/strong>：IP地址和端口的组合被称为传输地址。&lt;/p>
+&lt;blockquote>
+&lt;p>Reflexive Transport Address: A transport address learned by a client that identifies that client as seen by another host on an IP network, typically a STUN server. When there is an intervening NAT between the client and the other host, the reflexive transport address represents the mapped address allocated to the client on the public side of the NAT. Reflexive transport addresses are learned from the mapped address attribute (MAPPED-ADDRESS or XOR-MAPPED-ADDRESS) in STUN responses.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>反射性传输地址&lt;/strong>：一个客户端从“其他主机”那里了解到的自己的传输地址。一般这个“其他主机”指的是 STUN 服务器。当 NAT 干预在客户端与“其他主机”之间时，反射性传输地址代表了这个客户端在 NAT 的公共区域那一侧被分配到的传输地址。这个反射性传输地址被放在 STUN 响应的 MAPPED-ADDRESS 或 XOR-MAPPED-ADDRESS 里。&lt;/p>
+&lt;p>讲人话就是，客户端拿到的公网IP地址和端口号的组合就叫反射性传输地址。（不严谨，要想严谨还是得看上面的定义）&lt;/p>
+&lt;blockquote>
+&lt;p>Mapped Address: Same meaning as reflexive address. This term is retained only for historic reasons and due to the naming of the MAPPED-ADDRESS and XOR-MAPPED-ADDRESS attributes.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>映射地址&lt;/strong>：跟反射性传输地址一样。这是个因为历史原因而保留下来的词。&lt;/p>
+&lt;blockquote>
+&lt;p>Long-Term Credential: A username and associated password that represent a shared secret between client and server. Long-term credentials are generally granted to the client when a subscriber enrolls in a service and persist until the subscriber leaves the service or explicitly changes the credential.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>长期凭据&lt;/strong>：客户端和服务器共享的用户名密码。长期凭据通常在订阅者订阅一个服务时授予给客户端，并且一直持续到订阅者退出服务或显式更改凭据。&lt;/p>
+&lt;blockquote>
+&lt;p>Long-Term Password: The password from a long-term credential.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>长期密码&lt;/strong>：长期凭据所使用的密码。&lt;/p>
+&lt;blockquote>
+&lt;p>Short-Term Credential: A &lt;strong>temporary&lt;/strong> username and associated password that represent a shared secret between client and server. Short-term credentials are obtained through some kind of protocol mechanism between the client and server, preceding the STUN exchange. A short-term credential has an explicit temporal scope, which may be based on a specific amount of time (such as 5 minutes) or on an event (such as termination of a SIP dialog).&lt;/p>
+&lt;p>The specific scope of a short-term credential is defined by the application usage.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>短期凭据&lt;/strong>：客户端和服务器共享的&lt;strong>临时的&lt;/strong>用户名密码。短期凭据一般是在 STUN 交换之前，通过某种协议机制获得的。短期凭据有一个显式的时间范围，可能基于时间量（比如 5 分钟），或，基于事件（比如 SIP 对话的终止）。&lt;/p>
+&lt;p>具体的时间范围，由具体的应用程序使用场景决定。&lt;/p>
+&lt;blockquote>
+&lt;p>Short-Term Password: The password component of a short-term credential.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>短期密码&lt;/strong>：短期凭据所使用的密码。&lt;/p>
+&lt;blockquote>
+&lt;p>STUN Indication: A STUN message that does not receive a response.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>STUN 指示&lt;/strong>：一个不接收响应的 STUN 消息。（说人话就是只发不收，就告诉你一声。）&lt;/p>
+&lt;blockquote>
+&lt;p>Attribute: The STUN term for a Type-Length-Value (TLV) object that can be added to a STUN message. Attributes are divided into two types: comprehension-required and comprehension-optional. STUN agents can safely ignore comprehension-optional attributes they don’t understand, but cannot successfully process a message if it contains comprehension-required attributes that are not understood.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>属性&lt;/strong>：一个 TLV 对象可以被附加在 STUN 消息里。一共有两种类型的属性：必须要理解的和可选理解的。STUN 代理 可以安全的忽略那些它们无法理解的、可选理解的属性，但是无法成功处理它们无法理解的、必须要理解的属性。&lt;/p>
+&lt;blockquote>
+&lt;p>RTO: Retransmission TimeOut, which defines the initial period of time between transmission of a request and the first retransmit of that request.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>RTO&lt;/strong>：重传超时。也就是从请求传输到第一次重新传输之间的时间。&lt;/p>
+&lt;h2 id="6-stun-消息结构-stun-message-structure-6-stun-消息结构-stun-message-structure6-stun-消息结构-stun-message-structure" >&lt;a href="#6-STUN-%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
+&lt;span>
+&lt;a href="#6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure-6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;blockquote>
+&lt;p>STUN messages are encoded in binary using network-oriented format (most significant byte or octet first, also commonly known as big-endian). The transmission order is described in detail in Appendix B of RFC 791 [RFC0791]. Unless otherwise noted, numeric constants are in decimal (base 10).&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 消息使用 MSB 的二进制格式编码（big-endian）。传输顺序在 RFC 791 的 Appendix B 中有详细描述。除了特别注明之外，数字常量都以 10 进制表示。&lt;/p>
+&lt;blockquote>
+&lt;p>All STUN messages MUST start with a 20-byte header followed by zero or more &lt;strong>Attributes&lt;/strong>. The STUN header contains a STUN message type, magic cookie, transaction ID, and message length.&lt;/p>
+&lt;/blockquote>
+&lt;p>所有的 STUN 消息 &lt;strong>&lt;em>必须&lt;/em>&lt;/strong> 以 20-byte 长度的头部开始，紧跟着 0 个 或 多个&lt;strong>属性&lt;/strong>。STUN 头部包含了 STUN 消息类型、magic cookie、事务ID、消息长度。&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-none" data-lang="none"> 0 1 2 3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|0 0| STUN Message Type | Message Length |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| Magic Cookie |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+| |
+| Transaction ID (96 bits) |
+| |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 2: Format of STUN Message Header
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>The most significant 2 bits of every STUN message MUST be zeroes. This can be used to differentiate STUN packets from other protocols when STUN is multiplexed with other protocols on the same port.&lt;/p>
+&lt;/blockquote>
+&lt;p>每条 STUN 消息 的最高 2 bit &lt;strong>&lt;em>必须&lt;/em>&lt;/strong> 为零。这可以在 STUN 与其他协议在同一端口复用时，区分 STUN 数据包。&lt;/p>
+&lt;blockquote>
+&lt;p>The message type defines the message class (request, success response, failure response, or indication) and the message method (the primary function) of the STUN message. Although there are four message classes, there are only two types of transactions in STUN: request/response transactions (which consist of a request message and a response message) and indication transactions (which consist of a single &lt;strong>indication&lt;/strong> message). Response classes are split into error and success responses to aid in quickly processing the STUN message.&lt;/p>
+&lt;/blockquote>
+&lt;p>STUN 消息类型定义了消息所属的类（请求，成功的响应，失败的响应，指示），和，一条 STUN 消息的方法（主要功能）[^6]&lt;/p>
+&lt;p>尽管有四种消息所属的类，但在 STUN 中只有两种事务类型：请求/响应型事务（包含请求消息和响应消息），和，指示型事务（包含单独的一条&lt;strong>STUN 指示&lt;/strong>[^7]消息）。响应类被划分为失败的响应和成功的响应，目的是帮助快速处理 STUN 消息。&lt;/p>
+&lt;p>更直观一点来讲：&lt;/p>
+&lt;ul>
+&lt;li>Transaction Type：请求/响应型事务
+&lt;ul>
+&lt;li>Message Type：请求&lt;/li>
+&lt;li>Message Type：成功的响应&lt;/li>
+&lt;li>Message Type：失败的响应&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Transaction Type：指示型事务
+&lt;ul>
+&lt;li>Message Type：指示&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>The message type field is decomposed further into the following structure:&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>STUN Message Type&lt;/strong> 字段被分解成以下结构：&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-none" data-lang="none"> 0 1
+2 3 4 5 6 7 8 9 0 1 2 3 4 5
++--+--+-+-+-+-+-+-+-+-+-+-+-+-+
+|M |M |M|M|M|C|M|M|M|C|M|M|M|M|
+|11|10|9|8|7|1|6|5|4|0|3|2|1|0|
++--+--+-+-+-+-+-+-+-+-+-+-+-+-+
+Figure 3: Format of STUN Message Type Field
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>Here the bits in the message type field are shown as most significant (M11) through least significant (M0). M11 through M0 represent a 12-bit encoding of the method. C1 and C0 represent a 2-bit encoding of the class. A class of 0b00 is a request, a class of 0b01 is an indication, a class of 0b10 is a success response, and a class of 0b11 is an error response. This specification defines a single method, Binding. &lt;strong>The method and class are orthogonal, so that for each method, a request, success response, error response, and indication are possible for that method.&lt;/strong> Extensions defining new methods MUST indicate which classes are permitted for that method.&lt;/p>
+&lt;/blockquote>
+&lt;p>Message Type 字段从最高有效位（M11）开始到最低有效位（M0）结束。M11 到 M0 一共是 12-bit，这12个bit编码了方法。 C1 和 C- 表示类，由2个bit组成。0b00 表示一个请求，0b01 表示一个指示，0b10 表示一个成功的响应，0b11 表示一个失败的响应。&lt;/p>
+&lt;p>当前文档里定义了一个单独的方法，Bingding。方法和类是??正交??的关系，&lt;strong>因此对于每个方法，都要有请求、指示、成功的响应、失败的响应。&lt;/strong>&lt;/p>
+&lt;p>定义新的扩展方法时 &lt;strong>&lt;em>必须&lt;/em>&lt;/strong> 指明允许哪些类&lt;/p>
+&lt;blockquote>
+&lt;p>For example, a Binding request has class=0b00 (request) and method=0b000000000001 (Binding) and is encoded into the first 16 bits as 0x0001. A Binding response has class=0b10 (success response) and method=0b000000000001, and is encoded into the first 16 bits as 0x0101.&lt;/p>
+&lt;/blockquote>
+&lt;p>例如，一个 Binding 方法的请求的类的编码为 0b00，方法号为 0b000000000001。前16个bit的十六进制编码为 0x0001。Binding 方法的响应的类的编码为 0b10，方法号同样为 0b000000000001，前16个bit的十六进制编码为 0x0101。&lt;/p>
+&lt;p>译者补充：注意，您可能会好奇，类的编码长度为2bit，方法编码长度为12bit，加起来一共14bit，为什么这里说前16bit呢？原因是，这里说的前16个bit，指的是 STUN 消息（或着说 STUN 数据包）的前16bit，对于一个 STUN 消息，最高位的 2bit 是被保留的，还记得吗？&lt;/p>
+&lt;blockquote>
+&lt;p>Note: This unfortunate encoding is due to assignment of values in [RFC3489] that did not consider encoding Indications, Success, and Errors using bit fields.&lt;/p>
+&lt;/blockquote>
+&lt;p>请注意：&lt;/p>
+&lt;p>The magic cookie field MUST contain the fixed value 0x2112A442 in network byte order. In RFC 3489 [RFC3489], this field was part of the transaction ID; placing the magic cookie in this location allows a server to detect if the client will understand certain attributes that were added in this revised specification. In addition, it aids in distinguishing STUN packets from packets of other protocols when STUN is multiplexed with those other protocols on the same port.&lt;/p>
+&lt;p>[^1]: 还记得吗，事务ID是一个随机选择的 96位 的数字&lt;br>
+[^2]: 解多路复用就是与多路复用的作用相反的一个过程&lt;br>
+[^3]: In &lt;a href="https://en.wikipedia.org/wiki/Computer_networking">computer networking&lt;/a>, &lt;strong>out-of-band data&lt;/strong> is the data transferred through a stream that is independent from the main &lt;em>in-band&lt;/em> data stream.&lt;br>
+[^4]: 在資訊安全中，Nonce是一個在加密通訊只能使用一次的數字。在認證協定中，它往往是一個隨機或偽隨機數，以避免重送攻擊。&lt;br>
+[^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送&lt;br>
+[^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。&lt;br>
+[^7]: 一个不接收响应的 STUN 消息。（说人话就是只发不收，就告诉你一声。）&lt;/p>
+&lt;h1 id="2023年8月23日注" >2023年8月23日注：
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>之前写了好多格式，现在不支持，哎
+等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>https://junyi.dev/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>https://junyi.dev/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
+&lt;p>在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别&lt;/p>
+&lt;h1 id="网络地址转换-nat-network-address-translation" >网络地址转换 NAT (Network Address Translation)
+&lt;span>
+&lt;a href="#%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-nat-network-address-translation">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="基本网络地址转换-basic-nat" >基本网络地址转换 Basic NAT
+&lt;span>
+&lt;a href="#%e5%9f%ba%e6%9c%ac%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-basic-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
+&lt;p>需要了解的名词有：&lt;/p>
+&lt;ul>
+&lt;li>SNAT：源地址转换&lt;/li>
+&lt;li>DNAT：目标地址转换&lt;/li>
+&lt;/ul>
+&lt;p>以只有一个对外地址举例，如果 ClientA 和 ClientB 同时访问同一个 Web Server，那么当 NAT Gatway 收到这个 Web Server 响应包的时候，就无法判断将数据包转发给哪台客户机。&lt;/p>
+&lt;p>于是就有了我们接下来要介绍的 NAPT 技术&lt;/p>
+&lt;h2 id="网络地址端口转换-napt" >网络地址端口转换 NAPT
+&lt;span>
+&lt;a href="#%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e7%ab%af%e5%8f%a3%e8%bd%ac%e6%8d%a2-napt">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>先明确几个概念：&lt;/p>
+&lt;p>内网主机拥有的网络地址：&lt;code>(LocalIP:LocalPort)&lt;/code>&lt;/p>
+&lt;p>经由 NAT 转换后的网络地址：&lt;code>(PublicIP:PublicPort)&lt;/code>&lt;/p>
+&lt;p>外网主机拥有的网络地址：&lt;code>(RemoteIP:RemotePort)&lt;/code>&lt;/p>
+&lt;p>对&lt;code>源端口&lt;/code>和&lt;code>目标端口&lt;/code>同时进行转换。这样就可以让&lt;code>一个公网IP&lt;/code>满足&lt;code>多个后端主机&lt;/code>同时访问外部网络。比如家庭宽带。&lt;/p>
+&lt;p>这项技术最为常见，它检测并修改出入数据包的&lt;strong>IP 地址&lt;/strong>和&lt;strong>端口号&lt;/strong>，从而允许多个内网主机共享同一个公网 IP 地址&lt;/p>
+&lt;p>NAT 分为 &lt;code>锥形NAT&lt;/code> 和 &lt;code>对称型NAT&lt;/code>&lt;/p>
+&lt;h1 id="锥形-nat" >锥形 NAT
+&lt;span>
+&lt;a href="#%e9%94%a5%e5%bd%a2-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
+&lt;p>192.168.1.2:8000 访问 Baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8000 都会被转化成 1.2.3.4:5000，baidu 看到的是 5000 端口，谷歌看到的也是&lt;/p>
+&lt;p>192.168.1.2:&lt;strong>8001&lt;/strong> 访问 baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8001 都会变成 1.2.3.4:&lt;strong>5001&lt;/strong>，baidu 看到的是 &lt;strong>5001&lt;/strong> 端口，google 看到的也是。&lt;/p>
+&lt;p>懂了吗，这就是锥形的由来&lt;/p>
+&lt;h1 id="全锥形-nat-full-cone-nat" >全锥形 NAT （Full Cone NAT）
+&lt;span>
+&lt;a href="#%e5%85%a8%e9%94%a5%e5%bd%a2-nat-full-cone-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
+&lt;p>建立 Full Cone NAT 转换后&lt;/p>
+&lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(任意远端IP:任意端口)&lt;/code>&lt;/p>
+&lt;p>当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，形成一个 IP 端口元组，然后会将传入这个端口的数据全部转发给内部主机。&lt;strong>一旦映射建立，那么任意一台主机，只要给映射出来的公网 IP 和端口发送数据，就可以直接到达后端服务&lt;/strong>：&lt;/p>
+&lt;p>也就是，内部主机以相同的 &lt;code>(LocalIP:LocalPort)&lt;/code> 对 2 个不同的 &lt;code>(RemoteIP:RemotePort)&lt;/code> 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，&lt;strong>任意一台主机都可以给 &lt;code>(PublicIP:PublicPort)&lt;/code> 发送数据&lt;/strong>。&lt;/p>
+&lt;h1 id="地址限制锥形-nat-address-restricted-cone-nat" >地址限制锥形 NAT （Address Restricted Cone NAT）
+&lt;span>
+&lt;a href="#%e5%9c%b0%e5%9d%80%e9%99%90%e5%88%b6%e9%94%a5%e5%bd%a2-nat-address-restricted-cone-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
+&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
+&lt;p>建立 Address Restricted Cone NAT 转换后&lt;/p>
+&lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(特定远端IP:任意端口)&lt;/code>&lt;/p>
+&lt;p>（注意这里变成了 &lt;strong>任意&lt;/strong>端口）&lt;/p>
+&lt;p>我更喜欢它的英文形式，中文翻译的很不恰当。英文叫&lt;strong>地址受限的锥形NAT&lt;/strong>。当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，&lt;strong>同时记录外网的 IP 地址&lt;/strong>。一旦映射建立，&lt;strong>只有被记录的 IP 地址给映射出来的公网 IP 和端口发送数据，才可以到达后端服务，其他 IP 地址发送给 NAT 网关的，将会被丢弃。&lt;/strong>&lt;/p>
+&lt;p>也就是，内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，同时，也只有这 2 个 RemoteIP 可以给 (PublicIP: PublicPort) 发送数据（因为先由内向外发过），这两个 RemoteIP 的 RemotePort 可以是任意的&lt;/p>
+&lt;h1 id="端口限制锥形-natport-restricted-cone-nat" >端口限制锥形 NAT（Port Restricted Cone NAT）
+&lt;span>
+&lt;a href="#%e7%ab%af%e5%8f%a3%e9%99%90%e5%88%b6%e9%94%a5%e5%bd%a2-natport-restricted-cone-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
+&lt;p>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/p>
+&lt;p>内向外：(特定本地IP:特定本地端口) –&amp;gt;(固定映射IP:固定映射端口) –&amp;gt; (特定远端IP:特定远端端口)&lt;/p>
+&lt;p>建立 Port Restricted Cone NAT 转换后&lt;/p>
+&lt;p>外向内：(特定本地IP:特定本地端口) &amp;lt;– (固定映射IP:固定映射端口) &amp;lt;– (特定远端IP:特定端口)&lt;/p>
+&lt;p>（注意这里变成了 &lt;strong>特定&lt;/strong>端口）&lt;/p>
+&lt;p>这种模式同时记录&lt;strong>内部主机的 IP 和端口&lt;/strong>和&lt;strong>外部主机的 IP 和端口&lt;/strong>，也就是形成了一种绑定关系。&lt;/p>
+&lt;p>与 Address Restricted Cone NAT 的区别是， Address Restricted Cone NAT 记录的只有外网主机的 IP，不记录端口，那个外网主机的随便一个端口给内网主机发送数据都可以。&lt;/p>
+&lt;p>Port Restricted Cone NAT 是记录外网主机的 IP 和端口，&lt;strong>只有 (内网 IP, 内网端口) 和 (外网 IP, 外网端口) 这两个条件同时满足，数据才会转发给内网主机&lt;/strong>。而且以后给外部任何主机发送数据，都会用之前转换的 &lt;code>(PublicIP:PublicPort)&lt;/code> 给外部主机发送数据。&lt;/p>
+&lt;p>也就是，内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，同时，也只有这 2 个 (RemoteIP:ReportPort) 可以给 (PublicIP: PublicPort) 发送数据（因为先由内向外发过）&lt;/p>
+&lt;h1 id="对称形-natsymmetric-nat" >对称形 NAT（Symmetric NAT）
+&lt;span>
+&lt;a href="#%e5%af%b9%e7%a7%b0%e5%bd%a2-natsymmetric-nat">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
+&lt;p>换句话讲，不同的 (iAddr:port, eAddr:port) 组合，NAT 网关会产生不同的链路。&lt;/p>
+&lt;p>看起来也就是对称的了。（本地地址:端口，目标地址:端口）&lt;/p>
+&lt;p>比如 &lt;strong>localA&lt;/strong>:8000 经过一台拥有 &lt;strong>global&lt;/strong> 的一台对称 NAT 的 Gateway，访问 &lt;strong>baidu&lt;/strong>:80 和 &lt;strong>google&lt;/strong>:80，&lt;/p>
+&lt;p>baidu 看到的可能是来自 &lt;strong>global&lt;/strong>:5003 的请求，google 看到的可能是来自 &lt;strong>global&lt;/strong>:5010 的请求。&lt;/p>
+&lt;p>打个比方，当内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，此时 NAT 将会为内部主机分配&lt;strong>两个不同的&lt;/strong> &lt;code>(PublicIP:PublicPort)&lt;/code>，并且建立起&lt;strong>两个不同的内、外部 Tuple 转换关系&lt;/strong>。&lt;/p>
+&lt;h1 id="symmetric-和-port-restricted-的区别" >Symmetric 和 Port Restricted 的区别
+&lt;span>
+&lt;a href="#symmetric-%e5%92%8c-port-restricted-%e7%9a%84%e5%8c%ba%e5%88%ab">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>Port Restricted:&lt;/strong>
+&lt;img src="port-restricted.png" alt="drawing" width="400"/>&lt;/p>
+&lt;ul>
+&lt;li>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Symmetric:&lt;/strong>
+&lt;img src="symmetric.png" alt="drawing" width="400"/>&lt;/p>
+&lt;ul>
+&lt;li>每一个来自相同内部 IP 与端口，到一个特定目的地 IP 和端口的请求，都映射到一个独特的外部 IP 和端口。&lt;/li>
+&lt;/ul>
+&lt;h1 id="reference" >Reference
+&lt;span>
+&lt;a href="#reference">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/136794983">[2] 网络之 NAT 和 N2N VPN&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.cnblogs.com/my_life/articles/11018457.html">[3] NAT 的四种类型及类型检测 2【很好】&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>https://junyi.dev/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>https://junyi.dev/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
+&lt;h3 id="基本配置-基本配置基本配置" >&lt;a href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE" title="基本配置">&lt;/a>基本配置
+&lt;span>
+&lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>先说一下我电脑的基本配置:&lt;/p>
+&lt;p>2017年买的笔记本电脑&lt;br>
+CPU: i7-7700HQ&lt;br>
+内存: 8GB x 2, DDR4, 2666 MHz&lt;br>
+SSD: 512G 三星 SM961, MLC颗粒, M.2接口, 连续读 3200MB/s, 连续写 1300MB/s (实测)&lt;br>
+HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用&lt;br>
+显示器: BENQ PD2500Q, 分辨率 1440p&lt;br>
+键盘: IKBC F108 时光机&lt;br>
+鼠标: 雷蛇炼狱蝰蛇 2000&lt;/p>
+&lt;p>由于是2017年买的笔记本, 性能什么的自然比不过各位 dalao 的台式机或者更牛逼的游戏本&lt;/p>
+&lt;p>但是在我的优化下, 现在用起来也蛮流畅的, 搞开发没什么问题.&lt;/p>
+&lt;p>以前的我买笔记本电脑, 最求极致性价比, 只看配置, 但是现在, emmm&lt;/p>
+&lt;p>可以算是不在乎配置什么的了吧, 毕竟是给自己日常使用的电脑, 不是什么服务器, 要榨干每一丝的性能, 对我来说, 日常使用的电脑最重要的是好用.&lt;/p>
+&lt;p>所以, 显示器一定要买比较好的, 选来选去买了明基的PD2500Q, 据说是给视觉设计工作者使用的&lt;br>
+具体配置我就不赘述了, 用起来非常舒服, 价格也十分美丽.&lt;/p>
+&lt;p>键盘一定要全键盘带小键盘和方向键的, 我个人习惯而已, 感觉小键盘比数字键好用多了, 最好带个背光, 晚上的时候也可以用, 虽然平常盲打, 但是有光可以让我更安心, 我也不想要什么花里胡哨的, RGB啊, 自定义宏啊, 都是噱头, 在我看来就是智商税, 我平常也不用这些花里胡哨的功能. (比如RGB, 难道你打字的时候看着键盘打吗hhhh)&lt;/p>
+&lt;p>总的来说, 现在买这些硬件产品, 性能反而不是第一考虑的维度&lt;/p>
+&lt;p>最先考虑的, 一定是外观和使用体验, 其次才是性能.&lt;/p>
+&lt;p>在同样的外观和体验下, 买性能最高的, 这就是我的原则. (个人观点不代表所有人, 我之前是把性能作为第一考虑指标的人)&lt;/p>
+&lt;h3 id="开发环境-开发环境开发环境" >&lt;a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" title="开发环境">&lt;/a>开发环境
+&lt;span>
+&lt;a href="#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>目前我把那块 512G 的 SSD 划成了两个部分, 第一个部分 300G 给 Windows 用, 第二个部分 200G 给 Ubuntu 用.&lt;/p>
+&lt;p>平常开发的时候, 不会首先选择 Windows, 虽然 Visual Studio 挺香的 (但是 Linux 里我可以用 VS Code)&lt;/p>
+&lt;p>尤其是搞深度学习, Windows 难用的一批, 一个好用的包管理系统都没有(不要喷,我用过 chocolatey 等 pkm 工具, 都不好用)&lt;/p>
+&lt;p>Linux 香啊, 可能现在你不这么觉得, 到以后就觉得香了.&lt;/p>
+&lt;p>高度自由, 想怎么作就怎么作.&lt;/p>
+&lt;p>&lt;strong>我平常使用的开发语言有:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>C&lt;/li>
+&lt;li>C++&lt;/li>
+&lt;li>Python&lt;/li>
+&lt;li>Java&lt;/li>
+&lt;/ul>
+&lt;p>( 不要问我为什么没有易语言, 易语言是个坑, 我从小学五年级开始学, 到大学一年级弃坑 )&lt;/p>
+&lt;p>由于体验了一把 IntelliJ IDEA, 觉得 JetBrains 公司出品的 IDE 都很好用, 所以我抛弃了 Eclipse, 抛弃了 Visual Studio, 全线转战 JB 全家桶.&lt;br>
+比如写 C 和 C++ 的 CLion, 写 Python 的 PyCharm, 写 Java 的 IDEA&lt;/p>
+&lt;p>好用爆了, 而且学校提供 edu 邮箱, 直接在 JB 官网注册学生授权就可以免费使用所有工具.&lt;/p>
+&lt;p>,,,,,&lt;/p>
+&lt;p>我的版本管理工具用的 Git&lt;/p>
+&lt;p>聊天工具 WeChat, Telegram&lt;/p>
+&lt;p>壁纸软件是自己写了个脚本, 爬 unsplash 网站的优质图片当做壁纸&lt;/p>
+&lt;p>文件之间共享用的 SMB 协议&lt;/p>
+&lt;p>手机是 iPhone 8, 之前一直被 iOS 和 笔记本 之间的文件共享问题所困扰, ( 没有 money 买 MacBook Pro )&lt;/p>
+&lt;p>后来捣鼓了一下 SMB 协议, iPhone 上装个第三方文件管理工具,&lt;/p>
+&lt;p>就很舒服了, 不用插线的文件传输, 走千兆内网, 路由器是华硕的 AC88U, 速度不错&lt;/p>
+&lt;p>(剩下的想起来再写)&lt;/p>
+&lt;h3 id="windows-工具-windows-工具windows-工具" >&lt;a href="#Windows-%E5%B7%A5%E5%85%B7" title="Windows 工具">&lt;/a>Windows 工具
+&lt;span>
+&lt;a href="#windows-%e5%b7%a5%e5%85%b7-windows-%e5%b7%a5%e5%85%b7windows-%e5%b7%a5%e5%85%b7">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>杀软: 火绒&lt;/li>
+&lt;li>文件搜索: Everything&lt;/li>
+&lt;li>压缩工具: 7-Zip (不要给我推荐Bandi-zip)&lt;/li>
+&lt;li>视频播放器: PotPlayer&lt;/li>
+&lt;li>修图工具: Windows画图, Photoshop (讲道理windows自带的画图挺好用的)&lt;/li>
+&lt;li>截图工具: ShareX&lt;/li>
+&lt;li>录屏工具: OBS-Studio&lt;/li>
+&lt;li>图片查看器: IrfanView (速度快, 简洁)&lt;/li>
+&lt;li>浏览器: Firefox（比 Chrome 更隐私）&lt;/li>
+&lt;li>输入法: 自带输入法&lt;/li>
+&lt;li>文字编辑工具: Office 365&lt;/li>
+&lt;li>下载工具: Internet Download Manager&lt;/li>
+&lt;li>开发工具: JetBrains 全套&lt;/li>
+&lt;li>音乐播放器: iTunes&lt;/li>
+&lt;li>FTP管理工具: FileZilla&lt;/li>
+&lt;li>虚拟机: VMWare Player&lt;/li>
+&lt;li>日程管理: Outlook&lt;/li>
+&lt;li>邮件管理: Outlook&lt;/li>
+&lt;li>聊天工具: 被封印在虚拟机内的 QQ 和 微信&lt;/li>
+&lt;/ul>
+&lt;p>我特别想说的是, 因为我 16G 内存用不掉, 所以就开了一个虚拟机, 专门用来使用那些不得不用的国内垃圾流氓软件,&lt;br>
+如QQ, 微信.&lt;/p>
+&lt;p>放在虚拟机内, 可以&lt;/p>
+&lt;ul>
+&lt;li>有效防止硬盘被扫描&lt;/li>
+&lt;li>有效防止被安插后门&lt;/li>
+&lt;li>有效防止那个傻逼的 QProtect 服务&lt;/li>
+&lt;li>防止自己的电脑被装上 Tencent 的驱动.&lt;/li>
+&lt;/ul>
+&lt;p>最最可以的, 是可以让我在 Ubuntu 里也能用.&lt;/p>
+&lt;p>虚拟机好处多, 大家都来用吧.&lt;/p>
+&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>https://junyi.dev/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>https://junyi.dev/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
+&lt;span>
+&lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>系统环境：Ubuntu 18.04 LTS&lt;/p>
+&lt;p>解决方法：卸载 OpenJDK-11，安装 OpenJDK-8&lt;/p>
+&lt;p>备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。&lt;/p>
+&lt;p>当编译 android_rpc 时，你&lt;strong>必须&lt;/strong>在 &lt;code>jni/config.ml&lt;/code> 里指定 &lt;code>libOpenCL.so&lt;/code>，然后在 GitHub 下载 CL-headers。&lt;/p>
+&lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
+&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>仔细阅读官方指南！！&lt;/strong>&lt;/p>
+&lt;h1 id="问题细节-问题细节问题细节" >&lt;a href="#%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82" title="问题细节">&lt;/a>问题细节
+&lt;span>
+&lt;a href="#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82-%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h2 id="第一天-no-opencl-platform-第一天-no-opencl-platform第一天-no-opencl-platform" >&lt;a href="#%E7%AC%AC%E4%B8%80%E5%A4%A9-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
+&lt;span>
+&lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform-%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>遇到了一个错误：&lt;/p>
+&lt;blockquote>
+&lt;p>tvm/src/runtime/opencl/opencl_device_api.cc:263: No OpenCL platform matched given existing options …&lt;/p>
+&lt;/blockquote>
+&lt;p>然后找了好多文章，找到了官方的文档，却发现2019年3月就提出了这个问题，是bug，并且被修复了。&lt;/p>
+&lt;p>现在是2020年3月7日，我不应该再遇到这个bug，于是看了看源代码，发现获取不到我的CL信息&lt;/p>
+&lt;p>终端里输入&lt;/p>
+&lt;p>&lt;code>$ clinfo&lt;/code>&lt;/p>
+&lt;p>却显示&lt;/p>
+&lt;p>&lt;code>clinfo number of platforms 0&lt;/code>&lt;/p>
+&lt;p>然后找了找教程，安装了一下驱动（大环境是我已经安装了 opencl-icd-dev 之类的包了）&lt;/p>
+&lt;p>sudo apt install mesa-opencl-icd&lt;/p>
+&lt;p>然后就修好了， clinfo 能打出来东西了：&lt;/p>
+&lt;blockquote>
+&lt;p>Number of platforms 1&lt;br>
+Platform Name Clover&lt;br>
+Platform Vendor Mesa&lt;br>
+Platform Version OpenCL 1.1 Mesa 19.2.8&lt;br>
+Platform Profile FULL_PROFILE&lt;br>
+Platform Extensions cl_khr_icd&lt;br>
+Platform Extensions function suffix MESA&lt;/p>
+&lt;p>Platform Name Clover&lt;br>
+Number of devices 0&lt;/p>
+&lt;p>NULL platform behavior&lt;br>
+clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover&lt;br>
+clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover&lt;br>
+clCreateContext(NULL, …) [default] No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform&lt;br>
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_ALL) No devices found in platform&lt;/p>
+&lt;p>ICD loader properties&lt;br>
+ICD loader Name OpenCL ICD Loader&lt;br>
+ICD loader Vendor OCL Icd free software&lt;br>
+ICD loader Version 2.2.11&lt;br>
+ICD loader Profile OpenCL 2.1&lt;/p>
+&lt;/blockquote>
+&lt;p>然后我用RPC跑GPU测试，又遇到了&lt;/p>
+&lt;blockquote>
+&lt;p>CommandLine Error: Option ‘help-list’ registered more than once!&lt;/p>
+&lt;/blockquote>
+&lt;p>这个问题，淦！&lt;/p>
+&lt;p>.&lt;/p>
+&lt;p>搜了一会，发现了这样一篇文章：&lt;a href="https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10">https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10&lt;/a>&lt;/p>
+&lt;p>其中有一段话：&lt;/p>
+&lt;blockquote>
+&lt;p>This happens when you compile TVM runtime with both &lt;code>set(USE_OPENCL ON)&lt;/code> and &lt;code>set(USE_LLVM ON)&lt;/code>&lt;br>
+You should enable only ONE option but not both.&lt;/p>
+&lt;/blockquote>
+&lt;p>我试了一下，编译的时候开着OPENCL，LLVM关掉，发现错的更离谱了&lt;/p>
+&lt;p>然后我把OPENCL关掉，LLVM打开，Vulkan打开，还是出错&lt;/p>
+&lt;p>我试试LLVM打开，OPENCL关闭，Vulkan关闭&lt;/p>
+&lt;p>（这不就是之前的状态吗???）&lt;/p>
+&lt;hr>
+&lt;h2 id="第二天-no-opencl-device-第二天-no-opencl-device第二天-no-opencl-device" >&lt;a href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
+&lt;span>
+&lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device-%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>睡了一觉，第二天了，&lt;/p>
+&lt;p>遇到了新的错误：&lt;/p>
+&lt;blockquote>
+&lt;p>Using CPU OpenCL device&lt;br>
+No OpenCL device&lt;/p>
+&lt;/blockquote>
+&lt;p>按照 tqchen 的说法，make clean 然后 make&lt;/p>
+&lt;p>还是不行（我重装了llvm）&lt;/p>
+&lt;p>后来，在 &lt;a href="https://askubuntu.com/questions/809450/installing-opencl-for-svga-ii-adapter">https://askubuntu.com/questions/809450/installing-opencl-for-svga-ii-adapter&lt;/a>&lt;/p>
+&lt;p>找到这么一段话：&lt;a href="https://askubuntu.com/posts/809481/timeline">https://askubuntu.com/posts/809481/timeline&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>According to the top answer to &lt;a href="https://stackoverflow.com/questions/27996996/trying-to-install-opencl-on-vm">this question&lt;/a>, the Intel SDK does not work on VMWare. It suggests instead trying to use the AMD APP SDK&lt;/p>
+&lt;/blockquote>
+&lt;p>现在我还是反复遇到 bug，找到这样一段描述：&lt;/p>
+&lt;p>&lt;strong>TVM DOES NOT SUPPORT openjdk-11 !!!&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>TVM DOES NOT SUPPORT openjdk-11 !!!&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>TVM DOES NOT SUPPORT openjdk-11 !!!&lt;/strong>&lt;/p>
+&lt;p>&lt;code>apt install openjdk-8-jdk&lt;/code> &lt;strong>ONLY&lt;/strong>!&lt;/p>
+&lt;p>Then set &lt;code>JAVA_HOME&lt;/code> in your environment!&lt;/p>
+&lt;hr>
+&lt;h2 id="第三天-解决-第三天-解决第三天-解决" >&lt;a href="#%E7%AC%AC%E4%B8%89%E5%A4%A9-%E8%A7%A3%E5%86%B3" title="第三天 解决">&lt;/a>第三天 解决
+&lt;span>
+&lt;a href="#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3-%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
+&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>https://junyi.dev/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><guid>https://junyi.dev/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
+&lt;p>修改 &lt;code>AndroidManifest.xml&lt;/code> 的 &lt;code>application&lt;/code> 字段，添加 &lt;code>android:extractNativeLibs=&amp;quot;true&amp;quot;&lt;/code> 即可解决问题&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;lt;application
+android:extractNativeLibs=&amp;#34;true&amp;#34;
+android:allowBackup=&amp;#34;true&amp;#34;
+android:label=&amp;#34;@string/app\_name&amp;#34;
+...
+...
+&lt;/code>&lt;/pre>&lt;p>改成 false 也可以&lt;/p>
+&lt;p>原因是 Android 6.0 以后 so 文件不默认封装在 apk 里&lt;/p>
+&lt;p>&lt;a href="https://testerhome.com/topics/18463">https://testerhome.com/topics/18463&lt;/a>&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>具体注意事项看上面的链接！&lt;/p>
+&lt;p>具体注意事项看上面的链接！&lt;/p>
+&lt;p>具体注意事项看上面的链接！&lt;/p>
+&lt;p>具体注意事项看上面的链接！&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>因为上面的链接里讲了 extractNativeLibes 设置 true 或 false 都会带来哪些影响以及解决方法以及&lt;strong>签名的顺序&lt;/strong>！&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>我真想批评一下这些搞科研的人，为什么不能追随新科技呢。&lt;/p>
+&lt;p>稍微做一下适配，也不会让我们这些后来者因为这些问题踩坑浪费这么多时间吧…&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>一说起这个我就想起来那些依然在用 python2 的人。&lt;/p>
+&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>https://junyi.dev/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><guid>https://junyi.dev/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
+&lt;span>
+&lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>环境&lt;/strong>：Ubuntu 18.04 LTS （非虚拟机）&lt;/p>
+&lt;p>&lt;strong>手机&lt;/strong>：Xiaomi Mi 5s, 3GB RAM, 64GB ROM&lt;/p>
+&lt;p>&lt;strong>系统&lt;/strong>：原生 Android 10&lt;/p>
+&lt;p>&lt;strong>遇到问题&lt;/strong>：android_rpc 无法编译部署&lt;/p>
+&lt;p>&lt;strong>解决方法&lt;/strong>：核心思路是分析 gradle task 执行顺序，分析相关脚本，检查环境变量。这个问题需要具体情况具体分析，请仔细查看本文【问题解决】部分的相关描述。&lt;/p>
+&lt;hr>
+&lt;h1 id="部署-android-rpc-部署-android_rpc部署-android_rpc" >&lt;a href="#%E9%83%A8%E7%BD%B2-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
+&lt;span>
+&lt;a href="#%e9%83%a8%e7%bd%b2-android-rpc-%e9%83%a8%e7%bd%b2-android_rpc%e9%83%a8%e7%bd%b2-android_rpc">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。&lt;/p>
+&lt;p>然后安装 Gradle，Maven&lt;/p>
+&lt;p>然后编译 TVM4J&lt;/p>
+&lt;p>编译好之后我开始&lt;strong>按照官方教程&lt;/strong>尝试部署 apps/android_rpc 这个项目&lt;/p>
+&lt;p>因为上次部署 TVM 的经验教训让我知道了严格按照官方教程走的重要性。&lt;/p>
+&lt;p>只可惜，这次就算按照官方教程来部署，得到的结果依然是：&lt;/p>
+&lt;p>&lt;strong>失败。&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h1 id="踩坑-踩坑踩坑" >&lt;a href="#%E8%B8%A9%E5%9D%91" title="踩坑">&lt;/a>踩坑
+&lt;span>
+&lt;a href="#%e8%b8%a9%e5%9d%91-%e8%b8%a9%e5%9d%91%e8%b8%a9%e5%9d%91">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。&lt;/p>
+&lt;p>然后又遇到了你懂的特色互联网防火墙的问题：Maven 下载速度特别慢。&lt;/p>
+&lt;p>解决了网络的问题之后，我心想能不能把项目丢到 AndroidStudio 里面跑啊，然后我就试了一下&lt;/p>
+&lt;p>于是&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>给自己带来了另一个坑&lt;/p>
+&lt;p>Android Studio 推荐我更新 Gradle&lt;/p>
+&lt;p>我手贱点了更新&lt;/p>
+&lt;p>然后版本号对不上了&lt;/p>
+&lt;p>搞了半天踩意识到是自己手贱更新了Gradle。&lt;/p>
+&lt;p>。&lt;/p>
+&lt;p>。&lt;/p>
+&lt;p>。&lt;/p>
+&lt;p>折腾了好长一段时间，遇到了新的问题：&lt;/p>
+&lt;p>&lt;code>cannot find class file 'org.apache.tvm.LibInfo'&lt;/code>&lt;/p>
+&lt;p>叼，烦死了。&lt;/p>
+&lt;p>。&lt;/p>
+&lt;p>我无论怎么 &lt;code>make clean&lt;/code> 都不行，&lt;/p>
+&lt;p>然后我重新把 TVM 编译了一遍（我真是傻逼）&lt;/p>
+&lt;p>clean 了一下，make 了一下，编译完了&lt;/p>
+&lt;p>&lt;strong>依！然！报！错！&lt;/strong>&lt;/p>
+&lt;p>折腾了好长一段时间，到了晚上12点，用官方提供的工具怎么也解决不了问题，&lt;/p>
+&lt;p>Google 了一次又一次，全是失败告终。&lt;/p>
+&lt;hr>
+&lt;h1 id="灵机一动-灵机一动灵机一动" >&lt;a href="#%E7%81%B5%E6%9C%BA%E4%B8%80%E5%8A%A8" title="灵机一动">&lt;/a>灵机一动
+&lt;span>
+&lt;a href="#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8-%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>配置这么大型的项目，而且网上没有多少参考资料，搜索也几乎很难找到结果。手中的设备千差万别，想要真正部署起来真的太麻烦了。在我快疯了的时候，突然想到：&lt;strong>草！我干嘛不看看他的脚本怎么写的呢？&lt;/strong>&lt;/p>
+&lt;p>说干就干，我在&lt;code>src/main/jni/build.sh&lt;/code>这个脚本里发现了这么一段话：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>javah -o $CURR_DIR/org_apache_tvm_native_c_api.h -cp &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$ROOT_DIR&lt;span style="color:#e6db74">/jvm/core/target/*&amp;#34;&lt;/span> org.apache.tvm.LibInfo exit -1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>没错，就是这句话⬆️执行失败导致 &lt;code>exit -1&lt;/code>，在这句话前面还设置了一堆环境变量：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>PATH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$PATH&lt;span style="color:#e6db74">:/usr/local/bin&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CURR_DIR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>cd &lt;span style="color:#e6db74">`&lt;/span>dirname $0&lt;span style="color:#e6db74">`&lt;/span>; pwd&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ROOT_DIR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$CURR&lt;span style="color:#e6db74">\_DIR/../../../../../..&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>我把脚本里的命令都打到 bash 里，然后一步步运行，&lt;/p>
+&lt;p>你猜怎么着？&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>报错了！（草）&lt;/p>
+&lt;p>然后我就查这个 jni 的用法，查到了之后，发现，还是报错&lt;/p>
+&lt;p>为什么呢？环境变量有问题吗&lt;/p>
+&lt;p>果然有问题。&lt;/p>
+&lt;hr>
+&lt;h1 id="问题解决-问题解决问题解决" >&lt;a href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3" title="问题解决">&lt;/a>问题解决
+&lt;span>
+&lt;a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3-%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>（上面的那些就是发发牢骚，这里才是解决问题的部分）&lt;/p>
+&lt;p>&lt;strong>我不想继续描述我是怎么发现这个问题的了&lt;/strong>，就是作出假设 -&amp;gt; 一步步的推翻自己的假设 -&amp;gt; 反馈思考 -&amp;gt; 做出新的假设&lt;/p>
+&lt;p>重复上面的过程直到问题解决或者我放弃思考。&lt;/p>
+&lt;p>到处翻，发现 android_rpc 项目中的 build.gradle 里面指定了一个 task：（其实是报错给我说的这个 build.gradle 出了错）&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>task &lt;span style="color:#a6e22e">buildJni&lt;/span>&lt;span style="color:#f92672">(&lt;/span>type&lt;span style="color:#f92672">:&lt;/span> Exec&lt;span style="color:#f92672">,&lt;/span> description&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>Build JNI libs&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> commandLine &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>sh&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#f92672">,&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>src&lt;span style="color:#f92672">/&lt;/span>main&lt;span style="color:#f92672">/&lt;/span>jni&lt;span style="color:#f92672">/&lt;/span>build&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#a6e22e">sh&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这个 task 的意思是执行 &lt;code>build.sh&lt;/code> 这个 script （刚才我们发现问题的那个脚本）&lt;/p>
+&lt;p>，&lt;/p>
+&lt;p>但是这个 script 里面的 javah 那句话（JNI的命令）会提示找不到 class file ‘org.apache.tvm.LibInfo’&lt;/p>
+&lt;p>奇怪的是 jar 包里有 &lt;code>LibInfo.class&lt;/code> 这个文件，而且我去看了一下 &lt;code>tvm/jvm/core&lt;/code> 文件夹里面，也是有 &lt;code>LibInfo.java&lt;/code> 的，所以不应该是我们的包的问题，应该是路径什么的出了错。&lt;/p>
+&lt;p>把 &lt;code>build.sh&lt;/code> 里面的变量打印出来发现，如果我在 &lt;code>tvm/apps/android_rpc/&lt;/code> 这个工作目录里，执行 &lt;code>gradle clean build&lt;/code> 的话，&lt;strong>$ROOT_DIR 的值并不是它应该有的值，$ROOT_DIR的值应该是 tvm/apps/android_rpc， 也就是这个项目的路径&lt;/strong>。然而我把这个值打印出来发现， &lt;code>$ROOT_DIR&lt;/code> 的值是系统的根目录，&lt;strong>在根目录里肯定找不到 LibInfo 啊！&lt;/strong>&lt;/p>
+&lt;p>在 &lt;code>android_rpc/app/src/main/jni&lt;/code> 这个工作目录执行的话， &lt;code>ROOT\DIR=&amp;quot;$CURR_DIR/../../../../../..&amp;quot;&lt;/code> 正好跳到 android_rpc 里&lt;/p>
+&lt;p>然后我手工执行了这个sh，在 build.gradle 里把这个行为给注释掉了&lt;/p>
+&lt;p>&lt;strong>成功！&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h1 id="总结-总结总结" >&lt;a href="#%E6%80%BB%E7%BB%93" title="总结">&lt;/a>总结
+&lt;span>
+&lt;a href="#%e6%80%bb%e7%bb%93-%e6%80%bb%e7%bb%93%e6%80%bb%e7%bb%93">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>其实一开始，在 android_rpc 这个目录里执行 &lt;code>gradle clean build&lt;/code> 是可以成功编译出文件的，但是在后面签名的时候给我报了个无法找到什么什么类的错误，然后我决定编译 android_deploy 试试，发现成功了，签名也正常，在 Android 10 手机上也可以正常运行，我就觉得肯定是这个项目的问题。&lt;/p>
+&lt;p>后来我再次尝试编译 android_rpc 的时候，出现了文章中描述的问题，技艺不精，导致这么长时间才解决这个问题，期间也查阅了大量的资料，中途也想过放弃，但是还是坚持下来了。最终把问题分析过程以及思路整理成这篇文章，希望后人遇到相关问题可以通过这篇文章节约大量时间。&lt;/p></description></item><item><title>元宵节快乐</title><link>https://junyi.dev/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><guid>https://junyi.dev/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>https://junyi.dev/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><guid>https://junyi.dev/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
+&lt;blockquote>
+&lt;p>人生天地之间，若白驹过隙，忽然而已。 ——《庄子・知北游》&lt;/p>
+&lt;/blockquote>
+&lt;p>时间过得真快，一转眼马上就大二了。&lt;/p>
+&lt;p>回到家之后，并没有家的感觉，甚至感觉有些厌恶。&lt;/p>
+&lt;p>突然想去读鲁迅的文章。&lt;/p>
+&lt;p>暑假练练字吧。&lt;/p>
+&lt;p>看起来自己似乎是个开拓者，其实自己一直都是一颗棋子，是一个肉鸡。&lt;/p>
+&lt;p>今天，再次迷茫。&lt;/p>
+&lt;p>我未来的路到底该怎么走？&lt;/p>
+&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>https://junyi.dev/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>https://junyi.dev/posts/a-thought-06-27/</guid><description>&lt;blockquote>
+&lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
+&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>https://junyi.dev/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>https://junyi.dev/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…..&lt;/p></description></item><item><title>On Children</title><link>https://junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
+&lt;p>They come through you but not from you,&lt;/p>
+&lt;p>And though they are with you, yet they belong not to you.&lt;/p>
+&lt;p>You may give them your love but not your thought&lt;/p>
+&lt;p>For they have their own thoughts.&lt;/p>
+&lt;p>You may house their bodies but not their soul&lt;/p>
+&lt;p>For their souls dwell in the house of tomorrow,&lt;/p>
+&lt;p>Which you cannot visit, not even in your dreams.&lt;/p>
+&lt;p>You may strive to be like them,&lt;/p>
+&lt;p>But seek not to make them like you,&lt;/p>
+&lt;p>For life goes not backward nor tarries with yesterday.&lt;/p>
+&lt;p>You are the bows from which your children&lt;/p>
+&lt;p>As living arrows are sent forth.&lt;/p>
+&lt;p>The archer sees the mark upon the path of the infinite,&lt;/p>
+&lt;p>And He bends you with His might,&lt;/p>
+&lt;p>That His arrows may go swift and far.&lt;/p>
+&lt;p>Let your bending in the archer’s hand be for gladness;&lt;/p>
+&lt;p>For even as He loves the arrow that flies，&lt;/p>
+&lt;p>So He loves also the bow that is stable.&lt;/p>
+&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>https://junyi.dev/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><guid>https://junyi.dev/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
+&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>https://junyi.dev/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><guid>https://junyi.dev/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>https://junyi.dev/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><guid>https://junyi.dev/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
+&lt;p>现在叫 「Junyi 的小屋」&lt;/p>
+&lt;h1 id="2023年8月23日注" >2023年8月23日注：
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>https://junyi.dev/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>https://junyi.dev/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
+&lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
+&lt;p>（不可恢复，之前的白写了 23333） 直到这篇文章发布（2018-2-21 0:10）&lt;/p>
+&lt;p>我&lt;/p>
+&lt;ul>
+&lt;li>重新审视了自己。&lt;/li>
+&lt;li>重新对这个博客进行规划，决定哪些事情该记录，哪些事情与时间一起流走。&lt;/li>
+&lt;li>对自己的日常行为进行规划&lt;/li>
+&lt;/ul>
+&lt;p>以及，&lt;/p>
+&lt;blockquote>
+&lt;p>希望自己在 2018 年，能一直带着这一天的情绪， 在自己的阈值边缘徘徊， 不为别的， 就为了自己的未来，能有更多选择的权利， 让自己有价值，有意义。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>加油，2018！&lt;/strong>&lt;/p>
+&lt;h1 id="更新于-2021-年-3-月-8-日" >更新于 2021 年 3 月 8 日：
+&lt;span>
+&lt;a href="#%e6%9b%b4%e6%96%b0%e4%ba%8e-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了
+所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
+&lt;h1 id="2023年8月23日注" >2023年8月23日注：
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>所以我审视了自己什么？
+有什么规划？记录了什么内容？
+好像啥都没写吧。。。
+只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>
