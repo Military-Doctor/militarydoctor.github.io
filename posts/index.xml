@@ -26,6 +26,7 @@
 ./experiment/ # 实验文件夹
 ./experiment/{exp-name}-{timestamp}/*.log
 ./data/ # 软链接到数据集
+./code/ # 项目的仓库 / 相关代码
 ./rebuttal/ # 回复 Reviewer 的
 ./rebuttal/{reviewer-id}/experiment/
 ./rebuttal/{reviewer-id}/plot/
