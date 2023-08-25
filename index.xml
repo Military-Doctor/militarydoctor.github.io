@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Aug 2023 19:04:45 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Experiment Experience</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Wed, 23 Aug 2023 19:04:45 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>test&lt;/p></description></item><item><title>My First Post</title><link>https://www.junyi.dev/posts/my-first-post/</link><pubDate>Wed, 23 Aug 2023 18:35:03 +0800</pubDate><guid>https://www.junyi.dev/posts/my-first-post/</guid><description>&lt;p>Hello&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant, 我跑了 1,072 个实验。&lt;/p>
+&lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
+&lt;!--mote-->
+&lt;blockquote>
+&lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
+&lt;p>“把 learning rate 改成 0.001 跑一下”&lt;/p>
+&lt;p>“把 activation层 去掉，跑一下”&lt;/p>
+&lt;p>“昨天跑的实验结果怎么样了？” （一看 log 发现零零散散几个任务出错了需要重新跑）&lt;/p>
+&lt;/blockquote>
+&lt;p>特别是，同时在&lt;strong>不同服务器上&lt;/strong>运行&lt;strong>很多任务&lt;/strong>，并且&lt;strong>个别任务&lt;/strong>跑的时候 &lt;code>显卡/内存&lt;/code> 报错，log 里记录的信息并不足以区分这是哪个任务的时候&amp;hellip;.&lt;/p>
+&lt;p>更糟糕的是，不同服务器上的代码版本也可能不同，这让问题变得更复杂（使用git可能是一个解决方法）。&lt;/p>
+&lt;p>当我写下这篇文章的时候，意识到这其实是自己&lt;strong>曾经拥有&lt;/strong>的项目管理技能，后面写的这些总结在实际项目开发中经常用到，只不过我&lt;strong>太久没有做项目&lt;/strong>，忘记了这些。&lt;/p>
+&lt;p>为了防止再次遗忘，我把这次的经验写下来，也跟大家分享一下心得，告诉大家我是如何通过建立有效的文件管理体系和实验进度追踪来解决问题的。&lt;/p>
+&lt;h1 id="文件管理体系" >文件管理体系
+&lt;span>
+&lt;a href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e4%bd%93%e7%b3%bb">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
+&lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
+/home/junyi/data/cifar10/
+/home/junyi/data/covtype/
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>项目文件夹&lt;/strong>是针对每一个项目设立的专门的文件夹（例如VertiBench和VertiLearn）&lt;/p>
+&lt;pre tabindex="0">&lt;code>/home/junyi/project/VertiBench/
+/home/junyi/project/VertiLearn/
+./experiment/ # 实验文件夹
+./experiment/{exp-name}-{timestamp}/*.log
+./data/ # 软链接到数据集
+./rebuttal/ # 回复 Reviewer 的
+./rebuttal/{reviewer-id}/experiment/
+./rebuttal/{reviewer-id}/plot/
+./rebuttal/{reviewer-id}/comment/
+&lt;/code>&lt;/pre>&lt;h1 id="如何做实验" >如何做实验
+&lt;span>
+&lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>自动化流程&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>使用脚本&lt;/strong>: 我靠脚本实现自动化，用一个脚本来管理所有的实验，每个实验都会被分配一个&lt;strong>唯一id&lt;/strong>。这样在某个实验出错时，例如&lt;code>显存不足&lt;/code>，我可以直接根据 id 重新运行该实验（特别是在使用 slurm 的时候，有这样的脚本可以省去不少写 sbatch 的工作）。同时，我还有另一个脚本用来&lt;strong>追踪每个实验的进度&lt;/strong>（打印进度条）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>日志要 print 完整&lt;/strong>: 每次实验都确保打印所有的参数，每一行的开头都要有时间（精确到秒），打印的内容包括模型的&lt;strong>超参数&lt;/strong>和&lt;strong>结构&lt;/strong>，并且把 parse 的 args 都打印出来。当实验变得复杂并且时间有限时，这种详细的记录非常有助于我回顾。（如果实验名足够详细，其实在日志里也没必要打印这么多内容）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>为实验命名&lt;/strong>: 为了方便查找，每次实验我都会给它一个描述性的名字，如 “test SplitNN with lr 0.3”。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>使用 git&lt;/strong>: 为了尽快得到结果，我不得不在多台机器上进行实验，这让我非常非常头痛。建议使用 git 来完成多个机器的代码同步。（不建议用 git 来同步&lt;strong>数据集&lt;/strong>🤣）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="总结" >总结:
+&lt;span>
+&lt;a href="#%e6%80%bb%e7%bb%93">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
+&lt;blockquote>
+&lt;p>（后来有老师说，做 benchmark 确实是一个很苦的工作）&lt;/p>
+&lt;/blockquote>
+&lt;p>希望我的经验能为大家提供一些参考。&lt;/p>
+&lt;p>同时也想告诫自己，&lt;strong>&lt;span style="color: red;">不要想偷懒！！！&lt;/span>&lt;/strong> &lt;strong>不要想着 “这个实验手动跑一下算了”&lt;/strong>，因为你永远不知道哪个实验会出问题，哪个实验会成为你的重要成果。&lt;/p>
+&lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
