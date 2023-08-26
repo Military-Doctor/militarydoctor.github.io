@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>机械硬盘 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/</link><description>Junyi's Lab (机械硬盘)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 20 Mar 2021 20:41:30 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/index.xml" rel="self" type="application/rss+xml"/><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 容易掉盘」&lt;/p>
+&lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
+&lt;p>后来做了多方面调查，得出结论：&lt;/p>
+&lt;p>&lt;strong>硬盘盒、USB 等毁硬盘的情况主要是供电不足导致的！&lt;/strong>&lt;/p>
+&lt;p>（举个例子，比如这款硬盘盒，就「可能」会毁掉你的硬盘。它自带 12V 1A 电源）&lt;/p>
+&lt;img src="fig1.png" alt="drawing" width="200"/>
+&lt;p>我们的硬盘上面写工作电压电流是 5V 0.55A, 12V 0.37A（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
+&lt;img src="fig2.png" alt="drawing" width="400"/>
+&lt;p>12V，0.37A，够了呀，内置电源是 12V 1A 的，电流都多出来 3 倍了。&lt;/p>
+&lt;p>&lt;strong>实际上并不够。&lt;/strong>&lt;/p>
+&lt;p>在查阅了&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>之后发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
+&lt;p>&lt;strong>&lt;code>「Startup Current, Typical (12V, 1.8A) 」&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>这个指的是硬盘刚开始工作时的瞬间电流，ST4000VX007 这块硬盘的瞬间电流可以达到 1.8A&lt;/p>
+&lt;p>这就是为什么这个硬盘盒的电源根本不能用的原因了：&lt;/p>
+&lt;p>&lt;strong>主控芯片自带的「自动休眠功能」会让硬盘自动休眠，停止电机的转动。在每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
+&lt;p>解决方案是买个好点的电源。&lt;/p></description></item></channel></rss>

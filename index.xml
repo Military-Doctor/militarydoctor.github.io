@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant, 我跑了 1,072 个实验。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 26 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>👋 Hi there, I'm Junyi</title><link>https://www.junyi.dev/about/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/about/</guid><description>&lt;p>&lt;img src="https://camo.githubusercontent.com/0e7076ed12f4c37756fbdec98a3d209f4b5bfd73d713f7009bfb479551547b97/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d4a756e79692d393926636f6c6f723d626c7565267374796c653d666c61742d737175617265266c6162656c3d50524f46494c452b5649455753" alt="">&lt;/p>
+&lt;p>😄 Pronounciation: [ˈdʒun iː] (somewhat like June·E)&lt;/p>
+&lt;p>You can call me Robert&lt;/p>
+&lt;p>Welcome to my &lt;a href="https://github.com/Junyi-99">GitHub&lt;/a>&lt;/p></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant, 我跑了 1,072 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
@@ -2148,7 +2151,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;/h1>&lt;p>所以我审视了自己什么？
 有什么规划？记录了什么内容？
 好像啥都没写吧。。。
-只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item><item><title/><link>https://www.junyi.dev/_unpost/oss-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/_unpost/oss-1/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（一）想法诞生&lt;/p>
+只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-1/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（一）想法诞生&lt;/p>
 &lt;p>Introduction
 提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>很多人说，因为对象存储「贵」，所以没什么人用对象存储当网盘/NAS。&lt;/p>
@@ -2166,7 +2169,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 本节对比了不同存储方案和文件系统的关系&lt;/p>
 &lt;p>了解了 S3 与对象存储的历史&lt;/p>
 &lt;p>提出问题「为什么家庭 NAS 不采用 对象存储 这个方案」&lt;/p>
-&lt;p>最终选定了 minio 作为对象存储的测试工具&lt;/p></description></item><item><title/><link>https://www.junyi.dev/_unpost/oss-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/_unpost/oss-2/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务&lt;/p>
+&lt;p>最终选定了 minio 作为对象存储的测试工具&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-2/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务&lt;/p>
 &lt;p>Introduction
 提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>单机部署 minio erase-code 模式&lt;/p>
@@ -2267,13 +2270,13 @@ February 27, 2022 at 11:59 pm
 February 28, 2022 at 11:33 pm
 回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。&lt;/p>
 &lt;p>因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。&lt;/p>
-&lt;p>部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p></description></item><item><title/><link>https://www.junyi.dev/_unpost/oss-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/_unpost/oss-3/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题
+&lt;p>部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-3/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题
 Introduction
 提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>他奶奶的，不支持重命名啊！&lt;/p>
 &lt;p>Summary
 重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p>
-&lt;p>February 17, 2022&lt;/p></description></item><item><title/><link>https://www.junyi.dev/_unpost/oss-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/_unpost/oss-4/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（四）总结
+&lt;p>February 17, 2022&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-4/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（四）总结
 February 17, 2022&lt;/p>
 &lt;p>Summary
 提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>

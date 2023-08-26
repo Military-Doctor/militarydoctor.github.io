@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hiddens on Junyi's Lab</title><link>https://www.junyi.dev/hidden/</link><description>Junyi's Lab (Hiddens)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://www.junyi.dev/hidden/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://www.junyi.dev/hidden/oss-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-1/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（一）想法诞生&lt;/p>
+&lt;p>Introduction
+提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;p>很多人说，因为对象存储「贵」，所以没什么人用对象存储当网盘/NAS。&lt;/p>
+&lt;p>真是这样吗？如果我们自己搭建对象存储服务，岂不是赚爆了，既有 RAID 的速度又有比 RAID 更强的容灾，直接一步到位！&lt;/p>
+&lt;p>经过实践之后，我发现「贵」其实不是制约因素。&lt;/p>
+&lt;p>对象存储并不适合作为家庭 NAS 使用。&lt;/p>
+&lt;p>Comparison
+对比各个存储方案的优缺点&lt;/p>
+&lt;p>Amazon S3
+说道对象存储，就不得不提 S3&lt;/p>
+&lt;p>Idea
+因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
+&lt;p>明明对象存储更强大，为什么不直接用对象存储呢？&lt;/p>
+&lt;p>Summary
+本节对比了不同存储方案和文件系统的关系&lt;/p>
+&lt;p>了解了 S3 与对象存储的历史&lt;/p>
+&lt;p>提出问题「为什么家庭 NAS 不采用 对象存储 这个方案」&lt;/p>
+&lt;p>最终选定了 minio 作为对象存储的测试工具&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-2/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务&lt;/p>
+&lt;p>Introduction
+提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;p>单机部署 minio erase-code 模式&lt;/p>
+&lt;p>使用了 8 块硬盘&lt;/p>
+&lt;p>本文很长，涉及的内容很多&lt;/p>
+&lt;p>Deploy
+Environment:&lt;/p>
+&lt;p>OS: RHEL 8
+HDD: 4 TB x 10
+RAM: 8 GB
+NIC: 1 x GbE
+安装系统
+配置网络自动连接
+开启 Cockpit
+使用 Podman 管理容器
+Podman 作为 Red Hat 的儿子，自然是要体验一下&lt;/p>
+&lt;p>但是在这个过程中我遇到了很多困难&lt;/p>
+&lt;p>看日志发现是 SELinux 阻止了 minio 访问磁盘&lt;/p>
+&lt;p>在这里我提供两种解决方法，任选其一即可&lt;/p>
+&lt;p>Method 1: z and Z&lt;/p>
+&lt;h1 id="当你使用-minio-一段时间" >当你使用 minio 一段时间，
+&lt;span>
+&lt;a href="#%e5%bd%93%e4%bd%a0%e4%bd%bf%e7%94%a8-minio-%e4%b8%80%e6%ae%b5%e6%97%b6%e9%97%b4">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="bucket-里的文件非常多的时候" >bucket 里的文件非常多的时候，
+&lt;span>
+&lt;a href="#bucket-%e9%87%8c%e7%9a%84%e6%96%87%e4%bb%b6%e9%9d%9e%e5%b8%b8%e5%a4%9a%e7%9a%84%e6%97%b6%e5%80%99">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="你会发现创建容器的过程非常缓慢" >你会发现创建容器的过程非常缓慢
+&lt;span>
+&lt;a href="#%e4%bd%a0%e4%bc%9a%e5%8f%91%e7%8e%b0%e5%88%9b%e5%bb%ba%e5%ae%b9%e5%99%a8%e7%9a%84%e8%bf%87%e7%a8%8b%e9%9d%9e%e5%b8%b8%e7%bc%93%e6%85%a2">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="并且" >并且
+&lt;span>
+&lt;a href="#%e5%b9%b6%e4%b8%94">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>podman ps # 这条指令会卡住&lt;/p>
+&lt;h1 id="使用-strace--f-cmd-发现这个阶段" >使用 strace -f &lt;cmd> 发现，这个阶段
+&lt;span>
+&lt;a href="#%e4%bd%bf%e7%94%a8-strace--f-cmd-%e5%8f%91%e7%8e%b0%e8%bf%99%e4%b8%aa%e9%98%b6%e6%ae%b5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="podman-在帮你设置-selinux-label" >podman 在帮你设置 SELinux label
+&lt;span>
+&lt;a href="#podman-%e5%9c%a8%e5%b8%ae%e4%bd%a0%e8%ae%be%e7%bd%ae-selinux-label">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="几十万个文件一个一个地设置-" >几十万个文件，一个一个地设置 &amp;hellip;&amp;hellip;
+&lt;span>
+&lt;a href="#%e5%87%a0%e5%8d%81%e4%b8%87%e4%b8%aa%e6%96%87%e4%bb%b6%e4%b8%80%e4%b8%aa%e4%b8%80%e4%b8%aa%e5%9c%b0%e8%ae%be%e7%bd%ae-">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>所以也推荐下面这个简单粗暴的方法（Method 2）&lt;/p>
+&lt;p>Method 2: SELinux
+什么是 SELinux？
+SELinux 有哪些模式？
+None
+Permissive
+Enforce
+如何在 Enforce 下正常使用容器？
+挖个坑，以后填&lt;/p>
+&lt;p>使用 SFTPGO 作为中间层
+裸的 minio 是不提供 WebDAV、SFTP、SMB 这些协议支持的，所以你需要一个中间层进行对接。&lt;/p>
+&lt;p>SFTPGO 支持把 S3 服务以 SFTP 的协议暴露出去。&lt;/p>
+&lt;p>Performance Test
+部署完成后，就可以测试 minio 整套的性能了&lt;/p>
+&lt;p>可以随意拔下 2 块硬盘看看 minio 是否能正常工作（记得提前开启 SATA 热插拔 功能！）&lt;/p>
+&lt;p>裸盘速度 minio速度 软 RAID 速度
+4MB 0 MB/s 0 MB/s 0MB/s
+32MB
+64MB
+128MB
+256MB
+512MB
+1GB
+^ MB/s 指的是 Mega Bytes per second
+^ 这里放个图片&lt;/p>
+&lt;p>Summary
+本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
+&lt;p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法&lt;/p>
+&lt;p>最后，做了相对完整的性能测试&lt;/p>
+&lt;p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方&lt;/p>
+&lt;p>hehe says:
+February 27, 2022 at 11:59 pm
+老哥，家里的NAS没必要这么折腾吧…&lt;/p>
+&lt;p>Junyi says:
+February 28, 2022 at 11:33 pm
+回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。&lt;/p>
+&lt;p>因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。&lt;/p>
+&lt;p>部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-3/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题
+Introduction
+提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;p>他奶奶的，不支持重命名啊！&lt;/p>
+&lt;p>Summary
+重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p>
+&lt;p>February 17, 2022&lt;/p></description></item><item><title/><link>https://www.junyi.dev/hidden/oss-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.junyi.dev/hidden/oss-4/</guid><description>&lt;p>为什么家庭 NAS 不采用对象存储方案（四）总结
+February 17, 2022&lt;/p>
+&lt;p>Summary
+提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;p>对象存储虽然有如此多的优点和特性，但是在家庭存储这个场景下，显然是不合适的。&lt;/p>
+&lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
+&lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
+&lt;p>对象存储在「重命名」「移动文件」方面的不便之处洽洽堵住了它作为家庭 NAS 储存方案的路。&lt;/p>
+&lt;p>Future
+凭什么家里不能用企业的解决方案呢？&lt;/p>
+&lt;p>因此，我准备后续探索一下 GlusterFS、HDFS、Ceph 这些方案用作家庭 NAS 的可能性。&lt;/p>
+&lt;p>（挖个坑hhh）&lt;/p>
+&lt;p>pauldhuang says:
+February 18, 2022 at 3:21 pm
+我觉得其实可以，可以做一个路径索引，在拷贝完成之前，显示新路径但是索引到原来位置，然后移动完更新索引，复制粘贴过程放在后台。但是过程中的数据膨胀是个问题
+Junyi says:
+February 23, 2022 at 10:56 pm
+确实是个不错的解决方案&lt;/p>
+&lt;p>haha says:
+February 28, 2022 at 12:08 am
+别瞎折腾了，你提到这几样都是分布式的存储，冗余是靠多个服务器上的多个副本或者分布式Raid实现的，自己家里搞一堆设备，电费都不划算，裸机置备系统也很麻烦，想玩不如云上搞几个虚拟机，做做测试就行了……
+Junyi says:
+February 28, 2022 at 11:43 pm
+对的，我想探究的就是分布式存储的相关工具。为了做到可靠，通常在多个服务器、多个地区做冗余。最简单的方式是通过 RAID 实现，但是身边发生了 RAID 5 掉盘结果在重建过程中另一块盘也坏了的情况。所以我在心里对 RAID 的可靠性产生了怀疑。&lt;/p>
+&lt;p>使用纠删码的「对象存储」这个方案带给我眼前一亮的感觉，它既拥有 RAID 的速度，又比 RAID 更可靠，数据重建的时间相对来说也比 RAID 短。为什么不用分布式、对象存储的思想，应用到家庭NAS上呢？这套方案唯一的缺点可能就是比较折腾。&lt;/p>
+&lt;p>关于电费问题，我的解决方案是搞个开机卡，用的时候把电脑打开，不用就关掉。&lt;/p>
+&lt;p>最终，在折腾的这个阶段里，对整个工具链有了更清晰的认识，发现了自己认知上的缺陷，比如忘了可以从云上搞几个虚拟机，这样我也不会搞得这么痛苦了hhh&lt;/p></description></item></channel></rss>

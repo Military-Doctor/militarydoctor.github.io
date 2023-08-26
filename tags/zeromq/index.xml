@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ZeroMQ on Junyi's Lab</title><link>https://www.junyi.dev/tags/zeromq/</link><description>Junyi's Lab (ZeroMQ)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 01 Jul 2021 09:48:45 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/zeromq/index.xml" rel="self" type="application/rss+xml"/><item><title>Zero Mq 注意事项</title><link>https://www.junyi.dev/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><guid>https://www.junyi.dev/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D(https://zeromq.org/)">ZeroMQ&lt;/a>&lt;/p>
+&lt;p>我用的实现版本：&lt;a href="https://github.com/zeromq/libzmq">libzmq&lt;/a>&lt;/p>
+&lt;p>对我个人来说，ZMQ 可以免去我「维持 socket 通信可靠性」、「高性能并发」等任务。&lt;/p>
+&lt;p>（虽然之前自己也写了一整套）&lt;/p>
+&lt;p>ZMQ 的设计思路大体上跟我自己的想法很接近。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// client.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>requester &lt;span style="color:#f92672">=&lt;/span> zmq_socket (context, ZMQ_REQ);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">// server.cpp
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#f92672">*&lt;/span>requester &lt;span style="color:#f92672">=&lt;/span> zmq_socket (context, ZMQ_REP);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果你的 client 和 server 是上面这样写的（REQ-REP），那就要注意，zmq_send () 之后要接一个 zmq_recv ()&lt;/p>
+&lt;p>send 和 recv 要&lt;strong>成对出现&lt;/strong>，才能维护 REQ-REP 的状态机。&lt;/p></description></item></channel></rss>

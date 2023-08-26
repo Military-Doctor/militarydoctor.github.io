@@ -1,0 +1,83 @@
+<!doctype html><html lang=en-us data-theme><head><meta charset=utf-8><meta name=HandheldFriendly content="True"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=referrer content="no-referrer-when-downgrade"><title>Junyi&rsquo;s Lab</title><meta name=description content="为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务
+Introduction 提示：这篇还没写完，有空的时候记得填一下坑
+单机部署 minio erase-code 模式
+使用了 8 块硬盘
+本文很长，涉及的内容很多
+Deploy Environment:
+OS: RHEL 8 HDD: 4 TB x 10 RAM: 8 GB NIC: 1 x GbE 安装系统 配置网络自动连接 开启 Cockpit 使用 Podman 管理容器 Podman 作为 Red Hat 的儿子，自然是要体验一下
+但是在这个过程中我遇到了很多困难
+看日志发现是 SELinux 阻止了 minio 访问磁盘
+在这里我提供两种解决方法，任选其一即可
+Method 1: z and Z
+当你使用 minio 一段时间， bucket 里的文件非常多的时候， 你会发现创建容器的过程非常缓慢 并且 podman ps # 这条指令会卡住
+使用 strace -f 发现，这个阶段 podman 在帮你设置 SELinux label 几十万个文件，一个一个地设置 &mldr;&mldr; 所以也推荐下面这个简单粗暴的方法（Method 2）"><link rel=icon type=image/x-icon href=https://www.junyi.dev/favicon.ico><link rel=apple-touch-icon-precomposed href=https://www.junyi.dev/favicon.png><link rel=stylesheet href=https://www.junyi.dev/css/style.min.5aca35955b4a4a2b3987b33115c6840f82dd4fb76a33d9d54ec059a3c019dd8c.css integrity="sha256-Wso1lVtKSis5h7MxFcaED4LdT7dqM9nVTsBZo8AZ3Yw="><script src=https://www.junyi.dev/js/script.min.74bf1a3fcf1af396efa4acf3e660e876b61a2153ab9cbe1893ac24ea6d4f94ee.js type=text/javascript integrity="sha256-dL8aP88a85bvpKzz5mDodrYaIVOrnL4Yk6wk6m1PlO4="></script><meta property="og:title" content><meta property="og:description" content="为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务
+Introduction 提示：这篇还没写完，有空的时候记得填一下坑
+单机部署 minio erase-code 模式
+使用了 8 块硬盘
+本文很长，涉及的内容很多
+Deploy Environment:
+OS: RHEL 8 HDD: 4 TB x 10 RAM: 8 GB NIC: 1 x GbE 安装系统 配置网络自动连接 开启 Cockpit 使用 Podman 管理容器 Podman 作为 Red Hat 的儿子，自然是要体验一下
+但是在这个过程中我遇到了很多困难
+看日志发现是 SELinux 阻止了 minio 访问磁盘
+在这里我提供两种解决方法，任选其一即可
+Method 1: z and Z
+当你使用 minio 一段时间， bucket 里的文件非常多的时候， 你会发现创建容器的过程非常缓慢 并且 podman ps # 这条指令会卡住
+使用 strace -f 发现，这个阶段 podman 在帮你设置 SELinux label 几十万个文件，一个一个地设置 &mldr;&mldr; 所以也推荐下面这个简单粗暴的方法（Method 2）"><meta property="og:type" content="article"><meta property="og:url" content="https://www.junyi.dev/hidden/oss-2/"><meta property="article:section" content="hidden"><meta name=twitter:card content="summary"><meta name=twitter:title content><meta name=twitter:description content="为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务
+Introduction 提示：这篇还没写完，有空的时候记得填一下坑
+单机部署 minio erase-code 模式
+使用了 8 块硬盘
+本文很长，涉及的内容很多
+Deploy Environment:
+OS: RHEL 8 HDD: 4 TB x 10 RAM: 8 GB NIC: 1 x GbE 安装系统 配置网络自动连接 开启 Cockpit 使用 Podman 管理容器 Podman 作为 Red Hat 的儿子，自然是要体验一下
+但是在这个过程中我遇到了很多困难
+看日志发现是 SELinux 阻止了 minio 访问磁盘
+在这里我提供两种解决方法，任选其一即可
+Method 1: z and Z
+当你使用 minio 一段时间， bucket 里的文件非常多的时候， 你会发现创建容器的过程非常缓慢 并且 podman ps # 这条指令会卡住
+使用 strace -f 发现，这个阶段 podman 在帮你设置 SELinux label 几十万个文件，一个一个地设置 &mldr;&mldr; 所以也推荐下面这个简单粗暴的方法（Method 2）"></head><body><a class=skip-main href=#main>Skip to main content</a><div class=container><header class=common-header><div class=header-top><h1 class=site-title><a href=/>Junyi's Lab</a></h1><ul class=social-icons><li><a href=https://github.com/Junyi-99 title=Github rel=me><span class=inline-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentcolor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></li></ul></div><nav><a href=https://www.junyi.dev/ title>Home</a>
+<a href=https://www.junyi.dev/tags/ title>Tags</a>
+<a href=https://www.junyi.dev/posts/ title>Archive</a>
+<a href=https://www.junyi.dev/about/ title>About</a></nav></header><main id=main tabindex=-1><article class="post h-entry"><div class=post-header><header><h1 class="p-name post-title"></h1></header></div><div class="content e-content"><p>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</p><p>Introduction
+提示：这篇还没写完，有空的时候记得填一下坑</p><p>单机部署 minio erase-code 模式</p><p>使用了 8 块硬盘</p><p>本文很长，涉及的内容很多</p><p>Deploy
+Environment:</p><p>OS: RHEL 8
+HDD: 4 TB x 10
+RAM: 8 GB
+NIC: 1 x GbE
+安装系统
+配置网络自动连接
+开启 Cockpit
+使用 Podman 管理容器
+Podman 作为 Red Hat 的儿子，自然是要体验一下</p><p>但是在这个过程中我遇到了很多困难</p><p>看日志发现是 SELinux 阻止了 minio 访问磁盘</p><p>在这里我提供两种解决方法，任选其一即可</p><p>Method 1: z and Z</p><h1 id=当你使用-minio-一段时间>当你使用 minio 一段时间，
+<span><a href=#%e5%bd%93%e4%bd%a0%e4%bd%bf%e7%94%a8-minio-%e4%b8%80%e6%ae%b5%e6%97%b6%e9%97%b4><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><h1 id=bucket-里的文件非常多的时候>bucket 里的文件非常多的时候，
+<span><a href=#bucket-%e9%87%8c%e7%9a%84%e6%96%87%e4%bb%b6%e9%9d%9e%e5%b8%b8%e5%a4%9a%e7%9a%84%e6%97%b6%e5%80%99><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><h1 id=你会发现创建容器的过程非常缓慢>你会发现创建容器的过程非常缓慢
+<span><a href=#%e4%bd%a0%e4%bc%9a%e5%8f%91%e7%8e%b0%e5%88%9b%e5%bb%ba%e5%ae%b9%e5%99%a8%e7%9a%84%e8%bf%87%e7%a8%8b%e9%9d%9e%e5%b8%b8%e7%bc%93%e6%85%a2><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><h1 id=并且>并且
+<span><a href=#%e5%b9%b6%e4%b8%94><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><p>podman ps # 这条指令会卡住</p><h1 id=使用-strace--f-cmd-发现这个阶段>使用 strace -f <cmd>发现，这个阶段
+<span><a href=#%e4%bd%bf%e7%94%a8-strace--f-cmd-%e5%8f%91%e7%8e%b0%e8%bf%99%e4%b8%aa%e9%98%b6%e6%ae%b5><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><h1 id=podman-在帮你设置-selinux-label>podman 在帮你设置 SELinux label
+<span><a href=#podman-%e5%9c%a8%e5%b8%ae%e4%bd%a0%e8%ae%be%e7%bd%ae-selinux-label><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><h1 id=几十万个文件一个一个地设置->几十万个文件，一个一个地设置 &mldr;&mldr;
+<span><a href=#%e5%87%a0%e5%8d%81%e4%b8%87%e4%b8%aa%e6%96%87%e4%bb%b6%e4%b8%80%e4%b8%aa%e4%b8%80%e4%b8%aa%e5%9c%b0%e8%ae%be%e7%bd%ae-><svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/></svg></a></span></h1><p>所以也推荐下面这个简单粗暴的方法（Method 2）</p><p>Method 2: SELinux
+什么是 SELinux？
+SELinux 有哪些模式？
+None
+Permissive
+Enforce
+如何在 Enforce 下正常使用容器？
+挖个坑，以后填</p><p>使用 SFTPGO 作为中间层
+裸的 minio 是不提供 WebDAV、SFTP、SMB 这些协议支持的，所以你需要一个中间层进行对接。</p><p>SFTPGO 支持把 S3 服务以 SFTP 的协议暴露出去。</p><p>Performance Test
+部署完成后，就可以测试 minio 整套的性能了</p><p>可以随意拔下 2 块硬盘看看 minio 是否能正常工作（记得提前开启 SATA 热插拔 功能！）</p><p>裸盘速度 minio速度 软 RAID 速度
+4MB 0 MB/s 0 MB/s 0MB/s
+32MB
+64MB
+128MB
+256MB
+512MB
+1GB
+^ MB/s 指的是 Mega Bytes per second
+^ 这里放个图片</p><p>Summary
+本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio</p><p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法</p><p>最后，做了相对完整的性能测试</p><p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方</p><p>hehe says:
+February 27, 2022 at 11:59 pm
+老哥，家里的NAS没必要这么折腾吧…</p><p>Junyi says:
+February 28, 2022 at 11:33 pm
+回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。</p><p>因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。</p><p>部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！</p></div><div class=post-info><a class="post-hidden-url u-url" href=https://www.junyi.dev/hidden/oss-2/>https://www.junyi.dev/hidden/oss-2/</a>
+<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies></div></div></article></main><footer class=common-footer><div class=common-footer-bottom><div class=copyright><p>© Junyi Hou, 2023<br>Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hugo</a>, theme <a target=_blank rel="noopener noreferrer" href=https://github.com/mitrichius/hugo-theme-anubis>Anubis</a>.<br></p></div></div><p class="h-card vcard"><a href=https://www.junyi.dev/ class="p-name u-url url fn" rel=me>Junyi Hou</a>
+/
+<a class="p-email u-email email" rel=me href=mailto:hhh@u.nus.edu>hhh@u.nus.edu</a></p></footer></div></body></html>

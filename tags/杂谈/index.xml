@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂谈 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%9D%82%E8%B0%88/</link><description>Junyi's Lab (杂谈)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant, 我跑了 1,072 个实验。&lt;/p>
+&lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
+&lt;blockquote>
+&lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
+&lt;p>“把 learning rate 改成 0.001 跑一下”&lt;/p>
+&lt;p>“把 activation层 去掉，跑一下”&lt;/p>
+&lt;p>“昨天跑的实验结果怎么样了？” （一看 log 发现零零散散几个任务出错了需要重新跑）&lt;/p>
+&lt;/blockquote>
+&lt;p>特别是，同时在&lt;strong>不同服务器上&lt;/strong>运行&lt;strong>很多任务&lt;/strong>，并且&lt;strong>个别任务&lt;/strong>跑的时候 &lt;code>显卡/内存&lt;/code> 报错，log 里记录的信息并不足以区分这是哪个任务的时候&amp;hellip;.&lt;/p>
+&lt;p>更糟糕的是，不同服务器上的代码版本也可能不同，这让问题变得更复杂（使用git可能是一个解决方法）。&lt;/p>
+&lt;p>当我写下这篇文章的时候，意识到这其实是自己&lt;strong>曾经拥有&lt;/strong>的项目管理技能，后面写的这些总结在实际项目开发中经常用到，只不过我&lt;strong>太久没有做项目&lt;/strong>，忘记了这些。&lt;/p>
+&lt;p>为了防止再次遗忘，我把这次的经验写下来，也跟大家分享一下心得，告诉大家我是如何通过建立有效的文件管理体系和实验进度追踪来解决问题的。&lt;/p>
+&lt;h1 id="文件管理体系" >文件管理体系
+&lt;span>
+&lt;a href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e4%bd%93%e7%b3%bb">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
+&lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
+/home/junyi/data/cifar10/
+/home/junyi/data/covtype/
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>项目文件夹&lt;/strong>是针对每一个项目设立的专门的文件夹（例如VertiBench和VertiLearn）&lt;/p>
+&lt;pre tabindex="0">&lt;code>/home/junyi/project/VertiBench/
+/home/junyi/project/VertiLearn/
+./experiment/ # 实验文件夹
+./experiment/{exp-name}-{timestamp}/*.log
+./data/ # 软链接到数据集
+./code/ # 项目的仓库 / 相关代码
+./rebuttal/ # 回复 Reviewer 的
+./rebuttal/{reviewer-id}/experiment/
+./rebuttal/{reviewer-id}/plot/
+./rebuttal/{reviewer-id}/comment/
+&lt;/code>&lt;/pre>&lt;h1 id="如何做实验" >如何做实验
+&lt;span>
+&lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>自动化流程&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>使用脚本&lt;/strong>: 我靠脚本实现自动化，用一个脚本来管理所有的实验，每个实验都会被分配一个&lt;strong>唯一id&lt;/strong>。这样在某个实验出错时，例如&lt;code>显存不足&lt;/code>，我可以直接根据 id 重新运行该实验（特别是在使用 slurm 的时候，有这样的脚本可以省去不少写 sbatch 的工作）。同时，我还有另一个脚本用来&lt;strong>追踪每个实验的进度&lt;/strong>（打印进度条）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>日志要 print 完整&lt;/strong>: 每次实验都确保打印所有的参数，每一行的开头都要有时间（精确到秒），打印的内容包括模型的&lt;strong>超参数&lt;/strong>和&lt;strong>结构&lt;/strong>，并且把 parse 的 args 都打印出来。当实验变得复杂并且时间有限时，这种详细的记录非常有助于我回顾。（如果实验名足够详细，其实在日志里也没必要打印这么多内容）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>为实验命名&lt;/strong>: 为了方便查找，每次实验我都会给它一个描述性的名字，如 “test SplitNN with lr 0.3”。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>使用 git&lt;/strong>: 为了尽快得到结果，我不得不在多台机器上进行实验，这让我非常非常头痛。建议使用 git 来完成多个机器的代码同步。（不建议用 git 来同步&lt;strong>数据集&lt;/strong>🤣）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="总结" >总结:
+&lt;span>
+&lt;a href="#%e6%80%bb%e7%bb%93">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
+&lt;blockquote>
+&lt;p>（后来有老师说，做 benchmark 确实是一个很苦的工作）&lt;/p>
+&lt;/blockquote>
+&lt;p>希望我的经验能为大家提供一些参考。&lt;/p>
+&lt;p>同时也想告诫自己，&lt;strong>&lt;span style="color: red;">不要想偷懒！！！&lt;/span>&lt;/strong> &lt;strong>不要想着 “这个实验手动跑一下算了”&lt;/strong>，因为你永远不知道哪个实验会出问题，哪个实验会成为你的重要成果。&lt;/p>
+&lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;p>下面是一些例子：&lt;/p>
+&lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
+&lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
+&lt;p>苹果的&lt;ruby>隔空投送&lt;rt>AirDrop&lt;/rt>&lt;/ruby>并没有那么可靠，丢失文件的情况经常发生&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>近些年来，&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;容器&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;Container&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;技术极大地降低了服务的部署成本
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;功能进行系统管理
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to get motivated</title><link>https://www.junyi.dev/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><guid>https://www.junyi.dev/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
+&lt;h1 id="1-get-ready-the-night-before" >1. Get ready the night before
+&lt;span>
+&lt;a href="#1-get-ready-the-night-before">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Clean your desk&lt;/li>
+&lt;li>Get everything that you need within reach pens, paper, charges …&lt;/li>
+&lt;li>Make a to-do list&lt;/li>
+&lt;li>Choose your clothes for the next day.&lt;/li>
+&lt;/ul>
+&lt;h1 id="2-write-a-to-do-list-everyday" >2. Write a to-do list everyday
+&lt;span>
+&lt;a href="#2-write-a-to-do-list-everyday">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Have a clear plan of what you need to do&lt;/li>
+&lt;li>Spread out your tasks over the week to have realistic expectations&lt;/li>
+&lt;li>Easy, difficult, long, short tasks to keep totivation throughout the day&lt;/li>
+&lt;/ul>
+&lt;p>Using what works best for you:&lt;/p>
+&lt;ul>
+&lt;li>Microsoft To-Do&lt;/li>
+&lt;/ul>
+&lt;h1 id="3-block-your-time-in-your-calendar" >3. Block your time in your calendar
+&lt;span>
+&lt;a href="#3-block-your-time-in-your-calendar">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="4-use-the-pomodoro-method-to-manage-your-time--tasks" >4. Use the Pomodoro method to manage your time &amp;amp; tasks
+&lt;span>
+&lt;a href="#4-use-the-pomodoro-method-to-manage-your-time--tasks">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ol>
+&lt;li>Pick a task&lt;/li>
+&lt;li>Start a 25-minutes timer - FOCUS TIME&lt;/li>
+&lt;li>Take a 5 minutes break - you just finished 1 pomodoro session&lt;/li>
+&lt;li>After 4 pomodoros, take a longer 15 - 30 min break&lt;/li>
+&lt;/ol>
+&lt;p>Choose your &lt;strong>personal session and breaks&lt;/strong>.&lt;/p>
+&lt;h1 id="5-using-virtual-study-group" >5. Using virtual study group
+&lt;span>
+&lt;a href="#5-using-virtual-study-group">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="6-use-time-tracking" >6. Use time tracking
+&lt;span>
+&lt;a href="#6-use-time-tracking">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>To motivate you as see how much work you did.&lt;/p>
+&lt;h1 id="7-start-your-day-with-an-easy-task-that-you-want-to-do" >7. Start your day with an easy task that you WANT to do
+&lt;span>
+&lt;a href="#7-start-your-day-with-an-easy-task-that-you-want-to-do">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="8-create-a-study-routine-and-build-habits" >8. Create a study routine and build habits
+&lt;span>
+&lt;a href="#8-create-a-study-routine-and-build-habits">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>When motivation is low, your routine and habits hat you’ve built will come to the rescue.&lt;/p>
+&lt;ul>
+&lt;li>Create a story routine&lt;/li>
+&lt;li>Iteratively improve it + make it realistic for you&lt;/li>
+&lt;li>Then it will less be anout motivation.&lt;/li>
+&lt;/ul>
+&lt;h1 id="9-remember-why-you-want-to-get-these-tasks-done" >9. Remember WHY you want to get these tasks done.
+&lt;span>
+&lt;a href="#9-remember-why-you-want-to-get-these-tasks-done">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Write it down, and go back to the note when you’re lacking motivation&lt;/p>
+&lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >10. Create a motivating poster in front of your desk!
+&lt;span>
+&lt;a href="#10-create-a-motivating-poster-in-front-of-your-desk">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="11-make-studying-fun" >11. Make studying fun
+&lt;span>
+&lt;a href="#11-make-studying-fun">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;ul>
+&lt;li>Create flashcards -&amp;gt; Quizlet&lt;/li>
+&lt;li>Watch online videos&lt;/li>
+&lt;/ul>
+&lt;h1 id="12-trick-your-brain-with-the-2-minute-rule" >12. Trick your brain with the 2 minute rule
+&lt;span>
+&lt;a href="#12-trick-your-brain-with-the-2-minute-rule">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;blockquote>
+&lt;p>“Ok, I know I don’t fell like studying right now. But, I’m going to get up, go to my desk, and work for 2 minutes. If I still don’t feel like it, I can stop working.”&lt;/p>
+&lt;/blockquote>
+&lt;h1 id="13-exercise-and-come-back-to-work" >13. Exercise and come back to work.
+&lt;span>
+&lt;a href="#13-exercise-and-come-back-to-work">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >14. Join a study Discord community!
+&lt;span>
+&lt;a href="#14-join-a-study-discord-community">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >15. Still can’t find motivation? Take a productive break!
+&lt;span>
+&lt;a href="#15-still-cant-find-motivation-take-a-productive-break">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;h1 id="reference" >Reference
+&lt;span>
+&lt;a href="#reference">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>Marine. &lt;a href="https://m.twitch.tv/videos/934263167">https://m.twitch.tv/videos/934263167&lt;/a>&lt;/p>
+&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>没想到已经过去了这么久，可惜自己好像从未尝试过文中的方法&lt;/p>
+&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>整理了一下博客</title><link>https://www.junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
+&lt;p>这些文章都是我写了好久的。&lt;/p>
+&lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
+&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img src="md1.png" alt="md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 容易掉盘」&lt;/p>
+&lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
+&lt;p>后来做了多方面调查，得出结论：&lt;/p>
+&lt;p>&lt;strong>硬盘盒、USB 等毁硬盘的情况主要是供电不足导致的！&lt;/strong>&lt;/p>
+&lt;p>（举个例子，比如这款硬盘盒，就「可能」会毁掉你的硬盘。它自带 12V 1A 电源）&lt;/p>
+&lt;img src="fig1.png" alt="drawing" width="200"/>
+&lt;p>我们的硬盘上面写工作电压电流是 5V 0.55A, 12V 0.37A（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
+&lt;img src="fig2.png" alt="drawing" width="400"/>
+&lt;p>12V，0.37A，够了呀，内置电源是 12V 1A 的，电流都多出来 3 倍了。&lt;/p>
+&lt;p>&lt;strong>实际上并不够。&lt;/strong>&lt;/p>
+&lt;p>在查阅了&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>之后发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
+&lt;p>&lt;strong>&lt;code>「Startup Current, Typical (12V, 1.8A) 」&lt;/code>&lt;/strong>&lt;/p>
+&lt;p>这个指的是硬盘刚开始工作时的瞬间电流，ST4000VX007 这块硬盘的瞬间电流可以达到 1.8A&lt;/p>
+&lt;p>这就是为什么这个硬盘盒的电源根本不能用的原因了：&lt;/p>
+&lt;p>&lt;strong>主控芯片自带的「自动休眠功能」会让硬盘自动休眠，停止电机的转动。在每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
+&lt;p>解决方案是买个好点的电源。&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>https://www.junyi.dev/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>https://www.junyi.dev/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>小想法</title><link>https://www.junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://www.junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;p>Automation 类的工具也可以啊。&lt;/p>
+&lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
+&lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
+&lt;p>那为什么不能利用「蓝牙 + 屏幕共享」这两个技术，实现一个自动化工具呢？&lt;/p>
+&lt;p>也不知道现在市面上有没有这种工具。。。&lt;/p>
+&lt;p>我的想法是直接用电脑的蓝牙模块跟手机连接，把电脑模拟成蓝牙鼠标。&lt;/p>
+&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>https://www.junyi.dev/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><guid>https://www.junyi.dev/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
+&lt;p>9 月 28 日电动车被偷&lt;/p>
+&lt;p>10 月 1 日买了新的电动车&lt;/p>
+&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>https://www.junyi.dev/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><guid>https://www.junyi.dev/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
+&lt;p>艹！&lt;/p>
+&lt;p>跟朋友一起上下学，三个人把三辆电动车都放在了横琴口岸&lt;/p>
+&lt;p>舍友 A：电动滑板车&lt;/p>
+&lt;p>舍友 B 和 我：同一品牌的电动车&lt;/p>
+&lt;p>然后我的被偷了&lt;/p>
+&lt;p>虽然第一时间联系了朋友，并且另一位跟我一起回来的朋友帮我找了一圈电动车，没有找到。然后我报了警。警察说你可以去做一下笔录，但是帮助不大，&lt;/p>
+&lt;p>估计是找不到了。&lt;/p>
+&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>https://www.junyi.dev/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>https://www.junyi.dev/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
+&lt;h3 id="基本配置-基本配置基本配置" >&lt;a href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE" title="基本配置">&lt;/a>基本配置
+&lt;span>
+&lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>先说一下我电脑的基本配置:&lt;/p>
+&lt;p>2017年买的笔记本电脑&lt;br>
+CPU: i7-7700HQ&lt;br>
+内存: 8GB x 2, DDR4, 2666 MHz&lt;br>
+SSD: 512G 三星 SM961, MLC颗粒, M.2接口, 连续读 3200MB/s, 连续写 1300MB/s (实测)&lt;br>
+HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用&lt;br>
+显示器: BENQ PD2500Q, 分辨率 1440p&lt;br>
+键盘: IKBC F108 时光机&lt;br>
+鼠标: 雷蛇炼狱蝰蛇 2000&lt;/p>
+&lt;p>由于是2017年买的笔记本, 性能什么的自然比不过各位 dalao 的台式机或者更牛逼的游戏本&lt;/p>
+&lt;p>但是在我的优化下, 现在用起来也蛮流畅的, 搞开发没什么问题.&lt;/p>
+&lt;p>以前的我买笔记本电脑, 最求极致性价比, 只看配置, 但是现在, emmm&lt;/p>
+&lt;p>可以算是不在乎配置什么的了吧, 毕竟是给自己日常使用的电脑, 不是什么服务器, 要榨干每一丝的性能, 对我来说, 日常使用的电脑最重要的是好用.&lt;/p>
+&lt;p>所以, 显示器一定要买比较好的, 选来选去买了明基的PD2500Q, 据说是给视觉设计工作者使用的&lt;br>
+具体配置我就不赘述了, 用起来非常舒服, 价格也十分美丽.&lt;/p>
+&lt;p>键盘一定要全键盘带小键盘和方向键的, 我个人习惯而已, 感觉小键盘比数字键好用多了, 最好带个背光, 晚上的时候也可以用, 虽然平常盲打, 但是有光可以让我更安心, 我也不想要什么花里胡哨的, RGB啊, 自定义宏啊, 都是噱头, 在我看来就是智商税, 我平常也不用这些花里胡哨的功能. (比如RGB, 难道你打字的时候看着键盘打吗hhhh)&lt;/p>
+&lt;p>总的来说, 现在买这些硬件产品, 性能反而不是第一考虑的维度&lt;/p>
+&lt;p>最先考虑的, 一定是外观和使用体验, 其次才是性能.&lt;/p>
+&lt;p>在同样的外观和体验下, 买性能最高的, 这就是我的原则. (个人观点不代表所有人, 我之前是把性能作为第一考虑指标的人)&lt;/p>
+&lt;h3 id="开发环境-开发环境开发环境" >&lt;a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" title="开发环境">&lt;/a>开发环境
+&lt;span>
+&lt;a href="#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>目前我把那块 512G 的 SSD 划成了两个部分, 第一个部分 300G 给 Windows 用, 第二个部分 200G 给 Ubuntu 用.&lt;/p>
+&lt;p>平常开发的时候, 不会首先选择 Windows, 虽然 Visual Studio 挺香的 (但是 Linux 里我可以用 VS Code)&lt;/p>
+&lt;p>尤其是搞深度学习, Windows 难用的一批, 一个好用的包管理系统都没有(不要喷,我用过 chocolatey 等 pkm 工具, 都不好用)&lt;/p>
+&lt;p>Linux 香啊, 可能现在你不这么觉得, 到以后就觉得香了.&lt;/p>
+&lt;p>高度自由, 想怎么作就怎么作.&lt;/p>
+&lt;p>&lt;strong>我平常使用的开发语言有:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>C&lt;/li>
+&lt;li>C++&lt;/li>
+&lt;li>Python&lt;/li>
+&lt;li>Java&lt;/li>
+&lt;/ul>
+&lt;p>( 不要问我为什么没有易语言, 易语言是个坑, 我从小学五年级开始学, 到大学一年级弃坑 )&lt;/p>
+&lt;p>由于体验了一把 IntelliJ IDEA, 觉得 JetBrains 公司出品的 IDE 都很好用, 所以我抛弃了 Eclipse, 抛弃了 Visual Studio, 全线转战 JB 全家桶.&lt;br>
+比如写 C 和 C++ 的 CLion, 写 Python 的 PyCharm, 写 Java 的 IDEA&lt;/p>
+&lt;p>好用爆了, 而且学校提供 edu 邮箱, 直接在 JB 官网注册学生授权就可以免费使用所有工具.&lt;/p>
+&lt;p>,,,,,&lt;/p>
+&lt;p>我的版本管理工具用的 Git&lt;/p>
+&lt;p>聊天工具 WeChat, Telegram&lt;/p>
+&lt;p>壁纸软件是自己写了个脚本, 爬 unsplash 网站的优质图片当做壁纸&lt;/p>
+&lt;p>文件之间共享用的 SMB 协议&lt;/p>
+&lt;p>手机是 iPhone 8, 之前一直被 iOS 和 笔记本 之间的文件共享问题所困扰, ( 没有 money 买 MacBook Pro )&lt;/p>
+&lt;p>后来捣鼓了一下 SMB 协议, iPhone 上装个第三方文件管理工具,&lt;/p>
+&lt;p>就很舒服了, 不用插线的文件传输, 走千兆内网, 路由器是华硕的 AC88U, 速度不错&lt;/p>
+&lt;p>(剩下的想起来再写)&lt;/p>
+&lt;h3 id="windows-工具-windows-工具windows-工具" >&lt;a href="#Windows-%E5%B7%A5%E5%85%B7" title="Windows 工具">&lt;/a>Windows 工具
+&lt;span>
+&lt;a href="#windows-%e5%b7%a5%e5%85%b7-windows-%e5%b7%a5%e5%85%b7windows-%e5%b7%a5%e5%85%b7">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;ul>
+&lt;li>杀软: 火绒&lt;/li>
+&lt;li>文件搜索: Everything&lt;/li>
+&lt;li>压缩工具: 7-Zip (不要给我推荐Bandi-zip)&lt;/li>
+&lt;li>视频播放器: PotPlayer&lt;/li>
+&lt;li>修图工具: Windows画图, Photoshop (讲道理windows自带的画图挺好用的)&lt;/li>
+&lt;li>截图工具: ShareX&lt;/li>
+&lt;li>录屏工具: OBS-Studio&lt;/li>
+&lt;li>图片查看器: IrfanView (速度快, 简洁)&lt;/li>
+&lt;li>浏览器: Firefox（比 Chrome 更隐私）&lt;/li>
+&lt;li>输入法: 自带输入法&lt;/li>
+&lt;li>文字编辑工具: Office 365&lt;/li>
+&lt;li>下载工具: Internet Download Manager&lt;/li>
+&lt;li>开发工具: JetBrains 全套&lt;/li>
+&lt;li>音乐播放器: iTunes&lt;/li>
+&lt;li>FTP管理工具: FileZilla&lt;/li>
+&lt;li>虚拟机: VMWare Player&lt;/li>
+&lt;li>日程管理: Outlook&lt;/li>
+&lt;li>邮件管理: Outlook&lt;/li>
+&lt;li>聊天工具: 被封印在虚拟机内的 QQ 和 微信&lt;/li>
+&lt;/ul>
+&lt;p>我特别想说的是, 因为我 16G 内存用不掉, 所以就开了一个虚拟机, 专门用来使用那些不得不用的国内垃圾流氓软件,&lt;br>
+如QQ, 微信.&lt;/p>
+&lt;p>放在虚拟机内, 可以&lt;/p>
+&lt;ul>
+&lt;li>有效防止硬盘被扫描&lt;/li>
+&lt;li>有效防止被安插后门&lt;/li>
+&lt;li>有效防止那个傻逼的 QProtect 服务&lt;/li>
+&lt;li>防止自己的电脑被装上 Tencent 的驱动.&lt;/li>
+&lt;/ul>
+&lt;p>最最可以的, 是可以让我在 Ubuntu 里也能用.&lt;/p>
+&lt;p>虚拟机好处多, 大家都来用吧.&lt;/p>
+&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>元宵节快乐</title><link>https://www.junyi.dev/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><guid>https://www.junyi.dev/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>https://www.junyi.dev/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
+&lt;blockquote>
+&lt;p>人生天地之间，若白驹过隙，忽然而已。 ——《庄子・知北游》&lt;/p>
+&lt;/blockquote>
+&lt;p>时间过得真快，一转眼马上就大二了。&lt;/p>
+&lt;p>回到家之后，并没有家的感觉，甚至感觉有些厌恶。&lt;/p>
+&lt;p>突然想去读鲁迅的文章。&lt;/p>
+&lt;p>暑假练练字吧。&lt;/p>
+&lt;p>看起来自己似乎是个开拓者，其实自己一直都是一颗棋子，是一个肉鸡。&lt;/p>
+&lt;p>今天，再次迷茫。&lt;/p>
+&lt;p>我未来的路到底该怎么走？&lt;/p>
+&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>https://www.junyi.dev/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-06-27/</guid><description>&lt;blockquote>
+&lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
+&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>https://www.junyi.dev/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…..&lt;/p></description></item><item><title>On Children</title><link>https://www.junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://www.junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
+&lt;p>They come through you but not from you,&lt;/p>
+&lt;p>And though they are with you, yet they belong not to you.&lt;/p>
+&lt;p>You may give them your love but not your thought&lt;/p>
+&lt;p>For they have their own thoughts.&lt;/p>
+&lt;p>You may house their bodies but not their soul&lt;/p>
+&lt;p>For their souls dwell in the house of tomorrow,&lt;/p>
+&lt;p>Which you cannot visit, not even in your dreams.&lt;/p>
+&lt;p>You may strive to be like them,&lt;/p>
+&lt;p>But seek not to make them like you,&lt;/p>
+&lt;p>For life goes not backward nor tarries with yesterday.&lt;/p>
+&lt;p>You are the bows from which your children&lt;/p>
+&lt;p>As living arrows are sent forth.&lt;/p>
+&lt;p>The archer sees the mark upon the path of the infinite,&lt;/p>
+&lt;p>And He bends you with His might,&lt;/p>
+&lt;p>That His arrows may go swift and far.&lt;/p>
+&lt;p>Let your bending in the archer’s hand be for gladness;&lt;/p>
+&lt;p>For even as He loves the arrow that flies，&lt;/p>
+&lt;p>So He loves also the bow that is stable.&lt;/p>
+&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>https://www.junyi.dev/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><guid>https://www.junyi.dev/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
+&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>去做了心理咨询</title><link>https://www.junyi.dev/posts/psychological-counseling/</link><pubDate>Mon, 12 Mar 2018 16:30:19 +0800</pubDate><guid>https://www.junyi.dev/posts/psychological-counseling/</guid><description>&lt;p>周一啊，我去做了心理咨询。&lt;/p>
+&lt;p>心理咨询室里只有我和心理咨询师，咨询师是一位很年轻的女老师，跟咨询师聊了 1 小时，基本上都是我在说话。&lt;/p>
+&lt;p>咨询师说，她充当的是一面镜子的作用，帮助我进入我的内心，看清自己。 她说下次心理辅导的时候希望我讲一下我的家庭，还有我小时候的故事，&lt;/p>
+&lt;p>还有，她说我的思维太 “理科生” 了，把所有感情都分了 Category, 我仔细想了想，还真是。&lt;/p>
+&lt;p>我把 理性 感性 喜 怒 哀 乐 分成了不同的部分，它们独立存在，却不能融合。&lt;/p>
+&lt;p>哦对了，她还说，让我整理一下自己的心态，因为做出改变很难，需要很大的勇气。&lt;/p>
+&lt;p>“我已经下定决心要改变了，勇气还是可以拿的出来的。” 我心想。&lt;/p>
+&lt;p>心理咨询师跟我约了下一次的辅导时间，在 2018 年 3 月 19 日的 15:00 ~ 16:00&lt;/p>
+&lt;p>我内心平静地进入心理咨询室，内心平静的从里面走出来。&lt;/p>
+&lt;p>不知道脑子里在想什么，走的时候，甚至忘了给咨询师说 “谢谢”。&lt;/p>
+&lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>https://www.junyi.dev/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><guid>https://www.junyi.dev/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>https://www.junyi.dev/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
+&lt;p>现在叫 「Junyi 的小屋」&lt;/p>
+&lt;h1 id="2023年8月23日注" >2023年8月23日注：
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>https://www.junyi.dev/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>https://www.junyi.dev/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
+&lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
+&lt;p>（不可恢复，之前的白写了 23333） 直到这篇文章发布（2018-2-21 0:10）&lt;/p>
+&lt;p>我&lt;/p>
+&lt;ul>
+&lt;li>重新审视了自己。&lt;/li>
+&lt;li>重新对这个博客进行规划，决定哪些事情该记录，哪些事情与时间一起流走。&lt;/li>
+&lt;li>对自己的日常行为进行规划&lt;/li>
+&lt;/ul>
+&lt;p>以及，&lt;/p>
+&lt;blockquote>
+&lt;p>希望自己在 2018 年，能一直带着这一天的情绪， 在自己的阈值边缘徘徊， 不为别的， 就为了自己的未来，能有更多选择的权利， 让自己有价值，有意义。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>加油，2018！&lt;/strong>&lt;/p>
+&lt;h1 id="更新于-2021-年-3-月-8-日" >更新于 2021 年 3 月 8 日：
+&lt;span>
+&lt;a href="#%e6%9b%b4%e6%96%b0%e4%ba%8e-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了
+所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
+&lt;h1 id="2023年8月23日注" >2023年8月23日注：
+&lt;span>
+&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>所以我审视了自己什么？
+有什么规划？记录了什么内容？
+好像啥都没写吧。。。
+只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>
