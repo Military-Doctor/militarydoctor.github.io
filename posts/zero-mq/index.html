@@ -12,7 +12,16 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>// server.cpp
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#f92672>*</span>requester <span style=color:#f92672>=</span> zmq_socket (context, ZMQ_REP);
-</span></span></code></pre></div><p>如果你的 client 和 server 是上面这样写的（REQ-REP），那就要注意，zmq_send () 之后要接一个 zmq_recv ()</p><p>send 和 recv 要<strong>成对出现</strong>，才能维护 REQ-REP 的状态机。</p></div><div class=post-info><div class="post-date dt-published"><a class=u-url href=/posts/zero-mq/><time datetime=2021-07-01>2021-07-01</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/zero-mq/>https://www.junyi.dev/posts/zero-mq/</a>
+</span></span></code></pre></div><p>如果你的 client 和 server 是上面这样写的（REQ-REP），那就要注意，zmq_send () 之后要接一个 zmq_recv ()</p><p>send 和 recv 要<strong>成对出现</strong>，才能维护 REQ-REP 的状态机。</p><hr><p>但这样的写法我不是很喜欢，在手写 socket 的时候我更喜欢</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>// client.cpp
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>uint8_t</span> payload[<span style=color:#ae81ff>1024</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> checksum <span style=color:#f92672>=</span> calc_checksum(payload);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> length <span style=color:#f92672>=</span> <span style=color:#66d9ef>sizeof</span>(payload);
+</span></span><span style=display:flex><span>send(socket, PROTOCOL, <span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>send(socket, VERSION, <span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>send(socket, length, <span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>send(socket, payload, length);
+</span></span><span style=display:flex><span>send(socket, checksum, <span style=color:#ae81ff>4</span>);
+</span></span></code></pre></div><p>而不是 ZeroMQ 的一收一发。</p><p>当然 ZeroMQ 有它的设计思路，我不喜欢这么写也只是我不喜欢这么写，就像我之前说的，我不喜欢这么写。<p style=color:#fff>（什么废话文学）</p></p></div><div class=post-info><div class="post-date dt-published"><a class=u-url href=/posts/zero-mq/><time datetime=2021-07-01>2021-07-01</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/zero-mq/>https://www.junyi.dev/posts/zero-mq/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/zeromq/>#ZeroMQ</a></li></ul></div></div></article></main><footer class=common-footer><div class=common-footer-bottom><div class=copyright><p>© Junyi Hou, 2023<br>Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hugo</a>, theme <a target=_blank rel="noopener noreferrer" href=https://github.com/mitrichius/hugo-theme-anubis>Anubis</a>.<br></p></div></div><p class="h-card vcard"><a href=https://www.junyi.dev/ class="p-name u-url url fn" rel=me>Junyi Hou</a>
 /
 <a class="p-email u-email email" rel=me href=mailto:hhh@u.nus.edu>hhh@u.nus.edu</a></p></footer></div></body></html>
