@@ -1,4 +1,380 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术文章 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link><description>Junyi's Lab (技术文章)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术文章 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link><description>Junyi's Lab (技术文章)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 12 Sep 2023 15:15:37 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System Review: Primary Backup Replication</title><link>https://www.junyi.dev/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
+&lt;p>你有一个硬盘，存了很多重要资料，你担心这个硬盘某天坏了，怎么办？&lt;/p>
+&lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
+&lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
+&lt;hr>
+&lt;h2 id="前提假设" >前提假设
+&lt;span>
+&lt;a href="#%e5%89%8d%e6%8f%90%e5%81%87%e8%ae%be">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
+&lt;!--
+多线程那样，因为 scheduler 的原因导致每次执行的结果都不一样。 -->
+&lt;h2 id="最简单的-primary--backup" >最简单的 primary &amp;amp; backup
+&lt;span>
+&lt;a href="#%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84-primary--backup">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ol>
+&lt;li>client&lt;strong>s&lt;/strong> 发送 operation (Put, Get, Append) 到 primary-server&lt;/li>
+&lt;li>primary-server 决定 operation 的执行顺序&lt;/li>
+&lt;li>primary-server 把 operation 的执行顺序发送给 backup-server&lt;/li>
+&lt;li>backup-server 按照 primary-server 发送的顺序执行 operation （hot-standby）
+&lt;ul>
+&lt;li>或者 backup-server 按照 primary-server 发送的顺序记录 operation 但不执行（cold-standby）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>等 backup-server 成功结束，primary-server 给 client 发回复&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>问题是，怎么决定谁来当 primary-server？&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>怎么决定谁来当 backup-server？&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>client 怎么知道谁是 primary-server？&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>答案：&lt;/strong> &lt;span class="spoiler">引入一台 view-server，让这个 view-server 来做决定，并且 client 去问 view-server 谁是 primary-server。为什么叫它 view-server ？ 因为这涉及到一个重要概念「view」，后面会讲到，别着急！&lt;/span>&lt;/p>
+&lt;p>知道了答案，我们可以这样设计整个系统：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>我们让每台服务器定期发送心跳给 view-server，告诉 view-server 自己还活着。&lt;/p>
+&lt;p>问：有没有可能自己活着但是 view-server 认为自己死了？&lt;span class="spoiler"> 有可能因为网络问题，心跳没发出去， view-server 认为节点挂了，但其实节点还活着&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我们 promote idle-server 成为 backup-server，但不越级 promote 成为 primary-server&lt;/p>
+&lt;p>问：除非有种情况？&lt;span class="spoiler">系统刚启动 view-server 那里全都是 idle-server、需要一个 primary 的时候&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>只有 backup-server 会被 promote 成 primary-server&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;figure>
+&lt;img src="view-service.png" alt="View Service" width="500" />
+&lt;figcaption>Fig.1 - One View Server and Two Nodes&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="什么是-view-server-里的-view" >什么是 view-server 里的 view
+&lt;span>
+&lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af-view-server-%e9%87%8c%e7%9a%84-view">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
+&lt;p>注意，一个 view 里，只有一个 primary 和一个 backup，其它的 server 标记为 idle。（想想看为什么这样设计？）&lt;/p>
+&lt;p>view 由 view-server 进行管理，其他节点可以获取到当前系统的 view。&lt;/p>
+&lt;figure>
+&lt;img src="view.png" alt="view-service" width="400" />
+&lt;figcaption>Fig.2 - Example of three different views, denotes three different states of the system&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>看了上面的描述，感觉自己又行了，于是我设计出了下面的流程&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>系统刚开始，挑一个 primary-server，然后挑一个 backup-server，其它的都是 idle-server，然后开始工作。&lt;/p>
+&lt;p>primary 立马让 backup 成为新的 primary，从 idle 里面挑一个成为 backup，然后让这个新的 primary 把状态都发送给 backup&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>很简单嘛！这能有什么问题？&lt;/strong>&lt;/p>
+&lt;p>话音刚落，问题就来了。&lt;/p>
+&lt;p>请看下面这个情况：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 1, primary=A, backup=B;`&lt;/span> 这时候 A 挂了，B 成为 primary，从 idle 里面挑一个 C 成为 backup，然后 B 发送状态给 C。
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 3, primary=C, backup=_;`&lt;/span> C：😅？
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以我们刚刚对整个系统的描述，是有缺陷的。&lt;/p>
+&lt;p>怎么改呢，我们让 view-server 必须等待 primary-server &lt;ruby>确认&lt;rt>ACK&lt;/rt>&lt;/ruby> 当前的 view。&lt;/p>
+&lt;p>就算 primary-server 挂了，view-server 也要等 ACK。&lt;/p>
+&lt;p>（直觉告诉我们，这种等待 ACK 的行为可能导致系统卡住）&lt;/p>
+&lt;h2 id="总结一下所有的规则" >总结一下所有的规则
+&lt;span>
+&lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b%e6%89%80%e6%9c%89%e7%9a%84%e8%a7%84%e5%88%99">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>在 view i+1 的 primary 必须是 view i 的 backup&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Split brain:&lt;/strong> primary A, backup B, but can&amp;rsquo;t reach view-server. C,D are promoted to primary and backup, C doesn&amp;rsquo;t know previous state.&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>primary 必须等 backup 执行完，才可以回复 client&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Missing write:&lt;/strong> client writes to A，A crashes before writing to B, clients read from B&lt;/span>&lt;/p>
+&lt;p>一定要转发 read() 给 backup 吗？（这是一个常见的优化操作）&lt;span class="spoiler">必须转发。不然可能出现 &lt;strong>Stale read&lt;/strong>: at &lt;em>view 1&lt;/em>, A,B are primary and backup, but A cannot reach view-server. now &lt;em>view 2&lt;/em>, B,C are primary backup. client 1 writes to B, client 2 reads from A. A returns outdated data （不过 stale read 依然符合 sequential consistency）&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果 view 是正确的，backup 必须接受&lt;ruby>转发的请求&lt;rt>Forwarded Request&lt;/rt>&lt;/ruby>，并且执行&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>non-primary 节点&lt;strong>必须拒绝&lt;/strong> client 的请求&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Inconsistencies:&lt;/strong> client&amp;rsquo;s view may outdated, send request to old primary server.&lt;/span>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>state-transfer 的时候不能有操作。（Atomic State Transfer）&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;/span>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="脑裂-split-brain" >脑裂 (Split-brain)
+&lt;span>
+&lt;a href="#%e8%84%91%e8%a3%82-split-brain">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>View 1, primary=A, backup=B; 这时候 A 网络出故障无法连接到 view-server，B 成为新的 primary。
+View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 primary&lt;/p>
+&lt;/blockquote>
+&lt;p>在我们之前的规定里，只有 primary-server 会回复 client，但是脑裂的时候，两个节点都会回复 client，这就可能导致 client 收到的数据不一致。
+（破坏了 Linearzability）&lt;/p>
+&lt;h2 id="系统卡住" >系统卡住
+&lt;span>
+&lt;a href="#%e7%b3%bb%e7%bb%9f%e5%8d%a1%e4%bd%8f">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h2 id="总结一下-view-server-的缺点" >总结一下 view-server 的缺点
+&lt;span>
+&lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b-view-server-%e7%9a%84%e7%bc%ba%e7%82%b9">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ol>
+&lt;li>view-server 自己存在单点故障问题&lt;/li>
+&lt;li>view-server 必须等待 primary 的 ack，即使 primary 可能挂了也要等&lt;/li>
+&lt;/ol>
+&lt;h2 id="ruby状态机复制rtstate-machine-replicationrtruby" >&lt;ruby>状态机复制&lt;rt>State Machine Replication&lt;/rt>&lt;/ruby>
+&lt;span>
+&lt;a href="#ruby%e7%8a%b6%e6%80%81%e6%9c%ba%e5%a4%8d%e5%88%b6rtstate-machine-replicationrtruby">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;blockquote>
+&lt;p>&lt;strong>状态机有一个特性：&lt;/strong> 任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。&lt;/p>
+&lt;p>如果将此特性应用在多参与者进行协商共识上，可以理解为系统中存在多个具有完全相同的状态机（参与者），这些状态机能最终保持一致的关键就是起始状态完全一致和执行命令序列完全一致。&lt;/p>
+&lt;/blockquote>
+&lt;p>根据状态机的特性，要让多台机器的最终状态一致，只要确保它们的初始状态是一致的，并且接收到的操作指令序列也是一致的即可，无论这个操作指令是新增、修改、删除抑或是其他任何可能的程序行为，都可以理解为要将一连串的操作日志正确地广播给各个分布式节点。&lt;/p>
+&lt;p>我们并不要求所有节点的每一条指令都是同时开始、同步完成的，只要求在此期间的内部状态不能被外部观察到，且当操作指令序列执行完毕时，所有节点的最终的状态是一致的，这种模型就被称为状态机复制（State Machine Replication）。&lt;/p>
+&lt;style>
+.spoiler {
+visibility: hidden;
+}
+.spoiler::before {
+visibility: visible;
+content: "hover me to see the answer";
+color: white;
+background-color: black;
+}
+.spoiler:hover {
+visibility: visible;
+}
+.spoiler:hover::before {
+display: none;
+}
+&lt;/style></description></item><item><title>Distributed System Review: Consistency</title><link>https://www.junyi.dev/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
+&lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
+&lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
+&lt;hr>
+&lt;p>下面的一致性，由弱到强&lt;/p>
+&lt;h2 id="ruby最终一致性rteventual-consistencyrtruby" >&lt;ruby>最终一致性&lt;rt>Eventual Consistency&lt;/rt>&lt;/ruby>
+&lt;span>
+&lt;a href="#ruby%e6%9c%80%e7%bb%88%e4%b8%80%e8%87%b4%e6%80%a7rteventual-consistencyrtruby">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>系统最终会达到一致的状态。&lt;/p>
+&lt;h2 id="ruby因果一致性rtcausal-consistencyrtruby" >&lt;ruby>因果一致性&lt;rt>Causal Consistency&lt;/rt>&lt;/ruby>
+&lt;span>
+&lt;a href="#ruby%e5%9b%a0%e6%9e%9c%e4%b8%80%e8%87%b4%e6%80%a7rtcausal-consistencyrtruby">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>比 Sequential Consistency 更弱。
+如果操作 A 依赖于操作 B，那么操作 B 发生在操作 A 之前，但是如果操作 A 和操作 B 之间没有因果关系，那么操作 A 和操作 B 的顺序是不确定的。&lt;/p>
+&lt;blockquote>
+&lt;p>有因才有果，因在果之前&lt;/p>
+&lt;p>先看见因，再看见果&lt;/p>
+&lt;p>如果一个问题被回答，显然问题本身得先在那里，因为给出答案的人必须已经看到这个问题，我们认为在问题和答案之间存在因果依赖。&lt;/p>
+&lt;/blockquote>
+&lt;p>比如微信朋友圈需要服务器之间采用因果一致性，来保证用户刷朋友圈时不会看到评论所对应的答复而看不到对应的评论。&lt;/p>
+&lt;img src="wechat-arch.png" alt="drawing" width="600" />
+&lt;p>延伸阅读：怎么生成唯一且递增的 ID？&lt;a href="https://www.infoq.cn/article/wechat-serial-number-generator-architecture/">微信序列号生成器架构设计及演变&lt;/a>&lt;a href="https://segmentfault.com/a/1190000040964518">雪花算法&lt;/a>&lt;/p>
+&lt;h2 id="ruby序列一致性rtsequential-consistencyrtruby" >&lt;ruby>序列一致性&lt;rt>Sequential Consistency&lt;/rt>&lt;/ruby>
+&lt;span>
+&lt;a href="#ruby%e5%ba%8f%e5%88%97%e4%b8%80%e8%87%b4%e6%80%a7rtsequential-consistencyrtruby">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
+&lt;p>换句话说，物理意义上的时间，不能决定&lt;ruby>操作&lt;rt>operations&lt;/rt>&lt;/ruby>的执行顺序&lt;/p>
+&lt;p>用作 Transaction 时我们称之为 Serializability&lt;/p>
+&lt;p>常用在 银行、金融数据库、事务&lt;/p>
+&lt;h2 id="ruby线性一致性rtlinearizable-consistencyrtruby" >&lt;ruby>线性一致性&lt;rt>Linearizable Consistency&lt;/rt>&lt;/ruby>
+&lt;span>
+&lt;a href="#ruby%e7%ba%bf%e6%80%a7%e4%b8%80%e8%87%b4%e6%80%a7rtlinearizable-consistencyrtruby">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>也叫 Linearizability&lt;/p>
+&lt;p>是【顺序一致性 + 按照物理时间顺序执行】。&lt;/p>
+&lt;p>满足线性一致性的数据结构，表现得像是一个单一的、无并发的实体。&lt;span style="color: #cd7a32;">&lt;strong>是最强的保证&lt;/strong>&lt;/span>&lt;/p>
+&lt;p>比如 Google Spanner&lt;/p>
+&lt;hr>
+&lt;p>介绍到这里，基本上对 Consistency 有了大致的了解，接下来可以看 Primary Backup Replication 了。&lt;/p>
+&lt;h2 id="lab-2" >Lab 2
+&lt;span>
+&lt;a href="#lab-2">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>实现 Primary-backup replication：&lt;/p>
+&lt;ol>
+&lt;li>client 发送请求给 primary-server&lt;/li>
+&lt;li>由一个 中央 view-server 决定谁是 primary 谁是 backup&lt;/li>
+&lt;li>primary 挂了，backup 顶上来&lt;/li>
+&lt;/ol>
+&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System Review: Ordering of events</title><link>https://www.junyi.dev/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
+&lt;hr>
+&lt;p>首先简单过一下这些基础概念&lt;/p>
+&lt;h2 id="happens-before-relationship" >Happens-before relationship
+&lt;span>
+&lt;a href="#happens-before-relationship">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>Within a process, A comes before B then A→B, it also means&lt;/p>
+&lt;blockquote>
+&lt;p>B &lt;strong>could&lt;/strong> have been influenced by A&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>If a → b, then b !→ a&lt;/p>
+&lt;blockquote>
+&lt;p>What about a!→b, does that mean b→a? &lt;span style="color: white">&lt;strong>NO&lt;/strong>&lt;/span>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>If a → b, and b → c, then a → c (transitivity)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>a !→ b and b !→ a, means a and b are &lt;strong>concurrent&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>no one can tell whether a or b happened first!&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lamport-clock" >Lamport clock
+&lt;span>
+&lt;a href="#lamport-clock">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;img src="logical-clock.png" alt="drawing" width="400"/>
+&lt;p>We can use clocks to implement a lock.&lt;/p>
+&lt;p>&lt;strong>Our goals are:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>Only one process can hold the lock at a time.&lt;/li>
+&lt;li>Grant the lock &lt;strong>in request order&lt;/strong>.&lt;/li>
+&lt;li>Requesting processes &lt;strong>eventually&lt;/strong> get the lock.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Our assumptions are:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>In order&lt;/strong> point-to-point message delivery.&lt;/li>
+&lt;li>&lt;strong>No failures&lt;/strong>.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Implementation:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>Each message carries a timestamp $T_m$&lt;/li>
+&lt;li>Three message types:
+&lt;ul>
+&lt;li>request&lt;/li>
+&lt;li>release&lt;/li>
+&lt;li>acknowledge&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Each node&amp;rsquo;s state:
+&lt;ul>
+&lt;li>A queue of requested messaged, ordered by $T_m$.&lt;/li>
+&lt;li>The latest timestamp it received from each node.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>On receiving&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>receiving a request
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;li>add the request to the queue&lt;/li>
+&lt;li>send an acknowledge&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>receiving a release
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;li>remove the request from the queue&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>receiving an acknowledge
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>To perform&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>To acquire a lock
+&lt;ul>
+&lt;li>send request to every node, including itself&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>To release a lock
+&lt;ul>
+&lt;li>send release to every node, including itself&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>The lock is acquired when&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>My request is at the head of the queue.&lt;/li>
+&lt;li>I&amp;rsquo;ve received higher timestamp &lt;strong>from every node&lt;/strong>.&lt;/li>
+&lt;li>So my request must be the earliest.&lt;/li>
+&lt;/ol>
+&lt;h2 id="vector-clock" >Vector clock
+&lt;span>
+&lt;a href="#vector-clock">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
+&lt;blockquote>
+&lt;p>(0, 0, 0) for a 3-node system&lt;/p>
+&lt;/blockquote>
+&lt;p>On node i, increment C[i] on each event.&lt;/p>
+&lt;blockquote>
+&lt;p>node 0 (3,5,2), after event: (4,5,2)&lt;/p>
+&lt;/blockquote>
+&lt;p>On node i, received a message, increment C[i], and take the max of each element.&lt;/p>
+&lt;blockquote>
+&lt;p>node 0 (4,5,2), received message (2,7,0): (4,7,2)&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>If Cx[i] &amp;lt; Cy[i] and Cx[j] &amp;gt; Cy[j] for some i, j&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Cx and Cy are concurrent&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>if Cx[i] &amp;lt;= Cy[i] for all i, and there exist j such that Cx[j] &amp;lt; Cy[j]&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Cx happens before Cy&lt;/li>
+&lt;/ul>
+&lt;img src="vector-lock.jpg" width="400" alt="vector-lock" />
+&lt;h2 id="lab-1" >Lab 1
+&lt;span>
+&lt;a href="#lab-1">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
+&lt;ul>
+&lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
+&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
