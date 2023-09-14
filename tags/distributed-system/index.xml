@@ -36,12 +36,12 @@
 &lt;p>知道了答案，我们可以这样设计整个系统：&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>我们让每台服务器定期发送心跳给 view-server，告诉 view-server 自己还活着。&lt;/p>
+&lt;p>我们让每台服务器发送心跳给 view-server，告诉 view-server 自己还活着。&lt;/p>
 &lt;p>问：有没有可能自己活着但是 view-server 认为自己死了？&lt;span class="spoiler"> 有可能因为网络问题，心跳没发出去， view-server 认为节点挂了，但其实节点还活着&lt;/span>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>我们 promote idle-server 成为 backup-server，但不越级 promote 成为 primary-server&lt;/p>
-&lt;p>问：除非有种情况？&lt;span class="spoiler">系统刚启动 view-server 那里全都是 idle-server、需要一个 primary 的时候&lt;/span>&lt;/p>
+&lt;p>问：除非有种情况？&lt;span class="spoiler">系统刚启动时（全都是 idle-server、需要一个 primary 的时候）&lt;/span>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>只有 backup-server 会被 promote 成 primary-server&lt;/p>
@@ -99,7 +99,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>如果 view 是正确的，backup 必须接受&lt;ruby>转发的请求&lt;rt>Forwarded Request&lt;/rt>&lt;/ruby>，并且执行&lt;/p>
-&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;/span>&lt;/p>
+&lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Partially Split Brain&lt;/strong>&lt;/span>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>non-primary 节点&lt;strong>必须拒绝&lt;/strong> client 的请求&lt;/p>
@@ -129,7 +129,40 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h2>&lt;h2 id="总结一下-view-server-的缺点" >总结一下 view-server 的缺点
+&lt;/h2>&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
+&lt;ol>
+&lt;li>view-server 挂了&lt;/li>
+&lt;li>整个网络挂了&lt;/li>
+&lt;li>client 只能练到 view-server，不能连接到 primary-server&lt;/li>
+&lt;li>backup server 没有了（因为 primary 转移状态给 backup，转移完了回复 view-server 一个 ACK）&lt;/li>
+&lt;li>状态转移之前 primary 挂了&lt;/li>
+&lt;/ol>
+&lt;h2 id="重复写入" >重复写入
+&lt;span>
+&lt;a href="#%e9%87%8d%e5%a4%8d%e5%86%99%e5%85%a5">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h2 id="为什么-primary-backup-比较难" >为什么 Primary Backup 比较难
+&lt;span>
+&lt;a href="#%e4%b8%ba%e4%bb%80%e4%b9%88-primary-backup-%e6%af%94%e8%be%83%e9%9a%be">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;ul>
+&lt;li>primary 可能挂掉&lt;/li>
+&lt;li>backup 可能挂掉&lt;/li>
+&lt;li>通讯可能 临时/永久 挂掉&lt;/li>
+&lt;li>参与者的决策可能存在延迟：
+&lt;ul>
+&lt;li>view server 不知道 primary 挂了&lt;/li>
+&lt;li>primary 挂了吗？挂了之后恢复，还需要回复 client 吗？&lt;/li>
+&lt;li>backup 挂了吗？state transfer 结束了吗？&lt;/li>
+&lt;li>client 不知道 view 有没有切换&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="总结一下-view-server-的缺点" >总结一下 view-server 的缺点
 &lt;span>
 &lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b-view-server-%e7%9a%84%e7%bc%ba%e7%82%b9">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
