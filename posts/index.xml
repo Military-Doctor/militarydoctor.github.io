@@ -140,7 +140,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 3, primary=C, backup=_;`&lt;/span> C：😅？
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 3, primary=C, backup=_;`&lt;/span> C：😅？（此时 C 根本不知道系统的状态是什么）
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以我们刚刚对整个系统的描述，是有缺陷的。&lt;/p>
 &lt;p>怎么改呢，我们让 view-server 必须等待 primary-server &lt;ruby>确认&lt;rt>ACK&lt;/rt>&lt;/ruby> 当前的 view。&lt;/p>
 &lt;p>就算 primary-server 挂了，view-server 也要等 ACK。&lt;/p>
