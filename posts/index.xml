@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Sep 2023 20:21:47 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>优质博客记录</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
+&lt;hr>
 &lt;h1 id="棒极了-" >棒极了 👍👍👍
 &lt;span>
 &lt;a href="#%e6%a3%92%e6%9e%81%e4%ba%86-">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>不仅干货多，配图也非常用心，很喜欢这种写博客的风格，甚至把他们当作榜样：&lt;/p>
+&lt;/h1>&lt;p>干货多，配图用心，值得反复研读，除了学习技术，还可以学习他们的写作思路和行文风格，把他们当做榜样！&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>面向信仰编程&lt;/strong>&lt;/p>
@@ -35,25 +36,33 @@
 &lt;p>&lt;a href="https://segmentfault.com/u/public0821/articles">https://segmentfault.com/u/public0821/articles&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;h1 id="不错的技术分享-" >不错的技术分享 👍👍
+&lt;hr>
+&lt;h1 id="很不错-" >很不错 👍👍
 &lt;span>
-&lt;a href="#%e4%b8%8d%e9%94%99%e7%9a%84%e6%8a%80%e6%9c%af%e5%88%86%e4%ba%ab-">
+&lt;a href="#%e5%be%88%e4%b8%8d%e9%94%99-">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;ol>
+&lt;/h1>&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
+&lt;ol>
 &lt;li>&lt;strong>PolarDB 数据库内核月报&lt;/strong> &lt;a href="http://mysql.taobao.org/monthly/">http://mysql.taobao.org/monthly/&lt;/a>&lt;/li>
 &lt;/ol>
-&lt;h1 id="不推荐-" >不推荐 👎
+&lt;h1 id="不错的-" >不错的 👍
 &lt;span>
-&lt;a href="#%e4%b8%8d%e6%8e%a8%e8%8d%90-">
+&lt;a href="#%e4%b8%8d%e9%94%99%e7%9a%84-">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;details>
+&lt;/h1>&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
+&lt;!-- ---
+# 不推荐 👎
+仁者见仁，智者见智
+在这里没有必要显式地批评别人 -->
+&lt;!-- &lt;details>
 &lt;summary>点击这里展开&lt;/summary>
 &lt;p>&lt;b>代码随想录：&lt;/b>作者给我一种半桶水的感觉，属于是新手看着费劲，老手觉得啰嗦，而且看他的题解会让思维变得混乱...&lt;/p>
-&lt;/details></description></item><item><title>Distributed System: Primary Backup Replication</title><link>https://www.junyi.dev/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
+&lt;p>&lt;b>C++八股文-小贺：很水，开幕雷击的感觉&lt;/b>&lt;/p>
+&lt;/details> --></description></item><item><title>Distributed System: Primary Backup Replication</title><link>https://www.junyi.dev/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
 &lt;p>你有一个硬盘，存了很多重要资料，你担心这个硬盘某天坏了，怎么办？&lt;/p>
 &lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
 &lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
