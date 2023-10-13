@@ -8,8 +8,8 @@
 &lt;/blockquote>
 &lt;p>特别是，同时在&lt;strong>不同服务器上&lt;/strong>运行&lt;strong>很多任务&lt;/strong>，并且&lt;strong>个别任务&lt;/strong>跑的时候 &lt;code>显卡/内存&lt;/code> 报错，log 里记录的信息并不足以区分这是哪个任务的时候&amp;hellip;.&lt;/p>
 &lt;p>更糟糕的是，不同服务器上的代码版本也可能不同，这让问题变得更复杂（使用git可能是一个解决方法）。&lt;/p>
-&lt;p>当我写下这篇文章的时候，意识到这其实是自己&lt;strong>曾经拥有&lt;/strong>的项目管理技能，后面写的这些总结在实际项目开发中经常用到，只不过我&lt;strong>太久没有做项目&lt;/strong>，忘记了这些。&lt;/p>
-&lt;p>为了防止再次遗忘，我把这次的经验写下来，也跟大家分享一下心得，告诉大家我是如何通过建立有效的文件管理体系和实验进度追踪来解决问题的。&lt;/p>
+&lt;p>当我写下这篇文章的时候，意识到我可以把总结出的技能&lt;strong>迁移到其他项目中&lt;/strong>。&lt;/p>
+&lt;p>为了防止遗忘，我把这次的经验写下来，跟大家分享一下心得（我是如何建立属于我的&lt;strong>文件管理体系&lt;/strong>和&lt;strong>实验进度追踪&lt;/strong>方法）&lt;/p>
 &lt;h1 id="文件管理体系" >文件管理体系
 &lt;span>
 &lt;a href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e4%bd%93%e7%b3%bb">
@@ -39,7 +39,7 @@
 &lt;/span>
 &lt;/h1>&lt;ul>
 &lt;li>
-&lt;p>&lt;strong>自动化流程&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
+&lt;p>&lt;strong>⭐️ 自动化&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>使用脚本&lt;/strong>: 我靠脚本实现自动化，用一个脚本来管理所有的实验，每个实验都会被分配一个&lt;strong>唯一id&lt;/strong>。这样在某个实验出错时，例如&lt;code>显存不足&lt;/code>，我可以直接根据 id 重新运行该实验（特别是在使用 slurm 的时候，有这样的脚本可以省去不少写 sbatch 的工作）。同时，我还有另一个脚本用来&lt;strong>追踪每个实验的进度&lt;/strong>（打印进度条）。&lt;/p>
@@ -67,13 +67,20 @@
 &lt;p>希望我的经验能为大家提供一些参考。&lt;/p>
 &lt;p>同时也想告诫自己，&lt;strong>&lt;span style="color: red;">不要想偷懒！！！&lt;/span>&lt;/strong> &lt;strong>不要想着 “这个实验手动跑一下算了”&lt;/strong>，因为你永远不知道哪个实验会出问题，哪个实验会成为你的重要成果。&lt;/p>
 &lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。&lt;/p>
-&lt;h1 id="23年9月22日更新" >23年9月22日更新：
+&lt;h1 id="2023-年-9-月-22-日更新" >2023 年 9 月 22 日更新：
 &lt;span>
-&lt;a href="#23%e5%b9%b49%e6%9c%8822%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>论文投 NeurIPS 2023 被拒了，转投其他会议，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;/h1>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
+&lt;h1 id="2023-年-10-月-2-日更新" >2023 年 10 月 2 日更新：
+&lt;span>
+&lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
