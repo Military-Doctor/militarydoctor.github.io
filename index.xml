@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Sep 2023 20:21:47 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>https://www.junyi.dev/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 24 Oct 2023 16:27:19 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Prompt 分享</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>欢迎在评论区留下你的 Prompt！&lt;/p></description></item><item><title>优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
 &lt;hr>
 &lt;h1 id="棒极了-" >棒极了 👍👍👍
@@ -35,6 +35,10 @@
 &lt;p>&lt;strong>public0821&lt;/strong>&lt;/p>
 &lt;p>&lt;a href="https://segmentfault.com/u/public0821/articles">https://segmentfault.com/u/public0821/articles&lt;/a>&lt;/p>
 &lt;/li>
+&lt;li>
+&lt;p>&lt;strong>小徐先生1212&lt;/strong>&lt;/p>
+&lt;p>&lt;a href="https://space.bilibili.com/317473362/">https://space.bilibili.com/317473362/&lt;/a>&lt;/p>
+&lt;/li>
 &lt;/ol>
 &lt;hr>
 &lt;h1 id="很不错-" >很不错 👍👍
@@ -45,7 +49,12 @@
 &lt;/span>
 &lt;/h1>&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
 &lt;ol>
-&lt;li>&lt;strong>PolarDB 数据库内核月报&lt;/strong> &lt;a href="http://mysql.taobao.org/monthly/">http://mysql.taobao.org/monthly/&lt;/a>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>PolarDB 数据库内核月报&lt;/strong> &lt;a href="http://mysql.taobao.org/monthly/">http://mysql.taobao.org/monthly/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Project RC&lt;/strong> &lt;a href="https://stdrc.cc/">https://stdrc.cc/&lt;/a>&lt;/p>
+&lt;/li>
 &lt;/ol>
 &lt;h1 id="不错的-" >不错的 👍
 &lt;span>
@@ -54,6 +63,12 @@
 &lt;/a>
 &lt;/span>
 &lt;/h1>&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
+&lt;p>（以下也包含我好朋友们的博客）&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.junyi.dev">Junyi&amp;rsquo;s Lab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://h4ckm310n.com">h4ckm310n&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jzhu.xyz/">Daniel Zhu&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;!-- ---
 # 不推荐 👎
 仁者见仁，智者见智
