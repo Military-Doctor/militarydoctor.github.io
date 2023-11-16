@@ -502,7 +502,7 @@ display: none;
 &lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
+&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
@@ -584,7 +584,14 @@ display: none;
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
+&lt;h1 id="2023-念-11-月-16-日更新" >2023 念 11 月 16 日更新：
+&lt;span>
+&lt;a href="#2023-%e5%bf%b5-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>

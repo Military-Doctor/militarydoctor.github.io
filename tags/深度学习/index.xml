@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>深度学习 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link><description>Junyi's Lab (深度学习)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/experiment-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/experiment-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>深度学习 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link><description>Junyi's Lab (深度学习)</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 25 Aug 2023 21:32:31 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 1,072 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
@@ -80,4 +80,11 @@
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p></description></item></channel></rss>
+&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
+&lt;h1 id="2023-念-11-月-16-日更新" >2023 念 11 月 16 日更新：
+&lt;span>
+&lt;a href="#2023-%e5%bf%b5-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p></description></item></channel></rss>
