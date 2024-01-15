@@ -595,13 +595,7 @@ display: none;
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（四）总结</title><link>https://www.junyi.dev/posts/oss-4/</link><pubDate>Thu, 17 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-4/</guid><description>&lt;h1 id="summary" >Summary
-&lt;span>
-&lt;a href="#summary">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/h1>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（四）总结</title><link>https://www.junyi.dev/posts/oss-4/</link><pubDate>Thu, 17 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-4/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>对象存储虽然有如此多的优点和特性，但是在家庭存储这个场景下，显然是不合适的。&lt;/p>
 &lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
 &lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
@@ -643,13 +637,7 @@ February 28, 2022 at 11:43 pm
 使用纠删码的「对象存储」这个方案带给我眼前一亮的感觉，它既拥有 RAID 的速度，又比 RAID 更可靠，数据重建的时间相对来说也比 RAID 短。为什么不用分布式、对象存储的思想，应用到家庭NAS上呢？这套方案唯一的缺点可能就是比较折腾。
 关于电费问题，我的解决方案是搞个开机卡，用的时候把电脑打开，不用就关掉。
 最终，在折腾的这个阶段里，对整个工具链有了更清晰的认识，发现了自己认知上的缺陷，比如忘了可以从云上搞几个虚拟机，这样我也不会搞得这么痛苦了&lt;/p>
-&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题</title><link>https://www.junyi.dev/posts/oss-3/</link><pubDate>Wed, 16 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-3/</guid><description>&lt;h1 id="introduction" >Introduction
-&lt;span>
-&lt;a href="#introduction">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题</title><link>https://www.junyi.dev/posts/oss-3/</link><pubDate>Wed, 16 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-3/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>他奶奶的，不支持重命名啊！&lt;/p>
 &lt;h1 id="summary" >Summary
 &lt;span>
@@ -657,13 +645,7 @@ February 28, 2022 at 11:43 pm
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;h1 id="introduction" >Introduction
-&lt;span>
-&lt;a href="#introduction">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/h1>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>单机部署 minio erase-code 模式&lt;/p>
 &lt;p>使用了 8 块硬盘&lt;/p>
 &lt;p>本文很长，涉及的内容很多&lt;/p>
@@ -762,13 +744,7 @@ February 28, 2022 at 11:33 pm
 回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。
 因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。
 部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p>
-&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;h1 id="introduction" >Introduction
-&lt;span>
-&lt;a href="#introduction">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
-&lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>很多人说，因为对象存储「贵」，所以没什么人用对象存储当网盘/NAS。&lt;/p>
 &lt;p>真是这样吗？如果我们自己搭建对象存储服务，岂不是赚爆了，既有 RAID 的速度又有比 RAID 更强的容灾，直接一步到位！&lt;/p>
 &lt;p>经过实践之后，我发现「贵」其实不是制约因素。&lt;/p>
