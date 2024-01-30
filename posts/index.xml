@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 24 Oct 2023 16:27:19 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Prompt Sharing</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>Share your favorite prompt in the comments!&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 30 Jan 2024 13:12:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;h1 id="install-git-crypt" >Install git-crypt
+&lt;span>
+&lt;a href="#install-git-crypt">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git-crypt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="initialize-git-crypt" >Initialize git-crypt
+&lt;span>
+&lt;a href="#initialize-git-crypt">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git-crypt init &lt;span style="color:#75715e"># in an initialized git repository&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="create-a-gitattributes-file" >Create a .gitattributes file
+&lt;span>
+&lt;a href="#create-a-gitattributes-file">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;pre tabindex="0">&lt;code class="language-gitattributes" data-lang="gitattributes"># The config is similar to .gitignore
+accounts/*.bean filter=git-crypt diff=git-crypt
+*.md filter=git-crypt diff=git-crypt
+*.png filter=git-crypt diff=git-crypt
+*.jpg filter=git-crypt diff=git-crypt
+*.excalidraw filter=git-crypt diff=git-crypt
+*.txt filter=git-crypt diff=git-crypt
+*.pdf filter=git-crypt diff=git-crypt
+*.json filter=git-crypt diff=git-crypt
+# Making sure that .gitattributes is never encrypted. DON&amp;#39;T TOUCH THAT LINE AND ONE BELOW
+.gitattributes !filter !diff
+&lt;/code>&lt;/pre>&lt;h1 id="add-files" >Add files
+&lt;span>
+&lt;a href="#add-files">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git add .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#e6db74">&amp;#34;Add git-crypt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="then-check-git-crypt-status" >Then Check git-crypt status
+&lt;span>
+&lt;a href="#then-check-git-crypt-status">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h1>&lt;p>&lt;img src="image.png" alt="Alt text">&lt;/p></description></item><item><title>Prompt Sharing</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>Share your favorite prompt in the comments!&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
 &lt;hr>
 &lt;h1 id="-棒极了" >👍👍👍 棒极了
