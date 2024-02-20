@@ -8,9 +8,48 @@
 AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD 的没试过）</p></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-autotvm-tuning/><time datetime=2021-02-27>February 27, 2021</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-autotvm-tuning/>https://www.junyi.dev/posts/tvm-autotvm-tuning/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/autotvm/>#AutoTVM</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-autotvm-raspberrypy/>TVM AutoTVM 树莓派 4B 调优</a></h1></header></div><div class="content post-summary p-summary"><p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。</p></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-autotvm-raspberrypy/><time datetime=2021-02-25>February 25, 2021</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/autotvm/>#AutoTVM</a></li><li><a href=https://www.junyi.dev/tags/raspberry-pi/>#Raspberry Pi</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-compile-on-macos/>TVM 在 macOS 上的编译</a></h1></header></div><div class="content post-summary p-summary"><p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。</p></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-compile-on-macos/><time datetime=2020-12-27>December 27, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-compile-on-macos/>https://www.junyi.dev/posts/tvm-compile-on-macos/</a>
-<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc2/>TVM RPC Android 踩坑记</a></h1></header></div><div class="content post-summary p-summary"></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-android-rpc2/><time datetime=2020-03-07>March 7, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc2/>https://www.junyi.dev/posts/tvm-android-rpc2/</a>
+<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc2/>TVM RPC Android 踩坑记</a></h1></header></div><div class="content post-summary p-summary">先说结论 系统环境：Ubuntu 18.04 LTS
+解决方法：卸载 OpenJDK-11，安装 OpenJDK-8
+备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。
+当编译 android_rpc 时，你必须在 jni/config.ml 里指定 libOpenCL.so，然后在 GitHub 下载 CL-headers。
+When you compile android_rpc, you HAVE TO specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!
+READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!
+仔细阅读官方指南！！
+问题细节 第一天 No OpenCL platform 遇到了一个错误：
+tvm/src/runtime/opencl/opencl_device_api.cc:263: No OpenCL platform matched given existing options …
+然后找了好多文章，找到了官方的文档，却发现2019年3月就提出了这个问题，是bug，并且被修复了。
+现在是2020年3月7日，我不应该再遇到这个bug，于是看了看源代码，发现获取不到我的CL信息
+终端里输入
+$ clinfo
+却显示</div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-android-rpc2/><time datetime=2020-03-07>March 7, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc2/>https://www.junyi.dev/posts/tvm-android-rpc2/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android/>TVM Android 构建时千万不要用最新的工具</a></h1></header></div><div class="content post-summary p-summary"><p>遇到报错 <code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]</code></p></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-android/><time datetime=2020-03-03>March 3, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android/>https://www.junyi.dev/posts/tvm-android/</a>
-<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc/>TVM RPC Android 部署踩坑</a></h1></header></div><div class="content post-summary p-summary"></div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-android-rpc/><time datetime=2020-03-03>March 3, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc/>https://www.junyi.dev/posts/tvm-android-rpc/</a>
+<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc/>TVM RPC Android 部署踩坑</a></h1></header></div><div class="content post-summary p-summary">先说结论 环境：Ubuntu 18.04 LTS （非虚拟机）
+手机：Xiaomi Mi 5s, 3GB RAM, 64GB ROM
+系统：原生 Android 10
+遇到问题：android_rpc 无法编译部署
+解决方法：核心思路是分析 gradle task 执行顺序，分析相关脚本，检查环境变量。这个问题需要具体情况具体分析，请仔细查看本文【问题解决】部分的相关描述。
+部署 android_rpc 按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。
+然后安装 Gradle，Maven
+然后编译 TVM4J
+编译好之后我开始按照官方教程尝试部署 apps/android_rpc 这个项目
+因为上次部署 TVM 的经验教训让我知道了严格按照官方教程走的重要性。
+只可惜，这次就算按照官方教程来部署，得到的结果依然是：
+失败。
+踩坑 Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。
+然后又遇到了你懂的特色互联网防火墙的问题：Maven 下载速度特别慢。
+解决了网络的问题之后，我心想能不能把项目丢到 AndroidStudio 里面跑啊，然后我就试了一下
+于是
+，
+给自己带来了另一个坑
+Android Studio 推荐我更新 Gradle
+我手贱点了更新
+然后版本号对不上了
+搞了半天踩意识到是自己手贱更新了Gradle。
+。
+。
+。
+折腾了好长一段时间，遇到了新的问题：
+cannot find class file 'org.</div><div class="post-info noselect"><div class="post-date dt-published"><a class=u-url href=/posts/tvm-android-rpc/><time datetime=2020-03-03>March 3, 2020</time></a></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc/>https://www.junyi.dev/posts/tvm-android-rpc/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article></main><footer class="common-footer noselect"><div class=common-footer-bottom><div class=copyright><p>© Junyi Hou, 2024<br>Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hugo</a>, theme <a target=_blank rel="noopener noreferrer" href=https://github.com/Junyi-99/hugo-theme-anubis2>Anubis2</a>.<br></p></div></div><p class="h-card vcard"><a href=https://www.junyi.dev/ class="p-name u-url url fn" rel=me>Junyi Hou</a>
 /
 <a class="p-email u-email email" rel=me href=mailto:hhh@u.nus.edu>hhh@u.nus.edu</a></p></footer></div></body></html>
