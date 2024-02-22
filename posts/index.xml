@@ -59,7 +59,8 @@ accounts/*.bean filter=git-crypt diff=git-crypt
 &lt;p>这个傻逼工具，是可以在你不 export symmetric key 的情况下，允许你 lock 仓库的。&lt;/p>
 &lt;p>然后我就在没有 export symmetric key 的情况下，把自己锁死了。&lt;/p>
 &lt;p>文件没有备份，因为我为了“安全”，把 git 的提交日志都删了。&lt;/p>
-&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>Prompt Sharing</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>Share your favorite prompt in the comments!&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
+&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>Prompt Sharing</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>Share your favorite prompt in the comments!&lt;/p>
+&lt;p>We can learn prompts from &lt;a href="https://smith.langchain.com/hub">LangSmith Hub&lt;/a>&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
 &lt;hr>
 &lt;h1 id="-棒极了" >👍👍👍 棒极了
