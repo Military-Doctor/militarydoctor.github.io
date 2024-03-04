@@ -6,10 +6,11 @@ Collision 检测
 Scripts 编写
 最后还弄明白了 Unity C# 的 public attribute 与 Object 的关系&lt;/p>
 &lt;p>即函数 &lt;code>GameObject.GetComponent&amp;lt;Type&amp;gt;()&lt;/code>&lt;/p>
-&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
-&lt;span>
+&lt;h1 id="2023年8月23日更新" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日更新
+&lt;/div>
 &lt;/h1>&lt;p>我已经忘了自己学过这些了&lt;/p></description></item></channel></rss>

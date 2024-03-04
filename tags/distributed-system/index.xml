@@ -3,21 +3,23 @@
 &lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
 &lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
 &lt;hr>
-&lt;h2 id="前提假设" >前提假设
-&lt;span>
+&lt;h2 id="前提假设" >
+&lt;div>
 &lt;a href="#%e5%89%8d%e6%8f%90%e5%81%87%e8%ae%be">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+前提假设
+&lt;/div>
 &lt;/h2>&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
 &lt;!--
 多线程那样，因为 scheduler 的原因导致每次执行的结果都不一样。 -->
-&lt;h2 id="最简单的-primary--backup" >最简单的 primary &amp;amp; backup
-&lt;span>
+&lt;h2 id="最简单的-primary--backup" >
+&lt;div>
 &lt;a href="#%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84-primary--backup">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+最简单的 primary &amp;amp; backup
+&lt;/div>
 &lt;/h2>&lt;ol>
 &lt;li>client&lt;strong>s&lt;/strong> 发送 operation (Put, Get, Append) 到 primary-server&lt;/li>
 &lt;li>primary-server 决定 operation 的执行顺序&lt;/li>
@@ -51,12 +53,13 @@
 &lt;img src="view-service.png" alt="View Service" width="500" />
 &lt;figcaption>Fig.1 - One View Server and Two Nodes&lt;/figcaption>
 &lt;/figure>
-&lt;h2 id="什么是-view-server-里的-view" >什么是 view-server 里的 view
-&lt;span>
+&lt;h2 id="什么是-view-server-里的-view" >
+&lt;div>
 &lt;a href="#%e4%bb%80%e4%b9%88%e6%98%af-view-server-%e9%87%8c%e7%9a%84-view">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+什么是 view-server 里的 view
+&lt;/div>
 &lt;/h2>&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
 &lt;p>注意，一个 view 里，只有一个 primary 和一个 backup，其它的 server 标记为 idle。（想想看为什么这样设计？）&lt;/p>
 &lt;p>view 由 view-server 进行管理，其他节点可以获取到当前系统的 view。&lt;/p>
@@ -81,12 +84,13 @@
 &lt;p>怎么改呢，我们让 view-server 必须等待 primary-server &lt;ruby>确认&lt;rt>ACK&lt;/rt>&lt;/ruby> 当前的 view。&lt;/p>
 &lt;p>就算 primary-server 挂了，view-server 也要等 ACK。&lt;/p>
 &lt;p>（直觉告诉我们，这种等待 ACK 的行为可能导致系统卡住）&lt;/p>
-&lt;h2 id="总结一下所有的规则" >总结一下所有的规则
-&lt;span>
+&lt;h2 id="总结一下所有的规则" >
+&lt;div>
 &lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b%e6%89%80%e6%9c%89%e7%9a%84%e8%a7%84%e5%88%99">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+总结一下所有的规则
+&lt;/div>
 &lt;/h2>&lt;ol>
 &lt;li>
 &lt;p>在 view i+1 的 primary 必须是 view i 的 backup&lt;/p>
@@ -110,12 +114,13 @@
 &lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;/span>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;h2 id="脑裂-split-brain" >脑裂 (Split-brain)
-&lt;span>
+&lt;h2 id="脑裂-split-brain" >
+&lt;div>
 &lt;a href="#%e8%84%91%e8%a3%82-split-brain">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+脑裂 (Split-brain)
+&lt;/div>
 &lt;/h2>&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
 &lt;blockquote>
 &lt;p>View 1, primary=A, backup=B; 这时候 A 网络出故障无法连接到 view-server，B 成为新的 primary。
@@ -123,12 +128,13 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/blockquote>
 &lt;p>在我们之前的规定里，只有 primary-server 会回复 client，但是脑裂的时候，两个节点都会回复 client，这就可能导致 client 收到的数据不一致。
 （破坏了 Linearzability）&lt;/p>
-&lt;h2 id="系统卡住" >系统卡住
-&lt;span>
+&lt;h2 id="系统卡住" >
+&lt;div>
 &lt;a href="#%e7%b3%bb%e7%bb%9f%e5%8d%a1%e4%bd%8f">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+系统卡住
+&lt;/div>
 &lt;/h2>&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
 &lt;ol>
 &lt;li>view-server 挂了&lt;/li>
@@ -137,18 +143,20 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;li>backup server 没有了（因为 primary 转移状态给 backup，转移完了回复 view-server 一个 ACK）&lt;/li>
 &lt;li>状态转移之前 primary 挂了&lt;/li>
 &lt;/ol>
-&lt;h2 id="重复写入" >重复写入
-&lt;span>
+&lt;h2 id="重复写入" >
+&lt;div>
 &lt;a href="#%e9%87%8d%e5%a4%8d%e5%86%99%e5%85%a5">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h2 id="为什么-primary-backup-比较难" >为什么 Primary Backup 比较难
-&lt;span>
+重复写入
+&lt;/div>
+&lt;/h2>&lt;h2 id="为什么-primary-backup-比较难" >
+&lt;div>
 &lt;a href="#%e4%b8%ba%e4%bb%80%e4%b9%88-primary-backup-%e6%af%94%e8%be%83%e9%9a%be">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+为什么 Primary Backup 比较难
+&lt;/div>
 &lt;/h2>&lt;ul>
 &lt;li>primary 可能挂掉&lt;/li>
 &lt;li>backup 可能挂掉&lt;/li>
@@ -162,22 +170,24 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="总结一下-view-server-的缺点" >总结一下 view-server 的缺点
-&lt;span>
+&lt;h2 id="总结一下-view-server-的缺点" >
+&lt;div>
 &lt;a href="#%e6%80%bb%e7%bb%93%e4%b8%80%e4%b8%8b-view-server-%e7%9a%84%e7%bc%ba%e7%82%b9">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+总结一下 view-server 的缺点
+&lt;/div>
 &lt;/h2>&lt;ol>
 &lt;li>view-server 自己存在单点故障问题&lt;/li>
 &lt;li>view-server 必须等待 primary 的 ack，即使 primary 可能挂了也要等&lt;/li>
 &lt;/ol>
-&lt;h2 id="ruby状态机复制rtstate-machine-replicationrtruby" >&lt;ruby>状态机复制&lt;rt>State Machine Replication&lt;/rt>&lt;/ruby>
-&lt;span>
+&lt;h2 id="ruby状态机复制rtstate-machine-replicationrtruby" >
+&lt;div>
 &lt;a href="#ruby%e7%8a%b6%e6%80%81%e6%9c%ba%e5%a4%8d%e5%88%b6rtstate-machine-replicationrtruby">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;ruby>状态机复制&lt;rt>State Machine Replication&lt;/rt>&lt;/ruby>
+&lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>&lt;strong>状态机有一个特性：&lt;/strong> 任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。&lt;/p>
 &lt;p>如果将此特性应用在多参与者进行协商共识上，可以理解为系统中存在多个具有完全相同的状态机（参与者），这些状态机能最终保持一致的关键就是起始状态完全一致和执行命令序列完全一致。&lt;/p>
@@ -205,19 +215,21 @@ display: none;
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
 &lt;hr>
 &lt;p>下面的一致性，由弱到强&lt;/p>
-&lt;h2 id="ruby最终一致性rteventual-consistencyrtruby" >&lt;ruby>最终一致性&lt;rt>Eventual Consistency&lt;/rt>&lt;/ruby>
-&lt;span>
+&lt;h2 id="ruby最终一致性rteventual-consistencyrtruby" >
+&lt;div>
 &lt;a href="#ruby%e6%9c%80%e7%bb%88%e4%b8%80%e8%87%b4%e6%80%a7rteventual-consistencyrtruby">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;ruby>最终一致性&lt;rt>Eventual Consistency&lt;/rt>&lt;/ruby>
+&lt;/div>
 &lt;/h2>&lt;p>系统最终会达到一致的状态。&lt;/p>
-&lt;h2 id="ruby因果一致性rtcausal-consistencyrtruby" >&lt;ruby>因果一致性&lt;rt>Causal Consistency&lt;/rt>&lt;/ruby>
-&lt;span>
+&lt;h2 id="ruby因果一致性rtcausal-consistencyrtruby" >
+&lt;div>
 &lt;a href="#ruby%e5%9b%a0%e6%9e%9c%e4%b8%80%e8%87%b4%e6%80%a7rtcausal-consistencyrtruby">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;ruby>因果一致性&lt;rt>Causal Consistency&lt;/rt>&lt;/ruby>
+&lt;/div>
 &lt;/h2>&lt;p>比 Sequential Consistency 更弱。
 如果操作 A 依赖于操作 B，那么操作 B 发生在操作 A 之前，但是如果操作 A 和操作 B 之间没有因果关系，那么操作 A 和操作 B 的顺序是不确定的。&lt;/p>
 &lt;blockquote>
@@ -228,34 +240,37 @@ display: none;
 &lt;p>比如微信朋友圈需要服务器之间采用因果一致性，来保证用户刷朋友圈时不会看到评论所对应的答复而看不到对应的评论。&lt;/p>
 &lt;img src="wechat-arch.png" alt="drawing" width="600" />
 &lt;p>延伸阅读：怎么生成唯一且递增的 ID？&lt;a href="https://www.infoq.cn/article/wechat-serial-number-generator-architecture/">微信序列号生成器架构设计及演变&lt;/a>&lt;a href="https://segmentfault.com/a/1190000040964518">雪花算法&lt;/a>&lt;/p>
-&lt;h2 id="ruby序列一致性rtsequential-consistencyrtruby" >&lt;ruby>序列一致性&lt;rt>Sequential Consistency&lt;/rt>&lt;/ruby>
-&lt;span>
+&lt;h2 id="ruby序列一致性rtsequential-consistencyrtruby" >
+&lt;div>
 &lt;a href="#ruby%e5%ba%8f%e5%88%97%e4%b8%80%e8%87%b4%e6%80%a7rtsequential-consistencyrtruby">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;ruby>序列一致性&lt;rt>Sequential Consistency&lt;/rt>&lt;/ruby>
+&lt;/div>
 &lt;/h2>&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
 &lt;p>换句话说，物理意义上的时间，不能决定&lt;ruby>操作&lt;rt>operations&lt;/rt>&lt;/ruby>的执行顺序&lt;/p>
 &lt;p>用作 Transaction 时我们称之为 Serializability&lt;/p>
 &lt;p>常用在 银行、金融数据库、事务&lt;/p>
-&lt;h2 id="ruby线性一致性rtlinearizable-consistencyrtruby" >&lt;ruby>线性一致性&lt;rt>Linearizable Consistency&lt;/rt>&lt;/ruby>
-&lt;span>
+&lt;h2 id="ruby线性一致性rtlinearizable-consistencyrtruby" >
+&lt;div>
 &lt;a href="#ruby%e7%ba%bf%e6%80%a7%e4%b8%80%e8%87%b4%e6%80%a7rtlinearizable-consistencyrtruby">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;ruby>线性一致性&lt;rt>Linearizable Consistency&lt;/rt>&lt;/ruby>
+&lt;/div>
 &lt;/h2>&lt;p>也叫 Linearizability&lt;/p>
 &lt;p>是【顺序一致性 + 按照物理时间顺序执行】。&lt;/p>
 &lt;p>满足线性一致性的数据结构，表现得像是一个单一的、无并发的实体。&lt;span style="color: #cd7a32;">&lt;strong>是最强的保证&lt;/strong>&lt;/span>&lt;/p>
 &lt;p>比如 Google Spanner&lt;/p>
 &lt;hr>
 &lt;p>介绍到这里，基本上对 Consistency 有了大致的了解，接下来可以看 Primary Backup Replication 了。&lt;/p>
-&lt;h2 id="lab-2" >Lab 2
-&lt;span>
+&lt;h2 id="lab-2" >
+&lt;div>
 &lt;a href="#lab-2">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Lab 2
+&lt;/div>
 &lt;/h2>&lt;p>实现 Primary-backup replication：&lt;/p>
 &lt;ol>
 &lt;li>client 发送请求给 primary-server&lt;/li>
@@ -266,12 +281,13 @@ display: none;
 &lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
 &lt;hr>
 &lt;p>首先简单过一下这些基础概念&lt;/p>
-&lt;h2 id="happens-before-relationship" >Happens-before relationship
-&lt;span>
+&lt;h2 id="happens-before-relationship" >
+&lt;div>
 &lt;a href="#happens-before-relationship">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Happens-before relationship
+&lt;/div>
 &lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>Within a process, A comes before B then A→B, it also means&lt;/p>
@@ -295,12 +311,13 @@ display: none;
 &lt;/blockquote>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="lamport-clock" >Lamport clock
-&lt;span>
+&lt;h2 id="lamport-clock" >
+&lt;div>
 &lt;a href="#lamport-clock">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Lamport clock
+&lt;/div>
 &lt;/h2>&lt;img src="logical-clock.png" alt="drawing" width="400"/>
 &lt;p>We can use clocks to implement a lock.&lt;/p>
 &lt;p>&lt;strong>Our goals are:&lt;/strong>&lt;/p>
@@ -371,12 +388,13 @@ display: none;
 &lt;li>I&amp;rsquo;ve received higher timestamp &lt;strong>from every node&lt;/strong>.&lt;/li>
 &lt;li>So my request must be the earliest.&lt;/li>
 &lt;/ol>
-&lt;h2 id="vector-clock" >Vector clock
-&lt;span>
+&lt;h2 id="vector-clock" >
+&lt;div>
 &lt;a href="#vector-clock">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Vector clock
+&lt;/div>
 &lt;/h2>&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
 &lt;blockquote>
 &lt;p>(0, 0, 0) for a 3-node system&lt;/p>
@@ -398,12 +416,13 @@ display: none;
 &lt;li>Cx happens before Cy&lt;/li>
 &lt;/ul>
 &lt;img src="vector-lock.jpg" width="400" alt="vector-lock" />
-&lt;h2 id="lab-1" >Lab 1
-&lt;span>
+&lt;h2 id="lab-1" >
+&lt;div>
 &lt;a href="#lab-1">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Lab 1
+&lt;/div>
 &lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>

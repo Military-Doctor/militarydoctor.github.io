@@ -58,12 +58,13 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >背景
-&lt;span>
+--></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
+&lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+背景
+&lt;/div>
 &lt;/h2>&lt;p>成为 NUS 的 Research Assistant， 我跑了 &lt;del>1,072&lt;/del> 3,172 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
@@ -76,12 +77,13 @@ Minor Components：
 &lt;p>更糟糕的是，不同服务器上的代码版本也可能不同，这让问题变得更复杂（使用git可能是一个解决方法）。&lt;/p>
 &lt;p>当我写下这篇文章的时候，意识到我可以把总结出的技能&lt;strong>迁移到其他项目中&lt;/strong>。&lt;/p>
 &lt;p>为了防止遗忘，我把这次的经验写下来，跟大家分享一下心得（我是如何建立属于我的&lt;strong>文件管理体系&lt;/strong>和&lt;strong>实验进度追踪&lt;/strong>方法）&lt;/p>
-&lt;h2 id="文件管理体系" >文件管理体系
-&lt;span>
+&lt;h2 id="文件管理体系" >
+&lt;div>
 &lt;a href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e4%bd%93%e7%b3%bb">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+文件管理体系
+&lt;/div>
 &lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
 &lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
 /home/junyi/data/cifar10/
@@ -97,12 +99,13 @@ Minor Components：
 ./rebuttal/{reviewer-id}/experiment/
 ./rebuttal/{reviewer-id}/plot/
 ./rebuttal/{reviewer-id}/comment/
-&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >如何做实验
-&lt;span>
+&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >
+&lt;div>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+如何做实验
+&lt;/div>
 &lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>⭐️ 自动化&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
@@ -120,12 +123,13 @@ Minor Components：
 &lt;p>&lt;strong>使用 git&lt;/strong>: 为了尽快得到结果，我不得不在多台机器上进行实验，这让我非常非常头痛。建议使用 git 来完成多个机器的代码同步。（不建议用 git 来同步&lt;strong>数据集&lt;/strong>🤣）&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="总结" >总结:
-&lt;span>
+&lt;h2 id="总结" >
+&lt;div>
 &lt;a href="#%e6%80%bb%e7%bb%93">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+总结:
+&lt;/div>
 &lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
 &lt;p>（后来有老师说，做 benchmark 确实是一个很苦的工作）&lt;/p>
@@ -134,59 +138,66 @@ Minor Components：
 &lt;p>同时也想告诫自己，&lt;strong>&lt;span style="color: red;">不要想偷懒！！！&lt;/span>&lt;/strong> &lt;strong>不要想着 “这个实验手动跑一下算了”&lt;/strong>，因为你永远不知道哪个实验会出问题，哪个实验会成为你的重要成果。&lt;/p>
 &lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。 (见 &lt;a href="https://www.junyi.dev/posts/research-101/">这篇文章&lt;/a>)&lt;/p>
 &lt;hr>
-&lt;h2 id="后续更新" >后续更新
-&lt;span>
+&lt;h2 id="后续更新" >
+&lt;div>
 &lt;a href="#%e5%90%8e%e7%bb%ad%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
-&lt;/h2>&lt;h3 id="2023-年-9-月-22-日更新" >2023 年 9 月 22 日更新：
-&lt;span>
+后续更新
+&lt;/div>
+&lt;/h2>&lt;h3 id="2023-年-9-月-22-日更新" >
+&lt;div>
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023 年 9 月 22 日更新：
+&lt;/div>
 &lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
-&lt;h3 id="2023-年-10-月-2-日更新" >2023 年 10 月 2 日更新：
-&lt;span>
+&lt;h3 id="2023-年-10-月-2-日更新" >
+&lt;div>
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023 年 10 月 2 日更新：
+&lt;/div>
 &lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
-&lt;h3 id="2023-年-11-月-16-日更新" >2023 年 11 月 16 日更新：
-&lt;span>
+&lt;h3 id="2023-年-11-月-16-日更新" >
+&lt;div>
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023 年 11 月 16 日更新：
+&lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
-&lt;h3 id="2024-年-3-月-4-日更新" >2024 年 3 月 4 日更新：
-&lt;span>
+&lt;h3 id="2024-年-3-月-4-日更新" >
+&lt;div>
 &lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2024 年 3 月 4 日更新：
+&lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（四）总结</title><link>https://www.junyi.dev/posts/oss-4/</link><pubDate>Thu, 17 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-4/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>对象存储虽然有如此多的优点和特性，但是在家庭存储这个场景下，显然是不合适的。&lt;/p>
 &lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
 &lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
 &lt;p>对象存储在「重命名」「移动文件」方面的不便之处洽洽堵住了它作为家庭 NAS 储存方案的路。&lt;/p>
-&lt;h1 id="future" >Future
-&lt;span>
+&lt;h1 id="future" >
+&lt;div>
 &lt;a href="#future">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Future
+&lt;/div>
 &lt;/h1>&lt;p>凭什么家里不能用企业的解决方案呢？&lt;/p>
 &lt;p>因此，我准备后续探索一下 GlusterFS、HDFS、Ceph 这些方案用作家庭 NAS 的可能性。&lt;/p>
 &lt;p>（挖个坑）&lt;/p>
-&lt;h1 id="comments" >Comments
-&lt;span>
+&lt;h1 id="comments" >
+&lt;div>
 &lt;a href="#comments">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Comments
+&lt;/div>
 &lt;/h1>&lt;blockquote>
 &lt;p>pauldhuang says:
 February 18, 2022 at 3:21 pm
@@ -211,22 +222,24 @@ February 28, 2022 at 11:43 pm
 最终，在折腾的这个阶段里，对整个工具链有了更清晰的认识，发现了自己认知上的缺陷，比如忘了可以从云上搞几个虚拟机，这样我也不会搞得这么痛苦了&lt;/p>
 &lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题</title><link>https://www.junyi.dev/posts/oss-3/</link><pubDate>Wed, 16 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-3/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>他奶奶的，不支持重命名啊！&lt;/p>
-&lt;h1 id="summary" >Summary
-&lt;span>
+&lt;h1 id="summary" >
+&lt;div>
 &lt;a href="#summary">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Summary
+&lt;/div>
 &lt;/h1>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>单机部署 minio erase-code 模式&lt;/p>
 &lt;p>使用了 8 块硬盘&lt;/p>
 &lt;p>本文很长，涉及的内容很多&lt;/p>
-&lt;h1 id="deploy" >Deploy
-&lt;span>
+&lt;h1 id="deploy" >
+&lt;div>
 &lt;a href="#deploy">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Deploy
+&lt;/div>
 &lt;/h1>&lt;p>&lt;strong>Environment:&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>OS: RHEL 8&lt;/li>
@@ -244,12 +257,13 @@ February 28, 2022 at 11:43 pm
 &lt;p>但是在这个过程中我遇到了很多困难&lt;/p>
 &lt;p>看日志发现是 SELinux 阻止了 minio 访问磁盘&lt;/p>
 &lt;p>在这里我提供两种解决方法，任选其一即可&lt;/p>
-&lt;h2 id="method-1-z-and-z" >Method 1: z and Z
-&lt;span>
+&lt;h2 id="method-1-z-and-z" >
+&lt;div>
 &lt;a href="#method-1-z-and-z">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Method 1: z and Z
+&lt;/div>
 &lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 当你使用 minio 一段时间，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># bucket 里的文件非常多的时候，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 你会发现创建容器的过程非常缓慢&lt;/span>
@@ -260,12 +274,13 @@ February 28, 2022 at 11:43 pm
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># podman 在帮你设置 SELinux label&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 几十万个文件，一个一个地设置 ......&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以也推荐下面这个简单粗暴的方法（Method 2）&lt;/p>
-&lt;h2 id="method-2-selinux" >Method 2: SELinux
-&lt;span>
+&lt;h2 id="method-2-selinux" >
+&lt;div>
 &lt;a href="#method-2-selinux">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+Method 2: SELinux
+&lt;/div>
 &lt;/h2>&lt;p>什么是 SELinux？
 SELinux 有哪些模式？
 None
@@ -289,22 +304,24 @@ Enforce
 1GB
 ^ MB/s 指的是 Mega Bytes per second
 ^ 这里放个图片
-&lt;/code>&lt;/pre>&lt;h1 id="summary" >Summary
-&lt;span>
+&lt;/code>&lt;/pre>&lt;h1 id="summary" >
+&lt;div>
 &lt;a href="#summary">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Summary
+&lt;/div>
 &lt;/h1>&lt;p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
 &lt;p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法&lt;/p>
 &lt;p>最后，做了相对完整的性能测试&lt;/p>
 &lt;p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方&lt;/p>
-&lt;h1 id="comments" >Comments
-&lt;span>
+&lt;h1 id="comments" >
+&lt;div>
 &lt;a href="#comments">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Comments
+&lt;/div>
 &lt;/h1>&lt;blockquote>
 &lt;p>hehe says:
 February 27, 2022 at 11:59 pm
@@ -325,20 +342,22 @@ February 28, 2022 at 11:33 pm
 对比各个存储方案的优缺点&lt;/p>
 &lt;p>Amazon S3
 说道对象存储，就不得不提 S3&lt;/p>
-&lt;h1 id="idea" >Idea
-&lt;span>
+&lt;h1 id="idea" >
+&lt;div>
 &lt;a href="#idea">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Idea
+&lt;/div>
 &lt;/h1>&lt;p>因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
 &lt;p>明明对象存储更强大，为什么不直接用对象存储呢？&lt;/p>
-&lt;h1 id="summary" >Summary
-&lt;span>
+&lt;h1 id="summary" >
+&lt;div>
 &lt;a href="#summary">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Summary
+&lt;/div>
 &lt;/h1>&lt;p>本节对比了不同存储方案和文件系统的关系&lt;/p>
 &lt;p>了解了 S3 与对象存储的历史&lt;/p>
 &lt;p>提出问题「为什么家庭 NAS 不采用 对象存储 这个方案」&lt;/p>
@@ -353,24 +372,26 @@ February 28, 2022 at 11:33 pm
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to get motivated</title><link>https://www.junyi.dev/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><guid>https://www.junyi.dev/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
-&lt;h1 id="1-get-ready-the-night-before" >1. Get ready the night before
-&lt;span>
+&lt;h1 id="1-get-ready-the-night-before" >
+&lt;div>
 &lt;a href="#1-get-ready-the-night-before">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+1. Get ready the night before
+&lt;/div>
 &lt;/h1>&lt;ul>
 &lt;li>Clean your desk&lt;/li>
 &lt;li>Get everything that you need within reach pens, paper, charges …&lt;/li>
 &lt;li>Make a to-do list&lt;/li>
 &lt;li>Choose your clothes for the next day.&lt;/li>
 &lt;/ul>
-&lt;h1 id="2-write-a-to-do-list-everyday" >2. Write a to-do list everyday
-&lt;span>
+&lt;h1 id="2-write-a-to-do-list-everyday" >
+&lt;div>
 &lt;a href="#2-write-a-to-do-list-everyday">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2. Write a to-do list everyday
+&lt;/div>
 &lt;/h1>&lt;ul>
 &lt;li>Have a clear plan of what you need to do&lt;/li>
 &lt;li>Spread out your tasks over the week to have realistic expectations&lt;/li>
@@ -380,18 +401,20 @@ February 28, 2022 at 11:33 pm
 &lt;ul>
 &lt;li>Microsoft To-Do&lt;/li>
 &lt;/ul>
-&lt;h1 id="3-block-your-time-in-your-calendar" >3. Block your time in your calendar
-&lt;span>
+&lt;h1 id="3-block-your-time-in-your-calendar" >
+&lt;div>
 &lt;a href="#3-block-your-time-in-your-calendar">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="4-use-the-pomodoro-method-to-manage-your-time--tasks" >4. Use the Pomodoro method to manage your time &amp;amp; tasks
-&lt;span>
+3. Block your time in your calendar
+&lt;/div>
+&lt;/h1>&lt;h1 id="4-use-the-pomodoro-method-to-manage-your-time--tasks" >
+&lt;div>
 &lt;a href="#4-use-the-pomodoro-method-to-manage-your-time--tasks">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+4. Use the Pomodoro method to manage your time &amp;amp; tasks
+&lt;/div>
 &lt;/h1>&lt;ol>
 &lt;li>Pick a task&lt;/li>
 &lt;li>Start a 25-minutes timer - FOCUS TIME&lt;/li>
@@ -399,110 +422,124 @@ February 28, 2022 at 11:33 pm
 &lt;li>After 4 pomodoros, take a longer 15 - 30 min break&lt;/li>
 &lt;/ol>
 &lt;p>Choose your &lt;strong>personal session and breaks&lt;/strong>.&lt;/p>
-&lt;h1 id="5-using-virtual-study-group" >5. Using virtual study group
-&lt;span>
+&lt;h1 id="5-using-virtual-study-group" >
+&lt;div>
 &lt;a href="#5-using-virtual-study-group">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="6-use-time-tracking" >6. Use time tracking
-&lt;span>
+5. Using virtual study group
+&lt;/div>
+&lt;/h1>&lt;h1 id="6-use-time-tracking" >
+&lt;div>
 &lt;a href="#6-use-time-tracking">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+6. Use time tracking
+&lt;/div>
 &lt;/h1>&lt;p>To motivate you as see how much work you did.&lt;/p>
-&lt;h1 id="7-start-your-day-with-an-easy-task-that-you-want-to-do" >7. Start your day with an easy task that you WANT to do
-&lt;span>
+&lt;h1 id="7-start-your-day-with-an-easy-task-that-you-want-to-do" >
+&lt;div>
 &lt;a href="#7-start-your-day-with-an-easy-task-that-you-want-to-do">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="8-create-a-study-routine-and-build-habits" >8. Create a study routine and build habits
-&lt;span>
+7. Start your day with an easy task that you WANT to do
+&lt;/div>
+&lt;/h1>&lt;h1 id="8-create-a-study-routine-and-build-habits" >
+&lt;div>
 &lt;a href="#8-create-a-study-routine-and-build-habits">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+8. Create a study routine and build habits
+&lt;/div>
 &lt;/h1>&lt;p>When motivation is low, your routine and habits hat you’ve built will come to the rescue.&lt;/p>
 &lt;ul>
 &lt;li>Create a story routine&lt;/li>
 &lt;li>Iteratively improve it + make it realistic for you&lt;/li>
 &lt;li>Then it will less be anout motivation.&lt;/li>
 &lt;/ul>
-&lt;h1 id="9-remember-why-you-want-to-get-these-tasks-done" >9. Remember WHY you want to get these tasks done.
-&lt;span>
+&lt;h1 id="9-remember-why-you-want-to-get-these-tasks-done" >
+&lt;div>
 &lt;a href="#9-remember-why-you-want-to-get-these-tasks-done">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+9. Remember WHY you want to get these tasks done.
+&lt;/div>
 &lt;/h1>&lt;p>Write it down, and go back to the note when you’re lacking motivation&lt;/p>
-&lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >10. Create a motivating poster in front of your desk!
-&lt;span>
+&lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >
+&lt;div>
 &lt;a href="#10-create-a-motivating-poster-in-front-of-your-desk">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="11-make-studying-fun" >11. Make studying fun
-&lt;span>
+10. Create a motivating poster in front of your desk!
+&lt;/div>
+&lt;/h1>&lt;h1 id="11-make-studying-fun" >
+&lt;div>
 &lt;a href="#11-make-studying-fun">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+11. Make studying fun
+&lt;/div>
 &lt;/h1>&lt;ul>
 &lt;li>Create flashcards -&amp;gt; Quizlet&lt;/li>
 &lt;li>Watch online videos&lt;/li>
 &lt;/ul>
-&lt;h1 id="12-trick-your-brain-with-the-2-minute-rule" >12. Trick your brain with the 2 minute rule
-&lt;span>
+&lt;h1 id="12-trick-your-brain-with-the-2-minute-rule" >
+&lt;div>
 &lt;a href="#12-trick-your-brain-with-the-2-minute-rule">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+12. Trick your brain with the 2 minute rule
+&lt;/div>
 &lt;/h1>&lt;blockquote>
 &lt;p>“Ok, I know I don’t fell like studying right now. But, I’m going to get up, go to my desk, and work for 2 minutes. If I still don’t feel like it, I can stop working.”&lt;/p>
 &lt;/blockquote>
-&lt;h1 id="13-exercise-and-come-back-to-work" >13. Exercise and come back to work.
-&lt;span>
+&lt;h1 id="13-exercise-and-come-back-to-work" >
+&lt;div>
 &lt;a href="#13-exercise-and-come-back-to-work">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >14. Join a study Discord community!
-&lt;span>
+13. Exercise and come back to work.
+&lt;/div>
+&lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >
+&lt;div>
 &lt;a href="#14-join-a-study-discord-community">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >15. Still can’t find motivation? Take a productive break!
-&lt;span>
+14. Join a study Discord community!
+&lt;/div>
+&lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >
+&lt;div>
 &lt;a href="#15-still-cant-find-motivation-take-a-productive-break">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h1 id="reference" >Reference
-&lt;span>
+15. Still can’t find motivation? Take a productive break!
+&lt;/div>
+&lt;/h1>&lt;h1 id="reference" >
+&lt;div>
 &lt;a href="#reference">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Reference
+&lt;/div>
 &lt;/h1>&lt;p>Marine. &lt;a href="https://m.twitch.tv/videos/934263167">https://m.twitch.tv/videos/934263167&lt;/a>&lt;/p>
-&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
-&lt;span>
+&lt;h1 id="2023年8月23日-补充" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日 补充
+&lt;/div>
 &lt;/h1>&lt;p>没想到已经过去了这么久，可惜自己好像从未尝试过文中的方法&lt;/p>
 &lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>整理了一下博客</title><link>https://www.junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
 &lt;p>这些文章都是我写了好久的。&lt;/p>
 &lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
-&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
-&lt;span>
+&lt;h1 id="2023年8月23日更新" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日更新
+&lt;/div>
 &lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img src="md1.png" alt="md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
 &lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
@@ -538,12 +575,13 @@ February 28, 2022 at 11:33 pm
 &lt;p>虽然第一时间联系了朋友，并且另一位跟我一起回来的朋友帮我找了一圈电动车，没有找到。然后我报了警。警察说你可以去做一下笔录，但是帮助不大，&lt;/p>
 &lt;p>估计是找不到了。&lt;/p>
 &lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>https://www.junyi.dev/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>https://www.junyi.dev/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
-&lt;h3 id="基本配置-基本配置基本配置" >&lt;a href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE" title="基本配置">&lt;/a>基本配置
-&lt;span>
+&lt;h3 id="基本配置-基本配置基本配置" >
+&lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE" title="基本配置">&lt;/a>基本配置
+&lt;/div>
 &lt;/h3>&lt;p>先说一下我电脑的基本配置:&lt;/p>
 &lt;p>2017年买的笔记本电脑&lt;br>
 CPU: i7-7700HQ&lt;br>
@@ -563,12 +601,13 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>总的来说, 现在买这些硬件产品, 性能反而不是第一考虑的维度&lt;/p>
 &lt;p>最先考虑的, 一定是外观和使用体验, 其次才是性能.&lt;/p>
 &lt;p>在同样的外观和体验下, 买性能最高的, 这就是我的原则. (个人观点不代表所有人, 我之前是把性能作为第一考虑指标的人)&lt;/p>
-&lt;h3 id="开发环境-开发环境开发环境" >&lt;a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" title="开发环境">&lt;/a>开发环境
-&lt;span>
+&lt;h3 id="开发环境-开发环境开发环境" >
+&lt;div>
 &lt;a href="#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" title="开发环境">&lt;/a>开发环境
+&lt;/div>
 &lt;/h3>&lt;p>目前我把那块 512G 的 SSD 划成了两个部分, 第一个部分 300G 给 Windows 用, 第二个部分 200G 给 Ubuntu 用.&lt;/p>
 &lt;p>平常开发的时候, 不会首先选择 Windows, 虽然 Visual Studio 挺香的 (但是 Linux 里我可以用 VS Code)&lt;/p>
 &lt;p>尤其是搞深度学习, Windows 难用的一批, 一个好用的包管理系统都没有(不要喷,我用过 chocolatey 等 pkm 工具, 都不好用)&lt;/p>
@@ -594,12 +633,13 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>后来捣鼓了一下 SMB 协议, iPhone 上装个第三方文件管理工具,&lt;/p>
 &lt;p>就很舒服了, 不用插线的文件传输, 走千兆内网, 路由器是华硕的 AC88U, 速度不错&lt;/p>
 &lt;p>(剩下的想起来再写)&lt;/p>
-&lt;h3 id="windows-工具-windows-工具windows-工具" >&lt;a href="#Windows-%E5%B7%A5%E5%85%B7" title="Windows 工具">&lt;/a>Windows 工具
-&lt;span>
+&lt;h3 id="windows-工具-windows-工具windows-工具" >
+&lt;div>
 &lt;a href="#windows-%e5%b7%a5%e5%85%b7-windows-%e5%b7%a5%e5%85%b7windows-%e5%b7%a5%e5%85%b7">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#Windows-%E5%B7%A5%E5%85%B7" title="Windows 工具">&lt;/a>Windows 工具
+&lt;/div>
 &lt;/h3>&lt;ul>
 &lt;li>杀软: 火绒&lt;/li>
 &lt;li>文件搜索: Everything&lt;/li>
@@ -679,12 +719,13 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>不知道脑子里在想什么，走的时候，甚至忘了给咨询师说 “谢谢”。&lt;/p>
 &lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>https://www.junyi.dev/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><guid>https://www.junyi.dev/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>https://www.junyi.dev/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
 &lt;p>现在叫 「Junyi 的小屋」&lt;/p>
-&lt;h1 id="2023年8月23日注" >2023年8月23日注：
-&lt;span>
+&lt;h1 id="2023年8月23日注" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日注：
+&lt;/div>
 &lt;/h1>&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>https://www.junyi.dev/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>https://www.junyi.dev/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
 &lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
 &lt;p>（不可恢复，之前的白写了 23333） 直到这篇文章发布（2018-2-21 0:10）&lt;/p>
@@ -699,20 +740,22 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>希望自己在 2018 年，能一直带着这一天的情绪， 在自己的阈值边缘徘徊， 不为别的， 就为了自己的未来，能有更多选择的权利， 让自己有价值，有意义。&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>加油，2018！&lt;/strong>&lt;/p>
-&lt;h1 id="更新于-2021-年-3-月-8-日" >更新于 2021 年 3 月 8 日：
-&lt;span>
+&lt;h1 id="更新于-2021-年-3-月-8-日" >
+&lt;div>
 &lt;a href="#%e6%9b%b4%e6%96%b0%e4%ba%8e-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+更新于 2021 年 3 月 8 日：
+&lt;/div>
 &lt;/h1>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了
 所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
-&lt;h1 id="2023年8月23日注" >2023年8月23日注：
-&lt;span>
+&lt;h1 id="2023年8月23日注" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日注：
+&lt;/div>
 &lt;/h1>&lt;p>所以我审视了自己什么？
 有什么规划？记录了什么内容？
 好像啥都没写吧。。。

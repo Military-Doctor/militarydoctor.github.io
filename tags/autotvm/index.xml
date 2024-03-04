@@ -41,31 +41,34 @@ tracker 和 server 都可以放在有显卡的机器里&lt;/p>
 如果在 shell 里直接不写 &lt;code>export&lt;/code> ，直接写 &lt;code>CUDA_VISIBLE_DEVICES=0&lt;/code> 是无效的！！！！
 尽管不写 &lt;code>export&lt;/code> 时，&lt;code>echo $CUDA_VISIBLE_DEVICES&lt;/code> 也会输出 1，但是实际上并没有设置环境变量。
 原因是 autotvm 会通过 python 的 &lt;code>os.environ['CUDA_VISIBLE_DEVICES']&lt;/code> 的值来决定使用哪一个 id 的 GPU。&lt;/p>
-&lt;h1 id="检测效果" >检测效果：
-&lt;span>
+&lt;h1 id="检测效果" >
+&lt;div>
 &lt;a href="#%e6%a3%80%e6%b5%8b%e6%95%88%e6%9e%9c">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+检测效果：
+&lt;/div>
 &lt;/h1>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
 Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看到 GPU 的利用情况：&lt;/p>
 &lt;p>&lt;code>watch -n 0.5 nvidia-smi&lt;/code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）&lt;/p>
 &lt;img src="result.png" alt="drawing" width="800"/>
 &lt;p>可以看到两张显卡都已经利用起来了。&lt;/p>
 &lt;p>– END –&lt;/p>
-&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
-&lt;span>
+&lt;h1 id="2023年8月23日-补充" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日 补充
+&lt;/div>
 &lt;/h1>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
-&lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >Build TVM Runtim on Raspberry Pi 4B
-&lt;span>
+&lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
+&lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Build TVM Runtim on Raspberry Pi 4B
+&lt;/div>
 &lt;/h1>&lt;p>我们只用树莓派跑模型，所以只需要构建 Runtime&lt;/p>
 &lt;p>网络条件差的话记得更换 apt 的源&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
@@ -87,23 +90,25 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;p>(下面这条命令的 current working directory 为：&lt;code>~&lt;/code>，使用的是 &lt;code>zsh&lt;/code>)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;export PYTHONPATH=&lt;/span>$PYTHONPATH&lt;span style="color:#e6db74">:~/tvm/python&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.zshrc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="config-rpc-server-on-raspberry-pi-4b" >Config RPC Server on Raspberry Pi 4B
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="config-rpc-server-on-raspberry-pi-4b" >
+&lt;div>
 &lt;a href="#config-rpc-server-on-raspberry-pi-4b">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Config RPC Server on Raspberry Pi 4B
+&lt;/div>
 &lt;/h1>&lt;p>由于 Raspberry OS 里，python 默认是 python2.7 ，所以我们这里强制使用 python3&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python3 -m tvm.exec.rpc_server --host 0.0.0.0 --port&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">9090&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>（Tips：共建和谐未来，建议所有项目都是用 python3， 抛弃 python2 人人有责）&lt;/p>
 &lt;p>如果你看到了这样的字眼，说明你成功在树莓派上启动了 RPC 服务器：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>INFO:RPCServer:bind to 0.0.0.0:9090
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="prepare-pre-trained-model" >Prepare Pre-trained model
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="prepare-pre-trained-model" >
+&lt;div>
 &lt;a href="#prepare-pre-trained-model">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Prepare Pre-trained model
+&lt;/div>
 &lt;/h1>&lt;p>查看 target (-mtriple 的值)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>➜ ~ gcc -dumpmachine
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aarch64-linux-gnu
@@ -112,12 +117,13 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>target &lt;span style="color:#f92672">=&lt;/span> tvm.target.Target&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;llvm -device=arm_cpu -model=bcm2711 -mtriple=aarch64-linux-gnu -mattr=+neon&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个代码是在训练机上运行的&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>树莓派的 CPU 为 bcm2711，mtriple 是 aarch64-linux-gnu，mattr 一律写 +neon&lt;/p>
-&lt;h1 id="踩坑记录注意事项" >踩坑记录（注意事项）
-&lt;span>
+&lt;h1 id="踩坑记录注意事项" >
+&lt;div>
 &lt;a href="#%e8%b8%a9%e5%9d%91%e8%ae%b0%e5%bd%95%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+踩坑记录（注意事项）
+&lt;/div>
 &lt;/h1>&lt;p>RPC tracker - server 的模式，不能通过 frp 反代使用。&lt;/p>
 &lt;p>没有公网 IP 的话，必须 VPN 异地组网打洞才可以。&lt;/p>
 &lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item></channel></rss>

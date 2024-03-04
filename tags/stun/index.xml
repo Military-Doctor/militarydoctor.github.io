@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STUN on Junyi's Lab</title><link>https://www.junyi.dev/tags/stun/</link><description>Junyi's Lab (STUN)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Jun 2020 20:10:49 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/stun/index.xml" rel="self" type="application/rss+xml"/><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://www.junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
-&lt;h1 id="说在前面" >说在前面
-&lt;span>
+&lt;h1 id="说在前面" >
+&lt;div>
 &lt;a href="#%e8%af%b4%e5%9c%a8%e5%89%8d%e9%9d%a2">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+说在前面
+&lt;/div>
 &lt;/h1>&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
 &lt;p>翻译中遇到的问题：&lt;/p>
 &lt;ul>
@@ -29,12 +30,13 @@
 &lt;p>译者语文和英语的水平都不高，再次强调，本翻译仅供参考。&lt;/p>
 &lt;p>译者：Junyi&lt;/p>
 &lt;p>联系邮箱：hhh#u.nus.edu (自行替换成 at 符号)&lt;/p>
-&lt;h1 id="stun" >STUN
-&lt;span>
+&lt;h1 id="stun" >
+&lt;div>
 &lt;a href="#stun">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+STUN
+&lt;/div>
 &lt;/h1>&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
 &lt;p>最新定义在 &lt;a href="https://datatracker.ietf.org/doc/rfc5389/">RFC 5389&lt;/a>&lt;/p>
 &lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
@@ -57,12 +59,13 @@
 &lt;/li>
 &lt;/ul>
 &lt;p>基于以上原因，RFC 3489 &lt;strong>已经被废弃&lt;/strong>。&lt;/p>
-&lt;h1 id="3-操作概述-overview-of-operation" >3. 操作概述 Overview of Operation
-&lt;span>
+&lt;h1 id="3-操作概述-overview-of-operation" >
+&lt;div>
 &lt;a href="#3-%e6%93%8d%e4%bd%9c%e6%a6%82%e8%bf%b0-overview-of-operation">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+3. 操作概述 Overview of Operation
+&lt;/div>
 &lt;/h1>&lt;blockquote>
 &lt;p>This section is descriptive only.&lt;/p>
 &lt;/blockquote>
@@ -197,23 +200,25 @@
 &lt;p>In the short-term credential mechanism, the client and the server exchange a username and password through some out-of-band method prior to the STUN exchange. For example, in the ICE usage [MMUSIC-ICE] the two endpoints use out-of-band signaling to exchange a username and password. These are used to integrity protect and authenticate the request and response. There is no challenge or nonce used.&lt;/p>
 &lt;/blockquote>
 &lt;p>在短期凭据机制里，客户端和服务器在 STUN 交换 之前，通过一些 out-of-band 的方式[^3]来交换用户名和密码。举个例子，在 ICE中，两个端点使用 out-of-band 信令 来交换用户名和密码。它们被用来保证消息的完整性和对请求和响应进行授权。没有使用 challenge 或 nonce[^4]。&lt;/p>
-&lt;h2 id="4-术语-terminology-4-术语-terminology4-术语-terminology" >&lt;a href="#4-%E6%9C%AF%E8%AF%AD-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
-&lt;span>
+&lt;h2 id="4-术语-terminology-4-术语-terminology4-术语-terminology" >
+&lt;div>
 &lt;a href="#4-%e6%9c%af%e8%af%ad-terminology-4-%e6%9c%af%e8%af%ad-terminology4-%e6%9c%af%e8%af%ad-terminology">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#4-%E6%9C%AF%E8%AF%AD-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
+&lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119 [RFC2119] and indicate requirement levels for compliant STUN implementations.&lt;/p>
 &lt;/blockquote>
 &lt;p>在这份文档中，“**&lt;em>必须&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必须不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必需要&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>不应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>建议&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>或许&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>可选&lt;/em>**”，将按照 BCP 14，RFC 2119 来解释说明 STUN 所需的的实现级别。&lt;/p>
 &lt;p>因为中英文单词差异，所以在本翻译中，涉及到的上述词汇都会用**&lt;em>粗体倾斜下划线&lt;/em>**来表示。&lt;/p>
-&lt;h2 id="5-定义-definitions-5-定义-definitions5-定义-definitions" >&lt;a href="#5-%E5%AE%9A%E4%B9%89-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
-&lt;span>
+&lt;h2 id="5-定义-definitions-5-定义-definitions5-定义-definitions" >
+&lt;div>
 &lt;a href="#5-%e5%ae%9a%e4%b9%89-definitions-5-%e5%ae%9a%e4%b9%89-definitions5-%e5%ae%9a%e4%b9%89-definitions">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#5-%E5%AE%9A%E4%B9%89-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
+&lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>STUN Agent: A STUN agent is an entity that implements the STUN protocol. The entity can be either a STUN client or a STUN server.&lt;/p>
 &lt;/blockquote>
@@ -269,12 +274,13 @@
 &lt;p>RTO: Retransmission TimeOut, which defines the initial period of time between transmission of a request and the first retransmit of that request.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>RTO&lt;/strong>：重传超时。也就是从请求传输到第一次重新传输之间的时间。&lt;/p>
-&lt;h2 id="6-stun-消息结构-stun-message-structure-6-stun-消息结构-stun-message-structure6-stun-消息结构-stun-message-structure" >&lt;a href="#6-STUN-%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
-&lt;span>
+&lt;h2 id="6-stun-消息结构-stun-message-structure-6-stun-消息结构-stun-message-structure6-stun-消息结构-stun-message-structure" >
+&lt;div>
 &lt;a href="#6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure-6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#6-STUN-%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
+&lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>STUN messages are encoded in binary using network-oriented format (most significant byte or octet first, also commonly known as big-endian). The transmission order is described in detail in Appendix B of RFC 791 [RFC0791]. Unless otherwise noted, numeric constants are in decimal (base 10).&lt;/p>
 &lt;/blockquote>
@@ -353,11 +359,12 @@ Figure 3: Format of STUN Message Type Field
 [^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送&lt;br>
 [^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。&lt;br>
 [^7]: 一个不接收响应的 STUN 消息。（说人话就是只发不收，就告诉你一声。）&lt;/p>
-&lt;h1 id="2023年8月23日注" >2023年8月23日注：
-&lt;span>
+&lt;h1 id="2023年8月23日注" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日注：
+&lt;/div>
 &lt;/h1>&lt;p>之前写了好多格式，现在不支持，哎
 等哪天有空了把源代码找出来。。。&lt;/p></description></item></channel></rss>

@@ -55,31 +55,34 @@ tracker 和 server 都可以放在有显卡的机器里&lt;/p>
 如果在 shell 里直接不写 &lt;code>export&lt;/code> ，直接写 &lt;code>CUDA_VISIBLE_DEVICES=0&lt;/code> 是无效的！！！！
 尽管不写 &lt;code>export&lt;/code> 时，&lt;code>echo $CUDA_VISIBLE_DEVICES&lt;/code> 也会输出 1，但是实际上并没有设置环境变量。
 原因是 autotvm 会通过 python 的 &lt;code>os.environ['CUDA_VISIBLE_DEVICES']&lt;/code> 的值来决定使用哪一个 id 的 GPU。&lt;/p>
-&lt;h1 id="检测效果" >检测效果：
-&lt;span>
+&lt;h1 id="检测效果" >
+&lt;div>
 &lt;a href="#%e6%a3%80%e6%b5%8b%e6%95%88%e6%9e%9c">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+检测效果：
+&lt;/div>
 &lt;/h1>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
 Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看到 GPU 的利用情况：&lt;/p>
 &lt;p>&lt;code>watch -n 0.5 nvidia-smi&lt;/code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）&lt;/p>
 &lt;img src="result.png" alt="drawing" width="800"/>
 &lt;p>可以看到两张显卡都已经利用起来了。&lt;/p>
 &lt;p>– END –&lt;/p>
-&lt;h1 id="2023年8月23日-补充" >2023年8月23日 补充
-&lt;span>
+&lt;h1 id="2023年8月23日-补充" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+2023年8月23日 补充
+&lt;/div>
 &lt;/h1>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
-&lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >Build TVM Runtim on Raspberry Pi 4B
-&lt;span>
+&lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
+&lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Build TVM Runtim on Raspberry Pi 4B
+&lt;/div>
 &lt;/h1>&lt;p>我们只用树莓派跑模型，所以只需要构建 Runtime&lt;/p>
 &lt;p>网络条件差的话记得更换 apt 的源&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
@@ -101,23 +104,25 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;p>(下面这条命令的 current working directory 为：&lt;code>~&lt;/code>，使用的是 &lt;code>zsh&lt;/code>)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;export PYTHONPATH=&lt;/span>$PYTHONPATH&lt;span style="color:#e6db74">:~/tvm/python&amp;#34;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.zshrc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="config-rpc-server-on-raspberry-pi-4b" >Config RPC Server on Raspberry Pi 4B
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="config-rpc-server-on-raspberry-pi-4b" >
+&lt;div>
 &lt;a href="#config-rpc-server-on-raspberry-pi-4b">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Config RPC Server on Raspberry Pi 4B
+&lt;/div>
 &lt;/h1>&lt;p>由于 Raspberry OS 里，python 默认是 python2.7 ，所以我们这里强制使用 python3&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python3 -m tvm.exec.rpc_server --host 0.0.0.0 --port&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">9090&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>（Tips：共建和谐未来，建议所有项目都是用 python3， 抛弃 python2 人人有责）&lt;/p>
 &lt;p>如果你看到了这样的字眼，说明你成功在树莓派上启动了 RPC 服务器：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>INFO:RPCServer:bind to 0.0.0.0:9090
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="prepare-pre-trained-model" >Prepare Pre-trained model
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="prepare-pre-trained-model" >
+&lt;div>
 &lt;a href="#prepare-pre-trained-model">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Prepare Pre-trained model
+&lt;/div>
 &lt;/h1>&lt;p>查看 target (-mtriple 的值)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>➜ ~ gcc -dumpmachine
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aarch64-linux-gnu
@@ -126,12 +131,13 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>target &lt;span style="color:#f92672">=&lt;/span> tvm.target.Target&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;llvm -device=arm_cpu -model=bcm2711 -mtriple=aarch64-linux-gnu -mattr=+neon&amp;#39;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 这个代码是在训练机上运行的&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>树莓派的 CPU 为 bcm2711，mtriple 是 aarch64-linux-gnu，mattr 一律写 +neon&lt;/p>
-&lt;h1 id="踩坑记录注意事项" >踩坑记录（注意事项）
-&lt;span>
+&lt;h1 id="踩坑记录注意事项" >
+&lt;div>
 &lt;a href="#%e8%b8%a9%e5%9d%91%e8%ae%b0%e5%bd%95%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+踩坑记录（注意事项）
+&lt;/div>
 &lt;/h1>&lt;p>RPC tracker - server 的模式，不能通过 frp 反代使用。&lt;/p>
 &lt;p>没有公网 IP 的话，必须 VPN 异地组网打洞才可以。&lt;/p>
 &lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>https://www.junyi.dev/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
@@ -143,33 +149,37 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;p>Homebrew: 2.7.0&lt;/p>
 &lt;p>Homebrew/homebrew-core: git revision 8df7a0; last commit 2020-12-26&lt;/p>
 &lt;p>参考教程：&lt;a href="https://tvm.apache.org/docs/install/from_source.html#build-the-shared-library">tvm0.8.0dev0&lt;/a>&lt;/p>
-&lt;h1 id="step1-在-github-上获取源代码" >Step1: 在 Github 上获取源代码
-&lt;span>
+&lt;h1 id="step1-在-github-上获取源代码" >
+&lt;div>
 &lt;a href="#step1-%e5%9c%a8-github-%e4%b8%8a%e8%8e%b7%e5%8f%96%e6%ba%90%e4%bb%a3%e7%a0%81">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Step1: 在 Github 上获取源代码
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="step2-弃坑macos-根本搞不了坑太多" >Step2: 弃坑，macOS 根本搞不了，坑太多
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="step2-弃坑macos-根本搞不了坑太多" >
+&lt;div>
 &lt;a href="#step2-%e5%bc%83%e5%9d%91macos-%e6%a0%b9%e6%9c%ac%e6%90%9e%e4%b8%8d%e4%ba%86%e5%9d%91%e5%a4%aa%e5%a4%9a">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+Step2: 弃坑，macOS 根本搞不了，坑太多
+&lt;/div>
 &lt;/h1>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
 &lt;p>&lt;strong>这就是关于在 macOS 上编译 TVM 库的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！&lt;/strong>&lt;/p>
-&lt;h1 id="2023年8月23日更新" >2023年8月23日更新
-&lt;span>
+&lt;h1 id="2023年8月23日更新" >
+&lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>https://www.junyi.dev/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
-&lt;span>
+2023年8月23日更新
+&lt;/div>
+&lt;/h1>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>https://www.junyi.dev/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
+&lt;/div>
 &lt;/h1>&lt;p>系统环境：Ubuntu 18.04 LTS&lt;/p>
 &lt;p>解决方法：卸载 OpenJDK-11，安装 OpenJDK-8&lt;/p>
 &lt;p>备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。&lt;/p>
@@ -177,18 +187,20 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 &lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
 &lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>仔细阅读官方指南！！&lt;/strong>&lt;/p>
-&lt;h1 id="问题细节-问题细节问题细节" >&lt;a href="#%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82" title="问题细节">&lt;/a>问题细节
-&lt;span>
+&lt;h1 id="问题细节-问题细节问题细节" >
+&lt;div>
 &lt;a href="#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82-%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
-&lt;/h1>&lt;h2 id="第一天-no-opencl-platform-第一天-no-opencl-platform第一天-no-opencl-platform" >&lt;a href="#%E7%AC%AC%E4%B8%80%E5%A4%A9-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
-&lt;span>
+&lt;a href="#%E9%97%AE%E9%A2%98%E7%BB%86%E8%8A%82" title="问题细节">&lt;/a>问题细节
+&lt;/div>
+&lt;/h1>&lt;h2 id="第一天-no-opencl-platform-第一天-no-opencl-platform第一天-no-opencl-platform" >
+&lt;div>
 &lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform-%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E7%AC%AC%E4%B8%80%E5%A4%A9-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
+&lt;/div>
 &lt;/h2>&lt;p>遇到了一个错误：&lt;/p>
 &lt;blockquote>
 &lt;p>tvm/src/runtime/opencl/opencl_device_api.cc:263: No OpenCL platform matched given existing options …&lt;/p>
@@ -245,12 +257,13 @@ You should enable only ONE option but not both.&lt;/p>
 &lt;p>我试试LLVM打开，OPENCL关闭，Vulkan关闭&lt;/p>
 &lt;p>（这不就是之前的状态吗???）&lt;/p>
 &lt;hr>
-&lt;h2 id="第二天-no-opencl-device-第二天-no-opencl-device第二天-no-opencl-device" >&lt;a href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
-&lt;span>
+&lt;h2 id="第二天-no-opencl-device-第二天-no-opencl-device第二天-no-opencl-device" >
+&lt;div>
 &lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device-%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E7%AC%AC%E4%BA%8C%E5%A4%A9-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
+&lt;/div>
 &lt;/h2>&lt;p>睡了一觉，第二天了，&lt;/p>
 &lt;p>遇到了新的错误：&lt;/p>
 &lt;blockquote>
@@ -271,12 +284,13 @@ No OpenCL device&lt;/p>
 &lt;p>&lt;code>apt install openjdk-8-jdk&lt;/code> &lt;strong>ONLY&lt;/strong>!&lt;/p>
 &lt;p>Then set &lt;code>JAVA_HOME&lt;/code> in your environment!&lt;/p>
 &lt;hr>
-&lt;h2 id="第三天-解决-第三天-解决第三天-解决" >&lt;a href="#%E7%AC%AC%E4%B8%89%E5%A4%A9-%E8%A7%A3%E5%86%B3" title="第三天 解决">&lt;/a>第三天 解决
-&lt;span>
+&lt;h2 id="第三天-解决-第三天-解决第三天-解决" >
+&lt;div>
 &lt;a href="#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3-%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+#
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E7%AC%AC%E4%B8%89%E5%A4%A9-%E8%A7%A3%E5%86%B3" title="第三天 解决">&lt;/a>第三天 解决
+&lt;/div>
 &lt;/h2>&lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
 &lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>https://www.junyi.dev/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
 &lt;p>修改 &lt;code>AndroidManifest.xml&lt;/code> 的 &lt;code>application&lt;/code> 字段，添加 &lt;code>android:extractNativeLibs=&amp;quot;true&amp;quot;&lt;/code> 即可解决问题&lt;/p>
@@ -301,24 +315,26 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>稍微做一下适配，也不会让我们这些后来者因为这些问题踩坑浪费这么多时间吧…&lt;/p>
 &lt;p>，&lt;/p>
 &lt;p>一说起这个我就想起来那些依然在用 python2 的人。&lt;/p>
-&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>https://www.junyi.dev/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
-&lt;span>
+&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>https://www.junyi.dev/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E5%85%88%E8%AF%B4%E7%BB%93%E8%AE%BA" title="先说结论">&lt;/a>先说结论
+&lt;/div>
 &lt;/h1>&lt;p>&lt;strong>环境&lt;/strong>：Ubuntu 18.04 LTS （非虚拟机）&lt;/p>
 &lt;p>&lt;strong>手机&lt;/strong>：Xiaomi Mi 5s, 3GB RAM, 64GB ROM&lt;/p>
 &lt;p>&lt;strong>系统&lt;/strong>：原生 Android 10&lt;/p>
 &lt;p>&lt;strong>遇到问题&lt;/strong>：android_rpc 无法编译部署&lt;/p>
 &lt;p>&lt;strong>解决方法&lt;/strong>：核心思路是分析 gradle task 执行顺序，分析相关脚本，检查环境变量。这个问题需要具体情况具体分析，请仔细查看本文【问题解决】部分的相关描述。&lt;/p>
 &lt;hr>
-&lt;h1 id="部署-android-rpc-部署-android_rpc部署-android_rpc" >&lt;a href="#%E9%83%A8%E7%BD%B2-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
-&lt;span>
+&lt;h1 id="部署-android-rpc-部署-android_rpc部署-android_rpc" >
+&lt;div>
 &lt;a href="#%e9%83%a8%e7%bd%b2-android-rpc-%e9%83%a8%e7%bd%b2-android_rpc%e9%83%a8%e7%bd%b2-android_rpc">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E9%83%A8%E7%BD%B2-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
+&lt;/div>
 &lt;/h1>&lt;p>按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。&lt;/p>
 &lt;p>然后安装 Gradle，Maven&lt;/p>
 &lt;p>然后编译 TVM4J&lt;/p>
@@ -327,12 +343,13 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>只可惜，这次就算按照官方教程来部署，得到的结果依然是：&lt;/p>
 &lt;p>&lt;strong>失败。&lt;/strong>&lt;/p>
 &lt;hr>
-&lt;h1 id="踩坑-踩坑踩坑" >&lt;a href="#%E8%B8%A9%E5%9D%91" title="踩坑">&lt;/a>踩坑
-&lt;span>
+&lt;h1 id="踩坑-踩坑踩坑" >
+&lt;div>
 &lt;a href="#%e8%b8%a9%e5%9d%91-%e8%b8%a9%e5%9d%91%e8%b8%a9%e5%9d%91">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E8%B8%A9%E5%9D%91" title="踩坑">&lt;/a>踩坑
+&lt;/div>
 &lt;/h1>&lt;p>Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。&lt;/p>
 &lt;p>然后又遇到了你懂的特色互联网防火墙的问题：Maven 下载速度特别慢。&lt;/p>
 &lt;p>解决了网络的问题之后，我心想能不能把项目丢到 AndroidStudio 里面跑啊，然后我就试了一下&lt;/p>
@@ -357,12 +374,13 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>折腾了好长一段时间，到了晚上12点，用官方提供的工具怎么也解决不了问题，&lt;/p>
 &lt;p>Google 了一次又一次，全是失败告终。&lt;/p>
 &lt;hr>
-&lt;h1 id="灵机一动-灵机一动灵机一动" >&lt;a href="#%E7%81%B5%E6%9C%BA%E4%B8%80%E5%8A%A8" title="灵机一动">&lt;/a>灵机一动
-&lt;span>
+&lt;h1 id="灵机一动-灵机一动灵机一动" >
+&lt;div>
 &lt;a href="#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8-%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E7%81%B5%E6%9C%BA%E4%B8%80%E5%8A%A8" title="灵机一动">&lt;/a>灵机一动
+&lt;/div>
 &lt;/h1>&lt;p>配置这么大型的项目，而且网上没有多少参考资料，搜索也几乎很难找到结果。手中的设备千差万别，想要真正部署起来真的太麻烦了。在我快疯了的时候，突然想到：&lt;strong>草！我干嘛不看看他的脚本怎么写的呢？&lt;/strong>&lt;/p>
 &lt;p>说干就干，我在&lt;code>src/main/jni/build.sh&lt;/code>这个脚本里发现了这么一段话：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>javah -o $CURR_DIR/org_apache_tvm_native_c_api.h -cp &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$ROOT_DIR&lt;span style="color:#e6db74">/jvm/core/target/*&amp;#34;&lt;/span> org.apache.tvm.LibInfo exit -1
@@ -380,12 +398,13 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>为什么呢？环境变量有问题吗&lt;/p>
 &lt;p>果然有问题。&lt;/p>
 &lt;hr>
-&lt;h1 id="问题解决-问题解决问题解决" >&lt;a href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3" title="问题解决">&lt;/a>问题解决
-&lt;span>
+&lt;h1 id="问题解决-问题解决问题解决" >
+&lt;div>
 &lt;a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3-%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3" title="问题解决">&lt;/a>问题解决
+&lt;/div>
 &lt;/h1>&lt;p>（上面的那些就是发发牢骚，这里才是解决问题的部分）&lt;/p>
 &lt;p>&lt;strong>我不想继续描述我是怎么发现这个问题的了&lt;/strong>，就是作出假设 -&amp;gt; 一步步的推翻自己的假设 -&amp;gt; 反馈思考 -&amp;gt; 做出新的假设&lt;/p>
 &lt;p>重复上面的过程直到问题解决或者我放弃思考。&lt;/p>
@@ -402,11 +421,12 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>然后我手工执行了这个sh，在 build.gradle 里把这个行为给注释掉了&lt;/p>
 &lt;p>&lt;strong>成功！&lt;/strong>&lt;/p>
 &lt;hr>
-&lt;h1 id="总结-总结总结" >&lt;a href="#%E6%80%BB%E7%BB%93" title="总结">&lt;/a>总结
-&lt;span>
+&lt;h1 id="总结-总结总结" >
+&lt;div>
 &lt;a href="#%e6%80%bb%e7%bb%93-%e6%80%bb%e7%bb%93%e6%80%bb%e7%bb%93">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+&lt;a href="#%E6%80%BB%E7%BB%93" title="总结">&lt;/a>总结
+&lt;/div>
 &lt;/h1>&lt;p>其实一开始，在 android_rpc 这个目录里执行 &lt;code>gradle clean build&lt;/code> 是可以成功编译出文件的，但是在后面签名的时候给我报了个无法找到什么什么类的错误，然后我决定编译 android_deploy 试试，发现成功了，签名也正常，在 Android 10 手机上也可以正常运行，我就觉得肯定是这个项目的问题。&lt;/p>
 &lt;p>后来我再次尝试编译 android_rpc 的时候，出现了文章中描述的问题，技艺不精，导致这么长时间才解决这个问题，期间也查阅了大量的资料，中途也想过放弃，但是还是坚持下来了。最终把问题分析过程以及思路整理成这篇文章，希望后人遇到相关问题可以通过这篇文章节约大量时间。&lt;/p></description></item></channel></rss>

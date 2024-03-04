@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Junyi's Lab</title><link>https://www.junyi.dev/tags/linux/</link><description>Junyi's Lab (Linux)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 30 Mar 2021 15:49:16 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派编译使用 USB 无线网卡</title><link>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
 &lt;p>环境仅适用于 Raspbery Pi OS&lt;/p>
 &lt;p>其他环境并未测试！&lt;/p>
-&lt;h1 id="安装-rtl8812au-驱动" >安装 RTL8812AU 驱动
-&lt;span>
+&lt;h1 id="安装-rtl8812au-驱动" >
+&lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8812au-%e9%a9%b1%e5%8a%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+安装 RTL8812AU 驱动
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install raspberrypi-kernel-headers build-essential dkms
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gnab/rtl8812au.git
@@ -18,12 +19,13 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot &lt;span style="color:#75715e"># 重启&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-rtl8814au-驱动" >安装 RTL8814AU 驱动
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-rtl8814au-驱动" >
+&lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8814au-%e9%a9%b1%e5%8a%a8">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+安装 RTL8814AU 驱动
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/morrownr/8814au.git
@@ -31,12 +33,13 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./raspi32.sh &lt;span style="color:#75715e"># for 32-bit operating system only&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install-driver.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-docker" >安装 Docker
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-docker" >
+&lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-docker">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+安装 Docker
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash getdocker.sh --mirror&lt;span style="color:#f92672">=&lt;/span>Aliyun
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
@@ -48,21 +51,23 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install python3-pip
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pip3 install docker-compose
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-zsh" >安装 ZSH
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-zsh" >
+&lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-zsh">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+安装 ZSH
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y zsh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sh install.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置蓝牙自动连接" >设置蓝牙自动连接
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置蓝牙自动连接" >
+&lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e8%93%9d%e7%89%99%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+设置蓝牙自动连接
+&lt;/div>
 &lt;/h1>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>～# sudo bluetoothctl &lt;span style="color:#75715e"># 进入蓝牙操作模式&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># power on&lt;/span>
@@ -78,31 +83,34 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/init.d/keyboard
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-rc.d keyboard defaults
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service keyboard start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置无线网络自动连接" >设置无线网络自动连接
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置无线网络自动连接" >
+&lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+设置无线网络自动连接
+&lt;/div>
 &lt;/h1>&lt;p>略&lt;/p>
-&lt;h1 id="安装最新版-smart-monitoring-tools" >安装最新版 SMART Monitoring Tools
-&lt;span>
+&lt;h1 id="安装最新版-smart-monitoring-tools" >
+&lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85%e6%9c%80%e6%96%b0%e7%89%88-smart-monitoring-tools">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+安装最新版 SMART Monitoring Tools
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd smartmontools-7.2
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> cd build
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>../configure
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo make install
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="挂载硬盘" >挂载硬盘
-&lt;span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="挂载硬盘" >
+&lt;div>
 &lt;a href="#%e6%8c%82%e8%bd%bd%e7%a1%ac%e7%9b%98">
-&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+##
 &lt;/a>
-&lt;/span>
+挂载硬盘
+&lt;/div>
 &lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U 这里写你的UUID /mnt/seagate/storage
