@@ -6,9 +6,9 @@
 <a href=https://www.junyi.dev/tags/ title>Tags</a>
 <a href=https://www.junyi.dev/posts/ title>Archive</a>
 <a href=https://www.junyi.dev/about/ title>About</a></nav><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]}},window.addEventListener("load",e=>{document.querySelectorAll("mjx-container").forEach(function(e){e.parentElement.classList+="has-jax"})})</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></header><main id=main tabindex=-1><article class="post h-entry"><div class=post-header><header><h1 class="p-name post-title">为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</h1></header><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2022-02-15>February 15, 2022</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/oss-2/>https://www.junyi.dev/posts/oss-2/</a>
-<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href>#杂谈</a></li></ul></div></div></div><nav id=TableOfContents><ul><li><a href=#method-1-z-and-z>Method 1: z and Z</a></li><li><a href=#method-2-selinux>Method 2: SELinux</a></li></ul></nav><div class="content e-content"><p>提示：这篇还没写完，有空的时候记得填一下坑</p><p>单机部署 minio erase-code 模式</p><p>使用了 8 块硬盘</p><p>本文很长，涉及的内容很多</p><h1 id=deploy><div><a href=#deploy>##
-</a>Deploy</div></h1><p><strong>Environment:</strong></p><ul><li>OS: RHEL 8</li><li>HDD: 4 TB x 10</li><li>RAM: 8 GB</li><li>NIC: 1 x GbE</li></ul><ol><li>安装系统</li><li>配置网络自动连接</li><li>开启 Cockpit</li><li>使用 Podman 管理容器</li></ol><p>Podman 作为 Red Hat 的儿子，自然是要体验一下</p><p>但是在这个过程中我遇到了很多困难</p><p>看日志发现是 SELinux 阻止了 minio 访问磁盘</p><p>在这里我提供两种解决方法，任选其一即可</p><h2 id=method-1-z-and-z><div><a href=#method-1-z-and-z>#
-</a>Method 1: z and Z</div></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 当你使用 minio 一段时间，</span>
+<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href>#杂谈</a></li></ul></div></div></div><nav id=TableOfContents><ul><li><a href=#部署>部署</a><ul><li><a href=#method-1-z-and-z>Method 1: z and Z</a></li><li><a href=#method-2-selinux>Method 2: SELinux</a></li></ul></li><li><a href=#summary>Summary</a></li><li><a href=#comments>Comments</a></li></ul></nav><div class="content e-content"><p>提示：这篇还没写完，有空的时候记得填一下坑</p><p>单机部署 minio erase-code 模式</p><p>使用了 8 块硬盘</p><p>本文很长，涉及的内容很多</p><h2 id=部署><div><a href=#%e9%83%a8%e7%bd%b2>#
+</a>部署</div></h2><p><strong>Environment:</strong></p><ul><li>OS: RHEL 8</li><li>HDD: 4 TB x 10</li><li>RAM: 8 GB</li><li>NIC: 1 x GbE</li></ul><ol><li>安装系统</li><li>配置网络自动连接</li><li>开启 Cockpit</li><li>使用 Podman 管理容器</li></ol><p>Podman 作为 Red Hat 的儿子，自然是要体验一下</p><p>但是在这个过程中我遇到了很多困难</p><p>看日志发现是 SELinux 阻止了 minio 访问磁盘</p><p>在这里我提供两种解决方法，任选其一即可</p><h3 id=method-1-z-and-z><div><a href=#method-1-z-and-z>##
+</a>Method 1: z and Z</div></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 当你使用 minio 一段时间，</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># bucket 里的文件非常多的时候，</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 你会发现创建容器的过程非常缓慢</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 并且</span>
@@ -17,8 +17,8 @@
 </span></span><span style=display:flex><span><span style=color:#75715e># 使用 strace -f &lt;cmd&gt; 发现，这个阶段</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># podman 在帮你设置 SELinux label</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 几十万个文件，一个一个地设置 ......</span>
-</span></span></code></pre></div><p>所以也推荐下面这个简单粗暴的方法（Method 2）</p><h2 id=method-2-selinux><div><a href=#method-2-selinux>#
-</a>Method 2: SELinux</div></h2><p>什么是 SELinux？
+</span></span></code></pre></div><p>所以也推荐下面这个简单粗暴的方法（Method 2）</p><h3 id=method-2-selinux><div><a href=#method-2-selinux>##
+</a>Method 2: SELinux</div></h3><p>什么是 SELinux？
 SELinux 有哪些模式？
 None
 Permissive
@@ -36,9 +36,9 @@ Enforce
 1GB	
 ^ MB/s 指的是 Mega Bytes per second
 ^ 这里放个图片
-</code></pre><h1 id=summary><div><a href=#summary>##
-</a>Summary</div></h1><p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio</p><p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法</p><p>最后，做了相对完整的性能测试</p><p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方</p><h1 id=comments><div><a href=#comments>##
-</a>Comments</div></h1><blockquote><p>hehe says:
+</code></pre><h2 id=summary><div><a href=#summary>#
+</a>Summary</div></h2><p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio</p><p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法</p><p>最后，做了相对完整的性能测试</p><p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方</p><h2 id=comments><div><a href=#comments>#
+</a>Comments</div></h2><blockquote><p>hehe says:
 February 27, 2022 at 11:59 pm
 老哥，家里的NAS没必要这么折腾吧…</p></blockquote><blockquote><p>Junyi says:
 February 28, 2022 at 11:33 pm

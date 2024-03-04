@@ -58,17 +58,74 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
+--></description></item><item><title>Who cares about your default value??!</title><link>https://www.junyi.dev/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>https://www.junyi.dev/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+&lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
+&lt;/blockquote>
+&lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
+&lt;h2 id="you-give-me-a-shit-name-like-this-" >
+&lt;div>
+&lt;a href="#you-give-me-a-shit-name-like-this-">
+#
+&lt;/a>
+You Give Me a Shit Name Like This 💩:
+&lt;/div>
+&lt;/h2>&lt;img src="0.png" width="200" alt="shit-1" />
+&lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
+&lt;p>Brilliant, after wasting miutes, we decode your hieroglyphs: &lt;code>top1&lt;/code> equals Algorithm &lt;strong>A&lt;/strong>&amp;rsquo;s supposed best linkage. What a time to be alive!&lt;/p>
+&lt;p>But oh, plot twist! Turns out &lt;strong>Algorithm A&lt;/strong>’s &lt;code>top1&lt;/code> is as reliable as a chocolate teapot. So now we’re pivoting to &lt;strong>Algorithm B&lt;/strong>&amp;rsquo;s &lt;code>top1&lt;/code> because, why not? Let&amp;rsquo;s just keep everyone on their toes.&lt;/p>
+&lt;p>Do whatever the hell you want. Change the names, shuffle them like a deck of cards, keep us guessing—it’s not like we have anything better to do than decode your naming schemes that seem inspired by a labyrinth.&lt;/p>
+&lt;p>But hey, you do you. Change the names, flip the script, keep the chaos coming. It’s not like we were trying to conduct serious research or anything.&lt;/p>
+&lt;h2 id="why-dont-you-name-the-log-like-this-" >
+&lt;div>
+&lt;a href="#why-dont-you-name-the-log-like-this-">
+#
+&lt;/a>
+Why Don&amp;rsquo;t You Name the Log Like This 👍:
+&lt;/div>
+&lt;/h2>&lt;img src="1.png" width="400" alt="shit-1" />
+&lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
+&lt;p>&lt;b>&lt;p style="color:red">It&amp;rsquo;s not a suggestion; it&amp;rsquo;s a NECESSITY!!!&lt;/p>&lt;/b>&lt;/p>
+&lt;p>How is anyone supposed to know what the hell each log is about with names pulled out of thin air?&lt;/p>
+&lt;h2 id="its-not-just-about-the-names-though-its-the-principle" >
+&lt;div>
+&lt;a href="#its-not-just-about-the-names-though-its-the-principle">
+#
+&lt;/a>
+It’s not just about the names, though. &lt;strong>It’s the principle.&lt;/strong>
+&lt;/div>
+&lt;/h2>&lt;p>It’s about the &lt;em>time wasted&lt;/em>, the &lt;em>confusion created&lt;/em>, and the &lt;em>utter disregard for clear communication&lt;/em>. If we’re switching from Algorithm A’s &lt;code>top1&lt;/code> to Algorithm B’s &lt;code>top1&lt;/code>, could we possibly name it something that doesn’t require a PhD in Cryptography to understand?&lt;/p>
+&lt;p>It&amp;rsquo;s high time for some common sense in naming. We&amp;rsquo;re not mind readers. &lt;strong>Your &amp;ldquo;default values&amp;rdquo; might as well be ancient hieroglyphs for all the clarity they provide.&lt;/strong>&lt;/p>
+&lt;p>And another thing, this flip-flopping on terminology? Utter nonsense. One day it&amp;rsquo;s &amp;ldquo;A&amp;rsquo;s top1&amp;rdquo;, the next it&amp;rsquo;s &amp;ldquo;B&amp;rsquo;s top1&amp;rdquo;. If I label a log &amp;ldquo;&lt;code>top1-dataset...&lt;/code>&amp;rdquo;, it&amp;rsquo;s anyone&amp;rsquo;s guess what &amp;ldquo;top1&amp;rdquo; refers to. This isn&amp;rsquo;t just confusing; it&amp;rsquo;s a total mess.&lt;/p>
+&lt;h2 id="get-it-together" >
+&lt;div>
+&lt;a href="#get-it-together">
+#
+&lt;/a>
+Get it together
+&lt;/div>
+&lt;/h2>&lt;p>We need clear, descriptive names that leave zero room for interpretation or confusion. It&amp;rsquo;s the absolute least you can do to prevent this whole operation from turning into a farce.&lt;/p>
+&lt;p>Enough playing guessing games. It&amp;rsquo;s time for precision and transparency in our log names. Anything less is just wasting everyone&amp;rsquo;s time.&lt;/p>
+&lt;p>&lt;strong>I DONT FUCKING LIKE THE DEFAULT VALUES&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>WRITE IT EXPLICITLY!!!!&lt;/strong>&lt;/p>
+&lt;h2 id="disclaimer-heres-your-disclaimer" >
+&lt;div>
+&lt;a href="#disclaimer-heres-your-disclaimer">
+#
+&lt;/a>
+Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
+&lt;/div>
+&lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
+&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
 &lt;p>&lt;img src="flow.svg" alt="BasicFlow">&lt;/p>
-&lt;h1 id="install-git-crypt" >
+&lt;h2 id="step-1-install-git-crypt" >
 &lt;div>
-&lt;a href="#install-git-crypt">
-##
+&lt;a href="#step-1-install-git-crypt">
+#
 &lt;/a>
-Install git-crypt
+Step 1: Install git-crypt
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git-crypt
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git-crypt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git-crypt init &lt;span style="color:#75715e"># in an initialized git repository&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specify files to encrypt by creating a .gitattributes file:&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-gitattributes" data-lang="gitattributes"># The config is similar to .gitignore
@@ -82,60 +139,66 @@ accounts/*.bean filter=git-crypt diff=git-crypt
 *.json filter=git-crypt diff=git-crypt
 # Making sure that .gitattributes is never encrypted. DON&amp;#39;T TOUCH THAT LINE AND ONE BELOW
 .gitattributes !filter !diff
-&lt;/code>&lt;/pre>&lt;h1 id="add-files" >
+&lt;/code>&lt;/pre>&lt;h2 id="step-2-add-files" >
 &lt;div>
-&lt;a href="#add-files">
-##
+&lt;a href="#step-2-add-files">
+#
 &lt;/a>
-Add files
+Step 2: Add files
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git add .
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git add .
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#e6db74">&amp;#34;Add git-crypt&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="then-check-git-crypt-status" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-3-check-git-crypt-status" >
 &lt;div>
-&lt;a href="#then-check-git-crypt-status">
-##
+&lt;a href="#step-3-check-git-crypt-status">
+#
 &lt;/a>
-Then Check git-crypt status
+Step 3: Check git-crypt status
 &lt;/div>
-&lt;/h1>&lt;ul>
+&lt;/h2>&lt;ul>
 &lt;li>&lt;code>git-crypt status -e&lt;/code> Show encrypted files only&lt;/li>
 &lt;li>&lt;code>git-crypt status -u&lt;/code> Show unencrypted files only&lt;/li>
 &lt;li>&lt;code>git-crypt status -f&lt;/code> Fix problems with the repository&lt;/li>
 &lt;/ul>
-&lt;h1 id="see-the-result" >
+&lt;h2 id="results" >
 &lt;div>
-&lt;a href="#see-the-result">
-##
+&lt;a href="#results">
+#
 &lt;/a>
-See the result
+Results
 &lt;/div>
-&lt;/h1>&lt;p>The beancount file is encrypted.&lt;/p>
+&lt;/h2>&lt;p>The beancount file is encrypted.&lt;/p>
 &lt;p>&lt;img src="image-1.png" alt="Alt text">&lt;/p>
-&lt;h1 id="1-月-30-日更新" >
+&lt;h2 id="后续更新" >
+&lt;div>
+&lt;a href="#%e5%90%8e%e7%bb%ad%e6%9b%b4%e6%96%b0">
+#
+&lt;/a>
+后续更新
+&lt;/div>
+&lt;/h2>&lt;h3 id="1-月-30-日更新" >
 &lt;div>
 &lt;a href="#1-%e6%9c%88-30-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
 1 月 30 日更新
 &lt;/div>
-&lt;/h1>&lt;p>我乱玩，把自己锁死了。&lt;/p>
+&lt;/h3>&lt;p>我乱玩，把自己锁死了。&lt;/p>
 &lt;p>这个傻逼工具，是可以在你不 export symmetric key 的情况下，允许你 lock 仓库的。&lt;/p>
 &lt;p>然后我就在没有 export symmetric key 的情况下，把自己锁死了。&lt;/p>
-&lt;p>文件没有备份，因为我为了“安全”，把 git 的提交日志都删了。&lt;/p>
+&lt;p>文件没有备份，因为我为了“安全”，只保留了加密后的 commit，历史的提交日志都删了。&lt;/p>
 &lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>Prompt Sharing</title><link>https://www.junyi.dev/posts/prompts/</link><pubDate>Tue, 24 Oct 2023 16:27:19 +0800</pubDate><guid>https://www.junyi.dev/posts/prompts/</guid><description>&lt;p>Share your favorite prompt in the comments!&lt;/p>
 &lt;p>We can learn prompts from &lt;a href="https://smith.langchain.com/hub">LangSmith Hub&lt;/a>&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
-&lt;hr>
-&lt;h1 id="-棒极了" >
+&lt;h2 id="-棒极了" >
 &lt;div>
 &lt;a href="#-%e6%a3%92%e6%9e%81%e4%ba%86">
-##
+#
 &lt;/a>
 👍👍👍 棒极了
 &lt;/div>
-&lt;/h1>&lt;p>干货多，配图用心，值得反复研读，除了学习技术，还可以学习他们的写作思路和行文风格，把他们当做榜样！&lt;/p>
+&lt;/h2>&lt;p>干货多，配图用心，值得反复研读，除了学习技术，还可以学习他们的写作思路和行文风格，把他们当做榜样！&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>面向信仰编程&lt;/strong>&lt;/p>
@@ -168,15 +231,14 @@ See the result
 &lt;p>&lt;a href="https://space.bilibili.com/317473362/">https://space.bilibili.com/317473362/&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;hr>
-&lt;h1 id="-很不错" >
+&lt;h2 id="-很不错" >
 &lt;div>
 &lt;a href="#-%e5%be%88%e4%b8%8d%e9%94%99">
-##
+#
 &lt;/a>
 👍👍 很不错
 &lt;/div>
-&lt;/h1>&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
+&lt;/h2>&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>PolarDB 数据库内核月报&lt;/strong> &lt;a href="http://mysql.taobao.org/monthly/">http://mysql.taobao.org/monthly/&lt;/a>&lt;/p>
@@ -185,28 +247,28 @@ See the result
 &lt;p>&lt;strong>Project RC&lt;/strong> &lt;a href="https://stdrc.cc/">https://stdrc.cc/&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;h1 id="-不错的" >
+&lt;h2 id="-不错的" >
 &lt;div>
 &lt;a href="#-%e4%b8%8d%e9%94%99%e7%9a%84">
-##
+#
 &lt;/a>
 👍 不错的
 &lt;/div>
-&lt;/h1>&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
+&lt;/h2>&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
 &lt;p>（以下也包含我好朋友们的博客）&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.junyi.dev">Junyi&amp;rsquo;s Lab&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://h4ckm310n.com">h4ckm310n&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://jzhu.xyz/">Daniel Zhu&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h1 id="我喜欢的" >
+&lt;h2 id="-我喜欢的" >
 &lt;div>
-&lt;a href="#%e6%88%91%e5%96%9c%e6%ac%a2%e7%9a%84">
-##
+&lt;a href="#-%e6%88%91%e5%96%9c%e6%ac%a2%e7%9a%84">
+#
 &lt;/a>
-我喜欢的
+❤️ 我喜欢的
 &lt;/div>
-&lt;/h1>&lt;ul>
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://janhuenermann.com/">Jan Hünermann&lt;/a>&lt;/p>
 &lt;p>博客做的很漂亮 很有趣，特别是他的两个 Project&lt;/p>
@@ -775,24 +837,24 @@ Lab 1
 &lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
 &lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
 &lt;p>对象存储在「重命名」「移动文件」方面的不便之处洽洽堵住了它作为家庭 NAS 储存方案的路。&lt;/p>
-&lt;h1 id="future" >
+&lt;h2 id="future" >
 &lt;div>
 &lt;a href="#future">
-##
+#
 &lt;/a>
 Future
 &lt;/div>
-&lt;/h1>&lt;p>凭什么家里不能用企业的解决方案呢？&lt;/p>
+&lt;/h2>&lt;p>凭什么家里不能用企业的解决方案呢？&lt;/p>
 &lt;p>因此，我准备后续探索一下 GlusterFS、HDFS、Ceph 这些方案用作家庭 NAS 的可能性。&lt;/p>
 &lt;p>（挖个坑）&lt;/p>
-&lt;h1 id="comments" >
+&lt;h2 id="comments" >
 &lt;div>
 &lt;a href="#comments">
-##
+#
 &lt;/a>
 Comments
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h2>&lt;blockquote>
 &lt;p>pauldhuang says:
 February 18, 2022 at 3:21 pm
 我觉得其实可以，可以做一个路径索引，在拷贝完成之前，显示新路径但是索引到原来位置，然后移动完更新索引，复制粘贴过程放在后台。但是过程中的数据膨胀是个问题&lt;/p>
@@ -816,25 +878,25 @@ February 28, 2022 at 11:43 pm
 最终，在折腾的这个阶段里，对整个工具链有了更清晰的认识，发现了自己认知上的缺陷，比如忘了可以从云上搞几个虚拟机，这样我也不会搞得这么痛苦了&lt;/p>
 &lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题</title><link>https://www.junyi.dev/posts/oss-3/</link><pubDate>Wed, 16 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-3/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>他奶奶的，不支持重命名啊！&lt;/p>
-&lt;h1 id="summary" >
+&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/h2>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>单机部署 minio erase-code 模式&lt;/p>
 &lt;p>使用了 8 块硬盘&lt;/p>
 &lt;p>本文很长，涉及的内容很多&lt;/p>
-&lt;h1 id="deploy" >
+&lt;h2 id="部署" >
 &lt;div>
-&lt;a href="#deploy">
-##
+&lt;a href="#%e9%83%a8%e7%bd%b2">
+#
 &lt;/a>
-Deploy
+部署
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>Environment:&lt;/strong>&lt;/p>
+&lt;/h2>&lt;p>&lt;strong>Environment:&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>OS: RHEL 8&lt;/li>
 &lt;li>HDD: 4 TB x 10&lt;/li>
@@ -851,14 +913,14 @@ Deploy
 &lt;p>但是在这个过程中我遇到了很多困难&lt;/p>
 &lt;p>看日志发现是 SELinux 阻止了 minio 访问磁盘&lt;/p>
 &lt;p>在这里我提供两种解决方法，任选其一即可&lt;/p>
-&lt;h2 id="method-1-z-and-z" >
+&lt;h3 id="method-1-z-and-z" >
 &lt;div>
 &lt;a href="#method-1-z-and-z">
-#
+##
 &lt;/a>
 Method 1: z and Z
 &lt;/div>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 当你使用 minio 一段时间，&lt;/span>
+&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 当你使用 minio 一段时间，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># bucket 里的文件非常多的时候，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 你会发现创建容器的过程非常缓慢&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 并且&lt;/span>
@@ -868,14 +930,14 @@ Method 1: z and Z
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># podman 在帮你设置 SELinux label&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 几十万个文件，一个一个地设置 ......&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以也推荐下面这个简单粗暴的方法（Method 2）&lt;/p>
-&lt;h2 id="method-2-selinux" >
+&lt;h3 id="method-2-selinux" >
 &lt;div>
 &lt;a href="#method-2-selinux">
-#
+##
 &lt;/a>
 Method 2: SELinux
 &lt;/div>
-&lt;/h2>&lt;p>什么是 SELinux？
+&lt;/h3>&lt;p>什么是 SELinux？
 SELinux 有哪些模式？
 None
 Permissive
@@ -898,25 +960,25 @@ Enforce
 1GB
 ^ MB/s 指的是 Mega Bytes per second
 ^ 这里放个图片
-&lt;/code>&lt;/pre>&lt;h1 id="summary" >
+&lt;/code>&lt;/pre>&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
+&lt;/h2>&lt;p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
 &lt;p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法&lt;/p>
 &lt;p>最后，做了相对完整的性能测试&lt;/p>
 &lt;p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方&lt;/p>
-&lt;h1 id="comments" >
+&lt;h2 id="comments" >
 &lt;div>
 &lt;a href="#comments">
-##
+#
 &lt;/a>
 Comments
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h2>&lt;blockquote>
 &lt;p>hehe says:
 February 27, 2022 at 11:59 pm
 老哥，家里的NAS没必要这么折腾吧…&lt;/p>
@@ -927,7 +989,7 @@ February 28, 2022 at 11:33 pm
 回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。
 因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。
 部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p>
-&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;p>&lt;strong>提示：这篇还没写完，有空的时候记得填一下坑&lt;/strong>&lt;/p>
 &lt;p>很多人说，因为对象存储「贵」，所以没什么人用对象存储当网盘/NAS。&lt;/p>
 &lt;p>真是这样吗？如果我们自己搭建对象存储服务，岂不是赚爆了，既有 RAID 的速度又有比 RAID 更强的容灾，直接一步到位！&lt;/p>
 &lt;p>经过实践之后，我发现「贵」其实不是制约因素。&lt;/p>
@@ -936,23 +998,23 @@ February 28, 2022 at 11:33 pm
 对比各个存储方案的优缺点&lt;/p>
 &lt;p>Amazon S3
 说道对象存储，就不得不提 S3&lt;/p>
-&lt;h1 id="idea" >
+&lt;h2 id="idea" >
 &lt;div>
 &lt;a href="#idea">
-##
+#
 &lt;/a>
 Idea
 &lt;/div>
-&lt;/h1>&lt;p>因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
+&lt;/h2>&lt;p>因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
 &lt;p>明明对象存储更强大，为什么不直接用对象存储呢？&lt;/p>
-&lt;h1 id="summary" >
+&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>本节对比了不同存储方案和文件系统的关系&lt;/p>
+&lt;/h2>&lt;p>本节对比了不同存储方案和文件系统的关系&lt;/p>
 &lt;p>了解了 S3 与对象存储的历史&lt;/p>
 &lt;p>提出问题「为什么家庭 NAS 不采用 对象存储 这个方案」&lt;/p>
 &lt;p>最终选定了 minio 作为对象存储的测试工具&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>

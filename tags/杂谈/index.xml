@@ -181,24 +181,24 @@ Minor Components：
 &lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
 &lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
 &lt;p>对象存储在「重命名」「移动文件」方面的不便之处洽洽堵住了它作为家庭 NAS 储存方案的路。&lt;/p>
-&lt;h1 id="future" >
+&lt;h2 id="future" >
 &lt;div>
 &lt;a href="#future">
-##
+#
 &lt;/a>
 Future
 &lt;/div>
-&lt;/h1>&lt;p>凭什么家里不能用企业的解决方案呢？&lt;/p>
+&lt;/h2>&lt;p>凭什么家里不能用企业的解决方案呢？&lt;/p>
 &lt;p>因此，我准备后续探索一下 GlusterFS、HDFS、Ceph 这些方案用作家庭 NAS 的可能性。&lt;/p>
 &lt;p>（挖个坑）&lt;/p>
-&lt;h1 id="comments" >
+&lt;h2 id="comments" >
 &lt;div>
 &lt;a href="#comments">
-##
+#
 &lt;/a>
 Comments
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h2>&lt;blockquote>
 &lt;p>pauldhuang says:
 February 18, 2022 at 3:21 pm
 我觉得其实可以，可以做一个路径索引，在拷贝完成之前，显示新路径但是索引到原来位置，然后移动完更新索引，复制粘贴过程放在后台。但是过程中的数据膨胀是个问题&lt;/p>
@@ -222,25 +222,25 @@ February 28, 2022 at 11:43 pm
 最终，在折腾的这个阶段里，对整个工具链有了更清晰的认识，发现了自己认知上的缺陷，比如忘了可以从云上搞几个虚拟机，这样我也不会搞得这么痛苦了&lt;/p>
 &lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（三）使用中发现问题</title><link>https://www.junyi.dev/posts/oss-3/</link><pubDate>Wed, 16 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-3/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>他奶奶的，不支持重命名啊！&lt;/p>
-&lt;h1 id="summary" >
+&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/h2>&lt;p>重命名一个 6GB 的文件夹，需要花 20 秒 重命名 4TB 的文件夹，需要 3.8 小时！ 传统的 filesystem 几乎是瞬间完成重命名，到了对象存储这里，需要花费巨多时间！ 你说对象存储是怎么重命名的呢？不会是拷贝一份新的然后删掉原来的吧？ 嘿！ 你还真说对了！&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（二）部署对象存储服务</title><link>https://www.junyi.dev/posts/oss-2/</link><pubDate>Tue, 15 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-2/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>单机部署 minio erase-code 模式&lt;/p>
 &lt;p>使用了 8 块硬盘&lt;/p>
 &lt;p>本文很长，涉及的内容很多&lt;/p>
-&lt;h1 id="deploy" >
+&lt;h2 id="部署" >
 &lt;div>
-&lt;a href="#deploy">
-##
+&lt;a href="#%e9%83%a8%e7%bd%b2">
+#
 &lt;/a>
-Deploy
+部署
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>Environment:&lt;/strong>&lt;/p>
+&lt;/h2>&lt;p>&lt;strong>Environment:&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>OS: RHEL 8&lt;/li>
 &lt;li>HDD: 4 TB x 10&lt;/li>
@@ -257,14 +257,14 @@ Deploy
 &lt;p>但是在这个过程中我遇到了很多困难&lt;/p>
 &lt;p>看日志发现是 SELinux 阻止了 minio 访问磁盘&lt;/p>
 &lt;p>在这里我提供两种解决方法，任选其一即可&lt;/p>
-&lt;h2 id="method-1-z-and-z" >
+&lt;h3 id="method-1-z-and-z" >
 &lt;div>
 &lt;a href="#method-1-z-and-z">
-#
+##
 &lt;/a>
 Method 1: z and Z
 &lt;/div>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 当你使用 minio 一段时间，&lt;/span>
+&lt;/h3>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 当你使用 minio 一段时间，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># bucket 里的文件非常多的时候，&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 你会发现创建容器的过程非常缓慢&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 并且&lt;/span>
@@ -274,14 +274,14 @@ Method 1: z and Z
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># podman 在帮你设置 SELinux label&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 几十万个文件，一个一个地设置 ......&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以也推荐下面这个简单粗暴的方法（Method 2）&lt;/p>
-&lt;h2 id="method-2-selinux" >
+&lt;h3 id="method-2-selinux" >
 &lt;div>
 &lt;a href="#method-2-selinux">
-#
+##
 &lt;/a>
 Method 2: SELinux
 &lt;/div>
-&lt;/h2>&lt;p>什么是 SELinux？
+&lt;/h3>&lt;p>什么是 SELinux？
 SELinux 有哪些模式？
 None
 Permissive
@@ -304,25 +304,25 @@ Enforce
 1GB
 ^ MB/s 指的是 Mega Bytes per second
 ^ 这里放个图片
-&lt;/code>&lt;/pre>&lt;h1 id="summary" >
+&lt;/code>&lt;/pre>&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
+&lt;/h2>&lt;p>本节内容介绍了在 RHEL8 环境下，如何使用容器技术部署了 minio&lt;/p>
 &lt;p>同时讲解了 SELinux 是如何影响容器内 minio 的工作，并提供了解决办法&lt;/p>
 &lt;p>最后，做了相对完整的性能测试&lt;/p>
 &lt;p>下一节，将介绍在实际使用过程中，对象存储带来的不方便的地方&lt;/p>
-&lt;h1 id="comments" >
+&lt;h2 id="comments" >
 &lt;div>
 &lt;a href="#comments">
-##
+#
 &lt;/a>
 Comments
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h2>&lt;blockquote>
 &lt;p>hehe says:
 February 27, 2022 at 11:59 pm
 老哥，家里的NAS没必要这么折腾吧…&lt;/p>
@@ -333,7 +333,7 @@ February 28, 2022 at 11:33 pm
 回想起来确实不需要这么折腾，我搞这一套其实是为了回答「为什么家庭NAS不采用对象存储方案」这个问题。
 因为我并不明白对象存储等方案的特点，也没有在互联网上找到这个问题的回答。所以我决定，借着自己买硬盘的这个契机，部署一套系统验证一下自己的想法。
 部署完这套系统之后，我实际体验了一段时间，最终发现自己少考虑了很多事情，在问题的思考方面有很多漏洞。总之，我也算是在这个过程中有了收获！&lt;/p>
-&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/blockquote></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（一）想法诞生</title><link>https://www.junyi.dev/posts/oss-1/</link><pubDate>Mon, 14 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-1/</guid><description>&lt;p>&lt;strong>提示：这篇还没写完，有空的时候记得填一下坑&lt;/strong>&lt;/p>
 &lt;p>很多人说，因为对象存储「贵」，所以没什么人用对象存储当网盘/NAS。&lt;/p>
 &lt;p>真是这样吗？如果我们自己搭建对象存储服务，岂不是赚爆了，既有 RAID 的速度又有比 RAID 更强的容灾，直接一步到位！&lt;/p>
 &lt;p>经过实践之后，我发现「贵」其实不是制约因素。&lt;/p>
@@ -342,23 +342,23 @@ February 28, 2022 at 11:33 pm
 对比各个存储方案的优缺点&lt;/p>
 &lt;p>Amazon S3
 说道对象存储，就不得不提 S3&lt;/p>
-&lt;h1 id="idea" >
+&lt;h2 id="idea" >
 &lt;div>
 &lt;a href="#idea">
-##
+#
 &lt;/a>
 Idea
 &lt;/div>
-&lt;/h1>&lt;p>因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
+&lt;/h2>&lt;p>因为这些原因，我诞生了一个想法：为什么家庭的 NAS，不采用「对象存储」这门技术作为整套系统的支撑呢？为什么大家都用 RAID 提高读写速度、做数据冗余呢？&lt;/p>
 &lt;p>明明对象存储更强大，为什么不直接用对象存储呢？&lt;/p>
-&lt;h1 id="summary" >
+&lt;h2 id="summary" >
 &lt;div>
 &lt;a href="#summary">
-##
+#
 &lt;/a>
 Summary
 &lt;/div>
-&lt;/h1>&lt;p>本节对比了不同存储方案和文件系统的关系&lt;/p>
+&lt;/h2>&lt;p>本节对比了不同存储方案和文件系统的关系&lt;/p>
 &lt;p>了解了 S3 与对象存储的历史&lt;/p>
 &lt;p>提出问题「为什么家庭 NAS 不采用 对象存储 这个方案」&lt;/p>
 &lt;p>最终选定了 minio 作为对象存储的测试工具&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
