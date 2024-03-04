@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 30 Jan 2024 13:12:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>一些来自 Group Meeting 的观点输出</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>看 paper 解决什么问题，比看它用什么方法要更重要&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>大家都是这么做的，就不算创新。（如果要其他人做这个事情，其他人也会这么做）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>流程创新的，需要在流程里的有个核心步骤，并且说出来创新点在哪里。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我们的工作要吸引真正的用户使用，在过程中发现参数设置是否合理。要仔细考虑怎么去 incentive 其他人去使用我们的项目，来探索领域内的相关场景。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>思考自己的 Research contribution 在什么地方？ &lt;strong>What&amp;rsquo;s new here？&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果有1000人用你的项目，这是个什么样的项目呢？怎么让他们心甘情愿为社区做贡献？&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选数据是一个非常慎重的事情&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>当老师给你说一件事的时候，你 24 小时之内应该去做，不要想那么多。或者给老师一个 timing 的回复。
+「比如让你 “联系 XX 老师” 的时候，最好 24 小时内就去联系」&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>（告诉一些新人）我们应当关注以下问题：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>what&amp;rsquo;s the problem?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>what&amp;rsquo;s the solution?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>what&amp;rsquo;s the key message in your slides? (为了xxx，你到底想说啥？)&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;!-- # 如何写一个 Review
+一个 Review 要有：
+一段话对这个工作做总结，并且整理出这个工作的 contribution：
+1. contribution 1
+2. contribution 2
+3. contribution 3
+（关注一下，方法和实验是否说明有 contribution）
+Strengths：
+1. Strength 1
+2. Strength 2
+3. Strength 3
+Weakness：
+1. Weakness 1
+2. Weakness 2
+3. Weakness 3
+Minor Components：
+一个paper也就4、5个 findings
+--></description></item><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
 &lt;p>&lt;img src="flow.svg" alt="BasicFlow">&lt;/p>
 &lt;h1 id="install-git-crypt" >Install git-crypt
@@ -564,7 +624,13 @@ display: none;
 &lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;p>成为 NUS 的 Research Assistant， 我跑了 &lt;del>1,072&lt;/del> 3,172 个实验。&lt;/p>
+&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >背景
+&lt;span>
+&lt;a href="#%e8%83%8c%e6%99%af">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;p>成为 NUS 的 Research Assistant， 我跑了 &lt;del>1,072&lt;/del> 3,172 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
@@ -576,13 +642,13 @@ display: none;
 &lt;p>更糟糕的是，不同服务器上的代码版本也可能不同，这让问题变得更复杂（使用git可能是一个解决方法）。&lt;/p>
 &lt;p>当我写下这篇文章的时候，意识到我可以把总结出的技能&lt;strong>迁移到其他项目中&lt;/strong>。&lt;/p>
 &lt;p>为了防止遗忘，我把这次的经验写下来，跟大家分享一下心得（我是如何建立属于我的&lt;strong>文件管理体系&lt;/strong>和&lt;strong>实验进度追踪&lt;/strong>方法）&lt;/p>
-&lt;h1 id="文件管理体系" >文件管理体系
+&lt;h2 id="文件管理体系" >文件管理体系
 &lt;span>
 &lt;a href="#%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86%e4%bd%93%e7%b3%bb">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
+&lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
 &lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
 /home/junyi/data/cifar10/
 /home/junyi/data/covtype/
@@ -597,13 +663,13 @@ display: none;
 ./rebuttal/{reviewer-id}/experiment/
 ./rebuttal/{reviewer-id}/plot/
 ./rebuttal/{reviewer-id}/comment/
-&lt;/code>&lt;/pre>&lt;h1 id="如何做实验" >如何做实验
+&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >如何做实验
 &lt;span>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;ul>
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>⭐️ 自动化&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
 &lt;/li>
@@ -620,40 +686,54 @@ display: none;
 &lt;p>&lt;strong>使用 git&lt;/strong>: 为了尽快得到结果，我不得不在多台机器上进行实验，这让我非常非常头痛。建议使用 git 来完成多个机器的代码同步。（不建议用 git 来同步&lt;strong>数据集&lt;/strong>🤣）&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h1 id="总结" >总结:
+&lt;h2 id="总结" >总结:
 &lt;span>
 &lt;a href="#%e6%80%bb%e7%bb%93">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
+&lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
 &lt;p>（后来有老师说，做 benchmark 确实是一个很苦的工作）&lt;/p>
 &lt;/blockquote>
 &lt;p>希望我的经验能为大家提供一些参考。&lt;/p>
 &lt;p>同时也想告诫自己，&lt;strong>&lt;span style="color: red;">不要想偷懒！！！&lt;/span>&lt;/strong> &lt;strong>不要想着 “这个实验手动跑一下算了”&lt;/strong>，因为你永远不知道哪个实验会出问题，哪个实验会成为你的重要成果。&lt;/p>
-&lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。&lt;/p>
-&lt;h1 id="2023-年-9-月-22-日更新" >2023 年 9 月 22 日更新：
+&lt;p>也顺便感谢小老板一直对我很有耐心！在合作过程中小老板给到我很多中肯的建议，让我学到了很多，具体跟小老板发生了什么事，我准备另外写篇文章来记录。 (见 &lt;a href="https://www.junyi.dev/posts/research-101/">这篇文章&lt;/a>)&lt;/p>
+&lt;hr>
+&lt;h2 id="后续更新" >后续更新
+&lt;span>
+&lt;a href="#%e5%90%8e%e7%bb%ad%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h2>&lt;h3 id="2023-年-9-月-22-日更新" >2023 年 9 月 22 日更新：
 &lt;span>
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
-&lt;h1 id="2023-年-10-月-2-日更新" >2023 年 10 月 2 日更新：
+&lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
+&lt;h3 id="2023-年-10-月-2-日更新" >2023 年 10 月 2 日更新：
 &lt;span>
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
-&lt;h1 id="2023-年-11-月-16-日更新" >2023 年 11 月 16 日更新：
+&lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
+&lt;h3 id="2023-年-11-月-16-日更新" >2023 年 11 月 16 日更新：
 &lt;span>
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
 &lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
 &lt;/a>
 &lt;/span>
-&lt;/h1>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（四）总结</title><link>https://www.junyi.dev/posts/oss-4/</link><pubDate>Thu, 17 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-4/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
+&lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
+&lt;h3 id="2024-年-3-月-4-日更新" >2024 年 3 月 4 日更新：
+&lt;span>
+&lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
+&lt;svg viewBox="0 0 28 23" height="100%" width="19" xmlns="http://www.w3.org/2000/svg">&lt;path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>&lt;/svg>
+&lt;/a>
+&lt;/span>
+&lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>为什么家庭 NAS 不采用对象存储方案（四）总结</title><link>https://www.junyi.dev/posts/oss-4/</link><pubDate>Thu, 17 Feb 2022 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/oss-4/</guid><description>&lt;p>提示：这篇还没写完，有空的时候记得填一下坑&lt;/p>
 &lt;p>对象存储虽然有如此多的优点和特性，但是在家庭存储这个场景下，显然是不合适的。&lt;/p>
 &lt;p>APP、CDN 使用对象存储技术可以让系统变得更方便简洁，但是在家庭存储环境下，对象存储技术让文件的管理变得更复杂。&lt;/p>
 &lt;p>日常生活中产生的数据往往是没有结构的，需要我们自己去管理「文件和文件夹的关系」，因此，在家庭存储环境下，我们面临的更多的是文件的「整理」，而不是简单地把数据扔在 NAS 里让它腐烂掉。&lt;/p>
