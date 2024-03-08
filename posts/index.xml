@@ -42,9 +42,16 @@
 &lt;/ol>
 &lt;/li>
 &lt;li>
-&lt;p>我这篇paper为什么被拒？想一下为什么 reviewer 说我 novelty 不够？（没事，很多paper都可以被说 novelty 不够）写 paper 的时候自己觉得 exciting 才能写得好！&lt;/p>
+&lt;p>我这篇paper为什么被拒？想一下为什么 reviewer 说我 novelty 不够？没事，很多paper都可以被说 novelty 不够 (&lt;a href="#fig1">Fig.1&lt;/a>)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>写 paper 的时候自己觉得 exciting 才能写得好！&lt;/p>
 &lt;/li>
 &lt;/ul>
+&lt;figure>
+&lt;img id="fig1" src="fig1.png" alt="view-service" width="400" />
+&lt;figcaption>Fig.1 - The most common comments at ICLR 2024, keywords extrated by GPT4.&lt;/figcaption>
+&lt;/figure>
 &lt;!-- # 如何写一个 Review
 一个 Review 要有：
 一段话对这个工作做总结，并且整理出这个工作的 contribution：
