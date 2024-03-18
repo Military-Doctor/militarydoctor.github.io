@@ -19,7 +19,7 @@
 &lt;p>这个方法确保敏感内容在 &lt;code>blog-src&lt;/code> 中保持私密。&lt;/p>
 &lt;p>每次对 &lt;code>blog-src&lt;/code> 进行提交时，一个自动化过程会构建静态网站并将其推送到 &lt;code>blog.github.io&lt;/code>（参见&lt;a href="#fig1">图 1&lt;/a>）。&lt;/p>
 &lt;figure>
-&lt;img id="fig1" src="fig1.png" alt="The Overview of using Github Actions to publish GitHub pages" width="500" />
+&lt;img id="fig1" src="https://www.junyi.dev/posts/github-actions/fig1.png" alt="The Overview of using Github Actions to publish GitHub pages" width="500" />
 &lt;figcaption>图 1 - 修改 &lt;code>blog-src&lt;/code> 时，自动构建网站并同步到 &lt;code>blog.github.io&lt;/code>&lt;/figcaption>
 &lt;/figure>
 &lt;p>让我们看看如何实现这个功能！&lt;/p>
@@ -42,11 +42,11 @@
 &lt;/li>
 &lt;/ol>
 &lt;figure>
-&lt;img src="create-personal-key.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/create-personal-key.png" alt="View Service" width="500" />
 &lt;figcaption>图 2 - 给 GitHub Action 创建一个 personal access token&lt;/figcaption>
 &lt;/figure>
 &lt;figure>
-&lt;img src="created-token.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/created-token.png" alt="View Service" width="500" />
 &lt;figcaption>图 3 - 创建好的 personal access token&lt;/figcaption>
 &lt;/figure>
 &lt;p>复制你生成的 Token，比如我的是 &lt;code>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&lt;/code>&lt;/p>
@@ -62,11 +62,11 @@
 &lt;p>因此，我们需要把 personal access token（从第一步生成）放到 repository secret 里，以支持 GitHub Action 过程。&lt;/p>
 &lt;p>转到 &lt;code>blog-src&lt;/code> ➜ Settings ➜ Secrets and variables ➜ Actions ➜ New &lt;strong>repository&lt;/strong> secret&lt;/p>
 &lt;figure>
-&lt;img src="new-repo-secret.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/new-repo-secret.png" alt="View Service" width="500" />
 &lt;figcaption>图 4 - 创建 repository secret 的入口&lt;/figcaption>
 &lt;/figure>
 &lt;figure>
-&lt;img src="add-secret.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/add-secret.png" alt="View Service" width="500" />
 &lt;figcaption>图 5 - 创建一个 repository secret&lt;/figcaption>
 &lt;/figure>
 &lt;h2 id="第三步给-blog-src-设置一个-workflow" >
@@ -78,7 +78,7 @@
 &lt;/div>
 &lt;/h2>&lt;p>Repository ➜ Actions ➜ Set up a workflow yourself&lt;/p>
 &lt;figure>
-&lt;img src="setup-actions.png" alt="Setup Actions", width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/setup-actions.png" alt="Setup Actions", width="500" />
 &lt;figcaption>图 6 - 设置一个 workflow.&lt;/figcaption>
 &lt;/figure>
 &lt;p>你需要学习如何编写工作流，以下是一些你可以阅读的文档：&lt;/p>

@@ -18,7 +18,7 @@ Background
 &lt;/ul>
 &lt;p>This approach ensures sensitive content remains private in &lt;code>blog-src&lt;/code>. Upon each commit to &lt;code>blog-src&lt;/code>, an automated process builds the static site and pushes it to &lt;code>blog.github.io&lt;/code>, updating your public website without exposing restricted content (See &lt;a href="#fig1">Fig.1&lt;/a>).&lt;/p>
 &lt;figure>
-&lt;img id="fig1" src="fig1.png" alt="The Overview of using Github Actions to publish GitHub pages" width="500" />
+&lt;img id="fig1" src="https://www.junyi.dev/posts/github-actions/fig1.png" alt="The Overview of using Github Actions to publish GitHub pages" width="500" />
 &lt;figcaption>Fig.1 - Modifying &lt;code>blog-src&lt;/code> automatically builds the site and synchronizes it to &lt;code>blog.github.io&lt;/code>&lt;/figcaption>
 &lt;/figure>
 &lt;p>Let&amp;rsquo;s take a look at how to achieve this.&lt;/p>
@@ -33,11 +33,11 @@ Step 1. Create a personal access token
 &lt;p>Generate new token (classic)&lt;/p>
 &lt;p>Check all &amp;ldquo;repo&amp;rdquo; and &amp;ldquo;workflow&amp;rdquo;. (See &lt;a href="#fig2">Fig.2&lt;/a>)&lt;/p>
 &lt;figure>
-&lt;img src="create-personal-key.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/create-personal-key.png" alt="View Service" width="500" />
 &lt;figcaption>Fig.2 - Create a personal token for our GitHub Action.&lt;/figcaption>
 &lt;/figure>
 &lt;figure>
-&lt;img src="created-token.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/created-token.png" alt="View Service" width="500" />
 &lt;figcaption>Fig.3 - Example of the created token.&lt;/figcaption>
 &lt;/figure>
 &lt;p>Copy the token, for example &lt;code>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&lt;/code>&lt;/p>
@@ -52,11 +52,11 @@ Step 2. Create a repository secret in &lt;code>blog-src&lt;/code>
 &lt;p>So we need to set our personal access token (generated from Step 1) as a repository secret, to support the GitHub Action procedure.&lt;/p>
 &lt;p>Go to &lt;code>blog-src&lt;/code> ➜ Settings ➜ Secrets and variables ➜ Actions ➜ New &lt;strong>repository&lt;/strong> secret&lt;/p>
 &lt;figure>
-&lt;img src="new-repo-secret.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/new-repo-secret.png" alt="View Service" width="500" />
 &lt;figcaption>Fig.4 - The entry for creating a new repository secret&lt;/figcaption>
 &lt;/figure>
 &lt;figure>
-&lt;img src="add-secret.png" alt="View Service" width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/add-secret.png" alt="View Service" width="500" />
 &lt;figcaption>Fig.5 - Create a new repository secret&lt;/figcaption>
 &lt;/figure>
 &lt;h2 id="step-3-set-up-a-workflow-for-blog-src" >
@@ -68,7 +68,7 @@ Step 3. Set up a workflow for &lt;code>blog-src&lt;/code>
 &lt;/div>
 &lt;/h2>&lt;p>Repository ➜ Actions ➜ Set up a workflow yourself&lt;/p>
 &lt;figure>
-&lt;img src="setup-actions.png" alt="Setup Actions", width="500" />
+&lt;img src="https://www.junyi.dev/posts/github-actions/setup-actions.png" alt="Setup Actions", width="500" />
 &lt;figcaption>Fig.6 - Set up a workflow.&lt;/figcaption>
 &lt;/figure>
 &lt;p>You need to learn how to write a workflow, here are some documents you can read:&lt;/p>
@@ -153,7 +153,7 @@ Step 4. Push to &lt;code>blog-src&lt;/code>
 &lt;/a>
 You Give Me a Shit Name Like This 💩:
 &lt;/div>
-&lt;/h2>&lt;img src="0.png" width="200" alt="shit-1" />
+&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
 &lt;p>Brilliant, after wasting miutes, we decode your hieroglyphs: &lt;code>top1&lt;/code> equals Algorithm &lt;strong>A&lt;/strong>&amp;rsquo;s supposed best linkage. What a time to be alive!&lt;/p>
 &lt;p>But oh, plot twist! Turns out &lt;strong>Algorithm A&lt;/strong>’s &lt;code>top1&lt;/code> is as reliable as a chocolate teapot. So now we’re pivoting to &lt;strong>Algorithm B&lt;/strong>&amp;rsquo;s &lt;code>top1&lt;/code> because, why not? Let&amp;rsquo;s just keep everyone on their toes.&lt;/p>
@@ -166,7 +166,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;/a>
 Why Don&amp;rsquo;t You Name the Log Like This 👍:
 &lt;/div>
-&lt;/h2>&lt;img src="1.png" width="400" alt="shit-1" />
+&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
 &lt;p>&lt;b>&lt;p style="color:red">It&amp;rsquo;s not a suggestion; it&amp;rsquo;s a NECESSITY!!!&lt;/p>&lt;/b>&lt;/p>
 &lt;p>How is anyone supposed to know what the hell each log is about with names pulled out of thin air?&lt;/p>

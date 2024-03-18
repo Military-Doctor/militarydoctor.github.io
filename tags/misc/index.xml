@@ -146,7 +146,7 @@ Minor Components：
 &lt;/a>
 You Give Me a Shit Name Like This 💩:
 &lt;/div>
-&lt;/h2>&lt;img src="0.png" width="200" alt="shit-1" />
+&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
 &lt;p>Brilliant, after wasting miutes, we decode your hieroglyphs: &lt;code>top1&lt;/code> equals Algorithm &lt;strong>A&lt;/strong>&amp;rsquo;s supposed best linkage. What a time to be alive!&lt;/p>
 &lt;p>But oh, plot twist! Turns out &lt;strong>Algorithm A&lt;/strong>’s &lt;code>top1&lt;/code> is as reliable as a chocolate teapot. So now we’re pivoting to &lt;strong>Algorithm B&lt;/strong>&amp;rsquo;s &lt;code>top1&lt;/code> because, why not? Let&amp;rsquo;s just keep everyone on their toes.&lt;/p>
@@ -159,7 +159,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;/a>
 Why Don&amp;rsquo;t You Name the Log Like This 👍:
 &lt;/div>
-&lt;/h2>&lt;img src="1.png" width="400" alt="shit-1" />
+&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
 &lt;p>&lt;b>&lt;p style="color:red">It&amp;rsquo;s not a suggestion; it&amp;rsquo;s a NECESSITY!!!&lt;/p>&lt;/b>&lt;/p>
 &lt;p>How is anyone supposed to know what the hell each log is about with names pulled out of thin air?&lt;/p>
