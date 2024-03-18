@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STUN on Junyi's Lab</title><link>https://www.junyi.dev/tags/stun/</link><description>Junyi's Lab (STUN)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Jun 2020 20:10:49 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/stun/index.xml" rel="self" type="application/rss+xml"/><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://www.junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STUN on Junyi's Lab</title><link>https://www.junyi.dev/tags/stun/</link><description>Junyi's Lab (STUN)</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Sat, 27 Jun 2020 20:10:49 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/stun/index.xml" rel="self" type="application/rss+xml"/><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://www.junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
 &lt;h1 id="说在前面" >
 &lt;div>
@@ -22,7 +22,7 @@
 &lt;li>&lt;input disabled="" type="checkbox"> 或、且，是否全都是左右两边加逗号&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>译者注：&lt;/strong>&lt;/p>
-&lt;p>本翻译仅供参考，目的是让读者更好地理解 STUN 协议（&lt;a href="">RFC 5389&lt;/a>）。&lt;/p>
+&lt;p>本翻译仅供参考，目的是让读者更好地理解 STUN 协议（&lt;a href="https://www.junyi.dev/">RFC 5389&lt;/a>）。&lt;/p>
 &lt;p>&lt;strong>我个人&lt;/strong>对翻译的要求是逻辑严密准确，且文章&lt;strong>核心内容&lt;/strong>与英文原版一致。&lt;/p>
 &lt;p>为了更方便读者理解，本翻译 &lt;strong>不保证&lt;/strong> 部分措辞细节与英文原版一致。&lt;/p>
 &lt;p>为了保证文章的准确性，个别名词将不会进行翻译。&lt;/p>
@@ -205,7 +205,7 @@ STUN
 &lt;a href="#4-%e6%9c%af%e8%af%ad-terminology-4-%e6%9c%af%e8%af%ad-terminology4-%e6%9c%af%e8%af%ad-terminology">
 #
 &lt;/a>
-&lt;a href="#4-%E6%9C%AF%E8%AF%AD-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#4-术语-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
 &lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119 [RFC2119] and indicate requirement levels for compliant STUN implementations.&lt;/p>
@@ -217,7 +217,7 @@ STUN
 &lt;a href="#5-%e5%ae%9a%e4%b9%89-definitions-5-%e5%ae%9a%e4%b9%89-definitions5-%e5%ae%9a%e4%b9%89-definitions">
 #
 &lt;/a>
-&lt;a href="#5-%E5%AE%9A%E4%B9%89-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#5-定义-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
 &lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>STUN Agent: A STUN agent is an entity that implements the STUN protocol. The entity can be either a STUN client or a STUN server.&lt;/p>
@@ -279,7 +279,7 @@ STUN
 &lt;a href="#6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure-6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure">
 #
 &lt;/a>
-&lt;a href="#6-STUN-%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#6-STUN-消息结构-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
 &lt;/div>
 &lt;/h2>&lt;blockquote>
 &lt;p>STUN messages are encoded in binary using network-oriented format (most significant byte or octet first, also commonly known as big-endian). The transmission order is described in detail in Appendix B of RFC 791 [RFC0791]. Unless otherwise noted, numeric constants are in decimal (base 10).&lt;/p>
