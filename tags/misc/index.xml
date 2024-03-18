@@ -1,31 +1,69 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>https://www.junyi.dev/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
-&lt;ul>
+&lt;h2 id="读-paper" >
+&lt;div>
+&lt;a href="#%e8%af%bb-paper">
+#
+&lt;/a>
+读 Paper
+&lt;/div>
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>看 paper 解决什么问题，比看它用什么方法要更重要&lt;/strong>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>大家都是这么做的，就不算创新。（如果要其他人做这个事情，其他人也会这么做）&lt;/p>
+&lt;p>有创新吗？如果大家都是这么做的，就不算创新。（如果要其他人做这个事情，其他人也会这么做）&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;ul>
 &lt;li>
-&lt;p>流程创新的，需要在流程里的有个核心步骤，并且说出来创新点在哪里。&lt;/p>
+&lt;p>回答下面三个问题：&lt;/p>
+&lt;ol>
+&lt;li>这个 paper 的 contribution 是什么？&lt;/li>
+&lt;li>为什么这个 paper 可以中？&lt;/li>
+&lt;li>这个 paper 的 weakness 在哪里？&lt;/li>
+&lt;/ol>
 &lt;/li>
+&lt;li>
+&lt;p>思考一下，如果让你跟这篇 paper 做 exactly 一样的工作，你会跟他用一样的方法吗？&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="想-paper" >
+&lt;div>
+&lt;a href="#%e6%83%b3-paper">
+#
+&lt;/a>
+想 Paper
+&lt;/div>
+&lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>我们的工作要吸引真正的用户使用，在过程中发现参数设置是否合理。要仔细考虑怎么去 incentive 其他人去使用我们的项目，来探索领域内的相关场景。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>思考自己的 Research contribution 在什么地方？ &lt;strong>What&amp;rsquo;s new here？&lt;/strong>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>如果有1000人用你的项目，这是个什么样的项目呢？怎么让他们心甘情愿为社区做贡献？&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>选数据是一个非常慎重的事情&lt;/p>
+&lt;p>&lt;ruby>Re-search&lt;rt>重新-找&lt;/rt>&lt;/ruby>，在你想问题的时候得问自己：&lt;/p>
+&lt;p>“paper 想全了吗？”&lt;/p>
+&lt;p>“feature 都找出来了吗？”&lt;/p>
+&lt;p>”为什么有这么多 feature ?“&lt;/p>
+&lt;p>“这些 feature 是可以拍脑袋想的吗？”&lt;/p>
+&lt;p>“时刻记着 garbage in garbage out.”&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>当老师给你说一件事的时候，你 24 小时之内应该去做，不要想那么多。或者给老师一个 timing 的回复。
-「比如让你 “联系 XX 老师” 的时候，最好 24 小时内就去联系」&lt;/p>
+&lt;p>当你看到一个 metric 的时候：&lt;/p>
+&lt;p>It&amp;rsquo;s important to have a methodology to analysis.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="讲-paper" >
+&lt;div>
+&lt;a href="#%e8%ae%b2-paper">
+#
+&lt;/a>
+讲 Paper
+&lt;/div>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>不要只讲他怎么做的，要用自己的语言 summarize 它&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>（告诉一些新人）我们应当关注以下问题：&lt;/p>
@@ -42,10 +80,38 @@
 &lt;/ol>
 &lt;/li>
 &lt;li>
+&lt;p>当老师给你说一件事的时候，你 24 小时之内应该去做，不要想那么多。或者给老师一个 timing 的回复。
+「比如让你 “联系 XX 老师” 的时候，最好 24 小时内就去联系」&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="写-paper" >
+&lt;div>
+&lt;a href="#%e5%86%99-paper">
+#
+&lt;/a>
+写 Paper
+&lt;/div>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>写 paper 的时候自己觉得 exciting 才能写得好！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>思考自己的 Research contribution 在什么地方？ &lt;strong>What&amp;rsquo;s new here？&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>别人读完你的 paper，学到了什么（比如你可以在 conclusion 写一段话，表示自己在这个领域有什么贡献）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>reviewer 读这一段的时候，会想得到什么信息？&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>流程创新的，需要在流程里的有个核心步骤，并且说出来创新点在哪里。&lt;/p>
+&lt;/li>
+&lt;li>
 &lt;p>我这篇paper为什么被拒？想一下为什么 reviewer 说我 novelty 不够？没事，很多paper都可以被说 novelty 不够 (&lt;a href="#fig1">Fig.1&lt;/a>)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>写 paper 的时候自己觉得 exciting 才能写得好！&lt;/p>
+&lt;p>选数据是一个非常慎重的事情&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;figure>
