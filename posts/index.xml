@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 12 Mar 2024 18:59:12 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Mar 2024 19:57:21 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hiding Sensitive Articles on Your GitHub Pages Blog</title><link>https://www.junyi.dev/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><guid>https://www.junyi.dev/posts/github-actions/</guid><description>&lt;h2 id="background" >
+&lt;div>
+&lt;a href="#background">
+#
+&lt;/a>
+Background
+&lt;/div>
+&lt;/h2>&lt;p>How can you &lt;strong>prevent others from seeing certain articles&lt;/strong> in your blog that is hosted by GitHub Pages?&lt;/p>
+&lt;p>This guide offers a strategy to host websites on GitHub Pages while keeping sensitive content private.&lt;/p>
+&lt;p>The solution involves using two separate GitHub repositories:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Private repo &lt;code>blog-src&lt;/code>: Holds the source code of your website.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Public repo &lt;code>blog.github.io&lt;/code>: For the generated static website.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>This approach ensures sensitive content remains private in &lt;code>blog-src&lt;/code>. Upon each commit to &lt;code>blog-src&lt;/code>, an automated process builds the static site and pushes it to &lt;code>blog.github.io&lt;/code>, updating your public website without exposing restricted content (See &lt;a href="#fig1">Fig.1&lt;/a>).&lt;/p>
+&lt;figure>
+&lt;img id="fig1" src="fig1.png" alt="The Overview of using Github Actions to publish GitHub pages" width="500" />
+&lt;figcaption>Fig.1 - Modifying &lt;code>blog-src&lt;/code> automatically builds the site and synchronizes it to &lt;code>blog.github.io&lt;/code>&lt;/figcaption>
+&lt;/figure>
+&lt;p>Let&amp;rsquo;s take a look at how to achieve this.&lt;/p>
+&lt;h2 id="step-1-create-a-personal-access-token" >
+&lt;div>
+&lt;a href="#step-1-create-a-personal-access-token">
+#
+&lt;/a>
+Step 1. Create a personal access token
+&lt;/div>
+&lt;/h2>&lt;p>Going to &lt;a href="https://github.com/settings/tokens">this page&lt;/a> (Settings ➜ Developer Settings ➜ Personal access tokens)&lt;/p>
+&lt;p>Generate new token (classic)&lt;/p>
+&lt;p>Check all &amp;ldquo;repo&amp;rdquo; and &amp;ldquo;workflow&amp;rdquo;. (See &lt;a href="#fig2">Fig.2&lt;/a>)&lt;/p>
+&lt;figure>
+&lt;img src="create-personal-key.png" alt="View Service" width="500" />
+&lt;figcaption>Fig.2 - Create a personal token for our GitHub Action.&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="created-token.png" alt="View Service" width="500" />
+&lt;figcaption>Fig.3 - Example of the created token.&lt;/figcaption>
+&lt;/figure>
+&lt;p>Copy the token, for example &lt;code>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&lt;/code>&lt;/p>
+&lt;h2 id="step-2-create-a-repository-secret-in-blog-src" >
+&lt;div>
+&lt;a href="#step-2-create-a-repository-secret-in-blog-src">
+#
+&lt;/a>
+Step 2. Create a repository secret in &lt;code>blog-src&lt;/code>
+&lt;/div>
+&lt;/h2>&lt;p>This repository contains the source code of our website and a GitHub Action.&lt;/p>
+&lt;p>So we need to set our personal access token (generated from Step 1) to support the GitHub Action procedure.&lt;/p>
+&lt;p>Go to &lt;code>blog-src&lt;/code> ➜ Settings ➜ Secrets and variables ➜ Actions ➜ New &lt;strong>repository&lt;/strong> secret&lt;/p>
+&lt;figure>
+&lt;img src="new-repo-secret.png" alt="View Service" width="500" />
+&lt;figcaption>Fig.4 - The entry for creating a new repository secret&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="add-secret.png" alt="View Service" width="500" />
+&lt;figcaption>Fig.5 - Create a new repository secret&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="step-3-set-up-a-workflow-for-blog-src" >
+&lt;div>
+&lt;a href="#step-3-set-up-a-workflow-for-blog-src">
+#
+&lt;/a>
+Step 3. Set up a workflow for &lt;code>blog-src&lt;/code>
+&lt;/div>
+&lt;/h2>&lt;p>Repository ➜ Actions ➜ Set up a workflow yourself&lt;/p>
+&lt;figure>
+&lt;img src="setup-actions.png" alt="Setup Actions", width="500" />
+&lt;figcaption>Fig.6 - Set up a workflow.&lt;/figcaption>
+&lt;/figure>
+&lt;p>You need to learn how to write a workflow, here are some documents you can read:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.github.com/en/actions/quickstart">Quickstart for GitHub Actions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.github.com/en/actions/examples">Example workflows&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Carefully design your workflow file, here we give you an example:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># main.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># A Sample workflow for building and deploying a site to GitHub Pages&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Deploy Website to Pages&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">on&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">push&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">branches&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">main&lt;/span> &lt;span style="color:#75715e"># Triggers this workflow whenever there&amp;#39;s a push to the `main` branch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">workflow_dispatch&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">schedule&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Runs at 00:00 UTC every day&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">cron&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;0 0 * * *&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">permissions&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">contents&lt;/span>: &lt;span style="color:#ae81ff">read&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">pages&lt;/span>: &lt;span style="color:#ae81ff">write&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">id-token&lt;/span>: &lt;span style="color:#ae81ff">write&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">concurrency&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">group&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;pages&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">cancel-in-progress&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Default to bash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">defaults&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">run&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">shell&lt;/span>: &lt;span style="color:#ae81ff">bash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">jobs&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">build-and-deploy&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-latest&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">env&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">YOUR_ENV_HERE&lt;/span>: &lt;span style="color:#ae81ff">0.1.2.3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">steps&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Checkout&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">with&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">submodules&lt;/span>: &lt;span style="color:#ae81ff">recursive&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">fetch-depth&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build my website&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">run&lt;/span>: |&lt;span style="color:#e6db74">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> echo &amp;#34;Building the website ... (Remember to replace it with the real command!!!)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Deploy to GitHub Pages&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">peaceiris/actions-gh-pages@v3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">with&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">personal_token&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GH_PAGES_PAT }}&lt;/span> &lt;span style="color:#75715e"># The pre-defined secret in Step 2.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">publish_dir&lt;/span>: &lt;span style="color:#ae81ff">./public &lt;/span> &lt;span style="color:#75715e"># Content in this folder will be pushed to the target repo.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">user_name&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;github-actions[bot]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">user_email&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;github-actions[bot]@users.noreply.github.com&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">external_repository&lt;/span>: &lt;span style="color:#ae81ff">Junyi-99/blog.github.io &lt;/span> &lt;span style="color:#75715e"># Your GitHub Pages Repo (target repo)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">commit_message&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;Automated deployment from Repository blog-src&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-4-push-to-blog-src" >
+&lt;div>
+&lt;a href="#step-4-push-to-blog-src">
+#
+&lt;/a>
+Step 4. Push to &lt;code>blog-src&lt;/code>
+&lt;/div>
+&lt;/h2>&lt;p>All you need to do in this step is &lt;strong>push&lt;/strong> some commits to &lt;code>blog-src&lt;/code>, and if all goes well, your GitHub Actions will automatically execute, build your site, and push it to the &lt;code>blog.github.io&lt;/code> repository.&lt;/p>
+&lt;p>(END OF THE POST)&lt;/p></description></item><item><title>科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
