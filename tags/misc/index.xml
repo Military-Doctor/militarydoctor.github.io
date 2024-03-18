@@ -490,22 +490,53 @@ Reference
 2023年8月23日更新
 &lt;/div>
 &lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img src="md1.png" alt="md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
-&lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 容易掉盘」&lt;/p>
+&lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 硬盘盒容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
 &lt;p>后来做了多方面调查，得出结论：&lt;/p>
 &lt;p>&lt;strong>硬盘盒、USB 等毁硬盘的情况主要是供电不足导致的！&lt;/strong>&lt;/p>
-&lt;p>（举个例子，比如这款硬盘盒，就「可能」会毁掉你的硬盘。它自带 12V 1A 电源）&lt;/p>
-&lt;img src="fig1.png" alt="drawing" width="200"/>
-&lt;p>我们的硬盘上面写工作电压电流是 5V 0.55A, 12V 0.37A（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
-&lt;img src="fig2.png" alt="drawing" width="400"/>
-&lt;p>12V，0.37A，够了呀，内置电源是 12V 1A 的，电流都多出来 3 倍了。&lt;/p>
+&lt;p>（举个例子，比如这款自带 &lt;code>12V 1A&lt;/code> 电源的硬盘盒，就「可能」会毁掉你的硬盘）&lt;/p>
+&lt;figure>
+&lt;img id="fig1" src="fig1.png" alt="view-service" width="400" />
+&lt;figcaption>Fig.1 - The HDD case with a builtin 12V 1A power supply.&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="硬盘到底需要多强的供电能力" >
+&lt;div>
+&lt;a href="#%e7%a1%ac%e7%9b%98%e5%88%b0%e5%ba%95%e9%9c%80%e8%a6%81%e5%a4%9a%e5%bc%ba%e7%9a%84%e4%be%9b%e7%94%b5%e8%83%bd%e5%8a%9b">
+#
+&lt;/a>
+硬盘到底需要多强的供电能力？
+&lt;/div>
+&lt;/h2>&lt;h3 id="标签上写的供电需求" >
+&lt;div>
+&lt;a href="#%e6%a0%87%e7%ad%be%e4%b8%8a%e5%86%99%e7%9a%84%e4%be%9b%e7%94%b5%e9%9c%80%e6%b1%82">
+##
+&lt;/a>
+标签上写的供电需求
+&lt;/div>
+&lt;/h3>&lt;p>我们可以在硬盘上观察到 &lt;code>5V 0.55A&lt;/code>，&lt;code>12V 0.37A&lt;/code> 这样的标记（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
+&lt;figure>
+&lt;img id="fig2" src="fig2.jpg" alt="view-service" width="400" />
+&lt;figcaption>Fig.2 - &lt;code>ST4000VX007&lt;/code> labels the operating power of &lt;code>12V 0.37A&lt;/code>.&lt;/figcaption>
+&lt;/figure>
+&lt;p>直观地说，我们会认为硬盘消耗 &lt;code>12V 0.37A&lt;/code>，电源有 &lt;code>12V 1A&lt;/code> 的供电能力，妥妥的够了呀，电流都多出来 2.7 倍了。&lt;/p>
 &lt;p>&lt;strong>实际上并不够。&lt;/strong>&lt;/p>
-&lt;p>在查阅了&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>之后发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
+&lt;h3 id="硬盘实际的供电需求" >
+&lt;div>
+&lt;a href="#%e7%a1%ac%e7%9b%98%e5%ae%9e%e9%99%85%e7%9a%84%e4%be%9b%e7%94%b5%e9%9c%80%e6%b1%82">
+##
+&lt;/a>
+硬盘实际的供电需求
+&lt;/div>
+&lt;/h3>&lt;p>查阅&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>我们可以发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
 &lt;p>&lt;strong>&lt;code>「Startup Current, Typical (12V, 1.8A) 」&lt;/code>&lt;/strong>&lt;/p>
-&lt;p>这个指的是硬盘刚开始工作时的瞬间电流，ST4000VX007 这块硬盘的瞬间电流可以达到 1.8A&lt;/p>
-&lt;p>这就是为什么这个硬盘盒的电源根本不能用的原因了：&lt;/p>
-&lt;p>&lt;strong>主控芯片自带的「自动休眠功能」会让硬盘自动休眠，停止电机的转动。在每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
-&lt;p>解决方案是买个好点的电源。&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>https://www.junyi.dev/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>https://www.junyi.dev/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>小想法</title><link>https://www.junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://www.junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;p>这个指的是硬盘刚开始工作时的瞬间电流，&lt;code>ST4000VX007&lt;/code> 这块硬盘的瞬间电流可以达到 &lt;code>1.8A&lt;/code>，其他型号的硬盘甚至瞬间电流可以达到 &lt;code>2.0A&lt;/code>&lt;/p>
+&lt;figure>
+&lt;img id="fig3" src="fig3.png" alt="view-service" width="500" />
+&lt;figcaption>Fig.3 - &lt;code>ST4000VX007&lt;/code> consumes &lt;code>1.8A&lt;/code> when starting up.&lt;/figcaption>
+&lt;/figure>
+&lt;p>所以，硬盘盒提供的 &lt;code>12V 1A&lt;/code> 的供电能力是不足的。&lt;/p>
+&lt;p>&lt;strong>并且，大多数时候我们会开启「自动休眠」功能，让硬盘电机自动停转。每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
+&lt;p>解决方案是买个好点的电源。（&lt;code>12V 2A&lt;/code> 以上的电源）&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>https://www.junyi.dev/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>https://www.junyi.dev/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>小想法</title><link>https://www.junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://www.junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
 &lt;p>Automation 类的工具也可以啊。&lt;/p>
 &lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
 &lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
