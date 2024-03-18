@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Mar 2024 19:57:21 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hiding Sensitive Articles on Your GitHub Pages Blog</title><link>https://www.junyi.dev/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><guid>https://www.junyi.dev/posts/github-actions/</guid><description>&lt;h2 id="background" >
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Mar 2024 19:57:21 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🙈 Hiding Sensitive Articles on Your GitHub Pages Blog</title><link>https://www.junyi.dev/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><guid>https://www.junyi.dev/posts/github-actions/</guid><description>&lt;h2 id="background" >
 &lt;div>
 &lt;a href="#background">
 #
@@ -142,7 +142,7 @@ Step 3. Set up a workflow for &lt;code>blog-src&lt;/code>
 Step 4. Push to &lt;code>blog-src&lt;/code>
 &lt;/div>
 &lt;/h2>&lt;p>All you need to do in this step is &lt;strong>push&lt;/strong> some commits to &lt;code>blog-src&lt;/code>, and if all goes well, your GitHub Actions will automatically execute, build your site, and push it to the &lt;code>blog.github.io&lt;/code> repository.&lt;/p>
-&lt;p>(END OF THE POST)&lt;/p></description></item><item><title>科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+&lt;p>(END OF THE POST)&lt;/p></description></item><item><title>🔬 科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
@@ -279,7 +279,7 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>Who cares about your default value??!</title><link>https://www.junyi.dev/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>https://www.junyi.dev/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+--></description></item><item><title>🤬 Who cares about your default value??!</title><link>https://www.junyi.dev/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>https://www.junyi.dev/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
 &lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
 &lt;/blockquote>
 &lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
@@ -336,7 +336,7 @@ Get it together
 Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;/div>
 &lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
-&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
+&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>🔐 Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
 &lt;p>&lt;img src="flow.svg" alt="BasicFlow">&lt;/p>
 &lt;h2 id="step-1-install-git-crypt" >
