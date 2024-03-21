@@ -5,8 +5,8 @@
 &lt;/a>
 背景
 &lt;/div>
-&lt;/h2>&lt;p>如何&lt;strong>防止他人看到你&lt;/strong>托管在GitHub Pages上的某些文章？&lt;/p>
-&lt;p>这篇指南提供了一种在GitHub Pages上托管网站同时保持敏感内容私密的策略。&lt;/p>
+&lt;/h2>&lt;p>如何&lt;strong>防止他人看到你&lt;/strong>托管在 GitHub Pages 上的某些文章？&lt;/p>
+&lt;p>这篇指南提供了一种在 GitHub Pages 上托管网站同时保持敏感内容私密的策略。&lt;/p>
 &lt;p>这个解决方案涉及到使用两个独立的 GitHub 仓库：&lt;/p>
 &lt;ul>
 &lt;li>
@@ -38,7 +38,7 @@
 &lt;p>Generate new token (classic)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>勾选所有的 &amp;ldquo;repo&amp;rdquo; 和 &amp;ldquo;workflow&amp;rdquo;。（参见&lt;a href="#fig2">图2&lt;/a>）&lt;/p>
+&lt;p>勾选所有的 &amp;ldquo;repo&amp;rdquo; 和 &amp;ldquo;workflow&amp;rdquo;。（参见&lt;a href="#fig2">图 2&lt;/a>）&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;figure>

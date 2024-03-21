@@ -7,7 +7,7 @@
 &lt;a href="#you-give-me-a-shit-name-like-this-">
 #
 &lt;/a>
-You Give Me a Shit Name Like This 💩:
+You Give Me a Shit Name Like This 💩
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
@@ -20,7 +20,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;a href="#why-dont-you-name-the-log-like-this-">
 #
 &lt;/a>
-Why Don&amp;rsquo;t You Name the Log Like This 👍:
+Why Don&amp;rsquo;t You Name the Log Like This 👍
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
@@ -52,7 +52,7 @@ Get it together
 &lt;a href="#disclaimer-heres-your-disclaimer">
 #
 &lt;/a>
-Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
+Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
 &lt;p>Is that too much to ask?&lt;/p></description></item></channel></rss>

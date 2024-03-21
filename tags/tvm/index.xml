@@ -44,38 +44,38 @@ tracker 和 server 都可以放在有显卡的机器里&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>screen -S tvm_tune_server1
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，上面的 &lt;code>export&lt;/code> 是重点！
 如果在 shell 里直接不写 &lt;code>export&lt;/code> ，直接写 &lt;code>CUDA_VISIBLE_DEVICES=0&lt;/code> 是无效的！！！！
 尽管不写 &lt;code>export&lt;/code> 时，&lt;code>echo $CUDA_VISIBLE_DEVICES&lt;/code> 也会输出 1，但是实际上并没有设置环境变量。
 原因是 autotvm 会通过 python 的 &lt;code>os.environ['CUDA_VISIBLE_DEVICES']&lt;/code> 的值来决定使用哪一个 id 的 GPU。&lt;/p>
-&lt;h1 id="检测效果" >
+&lt;h2 id="检测效果" >
 &lt;div>
 &lt;a href="#%e6%a3%80%e6%b5%8b%e6%95%88%e6%9e%9c">
-##
+#
 &lt;/a>
-检测效果：
+检测效果
 &lt;/div>
-&lt;/h1>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
+&lt;/h2>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
 Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看到 GPU 的利用情况：&lt;/p>
 &lt;p>&lt;code>watch -n 0.5 nvidia-smi&lt;/code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）&lt;/p>
 &lt;img src="result.png" alt="drawing" width="800"/>
 &lt;p>可以看到两张显卡都已经利用起来了。&lt;/p>
 &lt;p>– END –&lt;/p>
-&lt;h1 id="2023年8月23日-补充" >
+&lt;h2 id="2023年8月23日-补充" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
-##
+#
 &lt;/a>
 2023年8月23日 补充
 &lt;/div>
-&lt;/h1>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
+&lt;/h2>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
 &lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
 &lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
@@ -149,31 +149,31 @@ Prepare Pre-trained model
 &lt;p>Homebrew: 2.7.0&lt;/p>
 &lt;p>Homebrew/homebrew-core: git revision 8df7a0; last commit 2020-12-26&lt;/p>
 &lt;p>参考教程：&lt;a href="https://tvm.apache.org/docs/install/from_source.html#build-the-shared-library">tvm0.8.0dev0&lt;/a>&lt;/p>
-&lt;h1 id="step1-在-github-上获取源代码" >
+&lt;h2 id="step1-在-github-上获取源代码" >
 &lt;div>
 &lt;a href="#step1-%e5%9c%a8-github-%e4%b8%8a%e8%8e%b7%e5%8f%96%e6%ba%90%e4%bb%a3%e7%a0%81">
-##
+#
 &lt;/a>
 Step1: 在 Github 上获取源代码
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="step2-弃坑macos-根本搞不了坑太多" >
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step2-弃坑macos-根本搞不了坑太多" >
 &lt;div>
 &lt;a href="#step2-%e5%bc%83%e5%9d%91macos-%e6%a0%b9%e6%9c%ac%e6%90%9e%e4%b8%8d%e4%ba%86%e5%9d%91%e5%a4%aa%e5%a4%9a">
-##
+#
 &lt;/a>
 Step2: 弃坑，macOS 根本搞不了，坑太多
 &lt;/div>
-&lt;/h1>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
+&lt;/h2>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
 &lt;p>&lt;strong>这就是关于在 macOS 上编译 TVM 库的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！&lt;/strong>&lt;/p>
-&lt;h1 id="2023年8月23日更新" >
+&lt;h2 id="2023年8月23日更新" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-##
+#
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>https://www.junyi.dev/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;/h2>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>https://www.junyi.dev/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
 &lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##

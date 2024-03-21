@@ -209,12 +209,13 @@ Subsequent Updates
 &lt;a href="#update-on-january-30-fuck">
 ##
 &lt;/a>
-Update on January 30, FUCK!!
+Update on January 30, FUCK
 &lt;/div>
 &lt;/h3>&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
 &lt;p>I messed around and locked myself out.&lt;/p>
 &lt;p>&lt;strong>Detail&lt;/strong>&lt;/p>
 &lt;p>This silly tool allows you to lock the repository &lt;strong>even if you don&amp;rsquo;t export the symmetric key&lt;/strong>.&lt;/p>
 &lt;p>And then, I locked myself out without exporting the symmetric key.&lt;/p>
-&lt;p>Because for &amp;ldquo;security&amp;rdquo;, I only kept the encrypted commits and deleted all the historical commit logs. So I fucked up.&lt;/p>
+&lt;p>Because for &amp;ldquo;security&amp;rdquo;, I only kept the encrypted commits and deleted all previous commit logs.&lt;/p>
+&lt;p>So I fucked up.&lt;/p>
 &lt;p>😊 What a “pleasant day” it has been.&lt;/p></description></item></channel></rss>

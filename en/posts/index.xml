@@ -151,7 +151,7 @@ Step 4. Push to &lt;code>blog-src&lt;/code>
 &lt;a href="#you-give-me-a-shit-name-like-this-">
 #
 &lt;/a>
-You Give Me a Shit Name Like This 💩:
+You Give Me a Shit Name Like This 💩
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
@@ -164,7 +164,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;a href="#why-dont-you-name-the-log-like-this-">
 #
 &lt;/a>
-Why Don&amp;rsquo;t You Name the Log Like This 👍:
+Why Don&amp;rsquo;t You Name the Log Like This 👍
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
@@ -196,7 +196,7 @@ Get it together
 &lt;a href="#disclaimer-heres-your-disclaimer">
 #
 &lt;/a>
-Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
+Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
 &lt;p>Is that too much to ask?&lt;/p></description></item><item><title>🔐 Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/en/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/en/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
@@ -266,12 +266,119 @@ Subsequent Updates
 &lt;a href="#update-on-january-30-fuck">
 ##
 &lt;/a>
-Update on January 30, FUCK!!
+Update on January 30, FUCK
 &lt;/div>
 &lt;/h3>&lt;p>&lt;strong>TL;DR&lt;/strong>&lt;/p>
 &lt;p>I messed around and locked myself out.&lt;/p>
 &lt;p>&lt;strong>Detail&lt;/strong>&lt;/p>
 &lt;p>This silly tool allows you to lock the repository &lt;strong>even if you don&amp;rsquo;t export the symmetric key&lt;/strong>.&lt;/p>
 &lt;p>And then, I locked myself out without exporting the symmetric key.&lt;/p>
-&lt;p>Because for &amp;ldquo;security&amp;rdquo;, I only kept the encrypted commits and deleted all the historical commit logs. So I fucked up.&lt;/p>
-&lt;p>😊 What a “pleasant day” it has been.&lt;/p></description></item></channel></rss>
+&lt;p>Because for &amp;ldquo;security&amp;rdquo;, I only kept the encrypted commits and deleted all previous commit logs.&lt;/p>
+&lt;p>So I fucked up.&lt;/p>
+&lt;p>😊 What a “pleasant day” it has been.&lt;/p></description></item><item><title>Compile RTL8812AU / RTL8814AU for Raspberry Pi 4B</title><link>https://www.junyi.dev/en/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/en/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>This article is solely for recording the successful configuration processes for &lt;code>Raspberry Pi 4B&lt;/code>.&lt;/p>
+&lt;p>The environment is only applicable to &lt;code>Raspberry Pi OS&lt;/code>.&lt;/p>
+&lt;p>Other environments have not been tested!&lt;/p>
+&lt;h2 id="install-rtl8812au-driver" >
+&lt;div>
+&lt;a href="#install-rtl8812au-driver">
+#
+&lt;/a>
+Install &lt;code>RTL8812AU&lt;/code> Driver
+&lt;/div>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install raspberrypi-kernel-headers build-essential dkms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gnab/rtl8812au.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd rtl8812au
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_PLATFORM_I386_PC = y/CONFIG_PLATFORM_I386_PC = n/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_POWER_SAVING = y/CONFIG_POWER_SAVING = n/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i &lt;span style="color:#e6db74">&amp;#39;s/CONFIG_PLATFORM_ARM_RPI = n/CONFIG_PLATFORM_ARM_RPI = y/g&amp;#39;&lt;/span> Makefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chmod +x install.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot &lt;span style="color:#75715e"># Reboot your system&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-rtl8814au-driver" >
+&lt;div>
+&lt;a href="#install-rtl8814au-driver">
+#
+&lt;/a>
+Install &lt;code>RTL8814AU&lt;/code> Driver
+&lt;/div>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/morrownr/8814au.git
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd 8814au
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./raspi32.sh &lt;span style="color:#75715e"># for 32-bit operating system only&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install-driver.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="install-docker" >
+&lt;div>
+&lt;a href="#install-docker">
+#
+&lt;/a>
+Install Docker
+&lt;/div>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash getdocker.sh --mirror&lt;span style="color:#f92672">=&lt;/span>Aliyun
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>newgrp docker
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Logout, then login your current session&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run hello-world
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install python3-pip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pip3 install docker-compose
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="set-up-bluetooth-auto-connect" >
+&lt;div>
+&lt;a href="#set-up-bluetooth-auto-connect">
+#
+&lt;/a>
+Set up Bluetooth auto-connect
+&lt;/div>
+&lt;/h2>&lt;p>I need to automatically connect my Bluetooth keyboard, hence the following steps.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>～# sudo bluetoothctl &lt;span style="color:#75715e"># Entering bluetooth mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># power on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># agent on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pairable on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># scan on&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pair 34:88:5D:67:38:DF &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo nano /etc/init.d/keyboard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/sh
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>sudo hcitool spinq &lt;span style="color:#75715e"># Start periodic inquiry&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>exit &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set up auto-start on system boots.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/init.d/keyboard
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-rc.d keyboard defaults
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service keyboard start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="setup-wireless-connection" >
+&lt;div>
+&lt;a href="#setup-wireless-connection">
+#
+&lt;/a>
+Setup wireless connection
+&lt;/div>
+&lt;/h2>&lt;p>Skipped.&lt;/p>
+&lt;h2 id="install-the-latest-smart-monitoring-tools" >
+&lt;div>
+&lt;a href="#install-the-latest-smart-monitoring-tools">
+#
+&lt;/a>
+Install the latest SMART Monitoring Tools
+&lt;/div>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd smartmontools-7.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> cd build
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>../configure
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo make install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="mounting-disks" >
+&lt;div>
+&lt;a href="#mounting-disks">
+#
+&lt;/a>
+Mounting Disks
+&lt;/div>
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U YOUR_UUID_HERE /mnt/seagate/storage
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

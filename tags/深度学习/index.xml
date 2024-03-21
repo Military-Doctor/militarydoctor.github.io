@@ -25,21 +25,21 @@
 文件管理体系
 &lt;/div>
 &lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
-/home/junyi/data/cifar10/
-/home/junyi/data/covtype/
-&lt;/code>&lt;/pre>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/project/VertiBench/
-/home/junyi/project/VertiLearn/
-./experiment/ # 实验文件夹
-./experiment/{exp-name}-{timestamp}/*.log
-./data/ # 软链接到数据集
-./code/ # 项目的仓库 / 相关代码
-./rebuttal/ # 回复 Reviewer 的
-./rebuttal/{reviewer-id}/experiment/
-./rebuttal/{reviewer-id}/plot/
-./rebuttal/{reviewer-id}/comment/
-&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/data/mnist/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/cifar10/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/covtype/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiBench/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiLearn/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/ &lt;span style="color:#75715e"># 实验文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/&lt;span style="color:#f92672">{&lt;/span>exp-name&lt;span style="color:#f92672">}&lt;/span>-&lt;span style="color:#f92672">{&lt;/span>timestamp&lt;span style="color:#f92672">}&lt;/span>/*.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./data/ &lt;span style="color:#75715e"># 软链接到数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./code/ &lt;span style="color:#75715e"># 项目的仓库 / 相关代码&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/ &lt;span style="color:#75715e"># 回复 Reviewer 的&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/experiment/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/plot/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/comment/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="如何做实验" >
 &lt;div>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
 #
@@ -68,7 +68,7 @@
 &lt;a href="#%e6%80%bb%e7%bb%93">
 #
 &lt;/a>
-总结:
+总结
 &lt;/div>
 &lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
@@ -90,7 +90,7 @@
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 9 月 22 日更新：
+2023 年 9 月 22 日更新
 &lt;/div>
 &lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
 &lt;h3 id="2023-年-10-月-2-日更新" >
@@ -98,7 +98,7 @@
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 10 月 2 日更新：
+2023 年 10 月 2 日更新
 &lt;/div>
 &lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
 &lt;h3 id="2023-年-11-月-16-日更新" >
@@ -106,7 +106,7 @@
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 11 月 16 日更新：
+2023 年 11 月 16 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
 &lt;h3 id="2024-年-3-月-4-日更新" >
@@ -114,6 +114,6 @@
 &lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2024 年 3 月 4 日更新：
+2024 年 3 月 4 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item></channel></rss>

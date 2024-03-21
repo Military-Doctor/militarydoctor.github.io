@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raspberry Pi on Junyi's Lab</title><link>https://www.junyi.dev/tags/raspberry-pi/</link><description>Junyi's Lab (Raspberry Pi)</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 30 Mar 2021 15:49:16 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派编译使用 USB 无线网卡</title><link>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raspberry Pi on Junyi's Lab</title><link>https://www.junyi.dev/tags/raspberry-pi/</link><description>Junyi's Lab (Raspberry Pi)</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 30 Mar 2021 15:49:16 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派编译 RTL8812AU / RTL8814AU 网卡驱动</title><link>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
 &lt;p>环境仅适用于 Raspbery Pi OS&lt;/p>
 &lt;p>其他环境并未测试！&lt;/p>
-&lt;h1 id="安装-rtl8812au-驱动" >
+&lt;h2 id="安装-rtl8812au-驱动" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8812au-%e9%a9%b1%e5%8a%a8">
-##
+#
 &lt;/a>
 安装 RTL8812AU 驱动
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install raspberrypi-kernel-headers build-essential dkms
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gnab/rtl8812au.git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd rtl8812au
@@ -19,28 +19,28 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot &lt;span style="color:#75715e"># 重启&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-rtl8814au-驱动" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-rtl8814au-驱动" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8814au-%e9%a9%b1%e5%8a%a8">
-##
+#
 &lt;/a>
 安装 RTL8814AU 驱动
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/morrownr/8814au.git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd 8814au
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./raspi32.sh &lt;span style="color:#75715e"># for 32-bit operating system only&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install-driver.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-docker" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-docker" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-docker">
-##
+#
 &lt;/a>
 安装 Docker
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash getdocker.sh --mirror&lt;span style="color:#f92672">=&lt;/span>Aliyun
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
@@ -51,24 +51,14 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install python3-pip
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pip3 install docker-compose
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-zsh" >
-&lt;div>
-&lt;a href="#%e5%ae%89%e8%a3%85-zsh">
-##
-&lt;/a>
-安装 ZSH
-&lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y zsh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sh install.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置蓝牙自动连接" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="设置蓝牙自动连接" >
 &lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e8%93%9d%e7%89%99%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-##
+#
 &lt;/a>
 设置蓝牙自动连接
 &lt;/div>
-&lt;/h1>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
+&lt;/h2>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>～# sudo bluetoothctl &lt;span style="color:#75715e"># 进入蓝牙操作模式&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># power on&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># agent on&lt;/span>
@@ -83,35 +73,35 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/init.d/keyboard
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-rc.d keyboard defaults
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service keyboard start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置无线网络自动连接" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="设置无线网络自动连接" >
 &lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-##
+#
 &lt;/a>
 设置无线网络自动连接
 &lt;/div>
-&lt;/h1>&lt;p>略&lt;/p>
-&lt;h1 id="安装最新版-smart-monitoring-tools" >
+&lt;/h2>&lt;p>略&lt;/p>
+&lt;h2 id="安装最新版-smart-monitoring-tools" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85%e6%9c%80%e6%96%b0%e7%89%88-smart-monitoring-tools">
-##
+#
 &lt;/a>
 安装最新版 SMART Monitoring Tools
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd smartmontools-7.2
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> cd build
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>../configure
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo make install
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="挂载硬盘" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="挂载硬盘" >
 &lt;div>
 &lt;a href="#%e6%8c%82%e8%bd%bd%e7%a1%ac%e7%9b%98">
-##
+#
 &lt;/a>
 挂载硬盘
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U 这里写你的UUID /mnt/seagate/storage
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>

@@ -5,8 +5,8 @@
 &lt;/a>
 背景
 &lt;/div>
-&lt;/h2>&lt;p>如何&lt;strong>防止他人看到你&lt;/strong>托管在GitHub Pages上的某些文章？&lt;/p>
-&lt;p>这篇指南提供了一种在GitHub Pages上托管网站同时保持敏感内容私密的策略。&lt;/p>
+&lt;/h2>&lt;p>如何&lt;strong>防止他人看到你&lt;/strong>托管在 GitHub Pages 上的某些文章？&lt;/p>
+&lt;p>这篇指南提供了一种在 GitHub Pages 上托管网站同时保持敏感内容私密的策略。&lt;/p>
 &lt;p>这个解决方案涉及到使用两个独立的 GitHub 仓库：&lt;/p>
 &lt;ul>
 &lt;li>
@@ -38,7 +38,7 @@
 &lt;p>Generate new token (classic)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>勾选所有的 &amp;ldquo;repo&amp;rdquo; 和 &amp;ldquo;workflow&amp;rdquo;。（参见&lt;a href="#fig2">图2&lt;/a>）&lt;/p>
+&lt;p>勾选所有的 &amp;ldquo;repo&amp;rdquo; 和 &amp;ldquo;workflow&amp;rdquo;。（参见&lt;a href="#fig2">图 2&lt;/a>）&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;figure>
@@ -298,7 +298,7 @@ Minor Components：
 &lt;a href="#you-give-me-a-shit-name-like-this-">
 #
 &lt;/a>
-You Give Me a Shit Name Like This 💩:
+You Give Me a Shit Name Like This 💩
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
@@ -311,7 +311,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;a href="#why-dont-you-name-the-log-like-this-">
 #
 &lt;/a>
-Why Don&amp;rsquo;t You Name the Log Like This 👍:
+Why Don&amp;rsquo;t You Name the Log Like This 👍
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
@@ -343,7 +343,7 @@ Get it together
 &lt;a href="#disclaimer-heres-your-disclaimer">
 #
 &lt;/a>
-Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
+Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
 &lt;p>Is that too much to ask?&lt;/p></description></item><item><title>🔐 使用 git-crypt 加密你的仓库</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
@@ -974,21 +974,21 @@ Lab 1
 文件管理体系
 &lt;/div>
 &lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
-/home/junyi/data/cifar10/
-/home/junyi/data/covtype/
-&lt;/code>&lt;/pre>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/project/VertiBench/
-/home/junyi/project/VertiLearn/
-./experiment/ # 实验文件夹
-./experiment/{exp-name}-{timestamp}/*.log
-./data/ # 软链接到数据集
-./code/ # 项目的仓库 / 相关代码
-./rebuttal/ # 回复 Reviewer 的
-./rebuttal/{reviewer-id}/experiment/
-./rebuttal/{reviewer-id}/plot/
-./rebuttal/{reviewer-id}/comment/
-&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/data/mnist/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/cifar10/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/covtype/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiBench/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiLearn/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/ &lt;span style="color:#75715e"># 实验文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/&lt;span style="color:#f92672">{&lt;/span>exp-name&lt;span style="color:#f92672">}&lt;/span>-&lt;span style="color:#f92672">{&lt;/span>timestamp&lt;span style="color:#f92672">}&lt;/span>/*.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./data/ &lt;span style="color:#75715e"># 软链接到数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./code/ &lt;span style="color:#75715e"># 项目的仓库 / 相关代码&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/ &lt;span style="color:#75715e"># 回复 Reviewer 的&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/experiment/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/plot/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/comment/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="如何做实验" >
 &lt;div>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
 #
@@ -1017,7 +1017,7 @@ Lab 1
 &lt;a href="#%e6%80%bb%e7%bb%93">
 #
 &lt;/a>
-总结:
+总结
 &lt;/div>
 &lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
@@ -1039,7 +1039,7 @@ Lab 1
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 9 月 22 日更新：
+2023 年 9 月 22 日更新
 &lt;/div>
 &lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
 &lt;h3 id="2023-年-10-月-2-日更新" >
@@ -1047,7 +1047,7 @@ Lab 1
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 10 月 2 日更新：
+2023 年 10 月 2 日更新
 &lt;/div>
 &lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
 &lt;h3 id="2023-年-11-月-16-日更新" >
@@ -1055,7 +1055,7 @@ Lab 1
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 11 月 16 日更新：
+2023 年 11 月 16 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
 &lt;h3 id="2024-年-3-月-4-日更新" >
@@ -1063,7 +1063,7 @@ Lab 1
 &lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2024 年 3 月 4 日更新：
+2024 年 3 月 4 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
@@ -1190,7 +1190,7 @@ Lab 1
 &lt;a href="#9-remember-why-you-want-to-get-these-tasks-done">
 ##
 &lt;/a>
-9. Remember WHY you want to get these tasks done.
+9. Remember WHY you want to get these tasks done
 &lt;/div>
 &lt;/h1>&lt;p>Write it down, and go back to the note when you’re lacking motivation&lt;/p>
 &lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >
@@ -1198,7 +1198,7 @@ Lab 1
 &lt;a href="#10-create-a-motivating-poster-in-front-of-your-desk">
 ##
 &lt;/a>
-10. Create a motivating poster in front of your desk!
+10. Create a motivating poster in front of your desk
 &lt;/div>
 &lt;/h1>&lt;h1 id="11-make-studying-fun" >
 &lt;div>
@@ -1226,21 +1226,21 @@ Lab 1
 &lt;a href="#13-exercise-and-come-back-to-work">
 ##
 &lt;/a>
-13. Exercise and come back to work.
+13. Exercise and come back to work
 &lt;/div>
 &lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >
 &lt;div>
 &lt;a href="#14-join-a-study-discord-community">
 ##
 &lt;/a>
-14. Join a study Discord community!
+14. Join a study Discord community
 &lt;/div>
 &lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >
 &lt;div>
 &lt;a href="#15-still-cant-find-motivation-take-a-productive-break">
 ##
 &lt;/a>
-15. Still can’t find motivation? Take a productive break!
+15. Still can’t find motivation? Take a productive break
 &lt;/div>
 &lt;/h1>&lt;h1 id="reference" >
 &lt;div>
@@ -1266,24 +1266,24 @@ Collision 检测
 Scripts 编写
 最后还弄明白了 Unity C# 的 public attribute 与 Object 的关系&lt;/p>
 &lt;p>即函数 &lt;code>GameObject.GetComponent&amp;lt;Type&amp;gt;()&lt;/code>&lt;/p>
-&lt;h1 id="2023年8月23日更新" >
+&lt;h2 id="2023年8月23日更新" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-##
+#
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>我已经忘了自己学过这些了&lt;/p></description></item><item><title>整理了一下博客</title><link>https://www.junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
+&lt;/h2>&lt;p>我已经忘了自己学过这些了&lt;/p></description></item><item><title>整理了一下博客</title><link>https://www.junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
 &lt;p>这些文章都是我写了好久的。&lt;/p>
 &lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
-&lt;h1 id="2023年8月23日更新" >
+&lt;h2 id="2023年8月23日更新" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-##
+#
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>TVM Dockerfile (CPU only)</title><link>https://www.junyi.dev/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
+&lt;/h2>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>TVM Dockerfile (CPU only)</title><link>https://www.junyi.dev/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
 &lt;p>映射 container 端口 22 即可使用 ssh，用户名密码都是 tvm&lt;/p>
 &lt;p>&lt;a href="https://gist.github.com/Junyi-99/dbfe984fe3e3af4d2a2c7d11a48ad151">在 GitHub 查看 Dockerfile&lt;/a>&lt;/p>
 &lt;p>构建指令：&lt;/p>
@@ -1297,17 +1297,17 @@ Scripts 编写
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 运行一个容器，将容器内 22 端口映射到本地 2222，容器设置为交互模式，开启伪输入终端，容器 image 叫做 dockerjunyi/tvm_cpu:0.7.0-x86_64，同时执行容器内的 /bin/bash&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 2222:22 -it dockerjunyi/tvm_cpu:0.7.0-x86_64 /bin/bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>树莓派编译使用 USB 无线网卡</title><link>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>树莓派编译 RTL8812AU / RTL8814AU 网卡驱动</title><link>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>https://www.junyi.dev/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
 &lt;p>环境仅适用于 Raspbery Pi OS&lt;/p>
 &lt;p>其他环境并未测试！&lt;/p>
-&lt;h1 id="安装-rtl8812au-驱动" >
+&lt;h2 id="安装-rtl8812au-驱动" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8812au-%e9%a9%b1%e5%8a%a8">
-##
+#
 &lt;/a>
 安装 RTL8812AU 驱动
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install raspberrypi-kernel-headers build-essential dkms
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gnab/rtl8812au.git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd rtl8812au
@@ -1318,28 +1318,28 @@ Scripts 编写
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot &lt;span style="color:#75715e"># 重启&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-rtl8814au-驱动" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-rtl8814au-驱动" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-rtl8814au-%e9%a9%b1%e5%8a%a8">
-##
+#
 &lt;/a>
 安装 RTL8814AU 驱动
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt update
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get install -y raspberrypi-kernel-headers bc build-essential dkms git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/morrownr/8814au.git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd 8814au
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./raspi32.sh &lt;span style="color:#75715e"># for 32-bit operating system only&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./install-driver.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo reboot
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-docker" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装-docker" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85-docker">
-##
+#
 &lt;/a>
 安装 Docker
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wget https://get.docker.com/ -O getdocker.sh
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash getdocker.sh --mirror&lt;span style="color:#f92672">=&lt;/span>Aliyun
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo groupadd docker
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo usermod -aG docker $USER
@@ -1350,24 +1350,14 @@ Scripts 编写
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install python3-pip
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pip3 install docker-compose
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose --version
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="安装-zsh" >
-&lt;div>
-&lt;a href="#%e5%ae%89%e8%a3%85-zsh">
-##
-&lt;/a>
-安装 ZSH
-&lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt install -y zsh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sh install.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置蓝牙自动连接" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="设置蓝牙自动连接" >
 &lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e8%93%9d%e7%89%99%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-##
+#
 &lt;/a>
 设置蓝牙自动连接
 &lt;/div>
-&lt;/h1>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
+&lt;/h2>&lt;p>需要自动连接我的蓝牙键盘，所以有了下面的文章&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>～# sudo bluetoothctl &lt;span style="color:#75715e"># 进入蓝牙操作模式&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># power on&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># agent on&lt;/span>
@@ -1382,35 +1372,35 @@ Scripts 编写
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/init.d/keyboard
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo update-rc.d keyboard defaults
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service keyboard start
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="设置无线网络自动连接" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="设置无线网络自动连接" >
 &lt;div>
 &lt;a href="#%e8%ae%be%e7%bd%ae%e6%97%a0%e7%ba%bf%e7%bd%91%e7%bb%9c%e8%87%aa%e5%8a%a8%e8%bf%9e%e6%8e%a5">
-##
+#
 &lt;/a>
 设置无线网络自动连接
 &lt;/div>
-&lt;/h1>&lt;p>略&lt;/p>
-&lt;h1 id="安装最新版-smart-monitoring-tools" >
+&lt;/h2>&lt;p>略&lt;/p>
+&lt;h2 id="安装最新版-smart-monitoring-tools" >
 &lt;div>
 &lt;a href="#%e5%ae%89%e8%a3%85%e6%9c%80%e6%96%b0%e7%89%88-smart-monitoring-tools">
-##
+#
 &lt;/a>
 安装最新版 SMART Monitoring Tools
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>tar zxvf smartmontools-7.2.tar.gz
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd smartmontools-7.2
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir build &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> cd build
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>../configure
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo make install
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="挂载硬盘" >
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="挂载硬盘" >
 &lt;div>
 &lt;a href="#%e6%8c%82%e8%bd%bd%e7%a1%ac%e7%9b%98">
-##
+#
 &lt;/a>
 挂载硬盘
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U 这里写你的UUID /mnt/seagate/storage
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
@@ -1494,38 +1484,38 @@ tracker 和 server 都可以放在有显卡的机器里&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## 输入完之后，如果 server0 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>screen -S tvm_tune_server1
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export CUDA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m tvm.exec.rpc_server --tracker&lt;span style="color:#f92672">=&lt;/span>127.0.0.1:9190 --key&lt;span style="color:#f92672">=&lt;/span>1080ti
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">## 输入完之后，如果 server1 运行成功，那就按下 CTRL+A 然后按下 CTRL+D，detach 当前的 screen&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，上面的 &lt;code>export&lt;/code> 是重点！
 如果在 shell 里直接不写 &lt;code>export&lt;/code> ，直接写 &lt;code>CUDA_VISIBLE_DEVICES=0&lt;/code> 是无效的！！！！
 尽管不写 &lt;code>export&lt;/code> 时，&lt;code>echo $CUDA_VISIBLE_DEVICES&lt;/code> 也会输出 1，但是实际上并没有设置环境变量。
 原因是 autotvm 会通过 python 的 &lt;code>os.environ['CUDA_VISIBLE_DEVICES']&lt;/code> 的值来决定使用哪一个 id 的 GPU。&lt;/p>
-&lt;h1 id="检测效果" >
+&lt;h2 id="检测效果" >
 &lt;div>
 &lt;a href="#%e6%a3%80%e6%b5%8b%e6%95%88%e6%9e%9c">
-##
+#
 &lt;/a>
-检测效果：
+检测效果
 &lt;/div>
-&lt;/h1>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
+&lt;/h2>&lt;p>按照官方教程修改 device 为 1080ti，ip 地址和端口记得也要按照自己的实际情况进行修改，然后运行 tune_relay_cuda.py
 Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看到 GPU 的利用情况：&lt;/p>
 &lt;p>&lt;code>watch -n 0.5 nvidia-smi&lt;/code> （意思是每隔 0.5s 运行 nvidia-smi 命令一次）&lt;/p>
 &lt;img src="result.png" alt="drawing" width="800"/>
 &lt;p>可以看到两张显卡都已经利用起来了。&lt;/p>
 &lt;p>– END –&lt;/p>
-&lt;h1 id="2023年8月23日-补充" >
+&lt;h2 id="2023年8月23日-补充" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5-%e8%a1%a5%e5%85%85">
-##
+#
 &lt;/a>
 2023年8月23日 补充
 &lt;/div>
-&lt;/h1>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
+&lt;/h2>&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>https://www.junyi.dev/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
 &lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
 &lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
@@ -1599,31 +1589,31 @@ Prepare Pre-trained model
 &lt;p>Homebrew: 2.7.0&lt;/p>
 &lt;p>Homebrew/homebrew-core: git revision 8df7a0; last commit 2020-12-26&lt;/p>
 &lt;p>参考教程：&lt;a href="https://tvm.apache.org/docs/install/from_source.html#build-the-shared-library">tvm0.8.0dev0&lt;/a>&lt;/p>
-&lt;h1 id="step1-在-github-上获取源代码" >
+&lt;h2 id="step1-在-github-上获取源代码" >
 &lt;div>
 &lt;a href="#step1-%e5%9c%a8-github-%e4%b8%8a%e8%8e%b7%e5%8f%96%e6%ba%90%e4%bb%a3%e7%a0%81">
-##
+#
 &lt;/a>
 Step1: 在 Github 上获取源代码
 &lt;/div>
-&lt;/h1>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="step2-弃坑macos-根本搞不了坑太多" >
+&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone --recursive https://github.com/apache/tvm tvm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step2-弃坑macos-根本搞不了坑太多" >
 &lt;div>
 &lt;a href="#step2-%e5%bc%83%e5%9d%91macos-%e6%a0%b9%e6%9c%ac%e6%90%9e%e4%b8%8d%e4%ba%86%e5%9d%91%e5%a4%aa%e5%a4%9a">
-##
+#
 &lt;/a>
 Step2: 弃坑，macOS 根本搞不了，坑太多
 &lt;/div>
-&lt;/h1>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
+&lt;/h2>&lt;p>编译出 dylib 之后，还有好多坑等着你。&lt;/p>
 &lt;p>&lt;strong>这就是关于在 macOS 上编译 TVM 库的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！&lt;/strong>&lt;/p>
-&lt;h1 id="2023年8月23日更新" >
+&lt;h2 id="2023年8月23日更新" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-##
+#
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>小想法</title><link>https://www.junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://www.junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;/h2>&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>小想法</title><link>https://www.junyi.dev/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>https://www.junyi.dev/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
 &lt;p>Automation 类的工具也可以啊。&lt;/p>
 &lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
 &lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
@@ -1992,11 +1982,11 @@ Figure 11: F-bit values
 &lt;p>bitmask 中的 k-bit 表示这是一个 15-,46 - 或 109-bitmask。k=0 表示这里有一个以上的 k-bit set，k=1 表示这是 bit mask 中最后一个 block。当解析一个头的时候，当前的 k-bit 数量决定了 bit mask v 的大小：&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>$$
-size_of_next_bitmast = 2^{count(k)+3}-1
-$$&lt;/p>
+&lt;p>$$&lt;/p>
 &lt;/li>
 &lt;/ul>
+&lt;p>size_of_next_bitmast = 2^{count(k)+3}-1
+$$&lt;/p>
 &lt;pre tabindex="0">&lt;code> 0 1 2 3
 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -2725,26 +2715,26 @@ Figure 3: Format of STUN Message Type Field
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
 ##
 &lt;/a>
-2023年8月23日注：
+2023年8月23日注
 &lt;/div>
 &lt;/h1>&lt;p>之前写了好多格式，现在不支持，哎
 等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>https://www.junyi.dev/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>https://www.junyi.dev/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
 &lt;p>在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别&lt;/p>
-&lt;h1 id="网络地址转换-nat-network-address-translation" >
+&lt;h2 id="网络地址转换-nat-network-address-translation" >
 &lt;div>
 &lt;a href="#%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-nat-network-address-translation">
-##
+#
 &lt;/a>
 网络地址转换 NAT (Network Address Translation)
 &lt;/div>
-&lt;/h1>&lt;h2 id="基本网络地址转换-basic-nat" >
+&lt;/h2>&lt;h3 id="基本网络地址转换-basic-nat" >
 &lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-basic-nat">
-#
+##
 &lt;/a>
 基本网络地址转换 Basic NAT
 &lt;/div>
-&lt;/h2>&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
+&lt;/h3>&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
 &lt;p>需要了解的名词有：&lt;/p>
 &lt;ul>
 &lt;li>SNAT：源地址转换&lt;/li>
@@ -2752,95 +2742,95 @@ Figure 3: Format of STUN Message Type Field
 &lt;/ul>
 &lt;p>以只有一个对外地址举例，如果 ClientA 和 ClientB 同时访问同一个 Web Server，那么当 NAT Gatway 收到这个 Web Server 响应包的时候，就无法判断将数据包转发给哪台客户机。&lt;/p>
 &lt;p>于是就有了我们接下来要介绍的 NAPT 技术&lt;/p>
-&lt;h2 id="网络地址端口转换-napt" >
+&lt;h3 id="网络地址端口转换-napt" >
 &lt;div>
 &lt;a href="#%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e7%ab%af%e5%8f%a3%e8%bd%ac%e6%8d%a2-napt">
-#
+##
 &lt;/a>
 网络地址端口转换 NAPT
 &lt;/div>
-&lt;/h2>&lt;p>先明确几个概念：&lt;/p>
+&lt;/h3>&lt;p>先明确几个概念：&lt;/p>
 &lt;p>内网主机拥有的网络地址：&lt;code>(LocalIP:LocalPort)&lt;/code>&lt;/p>
 &lt;p>经由 NAT 转换后的网络地址：&lt;code>(PublicIP:PublicPort)&lt;/code>&lt;/p>
 &lt;p>外网主机拥有的网络地址：&lt;code>(RemoteIP:RemotePort)&lt;/code>&lt;/p>
 &lt;p>对&lt;code>源端口&lt;/code>和&lt;code>目标端口&lt;/code>同时进行转换。这样就可以让&lt;code>一个公网IP&lt;/code>满足&lt;code>多个后端主机&lt;/code>同时访问外部网络。比如家庭宽带。&lt;/p>
 &lt;p>这项技术最为常见，它检测并修改出入数据包的&lt;strong>IP 地址&lt;/strong>和&lt;strong>端口号&lt;/strong>，从而允许多个内网主机共享同一个公网 IP 地址&lt;/p>
 &lt;p>NAT 分为 &lt;code>锥形NAT&lt;/code> 和 &lt;code>对称型NAT&lt;/code>&lt;/p>
-&lt;h1 id="锥形-nat" >
+&lt;h2 id="锥形-nat" >
 &lt;div>
 &lt;a href="#%e9%94%a5%e5%bd%a2-nat">
-##
+#
 &lt;/a>
 锥形 NAT
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
+&lt;/h2>&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
 &lt;p>192.168.1.2:8000 访问 Baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8000 都会被转化成 1.2.3.4:5000，baidu 看到的是 5000 端口，谷歌看到的也是&lt;/p>
 &lt;p>192.168.1.2:&lt;strong>8001&lt;/strong> 访问 baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8001 都会变成 1.2.3.4:&lt;strong>5001&lt;/strong>，baidu 看到的是 &lt;strong>5001&lt;/strong> 端口，google 看到的也是。&lt;/p>
 &lt;p>懂了吗，这就是锥形的由来&lt;/p>
-&lt;h1 id="全锥形-nat-full-cone-nat" >
+&lt;h2 id="全锥形-nat-full-cone-nat" >
 &lt;div>
 &lt;a href="#%e5%85%a8%e9%94%a5%e5%bd%a2-nat-full-cone-nat">
-##
+#
 &lt;/a>
-全锥形 NAT （Full Cone NAT）
+全锥形 NAT (Full Cone NAT)
 &lt;/div>
-&lt;/h1>&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
+&lt;/h2>&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Full Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(任意远端IP:任意端口)&lt;/code>&lt;/p>
 &lt;p>当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，形成一个 IP 端口元组，然后会将传入这个端口的数据全部转发给内部主机。&lt;strong>一旦映射建立，那么任意一台主机，只要给映射出来的公网 IP 和端口发送数据，就可以直接到达后端服务&lt;/strong>：&lt;/p>
 &lt;p>也就是，内部主机以相同的 &lt;code>(LocalIP:LocalPort)&lt;/code> 对 2 个不同的 &lt;code>(RemoteIP:RemotePort)&lt;/code> 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，&lt;strong>任意一台主机都可以给 &lt;code>(PublicIP:PublicPort)&lt;/code> 发送数据&lt;/strong>。&lt;/p>
-&lt;h1 id="地址限制锥形-nat-address-restricted-cone-nat" >
+&lt;h2 id="地址限制锥形-nat-address-restricted-cone-nat" >
 &lt;div>
 &lt;a href="#%e5%9c%b0%e5%9d%80%e9%99%90%e5%88%b6%e9%94%a5%e5%bd%a2-nat-address-restricted-cone-nat">
-##
+#
 &lt;/a>
-地址限制锥形 NAT （Address Restricted Cone NAT）
+地址限制锥形 NAT (Address Restricted Cone NAT)
 &lt;/div>
-&lt;/h1>&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
+&lt;/h2>&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
 &lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Address Restricted Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(特定远端IP:任意端口)&lt;/code>&lt;/p>
 &lt;p>（注意这里变成了 &lt;strong>任意&lt;/strong>端口）&lt;/p>
-&lt;p>我更喜欢它的英文形式，中文翻译的很不恰当。英文叫&lt;strong>地址受限的锥形NAT&lt;/strong>。当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，&lt;strong>同时记录外网的 IP 地址&lt;/strong>。一旦映射建立，&lt;strong>只有被记录的 IP 地址给映射出来的公网 IP 和端口发送数据，才可以到达后端服务，其他 IP 地址发送给 NAT 网关的，将会被丢弃。&lt;/strong>&lt;/p>
+&lt;p>我更喜欢它的英文形式，中文翻译的很不恰当。英文叫&lt;strong>地址受限的锥形 NAT&lt;/strong>。当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，&lt;strong>同时记录外网的 IP 地址&lt;/strong>。一旦映射建立，&lt;strong>只有被记录的 IP 地址给映射出来的公网 IP 和端口发送数据，才可以到达后端服务，其他 IP 地址发送给 NAT 网关的，将会被丢弃。&lt;/strong>&lt;/p>
 &lt;p>也就是，内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，同时，也只有这 2 个 RemoteIP 可以给 (PublicIP: PublicPort) 发送数据（因为先由内向外发过），这两个 RemoteIP 的 RemotePort 可以是任意的&lt;/p>
-&lt;h1 id="端口限制锥形-natport-restricted-cone-nat" >
+&lt;h2 id="端口限制锥形-nat-port-restricted-cone-nat" >
 &lt;div>
-&lt;a href="#%e7%ab%af%e5%8f%a3%e9%99%90%e5%88%b6%e9%94%a5%e5%bd%a2-natport-restricted-cone-nat">
-##
+&lt;a href="#%e7%ab%af%e5%8f%a3%e9%99%90%e5%88%b6%e9%94%a5%e5%bd%a2-nat-port-restricted-cone-nat">
+#
 &lt;/a>
-端口限制锥形 NAT（Port Restricted Cone NAT）
+端口限制锥形 NAT (Port Restricted Cone NAT)
 &lt;/div>
-&lt;/h1>&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
+&lt;/h2>&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
 &lt;p>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/p>
-&lt;p>内向外：(特定本地IP:特定本地端口) –&amp;gt;(固定映射IP:固定映射端口) –&amp;gt; (特定远端IP:特定远端端口)&lt;/p>
+&lt;p>内向外：(特定本地 IP:特定本地端口) –&amp;gt;(固定映射 IP:固定映射端口) –&amp;gt; (特定远端 IP:特定远端端口)&lt;/p>
 &lt;p>建立 Port Restricted Cone NAT 转换后&lt;/p>
-&lt;p>外向内：(特定本地IP:特定本地端口) &amp;lt;– (固定映射IP:固定映射端口) &amp;lt;– (特定远端IP:特定端口)&lt;/p>
+&lt;p>外向内：(特定本地 IP:特定本地端口) &amp;lt;– (固定映射 IP:固定映射端口) &amp;lt;– (特定远端 IP:特定端口)&lt;/p>
 &lt;p>（注意这里变成了 &lt;strong>特定&lt;/strong>端口）&lt;/p>
 &lt;p>这种模式同时记录&lt;strong>内部主机的 IP 和端口&lt;/strong>和&lt;strong>外部主机的 IP 和端口&lt;/strong>，也就是形成了一种绑定关系。&lt;/p>
-&lt;p>与 Address Restricted Cone NAT 的区别是， Address Restricted Cone NAT 记录的只有外网主机的 IP，不记录端口，那个外网主机的随便一个端口给内网主机发送数据都可以。&lt;/p>
+&lt;p>与 Address Restricted Cone NAT 的区别是，Address Restricted Cone NAT 记录的只有外网主机的 IP，不记录端口，那个外网主机的随便一个端口给内网主机发送数据都可以。&lt;/p>
 &lt;p>Port Restricted Cone NAT 是记录外网主机的 IP 和端口，&lt;strong>只有 (内网 IP, 内网端口) 和 (外网 IP, 外网端口) 这两个条件同时满足，数据才会转发给内网主机&lt;/strong>。而且以后给外部任何主机发送数据，都会用之前转换的 &lt;code>(PublicIP:PublicPort)&lt;/code> 给外部主机发送数据。&lt;/p>
 &lt;p>也就是，内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，NAT 会为内部主机只分配一个 &lt;code>(PublicIP:PublicPort)&lt;/code>，同时，也只有这 2 个 (RemoteIP:ReportPort) 可以给 (PublicIP: PublicPort) 发送数据（因为先由内向外发过）&lt;/p>
-&lt;h1 id="对称形-natsymmetric-nat" >
+&lt;h2 id="对称形-natsymmetric-nat" >
 &lt;div>
 &lt;a href="#%e5%af%b9%e7%a7%b0%e5%bd%a2-natsymmetric-nat">
-##
+#
 &lt;/a>
 对称形 NAT（Symmetric NAT）
 &lt;/div>
-&lt;/h1>&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
+&lt;/h2>&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
 &lt;p>换句话讲，不同的 (iAddr:port, eAddr:port) 组合，NAT 网关会产生不同的链路。&lt;/p>
-&lt;p>看起来也就是对称的了。（本地地址:端口，目标地址:端口）&lt;/p>
+&lt;p>看起来也就是对称的了。（本地地址：端口，目标地址：端口）&lt;/p>
 &lt;p>比如 &lt;strong>localA&lt;/strong>:8000 经过一台拥有 &lt;strong>global&lt;/strong> 的一台对称 NAT 的 Gateway，访问 &lt;strong>baidu&lt;/strong>:80 和 &lt;strong>google&lt;/strong>:80，&lt;/p>
 &lt;p>baidu 看到的可能是来自 &lt;strong>global&lt;/strong>:5003 的请求，google 看到的可能是来自 &lt;strong>global&lt;/strong>:5010 的请求。&lt;/p>
 &lt;p>打个比方，当内部主机以相同的 (LocalIP:LocalPort) 对 2 个不同的 (RemoteIP:RemotePort) 发送 UDP 报文时，此时 NAT 将会为内部主机分配&lt;strong>两个不同的&lt;/strong> &lt;code>(PublicIP:PublicPort)&lt;/code>，并且建立起&lt;strong>两个不同的内、外部 Tuple 转换关系&lt;/strong>。&lt;/p>
-&lt;h1 id="symmetric-和-port-restricted-的区别" >
+&lt;h2 id="symmetric-和-port-restricted-的区别" >
 &lt;div>
 &lt;a href="#symmetric-%e5%92%8c-port-restricted-%e7%9a%84%e5%8c%ba%e5%88%ab">
-##
+#
 &lt;/a>
 Symmetric 和 Port Restricted 的区别
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>Port Restricted:&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>Port Restricted:&lt;/strong>
 &lt;img src="port-restricted.png" alt="drawing" width="400"/>&lt;/p>
 &lt;ul>
 &lt;li>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/li>
@@ -2850,14 +2840,14 @@ Symmetric 和 Port Restricted 的区别
 &lt;ul>
 &lt;li>每一个来自相同内部 IP 与端口，到一个特定目的地 IP 和端口的请求，都映射到一个独特的外部 IP 和端口。&lt;/li>
 &lt;/ul>
-&lt;h1 id="reference" >
+&lt;h2 id="references" >
 &lt;div>
-&lt;a href="#reference">
-##
+&lt;a href="#references">
+#
 &lt;/a>
-Reference
+References
 &lt;/div>
-&lt;/h1>&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
+&lt;/h2>&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/136794983">[2] 网络之 NAT 和 N2N VPN&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.cnblogs.com/my_life/articles/11018457.html">[3] NAT 的四种类型及类型检测 2【很好】&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>https://www.junyi.dev/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>https://www.junyi.dev/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
@@ -3228,7 +3218,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>https://www.junyi.dev/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-06-27/</guid><description>&lt;blockquote>
 &lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
 &lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>https://www.junyi.dev/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
-&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…..&lt;/p></description></item><item><title>On Children</title><link>https://www.junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://www.junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>https://www.junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://www.junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
 &lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
 &lt;p>They come through you but not from you,&lt;/p>
 &lt;p>And though they are with you, yet they belong not to you.&lt;/p>
@@ -3266,7 +3256,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
 ##
 &lt;/a>
-2023年8月23日注：
+2023年8月23日注
 &lt;/div>
 &lt;/h1>&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>https://www.junyi.dev/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>https://www.junyi.dev/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
 &lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
@@ -3282,23 +3272,23 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>希望自己在 2018 年，能一直带着这一天的情绪， 在自己的阈值边缘徘徊， 不为别的， 就为了自己的未来，能有更多选择的权利， 让自己有价值，有意义。&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>加油，2018！&lt;/strong>&lt;/p>
-&lt;h1 id="更新于-2021-年-3-月-8-日" >
+&lt;h2 id="来自-2021-年-3-月-8-日-的评价" >
 &lt;div>
-&lt;a href="#%e6%9b%b4%e6%96%b0%e4%ba%8e-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5">
-##
+&lt;a href="#%e6%9d%a5%e8%87%aa-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5-%e7%9a%84%e8%af%84%e4%bb%b7">
+#
 &lt;/a>
-更新于 2021 年 3 月 8 日：
+来自 2021 年 3 月 8 日 的评价
 &lt;/div>
-&lt;/h1>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了
-所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
-&lt;h1 id="2023年8月23日注" >
+&lt;/h2>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了&lt;/p>
+&lt;p>所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
+&lt;h2 id="来自-2023-年-8-月-23-日-的评价" >
 &lt;div>
-&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
-##
+&lt;a href="#%e6%9d%a5%e8%87%aa-2023-%e5%b9%b4-8-%e6%9c%88-23-%e6%97%a5-%e7%9a%84%e8%af%84%e4%bb%b7">
+#
 &lt;/a>
-2023年8月23日注：
+来自 2023 年 8 月 23 日 的评价
 &lt;/div>
-&lt;/h1>&lt;p>所以我审视了自己什么？
-有什么规划？记录了什么内容？
-好像啥都没写吧。。。
-只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>
+&lt;/h2>&lt;p>所以我审视了自己什么？&lt;/p>
+&lt;p>有什么规划？记录了什么内容？&lt;/p>
+&lt;p>好像啥都没写吧。。。&lt;/p>
+&lt;p>只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>

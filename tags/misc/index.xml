@@ -144,7 +144,7 @@ Minor Components：
 &lt;a href="#you-give-me-a-shit-name-like-this-">
 #
 &lt;/a>
-You Give Me a Shit Name Like This 💩:
+You Give Me a Shit Name Like This 💩
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
 &lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
@@ -157,7 +157,7 @@ You Give Me a Shit Name Like This 💩:
 &lt;a href="#why-dont-you-name-the-log-like-this-">
 #
 &lt;/a>
-Why Don&amp;rsquo;t You Name the Log Like This 👍:
+Why Don&amp;rsquo;t You Name the Log Like This 👍
 &lt;/div>
 &lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
 &lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
@@ -189,7 +189,7 @@ Get it together
 &lt;a href="#disclaimer-heres-your-disclaimer">
 #
 &lt;/a>
-Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
+Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
 &lt;p>Is that too much to ask?&lt;/p></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
@@ -219,21 +219,21 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 文件管理体系
 &lt;/div>
 &lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/data/mnist/
-/home/junyi/data/cifar10/
-/home/junyi/data/covtype/
-&lt;/code>&lt;/pre>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
-&lt;pre tabindex="0">&lt;code>/home/junyi/project/VertiBench/
-/home/junyi/project/VertiLearn/
-./experiment/ # 实验文件夹
-./experiment/{exp-name}-{timestamp}/*.log
-./data/ # 软链接到数据集
-./code/ # 项目的仓库 / 相关代码
-./rebuttal/ # 回复 Reviewer 的
-./rebuttal/{reviewer-id}/experiment/
-./rebuttal/{reviewer-id}/plot/
-./rebuttal/{reviewer-id}/comment/
-&lt;/code>&lt;/pre>&lt;h2 id="如何做实验" >
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/data/mnist/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/cifar10/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/covtype/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiBench/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiLearn/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/ &lt;span style="color:#75715e"># 实验文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/&lt;span style="color:#f92672">{&lt;/span>exp-name&lt;span style="color:#f92672">}&lt;/span>-&lt;span style="color:#f92672">{&lt;/span>timestamp&lt;span style="color:#f92672">}&lt;/span>/*.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./data/ &lt;span style="color:#75715e"># 软链接到数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./code/ &lt;span style="color:#75715e"># 项目的仓库 / 相关代码&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/ &lt;span style="color:#75715e"># 回复 Reviewer 的&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/experiment/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/plot/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/comment/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="如何做实验" >
 &lt;div>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
 #
@@ -262,7 +262,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#%e6%80%bb%e7%bb%93">
 #
 &lt;/a>
-总结:
+总结
 &lt;/div>
 &lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
@@ -284,7 +284,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 9 月 22 日更新：
+2023 年 9 月 22 日更新
 &lt;/div>
 &lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
 &lt;h3 id="2023-年-10-月-2-日更新" >
@@ -292,7 +292,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 10 月 2 日更新：
+2023 年 10 月 2 日更新
 &lt;/div>
 &lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
 &lt;h3 id="2023-年-11-月-16-日更新" >
@@ -300,7 +300,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2023 年 11 月 16 日更新：
+2023 年 11 月 16 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
 &lt;h3 id="2024-年-3-月-4-日更新" >
@@ -308,7 +308,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
-2024 年 3 月 4 日更新：
+2024 年 3 月 4 日更新
 &lt;/div>
 &lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
@@ -411,7 +411,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#9-remember-why-you-want-to-get-these-tasks-done">
 ##
 &lt;/a>
-9. Remember WHY you want to get these tasks done.
+9. Remember WHY you want to get these tasks done
 &lt;/div>
 &lt;/h1>&lt;p>Write it down, and go back to the note when you’re lacking motivation&lt;/p>
 &lt;h1 id="10-create-a-motivating-poster-in-front-of-your-desk" >
@@ -419,7 +419,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#10-create-a-motivating-poster-in-front-of-your-desk">
 ##
 &lt;/a>
-10. Create a motivating poster in front of your desk!
+10. Create a motivating poster in front of your desk
 &lt;/div>
 &lt;/h1>&lt;h1 id="11-make-studying-fun" >
 &lt;div>
@@ -447,21 +447,21 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;:
 &lt;a href="#13-exercise-and-come-back-to-work">
 ##
 &lt;/a>
-13. Exercise and come back to work.
+13. Exercise and come back to work
 &lt;/div>
 &lt;/h1>&lt;h1 id="14-join-a-study-discord-community" >
 &lt;div>
 &lt;a href="#14-join-a-study-discord-community">
 ##
 &lt;/a>
-14. Join a study Discord community!
+14. Join a study Discord community
 &lt;/div>
 &lt;/h1>&lt;h1 id="15-still-cant-find-motivation-take-a-productive-break" >
 &lt;div>
 &lt;a href="#15-still-cant-find-motivation-take-a-productive-break">
 ##
 &lt;/a>
-15. Still can’t find motivation? Take a productive break!
+15. Still can’t find motivation? Take a productive break
 &lt;/div>
 &lt;/h1>&lt;h1 id="reference" >
 &lt;div>
@@ -482,14 +482,14 @@ Reference
 &lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>整理了一下博客</title><link>https://www.junyi.dev/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
 &lt;p>这些文章都是我写了好久的。&lt;/p>
 &lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
-&lt;h1 id="2023年8月23日更新" >
+&lt;h2 id="2023年8月23日更新" >
 &lt;div>
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%9b%b4%e6%96%b0">
-##
+#
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;/h2>&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>https://www.junyi.dev/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>https://www.junyi.dev/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
 &lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 硬盘盒容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
 &lt;p>后来做了多方面调查，得出结论：&lt;/p>
@@ -666,7 +666,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>https://www.junyi.dev/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-06-27/</guid><description>&lt;blockquote>
 &lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
 &lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>https://www.junyi.dev/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>https://www.junyi.dev/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
-&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…..&lt;/p></description></item><item><title>On Children</title><link>https://www.junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://www.junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>https://www.junyi.dev/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>https://www.junyi.dev/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
 &lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
 &lt;p>They come through you but not from you,&lt;/p>
 &lt;p>And though they are with you, yet they belong not to you.&lt;/p>
@@ -704,7 +704,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
 ##
 &lt;/a>
-2023年8月23日注：
+2023年8月23日注
 &lt;/div>
 &lt;/h1>&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>https://www.junyi.dev/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>https://www.junyi.dev/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
 &lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
@@ -720,23 +720,23 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>希望自己在 2018 年，能一直带着这一天的情绪， 在自己的阈值边缘徘徊， 不为别的， 就为了自己的未来，能有更多选择的权利， 让自己有价值，有意义。&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>加油，2018！&lt;/strong>&lt;/p>
-&lt;h1 id="更新于-2021-年-3-月-8-日" >
+&lt;h2 id="来自-2021-年-3-月-8-日-的评价" >
 &lt;div>
-&lt;a href="#%e6%9b%b4%e6%96%b0%e4%ba%8e-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5">
-##
+&lt;a href="#%e6%9d%a5%e8%87%aa-2021-%e5%b9%b4-3-%e6%9c%88-8-%e6%97%a5-%e7%9a%84%e8%af%84%e4%bb%b7">
+#
 &lt;/a>
-更新于 2021 年 3 月 8 日：
+来自 2021 年 3 月 8 日 的评价
 &lt;/div>
-&lt;/h1>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了
-所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
-&lt;h1 id="2023年8月23日注" >
+&lt;/h2>&lt;p>之前的博客没有白写，我联系管理员帮我把数据库恢复了&lt;/p>
+&lt;p>所以之前写的博客都还在，因为你可以发现，你可以看到 2018 年以前的文章&lt;/p>
+&lt;h2 id="来自-2023-年-8-月-23-日-的评价" >
 &lt;div>
-&lt;a href="#2023%e5%b9%b48%e6%9c%8823%e6%97%a5%e6%b3%a8">
-##
+&lt;a href="#%e6%9d%a5%e8%87%aa-2023-%e5%b9%b4-8-%e6%9c%88-23-%e6%97%a5-%e7%9a%84%e8%af%84%e4%bb%b7">
+#
 &lt;/a>
-2023年8月23日注：
+来自 2023 年 8 月 23 日 的评价
 &lt;/div>
-&lt;/h1>&lt;p>所以我审视了自己什么？
-有什么规划？记录了什么内容？
-好像啥都没写吧。。。
-只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>
+&lt;/h2>&lt;p>所以我审视了自己什么？&lt;/p>
+&lt;p>有什么规划？记录了什么内容？&lt;/p>
+&lt;p>好像啥都没写吧。。。&lt;/p>
+&lt;p>只是一些 emo 的记录，还有一些不知所云的话&lt;/p></description></item></channel></rss>
