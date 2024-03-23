@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>https://www.junyi.dev/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>🔬 科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>https://www.junyi.dev/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>🔬 科研路上的思考与实践</title><link>https://www.junyi.dev/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>https://www.junyi.dev/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
@@ -135,64 +135,7 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>https://www.junyi.dev/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>https://www.junyi.dev/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
-&lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
-&lt;/blockquote>
-&lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
-&lt;h2 id="you-give-me-a-shit-name-like-this-" >
-&lt;div>
-&lt;a href="#you-give-me-a-shit-name-like-this-">
-#
-&lt;/a>
-You Give Me a Shit Name Like This 💩
-&lt;/div>
-&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/0.png" width="200" alt="shit-1" />
-&lt;p>&lt;strong>What the hell is top1&lt;/strong> ❓❓❓&lt;/p>
-&lt;p>Brilliant, after wasting miutes, we decode your hieroglyphs: &lt;code>top1&lt;/code> equals Algorithm &lt;strong>A&lt;/strong>&amp;rsquo;s supposed best linkage. What a time to be alive!&lt;/p>
-&lt;p>But oh, plot twist! Turns out &lt;strong>Algorithm A&lt;/strong>’s &lt;code>top1&lt;/code> is as reliable as a chocolate teapot. So now we’re pivoting to &lt;strong>Algorithm B&lt;/strong>&amp;rsquo;s &lt;code>top1&lt;/code> because, why not? Let&amp;rsquo;s just keep everyone on their toes.&lt;/p>
-&lt;p>Do whatever the hell you want. Change the names, shuffle them like a deck of cards, keep us guessing—it’s not like we have anything better to do than decode your naming schemes that seem inspired by a labyrinth.&lt;/p>
-&lt;p>But hey, you do you. Change the names, flip the script, keep the chaos coming. It’s not like we were trying to conduct serious research or anything.&lt;/p>
-&lt;h2 id="why-dont-you-name-the-log-like-this-" >
-&lt;div>
-&lt;a href="#why-dont-you-name-the-log-like-this-">
-#
-&lt;/a>
-Why Don&amp;rsquo;t You Name the Log Like This 👍
-&lt;/div>
-&lt;/h2>&lt;img src="https://www.junyi.dev/posts/who-cares-about-your-default-value/1.png" width="400" alt="shit-1" />
-&lt;p>Is it really that hard to print all relevant values directly in the logs? Rename your logs to something like &lt;code>experiment-group_algorithm-name_dataset-name_arg1_arg2.txt&lt;/code>.&lt;/p>
-&lt;p>&lt;b>&lt;p style="color:red">It&amp;rsquo;s not a suggestion; it&amp;rsquo;s a NECESSITY!!!&lt;/p>&lt;/b>&lt;/p>
-&lt;p>How is anyone supposed to know what the hell each log is about with names pulled out of thin air?&lt;/p>
-&lt;h2 id="its-not-just-about-the-names-though-its-the-principle" >
-&lt;div>
-&lt;a href="#its-not-just-about-the-names-though-its-the-principle">
-#
-&lt;/a>
-It’s not just about the names, though. &lt;strong>It’s the principle.&lt;/strong>
-&lt;/div>
-&lt;/h2>&lt;p>It’s about the &lt;em>time wasted&lt;/em>, the &lt;em>confusion created&lt;/em>, and the &lt;em>utter disregard for clear communication&lt;/em>. If we’re switching from Algorithm A’s &lt;code>top1&lt;/code> to Algorithm B’s &lt;code>top1&lt;/code>, could we possibly name it something that doesn’t require a PhD in Cryptography to understand?&lt;/p>
-&lt;p>It&amp;rsquo;s high time for some common sense in naming. We&amp;rsquo;re not mind readers. &lt;strong>Your &amp;ldquo;default values&amp;rdquo; might as well be ancient hieroglyphs for all the clarity they provide.&lt;/strong>&lt;/p>
-&lt;p>And another thing, this flip-flopping on terminology? Utter nonsense. One day it&amp;rsquo;s &amp;ldquo;A&amp;rsquo;s top1&amp;rdquo;, the next it&amp;rsquo;s &amp;ldquo;B&amp;rsquo;s top1&amp;rdquo;. If I label a log &amp;ldquo;&lt;code>top1-dataset...&lt;/code>&amp;rdquo;, it&amp;rsquo;s anyone&amp;rsquo;s guess what &amp;ldquo;top1&amp;rdquo; refers to. This isn&amp;rsquo;t just confusing; it&amp;rsquo;s a total mess.&lt;/p>
-&lt;h2 id="get-it-together" >
-&lt;div>
-&lt;a href="#get-it-together">
-#
-&lt;/a>
-Get it together
-&lt;/div>
-&lt;/h2>&lt;p>We need clear, descriptive names that leave zero room for interpretation or confusion. It&amp;rsquo;s the absolute least you can do to prevent this whole operation from turning into a farce.&lt;/p>
-&lt;p>Enough playing guessing games. It&amp;rsquo;s time for precision and transparency in our log names. Anything less is just wasting everyone&amp;rsquo;s time.&lt;/p>
-&lt;p>&lt;strong>I DONT FUCKING LIKE THE DEFAULT VALUES&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>WRITE IT EXPLICITLY!!!!&lt;/strong>&lt;/p>
-&lt;h2 id="disclaimer-heres-your-disclaimer" >
-&lt;div>
-&lt;a href="#disclaimer-heres-your-disclaimer">
-#
-&lt;/a>
-Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
-&lt;/div>
-&lt;/h2>&lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
-&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
+--></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #

@@ -144,7 +144,7 @@ Step 4. Push to &lt;code>blog-src&lt;/code>
 &lt;/h2>&lt;p>All you need to do in this step is &lt;strong>push&lt;/strong> some commits to &lt;code>blog-src&lt;/code>, and if all goes well, your GitHub Actions will automatically execute, build your site, and push it to the &lt;code>blog.github.io&lt;/code> repository.&lt;/p>
 &lt;p>(END OF THE POST)&lt;/p></description></item><item><title>🔐 Using git-crypt to encrypt files in a git repository</title><link>https://www.junyi.dev/en/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/en/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
-&lt;p>&lt;img alt="BasicFlow" src="https://www.junyi.dev/posts/git-crypt/flow.svg">&lt;/p>
+&lt;p>&lt;img alt="BasicFlow" src="flow.svg">&lt;/p>
 &lt;h2 id="step-1-install-git-crypt" >
 &lt;div>
 &lt;a href="#step-1-install-git-crypt">
@@ -196,7 +196,7 @@ Step 3: Check git-crypt status
 Results
 &lt;/div>
 &lt;/h2>&lt;p>The beancount file is encrypted.&lt;/p>
-&lt;p>&lt;img alt="Alt text" src="https://www.junyi.dev/posts/git-crypt/image-1.png">&lt;/p>
+&lt;p>&lt;img alt="Alt text" src="image-1.png">&lt;/p>
 &lt;h2 id="subsequent-updates" >
 &lt;div>
 &lt;a href="#subsequent-updates">
