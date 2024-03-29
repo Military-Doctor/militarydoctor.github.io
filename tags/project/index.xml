@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on Junyi's Lab</title><link>https://www.junyi.dev/tags/project/</link><description>Junyi's Lab (Project)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/project/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>https://www.junyi.dev/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><guid>https://www.junyi.dev/posts/boost-converter/</guid><description>&lt;figure>
+&lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
+&lt;figcaption>图 1 - Ultra Boost Converter 实拍图&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="pcb-设计" >
+&lt;div>
+&lt;a href="#pcb-%e8%ae%be%e8%ae%a1">
+#
+&lt;/a>
+PCB 设计
+&lt;/div>
+&lt;/h2>&lt;p>很好的 JYF 老师，指点我很多，使我的 PCB 旋转。&lt;/p>
+&lt;h2 id="芯片选型" >
+&lt;div>
+&lt;a href="#%e8%8a%af%e7%89%87%e9%80%89%e5%9e%8b">
+#
+&lt;/a>
+芯片选型
+&lt;/div>
+&lt;/h2>&lt;p>选择了 TPS6200 这款芯片&lt;/p>
+&lt;h2 id="焊接" >
+&lt;div>
+&lt;a href="#%e7%84%8a%e6%8e%a5">
+#
+&lt;/a>
+焊接
+&lt;/div>
+&lt;/h2>&lt;p>这是我第一次焊接 QFN 芯片&lt;/p>
+&lt;h2 id="成品图" >
+&lt;div>
+&lt;a href="#%e6%88%90%e5%93%81%e5%9b%be">
+#
+&lt;/a>
+成品图
+&lt;/div>
+&lt;/h2>&lt;figure>
+&lt;div style="display: flex">
+&lt;img src="https://www.junyi.dev/posts/boost-converter/view1.jpg" alt="Boost Converter by Junyi" width="50%" />
+&lt;img src="https://www.junyi.dev/posts/boost-converter/view2.jpg" alt="Boost Converter by Junyi" width="50%" />
+&lt;/div>
+&lt;figcaption>图 3 - Ultra Boost Converter&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;div style="display: flex">
+&lt;div style="width:50%">
+&lt;img src="https://www.junyi.dev/posts/boost-converter/onboard_LED.jpg" alt="Boost Converter by 3.0V battery" />
+&lt;figcaption>(a) 由 3.0V 纽扣电池提供电源&lt;/figcaption>
+&lt;/div>
+&lt;div style="width:50%">
+&lt;img src="https://www.junyi.dev/posts/boost-converter/by_battery.jpg" alt="Boost Converter by 1.5V battery"/>
+&lt;figcaption>(b) 由 1.5V 电池提供电源&lt;/figcaption>
+&lt;/div>
+&lt;/div>
+&lt;figcaption>图 4 - 点亮 LED（2.0V 稳压输出）&lt;/figcaption>
+&lt;/figure></description></item></channel></rss>
