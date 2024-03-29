@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>https://www.junyi.dev/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>https://www.junyi.dev/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><guid>https://www.junyi.dev/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
-&lt;figcaption>图 1 - Ultra Boost Converter 实拍图&lt;/figcaption>
+&lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
-&lt;h2 id="pcb-设计" >
-&lt;div>
-&lt;a href="#pcb-%e8%ae%be%e8%ae%a1">
-#
-&lt;/a>
-PCB 设计
-&lt;/div>
-&lt;/h2>&lt;p>很好的 JYF 老师，指点我很多，使我的 PCB 旋转。&lt;/p>
 &lt;h2 id="芯片选型" >
 &lt;div>
 &lt;a href="#%e8%8a%af%e7%89%87%e9%80%89%e5%9e%8b">
@@ -17,7 +9,38 @@ PCB 设计
 &lt;/a>
 芯片选型
 &lt;/div>
-&lt;/h2>&lt;p>选择了 TPS6200 这款芯片&lt;/p>
+&lt;/h2>&lt;p>接了一个奇葩的需求，需要我把 0.5V 的电压转换到 2.0V。&lt;/p>
+&lt;p>传统的 Boost-Buck 电路无法实现这个需求，因为一个普通二极管的压降约为 0.7V，可是电源只能提供 0.5V 的电压。&lt;/p>
+&lt;p>大部分现有的电压转换芯片，需要 0.9V 的启动电压，电源不能满足这个要求。&lt;/p>
+&lt;p>找了很久，发现了 TPS6200 这款芯片，它支持 0.3V-5.5V 的输入，并且以 1.8V - 5.5V 的电压输出（可调且固定）&lt;/p>
+&lt;h2 id="pcb-设计" >
+&lt;div>
+&lt;a href="#pcb-%e8%ae%be%e8%ae%a1">
+#
+&lt;/a>
+PCB 设计
+&lt;/div>
+&lt;/h2>&lt;p>&lt;strong>很好的 JYF 老师，指点我很多，使我的 PCB 旋转。&lt;/strong>&lt;/p>
+&lt;p>一开始，我参考了 &lt;a href="https://www.ti.com/lit/pdf/slva345">Supplying TPS61200 With a Single Solar Cell&lt;/a> 和 &lt;a href="https://www.ti.com/lit/pdf/slva364">Using TPS61200 as WLED Driver&lt;/a> 作出第一版设计，拿给 JYF 老师看：&lt;/p>
+&lt;blockquote>
+&lt;p>没什么问题，就是有一些问题要改一下&lt;/p>
+&lt;p>—— JYF&lt;/p>
+&lt;/blockquote>
+&lt;p>然后 JYF 老师教了我很多关于电源电路设计的技巧，比如：&lt;/p>
+&lt;ul>
+&lt;li>铺铜时使用“阻止区”避免产生“天线”&lt;/li>
+&lt;li>在“天线”的附近，打过孔，让干扰回流到地&lt;/li>
+&lt;li>画板子，把板子尺寸设置成 5mm 倍数，好做外壳&lt;/li>
+&lt;li>钢网在淘宝做更便宜&lt;/li>
+&lt;li>&lt;del>横着的座子不好用，换成罚站的好用&lt;/del>&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;p>虽然 JYF 老师偶尔“内涵”我一下，但还是得感谢 JYF 老师，他的帮助这是让这个项目&lt;strong>一次成功&lt;/strong>的关键。&lt;/p>
+&lt;figure>
+&lt;img style="border-radius: 8px; overflow: hidden; box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.05);" src="https://www.junyi.dev/posts/boost-converter/subtext.png" alt="Subtexted by JYF" width="50%" />
+&lt;figcaption>图 2 - JYF 内涵我&lt;/figcaption>
+&lt;/figure>
+&lt;p>（顺便一提，我偷懒去掉了 MPP 电路，可能持续 20ms 对电源索取 1A 的电流，在某些燃料电池里相当于短路，从而影响电源寿命）&lt;/p>
 &lt;h2 id="焊接" >
 &lt;div>
 &lt;a href="#%e7%84%8a%e6%8e%a5">
@@ -25,7 +48,8 @@ PCB 设计
 &lt;/a>
 焊接
 &lt;/div>
-&lt;/h2>&lt;p>这是我第一次焊接 QFN 芯片&lt;/p>
+&lt;/h2>&lt;p>这是我第一次焊接 QFN 芯片，虽然弄坏了一个 PCB 才焊接好，但最后的成品质量很高。&lt;/p>
+&lt;p>这次焊接跟之前相比，有了很大进步（在这里看我之前的电路板：&lt;a href="https://oshwhub.com/osdubv/myfirstespproject_copy">超迷你 ESP8266 开发板&lt;/a>）&lt;/p>
 &lt;h2 id="成品图" >
 &lt;div>
 &lt;a href="#%e6%88%90%e5%93%81%e5%9b%be">
@@ -44,14 +68,14 @@ PCB 设计
 &lt;div style="display: flex">
 &lt;div style="width:50%">
 &lt;img src="https://www.junyi.dev/posts/boost-converter/onboard_LED.jpg" alt="Boost Converter by 3.0V battery" />
-&lt;figcaption>(a) 由 3.0V 纽扣电池提供电源&lt;/figcaption>
+&lt;figcaption>(a) 使用 3.0V 纽扣电池&lt;/figcaption>
 &lt;/div>
 &lt;div style="width:50%">
 &lt;img src="https://www.junyi.dev/posts/boost-converter/by_battery.jpg" alt="Boost Converter by 1.5V battery"/>
-&lt;figcaption>(b) 由 1.5V 电池提供电源&lt;/figcaption>
+&lt;figcaption>(b) 使用 1.5V 电池&lt;/figcaption>
 &lt;/div>
 &lt;/div>
-&lt;figcaption>图 4 - 点亮 LED（2.0V 稳压输出）&lt;/figcaption>
+&lt;figcaption>图 4 - 来自不同电压输入，输出 2.0V 稳压点亮 LED&lt;/figcaption>
 &lt;/figure></description></item><item><title>🙈 在 GitHub Pages 博客上隐藏敏感文章</title><link>https://www.junyi.dev/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><guid>https://www.junyi.dev/posts/github-actions/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
