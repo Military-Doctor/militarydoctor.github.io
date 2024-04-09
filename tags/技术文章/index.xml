@@ -24,7 +24,7 @@
 &lt;li>client&lt;strong>s&lt;/strong> 发送 operation (Put, Get, Append) 到 primary-server&lt;/li>
 &lt;li>primary-server 决定 operation 的执行顺序&lt;/li>
 &lt;li>primary-server 把 operation 的执行顺序发送给 backup-server&lt;/li>
-&lt;li>backup-server 按照 primary-server 发送的顺序执行 operation （hot-standby）
+&lt;li>backup-server 按照 primary-server 发送的顺序执行 operation（hot-standby）
 &lt;ul>
 &lt;li>或者 backup-server 按照 primary-server 发送的顺序记录 operation 但不执行（cold-standby）&lt;/li>
 &lt;/ul>
@@ -34,12 +34,12 @@
 &lt;p>&lt;strong>问题是，怎么决定谁来当 primary-server？&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>怎么决定谁来当 backup-server？&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>client 怎么知道谁是 primary-server？&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>答案：&lt;/strong> &lt;span class="spoiler">引入一台 view-server，让这个 view-server 来做决定，并且 client 去问 view-server 谁是 primary-server。为什么叫它 view-server ？ 因为这涉及到一个重要概念「view」，后面会讲到，别着急！&lt;/span>&lt;/p>
+&lt;p>&lt;strong>答案：&lt;/strong> &lt;span class="spoiler">引入一台 view-server，让这个 view-server 来做决定，并且 client 去问 view-server 谁是 primary-server。为什么叫它 view-server？因为这涉及到一个重要概念「view」，后面会讲到，别着急！&lt;/span>&lt;/p>
 &lt;p>知道了答案，我们可以这样设计整个系统：&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>我们让每台服务器发送心跳给 view-server，告诉 view-server 自己还活着。&lt;/p>
-&lt;p>问：有没有可能自己活着但是 view-server 认为自己死了？&lt;span class="spoiler"> 有可能因为网络问题，心跳没发出去， view-server 认为节点挂了，但其实节点还活着&lt;/span>&lt;/p>
+&lt;p>问：有没有可能自己活着但是 view-server 认为自己死了？&lt;span class="spoiler"> 有可能因为网络问题，心跳没发出去，view-server 认为节点挂了，但其实节点还活着&lt;/span>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>我们 promote idle-server 成为 backup-server，但不越级 promote 成为 primary-server&lt;/p>
@@ -99,7 +99,7 @@
 &lt;li>
 &lt;p>primary 必须等 backup 执行完，才可以回复 client&lt;/p>
 &lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Missing write:&lt;/strong> client writes to A，A crashes before writing to B, clients read from B&lt;/span>&lt;/p>
-&lt;p>一定要转发 read() 给 backup 吗？（这是一个常见的优化操作）&lt;span class="spoiler">必须转发。不然可能出现 &lt;strong>Stale read&lt;/strong>: at &lt;em>view 1&lt;/em>, A,B are primary and backup, but A cannot reach view-server. now &lt;em>view 2&lt;/em>, B,C are primary backup. client 1 writes to B, client 2 reads from A. A returns outdated data （不过 stale read 依然符合 sequential consistency）&lt;/span>&lt;/p>
+&lt;p>一定要转发 read() 给 backup 吗？（这是一个常见的优化操作）&lt;span class="spoiler">必须转发。不然可能出现 &lt;strong>Stale read&lt;/strong>: at &lt;em>view 1&lt;/em>, A,B are primary and backup, but A cannot reach view-server. now &lt;em>view 2&lt;/em>, B,C are primary backup. client 1 writes to B, client 2 reads from A. A returns outdated data（不过 stale read 依然符合 sequential consistency）&lt;/span>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>如果 view 是正确的，backup 必须接受&lt;ruby>转发的请求&lt;rt>Forwarded Request&lt;/rt>&lt;/ruby>，并且执行&lt;/p>
@@ -196,20 +196,26 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;p>我们并不要求所有节点的每一条指令都是同时开始、同步完成的，只要求在此期间的内部状态不能被外部观察到，且当操作指令序列执行完毕时，所有节点的最终的状态是一致的，这种模型就被称为状态机复制（State Machine Replication）。&lt;/p>
 &lt;style>
 .spoiler {
-visibility: hidden;
+color: black;
+background-color: black;
+transition: color 0.2s;
+border-radius: 5px;
+padding-right: 5px;
+padding-left: 5px;
 }
-.spoiler::before {
-visibility: visible;
+/* .spoiler::before {
 content: "hover me to see the answer";
 color: white;
 background-color: black;
-}
+} */
 .spoiler:hover {
 visibility: visible;
+color: white
 }
+/*
 .spoiler:hover::before {
 display: none;
-}
+} */
 &lt;/style></description></item><item><title>Distributed System: Consistency</title><link>https://www.junyi.dev/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
