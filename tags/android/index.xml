@@ -40,29 +40,29 @@
 &lt;p>sudo apt install mesa-opencl-icd&lt;/p>
 &lt;p>然后就修好了， clinfo 能打出来东西了：&lt;/p>
 &lt;blockquote>
-&lt;p>Number of platforms 1&lt;br>
-Platform Name Clover&lt;br>
-Platform Vendor Mesa&lt;br>
-Platform Version OpenCL 1.1 Mesa 19.2.8&lt;br>
-Platform Profile FULL_PROFILE&lt;br>
-Platform Extensions cl_khr_icd&lt;br>
+&lt;p>Number of platforms 1
+Platform Name Clover
+Platform Vendor Mesa
+Platform Version OpenCL 1.1 Mesa 19.2.8
+Platform Profile FULL_PROFILE
+Platform Extensions cl_khr_icd
 Platform Extensions function suffix MESA&lt;/p>
-&lt;p>Platform Name Clover&lt;br>
+&lt;p>Platform Name Clover
 Number of devices 0&lt;/p>
-&lt;p>NULL platform behavior&lt;br>
-clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover&lt;br>
-clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover&lt;br>
-clCreateContext(NULL, …) [default] No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform&lt;br>
+&lt;p>NULL platform behavior
+clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover
+clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover
+clCreateContext(NULL, …) [default] No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform
 clCreateContextFromType(NULL, CL_DEVICE_TYPE_ALL) No devices found in platform&lt;/p>
-&lt;p>ICD loader properties&lt;br>
-ICD loader Name OpenCL ICD Loader&lt;br>
-ICD loader Vendor OCL Icd free software&lt;br>
-ICD loader Version 2.2.11&lt;br>
+&lt;p>ICD loader properties
+ICD loader Name OpenCL ICD Loader
+ICD loader Vendor OCL Icd free software
+ICD loader Version 2.2.11
 ICD loader Profile OpenCL 2.1&lt;/p>
 &lt;/blockquote>
 &lt;p>然后我用RPC跑GPU测试，又遇到了&lt;/p>
@@ -74,7 +74,7 @@ ICD loader Profile OpenCL 2.1&lt;/p>
 &lt;p>搜了一会，发现了这样一篇文章：&lt;a href="https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10">https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10&lt;/a>&lt;/p>
 &lt;p>其中有一段话：&lt;/p>
 &lt;blockquote>
-&lt;p>This happens when you compile TVM runtime with both &lt;code>set(USE_OPENCL ON)&lt;/code> and &lt;code>set(USE_LLVM ON)&lt;/code>&lt;br>
+&lt;p>This happens when you compile TVM runtime with both &lt;code>set(USE_OPENCL ON)&lt;/code> and &lt;code>set(USE_LLVM ON)&lt;/code>
 You should enable only ONE option but not both.&lt;/p>
 &lt;/blockquote>
 &lt;p>我试了一下，编译的时候开着OPENCL，LLVM关掉，发现错的更离谱了&lt;/p>
@@ -92,7 +92,7 @@ You should enable only ONE option but not both.&lt;/p>
 &lt;/h2>&lt;p>睡了一觉，第二天了，&lt;/p>
 &lt;p>遇到了新的错误：&lt;/p>
 &lt;blockquote>
-&lt;p>Using CPU OpenCL device&lt;br>
+&lt;p>Using CPU OpenCL device
 No OpenCL device&lt;/p>
 &lt;/blockquote>
 &lt;p>按照 tqchen 的说法，make clean 然后 make&lt;/p>

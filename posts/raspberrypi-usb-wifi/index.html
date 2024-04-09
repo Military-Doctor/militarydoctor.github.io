@@ -44,7 +44,7 @@
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>bluetooth<span style=color:#f92672>]</span><span style=color:#75715e># agent on</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>bluetooth<span style=color:#f92672>]</span><span style=color:#75715e># pairable on</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>[</span>bluetooth<span style=color:#f92672>]</span><span style=color:#75715e># scan on</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>bluetooth<span style=color:#f92672>]</span><span style=color:#75715e># pair 34:88:5D:67:38:DF </span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>bluetooth<span style=color:#f92672>]</span><span style=color:#75715e># pair 34:88:5D:67:38:DF</span>
 </span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo nano /etc/init.d/keyboard <span style=color:#75715e># 新建一个叫 keyboard 的文件（开机自启）</span>
 </span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/sh
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>sudo hcitool spinq <span style=color:#75715e># Start periodic inquiry</span>

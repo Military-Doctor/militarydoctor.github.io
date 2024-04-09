@@ -352,12 +352,12 @@ Figure 3: Format of STUN Message Type Field
 &lt;/blockquote>
 &lt;p>请注意：&lt;/p>
 &lt;p>The magic cookie field MUST contain the fixed value 0x2112A442 in network byte order. In RFC 3489 [RFC3489], this field was part of the transaction ID; placing the magic cookie in this location allows a server to detect if the client will understand certain attributes that were added in this revised specification. In addition, it aids in distinguishing STUN packets from packets of other protocols when STUN is multiplexed with those other protocols on the same port.&lt;/p>
-&lt;p>[^1]: 还记得吗，事务ID是一个随机选择的 96位 的数字&lt;br>
-[^2]: 解多路复用就是与多路复用的作用相反的一个过程&lt;br>
-[^3]: In &lt;a href="https://en.wikipedia.org/wiki/Computer_networking">computer networking&lt;/a>, &lt;strong>out-of-band data&lt;/strong> is the data transferred through a stream that is independent from the main &lt;em>in-band&lt;/em> data stream.&lt;br>
-[^4]: 在資訊安全中，Nonce是一個在加密通訊只能使用一次的數字。在認證協定中，它往往是一個隨機或偽隨機數，以避免重送攻擊。&lt;br>
-[^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送&lt;br>
-[^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。&lt;br>
+&lt;p>[^1]: 还记得吗，事务ID是一个随机选择的 96位 的数字
+[^2]: 解多路复用就是与多路复用的作用相反的一个过程
+[^3]: In &lt;a href="https://en.wikipedia.org/wiki/Computer_networking">computer networking&lt;/a>, &lt;strong>out-of-band data&lt;/strong> is the data transferred through a stream that is independent from the main &lt;em>in-band&lt;/em> data stream.
+[^4]: 在資訊安全中，Nonce是一個在加密通訊只能使用一次的數字。在認證協定中，它往往是一個隨機或偽隨機數，以避免重送攻擊。
+[^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送
+[^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。
 [^7]: 一个不接收响应的 STUN 消息。（说人话就是只发不收，就告诉你一声。）&lt;/p>
 &lt;h1 id="2023年8月23日注" >
 &lt;div>

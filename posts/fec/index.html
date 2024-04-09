@@ -8,7 +8,7 @@
 <a href=https://zhuanlan.zhihu.com/p/104579290>https://zhuanlan.zhihu.com/p/104579290</a></p></blockquote><h1 id=parity-check-奇偶校验><div><a href=#parity-check-%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c>##
 </a>Parity Check 奇偶校验</div></h1><pre tabindex=0><code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
 // 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1
-1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1   
+1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1
 </code></pre><p>每个字节的数据都计算一个校验位，数据和校验位一起发送出去，这样接收方可以根据校验位粗略地判断接收到的数据是否有误。</p><h1 id=基于-xor-的-fec><div><a href=#%e5%9f%ba%e4%ba%8e-xor-%e7%9a%84-fec>##
 </a>基于 XOR 的 FEC</div></h1><p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。</p><p>但考虑到每 2 个 packet 就产生 1 个 fec packet，冗余度可能有点高（比较浪费带宽），我们能否每 3 个或者每 N 个 packet 再产生一个 fec packet 呢？当然可以，我们以每 3 个 packet（A、B、C） 产生 1 个 fec packet（D）为例来推导一下：</p><pre tabindex=0><code>d = a ^ b ^ c
 a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d

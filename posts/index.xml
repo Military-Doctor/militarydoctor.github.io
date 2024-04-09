@@ -1444,7 +1444,7 @@ Scripts 编写
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># agent on&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pairable on&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># scan on&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pair 34:88:5D:67:38:DF &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>bluetooth&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># pair 34:88:5D:67:38:DF&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo nano /etc/init.d/keyboard &lt;span style="color:#75715e"># 新建一个叫 keyboard 的文件（开机自启）&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/sh
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>sudo hcitool spinq &lt;span style="color:#75715e"># Start periodic inquiry&lt;/span>
@@ -2784,12 +2784,12 @@ Figure 3: Format of STUN Message Type Field
 &lt;/blockquote>
 &lt;p>请注意：&lt;/p>
 &lt;p>The magic cookie field MUST contain the fixed value 0x2112A442 in network byte order. In RFC 3489 [RFC3489], this field was part of the transaction ID; placing the magic cookie in this location allows a server to detect if the client will understand certain attributes that were added in this revised specification. In addition, it aids in distinguishing STUN packets from packets of other protocols when STUN is multiplexed with those other protocols on the same port.&lt;/p>
-&lt;p>[^1]: 还记得吗，事务ID是一个随机选择的 96位 的数字&lt;br>
-[^2]: 解多路复用就是与多路复用的作用相反的一个过程&lt;br>
-[^3]: In &lt;a href="https://en.wikipedia.org/wiki/Computer_networking">computer networking&lt;/a>, &lt;strong>out-of-band data&lt;/strong> is the data transferred through a stream that is independent from the main &lt;em>in-band&lt;/em> data stream.&lt;br>
-[^4]: 在資訊安全中，Nonce是一個在加密通訊只能使用一次的數字。在認證協定中，它往往是一個隨機或偽隨機數，以避免重送攻擊。&lt;br>
-[^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送&lt;br>
-[^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。&lt;br>
+&lt;p>[^1]: 还记得吗，事务ID是一个随机选择的 96位 的数字
+[^2]: 解多路复用就是与多路复用的作用相反的一个过程
+[^3]: In &lt;a href="https://en.wikipedia.org/wiki/Computer_networking">computer networking&lt;/a>, &lt;strong>out-of-band data&lt;/strong> is the data transferred through a stream that is independent from the main &lt;em>in-band&lt;/em> data stream.
+[^4]: 在資訊安全中，Nonce是一個在加密通訊只能使用一次的數字。在認證協定中，它往往是一個隨機或偽隨機數，以避免重送攻擊。
+[^5]: indicatino 在 indication transaction 中被发送。 指示 在 指示型事务 中被发送
+[^6]: The method indicates which of the various requests or indications this is. 方法表示这是哪种请求，或，这是哪种指示。
 [^7]: 一个不接收响应的 STUN 消息。（说人话就是只发不收，就告诉你一声。）&lt;/p>
 &lt;h1 id="2023年8月23日注" >
 &lt;div>
@@ -2940,19 +2940,19 @@ References
 &lt;a href="https://www.junyi.dev/posts/my-dev-env/#基本配置" title="基本配置">&lt;/a>基本配置
 &lt;/div>
 &lt;/h3>&lt;p>先说一下我电脑的基本配置:&lt;/p>
-&lt;p>2017年买的笔记本电脑&lt;br>
-CPU: i7-7700HQ&lt;br>
-内存: 8GB x 2, DDR4, 2666 MHz&lt;br>
-SSD: 512G 三星 SM961, MLC颗粒, M.2接口, 连续读 3200MB/s, 连续写 1300MB/s (实测)&lt;br>
-HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用&lt;br>
-显示器: BENQ PD2500Q, 分辨率 1440p&lt;br>
-键盘: IKBC F108 时光机&lt;br>
+&lt;p>2017年买的笔记本电脑
+CPU: i7-7700HQ
+内存: 8GB x 2, DDR4, 2666 MHz
+SSD: 512G 三星 SM961, MLC颗粒, M.2接口, 连续读 3200MB/s, 连续写 1300MB/s (实测)
+HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
+显示器: BENQ PD2500Q, 分辨率 1440p
+键盘: IKBC F108 时光机
 鼠标: 雷蛇炼狱蝰蛇 2000&lt;/p>
 &lt;p>由于是2017年买的笔记本, 性能什么的自然比不过各位 dalao 的台式机或者更牛逼的游戏本&lt;/p>
 &lt;p>但是在我的优化下, 现在用起来也蛮流畅的, 搞开发没什么问题.&lt;/p>
 &lt;p>以前的我买笔记本电脑, 最求极致性价比, 只看配置, 但是现在, emmm&lt;/p>
 &lt;p>可以算是不在乎配置什么的了吧, 毕竟是给自己日常使用的电脑, 不是什么服务器, 要榨干每一丝的性能, 对我来说, 日常使用的电脑最重要的是好用.&lt;/p>
-&lt;p>所以, 显示器一定要买比较好的, 选来选去买了明基的PD2500Q, 据说是给视觉设计工作者使用的&lt;br>
+&lt;p>所以, 显示器一定要买比较好的, 选来选去买了明基的PD2500Q, 据说是给视觉设计工作者使用的
 具体配置我就不赘述了, 用起来非常舒服, 价格也十分美丽.&lt;/p>
 &lt;p>键盘一定要全键盘带小键盘和方向键的, 我个人习惯而已, 感觉小键盘比数字键好用多了, 最好带个背光, 晚上的时候也可以用, 虽然平常盲打, 但是有光可以让我更安心, 我也不想要什么花里胡哨的, RGB啊, 自定义宏啊, 都是噱头, 在我看来就是智商税, 我平常也不用这些花里胡哨的功能. (比如RGB, 难道你打字的时候看着键盘打吗hhhh)&lt;/p>
 &lt;p>总的来说, 现在买这些硬件产品, 性能反而不是第一考虑的维度&lt;/p>
@@ -2978,7 +2978,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;li>Java&lt;/li>
 &lt;/ul>
 &lt;p>( 不要问我为什么没有易语言, 易语言是个坑, 我从小学五年级开始学, 到大学一年级弃坑 )&lt;/p>
-&lt;p>由于体验了一把 IntelliJ IDEA, 觉得 JetBrains 公司出品的 IDE 都很好用, 所以我抛弃了 Eclipse, 抛弃了 Visual Studio, 全线转战 JB 全家桶.&lt;br>
+&lt;p>由于体验了一把 IntelliJ IDEA, 觉得 JetBrains 公司出品的 IDE 都很好用, 所以我抛弃了 Eclipse, 抛弃了 Visual Studio, 全线转战 JB 全家桶.
 比如写 C 和 C++ 的 CLion, 写 Python 的 PyCharm, 写 Java 的 IDEA&lt;/p>
 &lt;p>好用爆了, 而且学校提供 edu 邮箱, 直接在 JB 官网注册学生授权就可以免费使用所有工具.&lt;/p>
 &lt;p>,,,,,&lt;/p>
@@ -3018,7 +3018,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;li>邮件管理: Outlook&lt;/li>
 &lt;li>聊天工具: 被封印在虚拟机内的 QQ 和 微信&lt;/li>
 &lt;/ul>
-&lt;p>我特别想说的是, 因为我 16G 内存用不掉, 所以就开了一个虚拟机, 专门用来使用那些不得不用的国内垃圾流氓软件,&lt;br>
+&lt;p>我特别想说的是, 因为我 16G 内存用不掉, 所以就开了一个虚拟机, 专门用来使用那些不得不用的国内垃圾流氓软件,
 如QQ, 微信.&lt;/p>
 &lt;p>放在虚拟机内, 可以&lt;/p>
 &lt;ul>
@@ -3071,29 +3071,29 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>sudo apt install mesa-opencl-icd&lt;/p>
 &lt;p>然后就修好了， clinfo 能打出来东西了：&lt;/p>
 &lt;blockquote>
-&lt;p>Number of platforms 1&lt;br>
-Platform Name Clover&lt;br>
-Platform Vendor Mesa&lt;br>
-Platform Version OpenCL 1.1 Mesa 19.2.8&lt;br>
-Platform Profile FULL_PROFILE&lt;br>
-Platform Extensions cl_khr_icd&lt;br>
+&lt;p>Number of platforms 1
+Platform Name Clover
+Platform Vendor Mesa
+Platform Version OpenCL 1.1 Mesa 19.2.8
+Platform Profile FULL_PROFILE
+Platform Extensions cl_khr_icd
 Platform Extensions function suffix MESA&lt;/p>
-&lt;p>Platform Name Clover&lt;br>
+&lt;p>Platform Name Clover
 Number of devices 0&lt;/p>
-&lt;p>NULL platform behavior&lt;br>
-clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover&lt;br>
-clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover&lt;br>
-clCreateContext(NULL, …) [default] No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform&lt;br>
-clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform&lt;br>
+&lt;p>NULL platform behavior
+clGetPlatformInfo(NULL, CL_PLATFORM_NAME, …) Clover
+clGetDeviceIDs(NULL, CL_DEVICE_TYPE_ALL, …) Clover
+clCreateContext(NULL, …) [default] No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_DEFAULT) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CPU) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_GPU) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_ACCELERATOR) No devices found in platform
+clCreateContextFromType(NULL, CL_DEVICE_TYPE_CUSTOM) No devices found in platform
 clCreateContextFromType(NULL, CL_DEVICE_TYPE_ALL) No devices found in platform&lt;/p>
-&lt;p>ICD loader properties&lt;br>
-ICD loader Name OpenCL ICD Loader&lt;br>
-ICD loader Vendor OCL Icd free software&lt;br>
-ICD loader Version 2.2.11&lt;br>
+&lt;p>ICD loader properties
+ICD loader Name OpenCL ICD Loader
+ICD loader Vendor OCL Icd free software
+ICD loader Version 2.2.11
 ICD loader Profile OpenCL 2.1&lt;/p>
 &lt;/blockquote>
 &lt;p>然后我用RPC跑GPU测试，又遇到了&lt;/p>
@@ -3105,7 +3105,7 @@ ICD loader Profile OpenCL 2.1&lt;/p>
 &lt;p>搜了一会，发现了这样一篇文章：&lt;a href="https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10">https://discuss.tvm.ai/t/llvm-error-option-registered-more-than-once-while-loading-libtvm-so/269/10&lt;/a>&lt;/p>
 &lt;p>其中有一段话：&lt;/p>
 &lt;blockquote>
-&lt;p>This happens when you compile TVM runtime with both &lt;code>set(USE_OPENCL ON)&lt;/code> and &lt;code>set(USE_LLVM ON)&lt;/code>&lt;br>
+&lt;p>This happens when you compile TVM runtime with both &lt;code>set(USE_OPENCL ON)&lt;/code> and &lt;code>set(USE_LLVM ON)&lt;/code>
 You should enable only ONE option but not both.&lt;/p>
 &lt;/blockquote>
 &lt;p>我试了一下，编译的时候开着OPENCL，LLVM关掉，发现错的更离谱了&lt;/p>
@@ -3123,7 +3123,7 @@ You should enable only ONE option but not both.&lt;/p>
 &lt;/h2>&lt;p>睡了一觉，第二天了，&lt;/p>
 &lt;p>遇到了新的错误：&lt;/p>
 &lt;blockquote>
-&lt;p>Using CPU OpenCL device&lt;br>
+&lt;p>Using CPU OpenCL device
 No OpenCL device&lt;/p>
 &lt;/blockquote>
 &lt;p>按照 tqchen 的说法，make clean 然后 make&lt;/p>

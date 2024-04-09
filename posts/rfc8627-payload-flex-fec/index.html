@@ -64,8 +64,8 @@ packets sent in the same multicast session.
 |       0       | flexible mask                       |
 |       1       | packets indicated by offset M and N |
 +---------------+-------------------------------------+
-  
-  
+
+
                       Figure 11: F-bit values
 </code></pre><ul><li><p>P, X, CC, M 和 PT recovery 字段用户确定被恢复包的字段</p></li><li><p>Length Recovery （16-bit）字段被用来确定恢复包的长度</p></li><li><p>TS recovery（32-bit）字段被用来确定恢复包的时间戳</p></li><li><p>SSRC count（8-bit）字段描述了 FEC 包保护的 SSRC 的数量。0 不是一个有效值，并且这个包 MUST 被忽略。</p></li><li><p>Reserved（24-bit）为了未来的用途而被保留。它 MUST 被发送者设置成 0，并且被接受者忽略</p></li><li><p>SSRC_i（32-bit）字段描述了当前这个特定的 FEC 包保护了哪个 SSRC。如果 FEC 包保护了多个 SSRC（SSRC count > 1），那么这里将会有多个 blocks of data 包含 SSRC, SN base 和 Mask Fields.</p></li><li><p>SN base_i（16-bit）字段表示此修复包保护的特定 SSRC（在 SSRC_i 中指示）的源包的最低序号（考虑到回绕）【译者：我不知道什么是回绕 wrap around into account】</p></li><li><p>如果 F bit 被设置成 0，则表示这个特定的修复包所保护的源包的所有 SSRC 使用 flexible bitmask 来处理。对于一个被 FEC 保护的特定的 SSRC_i 包，mask 是一个游程编码（run-length encoding）。第 j 位设置成 1 表示 源包的序列号（SN base_i + j + 1）被这个 FEC 包所保护。</p></li><li><p>bitmask 中的 k-bit 表示这是一个 15-,46 - 或 109-bitmask。k=0 表示这里有一个以上的 k-bit set，k=1 表示这是 bit mask 中最后一个 block。当解析一个头的时候，当前的 k-bit 数量决定了 bit mask v 的大小：</p></li><li><p>$$</p></li></ul><p>size_of_next_bitmast = 2^{count(k)+3}-1
 $$</p><pre tabindex=0><code> 0                   1                   2                   3
@@ -84,7 +84,7 @@ $$</p><pre tabindex=0><code> 0                   1                   2          
 |k|                   Mask [15-45] (optional)                   |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |k|                                                             |
-+-+                   Mask [46-108] (optional) 
++-+                   Mask [46-108] (optional)
 |
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -109,11 +109,11 @@ $$</p><pre tabindex=0><code> 0                   1                   2          
 
 If M&gt;0, N=0,  is Row FEC, and no column FEC will follow
             Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
- 
+
 If M&gt;0, N=1,  is Row FEC, and column FEC will follow.
               Hence, FEC = SN, SN+1, SN+2, ... , SN+(M-1), SN+M.
          and more to come
- 
+
 If M&gt;0, N&gt;1,  indicates column FEC of every M packet
                  in a group of N packets starting at SN base.
               Hence, FEC = SN+(Mx0), SN+(Mx1), ... , SN+(MxN).
@@ -132,7 +132,7 @@ If M&gt;0, N&gt;1,  indicates column FEC of every M packet
 :                            payload                            :
 |                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-  
+
         Figure 15: Protocol format for Retransmission
 </code></pre><p>在 Section 6.2 里描述了设置这些字段的细节</p><p>需要注意的是，mask-based 的方法（与 RFC2733 和 RFC5109 中很相似）可能不是非常有效的指明在当前 source block 中修复包与哪个源包关联。特别的是，对于想使用 large source block size 的应用程序来说，描述源包 - 修复包 的这个关联，所需的 mask 可能大的令人难以接受。</p><p>[SMPTE2022-1] 中提出的 8 位字段指示一种系统化的方法。 相反，本文档中的方法使用 8 位字段指示受 FEC 数据包保护的数据包偏移量。 [SMPTE2022-1] 中的方法本质上对于常规模式更有效，但不能提供表示其他保护模式的灵活性（比如：staircase）</p><h1 id=5-payload-format-parameters-载荷格式参数><div><a href=#5-payload-format-parameters-%e8%bd%bd%e8%8d%b7%e6%a0%bc%e5%bc%8f%e5%8f%82%e6%95%b0>##
 </a>5. Payload Format Parameters 载荷格式参数</div></h1><p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。</p><h2 id=51-media-type-registration---parity-codes-媒体类型注册---奇偶码><div><a href=#51-media-type-registration---parity-codes-%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%e6%b3%a8%e5%86%8c---%e5%a5%87%e5%81%b6%e7%a0%81>#
