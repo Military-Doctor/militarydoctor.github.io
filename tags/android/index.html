@@ -3,43 +3,9 @@
 <a href=https://www.junyi.dev/gallery/ title>GALLERY</a>
 <a href=https://www.junyi.dev/tags/ title>TAGS</a>
 <a href=https://www.junyi.dev/posts/ title>ARCHIVE</a>
-<a href=https://www.junyi.dev/about/ title>ABOUT</a></nav></header><main id=main tabindex=-1><h1>标签: Android</h1><div class=post-info><a href=/tags/>所有标签</a></div><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc2/>TVM RPC Android 踩坑记</a></h1></header></div><div class="content post-summary p-summary">## 先说结论 系统环境：Ubuntu 18.04 LTS
-解决方法：卸载 OpenJDK-11，安装 OpenJDK-8
-备注说明：VMWare 无法正常使用独立显卡，深度学习请不要在虚拟机里进行，否则只能利用 CPU 进行学习。
-当编译 android_rpc 时，你必须在 jni/config.ml 里指定 libOpenCL.so，然后在 GitHub 下载 CL-headers。
-When you compile android_rpc, you HAVE TO specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!
-READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!
-仔细阅读官方指南！！
-## 问题细节 # 第一天 No OpenCL platform 遇到了一个错误：
-tvm/src/runtime/opencl/opencl_device_api.cc:263: No OpenCL platform matched given existing options …
-然后找了好多文章，找到了官方的文档，却发现2019年3月就提出了这个问题，是bug，并且被修复了。
-现在是2020年3月7日，我不应该再遇到这个bug，于是看了看源代码，发现获取不到我的CL信息</div><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2020-03-07>March 7, 2020</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc2/>https://www.junyi.dev/posts/tvm-android-rpc2/</a>
+<a href=https://www.junyi.dev/about/ title>ABOUT</a></nav></header><main id=main tabindex=-1><h1>标签: Android</h1><div class=post-info><a href=/tags/>所有标签</a></div><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc2/>TVM RPC Android 踩坑记</a></h1></header></div><div class="content post-summary p-summary"></div><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2020-03-07>March 7, 2020</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc2/>https://www.junyi.dev/posts/tvm-android-rpc2/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android/>TVM Android 构建时千万不要用最新的工具</a></h1></header></div><div class="content post-summary p-summary"><p>遇到报错 <code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]</code></p></div><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2020-03-03>March 3, 2020</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android/>https://www.junyi.dev/posts/tvm-android/</a>
-<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc/>TVM RPC Android 部署踩坑</a></h1></header></div><div class="content post-summary p-summary">## 先说结论 环境：Ubuntu 18.04 LTS （非虚拟机）
-手机：Xiaomi Mi 5s, 3GB RAM, 64GB ROM
-系统：原生 Android 10
-遇到问题：android_rpc 无法编译部署
-解决方法：核心思路是分析 gradle task 执行顺序，分析相关脚本，检查环境变量。这个问题需要具体情况具体分析，请仔细查看本文【问题解决】部分的相关描述。
-## 部署 android_rpc 按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。
-然后安装 Gradle，Maven
-然后编译 TVM4J
-编译好之后我开始按照官方教程尝试部署 apps/android_rpc 这个项目
-因为上次部署 TVM 的经验教训让我知道了严格按照官方教程走的重要性。
-只可惜，这次就算按照官方教程来部署，得到的结果依然是：
-失败。
-## 踩坑 Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。
-然后又遇到了你懂的特色互联网防火墙的问题：Maven 下载速度特别慢。
-解决了网络的问题之后，我心想能不能把项目丢到 AndroidStudio 里面跑啊，然后我就试了一下
-于是
-，
-给自己带来了另一个坑
-Android Studio 推荐我更新 Gradle
-我手贱点了更新
-然后版本号对不上了
-搞了半天踩意识到是自己手贱更新了Gradle。
-。
-。
-。</div><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2020-03-03>March 3, 2020</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc/>https://www.junyi.dev/posts/tvm-android-rpc/</a>
+<a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article><article class="post-list h-feed post-card"><div class=post-header><header><h1 class="p-name post-title"><a class=u-url href=/posts/tvm-android-rpc/>TVM RPC Android 部署踩坑</a></h1></header></div><div class="content post-summary p-summary"></div><div class="post-info noselect"><div class="post-date dt-published"><time datetime=2020-03-03>March 3, 2020</time></div><a class="post-hidden-url u-url" href=https://www.junyi.dev/posts/tvm-android-rpc/>https://www.junyi.dev/posts/tvm-android-rpc/</a>
 <a href=https://www.junyi.dev/ class="p-name p-author post-hidden-author h-card" rel=me>Junyi Hou</a><div class=post-taxonomies><ul class=post-tags><li><a href=https://www.junyi.dev/tags/tvm/>#TVM</a></li><li><a href=https://www.junyi.dev/tags/android/>#Android</a></li></ul></div></div></article></main><footer class="common-footer noselect"><ul class=language-select><li>Simplified Chinese</li><li><a href=https://www.junyi.dev/en/>English</a></li></ul><div class=common-footer-bottom><div style=display:flex;align-items:center;gap:8px>© Junyi Hou, 2024
 <a style=display:flex;align-items:center;border-bottom:none;cursor:pointer;color:var(--pagination-link-color) href=https://eu.umami.is/share/2uUOpgCbx28B16Ro/www.junyi.dev><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 5H7A2 2 0 005 7v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><path d="M9 3m0 2a2 2 0 012-2h2a2 2 0 012 2v0a2 2 0 01-2 2h-2A2 2 0 019 5z"/><path d="M9 17v-5"/><path d="M12 17v-1"/><path d="M15 17v-3"/></svg></a></div><div>Powered by <a target=_blank rel="noopener noreferrer" href=https://gohugo.io/>Hugo</a>, theme <a target=_blank rel="noopener noreferrer" href=https://github.com/Junyi-99/hugo-theme-anubis2>Anubis2</a>.<br></div></div><p class="h-card vcard"><a href=https://www.junyi.dev/ class="p-name u-url url fn" rel=me>Junyi Hou</a>
 /
