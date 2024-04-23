@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>P2P on Junyi's Lab</title><link>https://www.junyi.dev/tags/p2p/</link><description>Junyi's Lab (P2P)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Jun 2020 13:06:35 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>P2P 技术</title><link>https://www.junyi.dev/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>https://www.junyi.dev/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>P2P on Junyi's Lab</title><link>/tags/p2p/</link><description>Junyi's Lab (P2P)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Jun 2020 13:06:35 +0800</lastBuildDate><atom:link href="/tags/p2p/index.xml" rel="self" type="application/rss+xml"/><item><title>P2P 技术</title><link>/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
 &lt;p>在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别&lt;/p>
 &lt;h2 id="网络地址转换-nat-network-address-translation" >
 &lt;div>
@@ -7,14 +7,16 @@
 &lt;/a>
 网络地址转换 NAT (Network Address Translation)
 &lt;/div>
-&lt;/h2>&lt;h3 id="基本网络地址转换-basic-nat" >
+&lt;/h2>
+&lt;h3 id="基本网络地址转换-basic-nat" >
 &lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-basic-nat">
 ##
 &lt;/a>
 基本网络地址转换 Basic NAT
 &lt;/div>
-&lt;/h3>&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
+&lt;/h3>
+&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
 &lt;p>需要了解的名词有：&lt;/p>
 &lt;ul>
 &lt;li>SNAT：源地址转换&lt;/li>
@@ -29,7 +31,8 @@
 &lt;/a>
 网络地址端口转换 NAPT
 &lt;/div>
-&lt;/h3>&lt;p>先明确几个概念：&lt;/p>
+&lt;/h3>
+&lt;p>先明确几个概念：&lt;/p>
 &lt;p>内网主机拥有的网络地址：&lt;code>(LocalIP:LocalPort)&lt;/code>&lt;/p>
 &lt;p>经由 NAT 转换后的网络地址：&lt;code>(PublicIP:PublicPort)&lt;/code>&lt;/p>
 &lt;p>外网主机拥有的网络地址：&lt;code>(RemoteIP:RemotePort)&lt;/code>&lt;/p>
@@ -43,7 +46,8 @@
 &lt;/a>
 锥形 NAT
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
+&lt;/h2>
+&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
 &lt;p>192.168.1.2:8000 访问 Baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8000 都会被转化成 1.2.3.4:5000，baidu 看到的是 5000 端口，谷歌看到的也是&lt;/p>
 &lt;p>192.168.1.2:&lt;strong>8001&lt;/strong> 访问 baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8001 都会变成 1.2.3.4:&lt;strong>5001&lt;/strong>，baidu 看到的是 &lt;strong>5001&lt;/strong> 端口，google 看到的也是。&lt;/p>
 &lt;p>懂了吗，这就是锥形的由来&lt;/p>
@@ -54,7 +58,8 @@
 &lt;/a>
 全锥形 NAT (Full Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
+&lt;/h2>
+&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Full Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(任意远端IP:任意端口)&lt;/code>&lt;/p>
 &lt;p>当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，形成一个 IP 端口元组，然后会将传入这个端口的数据全部转发给内部主机。&lt;strong>一旦映射建立，那么任意一台主机，只要给映射出来的公网 IP 和端口发送数据，就可以直接到达后端服务&lt;/strong>：&lt;/p>
@@ -66,7 +71,8 @@
 &lt;/a>
 地址限制锥形 NAT (Address Restricted Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
+&lt;/h2>
+&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
 &lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Address Restricted Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(特定远端IP:任意端口)&lt;/code>&lt;/p>
@@ -80,7 +86,8 @@
 &lt;/a>
 端口限制锥形 NAT (Port Restricted Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
+&lt;/h2>
+&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
 &lt;p>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/p>
 &lt;p>内向外：(特定本地 IP:特定本地端口) –&amp;gt;(固定映射 IP:固定映射端口) –&amp;gt; (特定远端 IP:特定远端端口)&lt;/p>
 &lt;p>建立 Port Restricted Cone NAT 转换后&lt;/p>
@@ -97,7 +104,8 @@
 &lt;/a>
 对称形 NAT（Symmetric NAT）
 &lt;/div>
-&lt;/h2>&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
+&lt;/h2>
+&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
 &lt;p>换句话讲，不同的 (iAddr:port, eAddr:port) 组合，NAT 网关会产生不同的链路。&lt;/p>
 &lt;p>看起来也就是对称的了。（本地地址：端口，目标地址：端口）&lt;/p>
 &lt;p>比如 &lt;strong>localA&lt;/strong>:8000 经过一台拥有 &lt;strong>global&lt;/strong> 的一台对称 NAT 的 Gateway，访问 &lt;strong>baidu&lt;/strong>:80 和 &lt;strong>google&lt;/strong>:80，&lt;/p>
@@ -110,7 +118,8 @@
 &lt;/a>
 Symmetric 和 Port Restricted 的区别
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>Port Restricted:&lt;/strong>
+&lt;/h2>
+&lt;p>&lt;strong>Port Restricted:&lt;/strong>
 &lt;img src="port-restricted.png" alt="drawing" width="400"/>&lt;/p>
 &lt;ul>
 &lt;li>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/li>
@@ -127,7 +136,8 @@ Symmetric 和 Port Restricted 的区别
 &lt;/a>
 References
 &lt;/div>
-&lt;/h2>&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
+&lt;/h2>
+&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/136794983">[2] 网络之 NAT 和 N2N VPN&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.cnblogs.com/my_life/articles/11018457.html">[3] NAT 的四种类型及类型检测 2【很好】&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distributed System on Junyi's Lab</title><link>https://www.junyi.dev/tags/distributed-system/</link><description>Junyi's Lab (Distributed System)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Sep 2023 15:15:37 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/distributed-system/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System: Primary Backup Replication</title><link>https://www.junyi.dev/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distributed System on Junyi's Lab</title><link>/tags/distributed-system/</link><description>Junyi's Lab (Distributed System)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Sep 2023 15:15:37 +0800</lastBuildDate><atom:link href="/tags/distributed-system/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System: Primary Backup Replication</title><link>/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
 &lt;p>你有一个硬盘，存了很多重要资料，你担心这个硬盘某天坏了，怎么办？&lt;/p>
 &lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
 &lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
@@ -10,7 +10,8 @@
 &lt;/a>
 前提假设
 &lt;/div>
-&lt;/h2>&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
+&lt;/h2>
+&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
 &lt;!--
 多线程那样，因为 scheduler 的原因导致每次执行的结果都不一样。 -->
 &lt;h2 id="最简单的-primary--backup" >
@@ -20,7 +21,8 @@
 &lt;/a>
 最简单的 primary &amp;amp; backup
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>client&lt;strong>s&lt;/strong> 发送 operation (Put, Get, Append) 到 primary-server&lt;/li>
 &lt;li>primary-server 决定 operation 的执行顺序&lt;/li>
 &lt;li>primary-server 把 operation 的执行顺序发送给 backup-server&lt;/li>
@@ -60,7 +62,8 @@
 &lt;/a>
 什么是 view-server 里的 view
 &lt;/div>
-&lt;/h2>&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
+&lt;/h2>
+&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
 &lt;p>注意，一个 view 里，只有一个 primary 和一个 backup，其它的 server 标记为 idle。（想想看为什么这样设计？）&lt;/p>
 &lt;p>view 由 view-server 进行管理，其他节点可以获取到当前系统的 view。&lt;/p>
 &lt;figure>
@@ -75,11 +78,11 @@
 &lt;p>&lt;strong>很简单嘛！这能有什么问题？&lt;/strong>&lt;/p>
 &lt;p>话音刚落，问题就来了。&lt;/p>
 &lt;p>请看下面这个情况：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 1, primary=A, backup=B;`&lt;/span> 这时候 A 挂了，B 成为 primary，从 idle 里面挑一个 C 成为 backup，然后 B 发送状态给 C。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 1, primary=A, backup=B;`&lt;/span> 这时候 A 挂了，B 成为 primary，从 idle 里面挑一个 C 成为 backup，然后 B 发送状态给 C。
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 3, primary=C, backup=_;`&lt;/span> C：😅？（此时 C 根本不知道系统的状态是什么）
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 3, primary=C, backup=_;`&lt;/span> C：😅？（此时 C 根本不知道系统的状态是什么）
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以我们刚刚对整个系统的描述，是有缺陷的。&lt;/p>
 &lt;p>怎么改呢，我们让 view-server 必须等待 primary-server &lt;ruby>确认&lt;rt>ACK&lt;/rt>&lt;/ruby> 当前的 view。&lt;/p>
 &lt;p>就算 primary-server 挂了，view-server 也要等 ACK。&lt;/p>
@@ -91,7 +94,8 @@
 &lt;/a>
 总结一下所有的规则
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>
 &lt;p>在 view i+1 的 primary 必须是 view i 的 backup&lt;/p>
 &lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Split brain:&lt;/strong> primary A, backup B, but can&amp;rsquo;t reach view-server. C,D are promoted to primary and backup, C doesn&amp;rsquo;t know previous state.&lt;/span>&lt;/p>
@@ -121,7 +125,8 @@
 &lt;/a>
 脑裂 (Split-brain)
 &lt;/div>
-&lt;/h2>&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
+&lt;/h2>
+&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
 &lt;blockquote>
 &lt;p>View 1, primary=A, backup=B; 这时候 A 网络出故障无法连接到 view-server，B 成为新的 primary。
 View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 primary&lt;/p>
@@ -135,7 +140,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 系统卡住
 &lt;/div>
-&lt;/h2>&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
+&lt;/h2>
+&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
 &lt;ol>
 &lt;li>view-server 挂了&lt;/li>
 &lt;li>整个网络挂了&lt;/li>
@@ -150,14 +156,16 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 重复写入
 &lt;/div>
-&lt;/h2>&lt;h2 id="为什么-primary-backup-比较难" >
+&lt;/h2>
+&lt;h2 id="为什么-primary-backup-比较难" >
 &lt;div>
 &lt;a href="#%e4%b8%ba%e4%bb%80%e4%b9%88-primary-backup-%e6%af%94%e8%be%83%e9%9a%be">
 #
 &lt;/a>
 为什么 Primary Backup 比较难
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>primary 可能挂掉&lt;/li>
 &lt;li>backup 可能挂掉&lt;/li>
 &lt;li>通讯可能 临时/永久 挂掉&lt;/li>
@@ -177,7 +185,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 总结一下 view-server 的缺点
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>view-server 自己存在单点故障问题&lt;/li>
 &lt;li>view-server 必须等待 primary 的 ack，即使 primary 可能挂了也要等&lt;/li>
 &lt;/ol>
@@ -188,7 +197,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 &lt;ruby>状态机复制&lt;rt>State Machine Replication&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>&lt;strong>状态机有一个特性：&lt;/strong> 任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。&lt;/p>
 &lt;p>如果将此特性应用在多参与者进行协商共识上，可以理解为系统中存在多个具有完全相同的状态机（参与者），这些状态机能最终保持一致的关键就是起始状态完全一致和执行命令序列完全一致。&lt;/p>
 &lt;/blockquote>
@@ -216,7 +226,7 @@ color: white
 .spoiler:hover::before {
 display: none;
 } */
-&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>https://www.junyi.dev/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
+&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
 &lt;hr>
@@ -228,7 +238,8 @@ display: none;
 &lt;/a>
 &lt;ruby>最终一致性&lt;rt>Eventual Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>系统最终会达到一致的状态。&lt;/p>
+&lt;/h2>
+&lt;p>系统最终会达到一致的状态。&lt;/p>
 &lt;h2 id="ruby因果一致性rtcausal-consistencyrtruby" >
 &lt;div>
 &lt;a href="#ruby%e5%9b%a0%e6%9e%9c%e4%b8%80%e8%87%b4%e6%80%a7rtcausal-consistencyrtruby">
@@ -236,7 +247,8 @@ display: none;
 &lt;/a>
 &lt;ruby>因果一致性&lt;rt>Causal Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>比 Sequential Consistency 更弱。
+&lt;/h2>
+&lt;p>比 Sequential Consistency 更弱。
 如果操作 A 依赖于操作 B，那么操作 B 发生在操作 A 之前，但是如果操作 A 和操作 B 之间没有因果关系，那么操作 A 和操作 B 的顺序是不确定的。&lt;/p>
 &lt;blockquote>
 &lt;p>有因才有果，因在果之前&lt;/p>
@@ -253,7 +265,8 @@ display: none;
 &lt;/a>
 &lt;ruby>序列一致性&lt;rt>Sequential Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
+&lt;/h2>
+&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
 &lt;p>换句话说，物理意义上的时间，不能决定&lt;ruby>操作&lt;rt>operations&lt;/rt>&lt;/ruby>的执行顺序&lt;/p>
 &lt;p>用作 Transaction 时我们称之为 Serializability&lt;/p>
 &lt;p>常用在 银行、金融数据库、事务&lt;/p>
@@ -264,7 +277,8 @@ display: none;
 &lt;/a>
 &lt;ruby>线性一致性&lt;rt>Linearizable Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>也叫 Linearizability&lt;/p>
+&lt;/h2>
+&lt;p>也叫 Linearizability&lt;/p>
 &lt;p>是【顺序一致性 + 按照物理时间顺序执行】。&lt;/p>
 &lt;p>满足线性一致性的数据结构，表现得像是一个单一的、无并发的实体。&lt;span style="color: #cd7a32;">&lt;strong>是最强的保证&lt;/strong>&lt;/span>&lt;/p>
 &lt;p>比如 Google Spanner&lt;/p>
@@ -277,13 +291,14 @@ display: none;
 &lt;/a>
 Lab 2
 &lt;/div>
-&lt;/h2>&lt;p>实现 Primary-backup replication：&lt;/p>
+&lt;/h2>
+&lt;p>实现 Primary-backup replication：&lt;/p>
 &lt;ol>
 &lt;li>client 发送请求给 primary-server&lt;/li>
 &lt;li>由一个 中央 view-server 决定谁是 primary 谁是 backup&lt;/li>
 &lt;li>primary 挂了，backup 顶上来&lt;/li>
 &lt;/ol>
-&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>https://www.junyi.dev/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
 &lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
 &lt;hr>
 &lt;p>首先简单过一下这些基础概念&lt;/p>
@@ -294,7 +309,8 @@ Lab 2
 &lt;/a>
 Happens-before relationship
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>
 &lt;p>Within a process, A comes before B then A→B, it also means&lt;/p>
 &lt;blockquote>
@@ -324,7 +340,8 @@ Happens-before relationship
 &lt;/a>
 Lamport clock
 &lt;/div>
-&lt;/h2>&lt;img src="logical-clock.png" alt="drawing" width="400"/>
+&lt;/h2>
+&lt;img src="logical-clock.png" alt="drawing" width="400"/>
 &lt;p>We can use clocks to implement a lock.&lt;/p>
 &lt;p>&lt;strong>Our goals are:&lt;/strong>&lt;/p>
 &lt;ol>
@@ -401,7 +418,8 @@ Lamport clock
 &lt;/a>
 Vector clock
 &lt;/div>
-&lt;/h2>&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
+&lt;/h2>
+&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
 &lt;blockquote>
 &lt;p>(0, 0, 0) for a 3-node system&lt;/p>
 &lt;/blockquote>
@@ -429,7 +447,8 @@ Vector clock
 &lt;/a>
 Lab 1
 &lt;/div>
-&lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
+&lt;/h2>
+&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
 &lt;/ul></description></item></channel></rss>

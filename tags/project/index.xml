@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on Junyi's Lab</title><link>https://www.junyi.dev/tags/project/</link><description>Junyi's Lab (Project)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/project/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>https://www.junyi.dev/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><guid>https://www.junyi.dev/posts/boost-converter/</guid><description>&lt;figure>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on Junyi's Lab</title><link>/tags/project/</link><description>Junyi's Lab (Project)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="/tags/project/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
@@ -9,7 +9,8 @@
 &lt;/a>
 芯片选型
 &lt;/div>
-&lt;/h2>&lt;p>接了一个奇葩的需求，需要我把 0.5V 的电压转换到 2.0V。&lt;/p>
+&lt;/h2>
+&lt;p>接了一个奇葩的需求，需要我把 0.5V 的电压转换到 2.0V。&lt;/p>
 &lt;p>传统的 Boost-Buck 电路无法实现这个需求，因为一个普通二极管的压降约为 0.7V，可是电源只能提供 0.5V 的电压。&lt;/p>
 &lt;p>大部分现有的电压转换芯片，需要 0.9V 的启动电压，电源不能满足这个要求。&lt;/p>
 &lt;p>找了很久，发现了 TPS6200 这款芯片，它支持 0.3V-5.5V 的输入，并且以 1.8V - 5.5V 的电压输出（可调且固定）&lt;/p>
@@ -20,7 +21,8 @@
 &lt;/a>
 PCB 设计
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>很好的 JYF 老师，指点我很多，使我的 PCB 旋转。&lt;/strong>&lt;/p>
+&lt;/h2>
+&lt;p>&lt;strong>很好的 JYF 老师，指点我很多，使我的 PCB 旋转。&lt;/strong>&lt;/p>
 &lt;p>一开始，我参考了 &lt;a href="https://www.ti.com/lit/pdf/slva345">Supplying TPS61200 With a Single Solar Cell&lt;/a> 和 &lt;a href="https://www.ti.com/lit/pdf/slva364">Using TPS61200 as WLED Driver&lt;/a> 作出第一版设计，拿给 JYF 老师看：&lt;/p>
 &lt;blockquote>
 &lt;p>没什么问题，就是有一些问题要改一下&lt;/p>
@@ -48,7 +50,8 @@ PCB 设计
 &lt;/a>
 焊接
 &lt;/div>
-&lt;/h2>&lt;p>这是我第一次焊接 QFN 芯片，虽然弄坏了一个 PCB 才焊接好，但最后的成品质量很高。&lt;/p>
+&lt;/h2>
+&lt;p>这是我第一次焊接 QFN 芯片，虽然弄坏了一个 PCB 才焊接好，但最后的成品质量很高。&lt;/p>
 &lt;p>这次焊接跟之前相比，有了很大进步（在这里看我之前的电路板：&lt;a href="https://oshwhub.com/osdubv/myfirstespproject_copy">超迷你 ESP8266 开发板&lt;/a>）&lt;/p>
 &lt;h2 id="成品图" >
 &lt;div>
@@ -57,7 +60,8 @@ PCB 设计
 &lt;/a>
 成品图
 &lt;/div>
-&lt;/h2>&lt;figure>
+&lt;/h2>
+&lt;figure>
 &lt;div style="display: flex">
 &lt;img src="https://www.junyi.dev/posts/boost-converter/view1.jpg" alt="Boost Converter by Junyi" width="50%" />
 &lt;img src="https://www.junyi.dev/posts/boost-converter/view2.jpg" alt="Boost Converter by Junyi" width="50%" />

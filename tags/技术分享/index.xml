@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术分享 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</link><description>Junyi's Lab (技术分享)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 30 Jan 2024 13:12:00 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml"/><item><title>🔐 使用 git-crypt 加密你的仓库</title><link>https://www.junyi.dev/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>https://www.junyi.dev/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术分享 on Junyi's Lab</title><link>/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/</link><description>Junyi's Lab (技术分享)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 30 Jan 2024 13:12:00 +0800</lastBuildDate><atom:link href="/tags/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/index.xml" rel="self" type="application/rss+xml"/><item><title>🔐 使用 git-crypt 加密你的仓库</title><link>/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
 &lt;p>&lt;img alt="BasicFlow" src="https://www.junyi.dev/posts/git-crypt/flow.svg">&lt;/p>
 &lt;h2 id="step-1-install-git-crypt" >
@@ -8,8 +8,9 @@
 &lt;/a>
 Step 1: Install git-crypt
 &lt;/div>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git-crypt
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git-crypt init &lt;span style="color:#75715e"># in an initialized git repository&lt;/span>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install git-crypt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git-crypt init &lt;span style="color:#78787e"># in an initialized git repository&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Specify files to encrypt by creating a .gitattributes file:&lt;/p>
 &lt;pre tabindex="0">&lt;code class="language-gitattributes" data-lang="gitattributes"># The config is similar to .gitignore
 accounts/*.bean filter=git-crypt diff=git-crypt
@@ -29,8 +30,9 @@ accounts/*.bean filter=git-crypt diff=git-crypt
 &lt;/a>
 Step 2: Add files
 &lt;/div>
-&lt;/h2>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git add .
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#e6db74">&amp;#34;Add git-crypt&amp;#34;&lt;/span>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git add .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit -m &lt;span style="color:#5af78e">&amp;#34;Add git-crypt&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="step-3-check-git-crypt-status" >
 &lt;div>
@@ -39,7 +41,8 @@ Step 2: Add files
 &lt;/a>
 Step 3: Check git-crypt status
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>&lt;code>git-crypt status -e&lt;/code> Show encrypted files only&lt;/li>
 &lt;li>&lt;code>git-crypt status -u&lt;/code> Show unencrypted files only&lt;/li>
 &lt;li>&lt;code>git-crypt status -f&lt;/code> Fix problems with the repository&lt;/li>
@@ -51,7 +54,8 @@ Step 3: Check git-crypt status
 &lt;/a>
 Results
 &lt;/div>
-&lt;/h2>&lt;p>The beancount file is encrypted.&lt;/p>
+&lt;/h2>
+&lt;p>The beancount file is encrypted.&lt;/p>
 &lt;p>&lt;img alt="Alt text" src="https://www.junyi.dev/posts/git-crypt/image-1.png">&lt;/p>
 &lt;h2 id="后续更新" >
 &lt;div>
@@ -60,18 +64,20 @@ Results
 &lt;/a>
 后续更新
 &lt;/div>
-&lt;/h2>&lt;h3 id="1-月-30-日更新" >
+&lt;/h2>
+&lt;h3 id="1-月-30-日更新" >
 &lt;div>
 &lt;a href="#1-%e6%9c%88-30-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
 1 月 30 日更新
 &lt;/div>
-&lt;/h3>&lt;p>我乱玩，把自己锁死了。&lt;/p>
+&lt;/h3>
+&lt;p>我乱玩，把自己锁死了。&lt;/p>
 &lt;p>这个傻逼工具，是可以在你不 export symmetric key 的情况下，允许你 lock 仓库的。&lt;/p>
 &lt;p>然后我就在没有 export symmetric key 的情况下，把自己锁死了。&lt;/p>
 &lt;p>文件没有备份，因为我为了“安全”，只保留了加密后的 commit，历史的提交日志都删了。&lt;/p>
-&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>https://www.junyi.dev/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>https://www.junyi.dev/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
+&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
 &lt;h2 id="-棒极了" >
 &lt;div>
@@ -80,7 +86,8 @@ Results
 &lt;/a>
 👍👍👍 棒极了
 &lt;/div>
-&lt;/h2>&lt;p>干货多，配图用心，值得反复研读，除了学习技术，还可以学习他们的写作思路和行文风格，把他们当做榜样！&lt;/p>
+&lt;/h2>
+&lt;p>干货多，配图用心，值得反复研读，除了学习技术，还可以学习他们的写作思路和行文风格，把他们当做榜样！&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>面向信仰编程&lt;/strong>&lt;/p>
@@ -120,7 +127,8 @@ Results
 &lt;/a>
 👍👍 很不错
 &lt;/div>
-&lt;/h2>&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
+&lt;/h2>
+&lt;p>有不少技术干货，可以看出来作者自己的思考&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>&lt;strong>PolarDB 数据库内核月报&lt;/strong> &lt;a href="http://mysql.taobao.org/monthly/">http://mysql.taobao.org/monthly/&lt;/a>&lt;/p>
@@ -136,7 +144,8 @@ Results
 &lt;/a>
 👍 不错的
 &lt;/div>
-&lt;/h2>&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
+&lt;/h2>
+&lt;p>感谢博主作出的贡献，如果可以再多分享一些，就更好了！中文互联网需要你的贡献！&lt;/p>
 &lt;p>（以下也包含我好朋友们的博客）&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://www.junyi.dev">Junyi&amp;rsquo;s Lab&lt;/a>&lt;/li>
@@ -150,7 +159,8 @@ Results
 &lt;/a>
 ❤️ 我喜欢的
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://janhuenermann.com/">Jan Hünermann&lt;/a>&lt;/p>
 &lt;p>博客做的很漂亮 很有趣，特别是他的两个 Project&lt;/p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>机械硬盘 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/</link><description>Junyi's Lab (机械硬盘)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 20 Mar 2021 20:41:30 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/index.xml" rel="self" type="application/rss+xml"/><item><title>购买硬盘盒遇到的坑</title><link>https://www.junyi.dev/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>https://www.junyi.dev/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>机械硬盘 on Junyi's Lab</title><link>/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/</link><description>Junyi's Lab (机械硬盘)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 20 Mar 2021 20:41:30 +0800</lastBuildDate><atom:link href="/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/index.xml" rel="self" type="application/rss+xml"/><item><title>购买硬盘盒遇到的坑</title><link>/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
 &lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 硬盘盒容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
 &lt;p>后来做了多方面调查，得出结论：&lt;/p>
@@ -15,14 +15,16 @@
 &lt;/a>
 硬盘到底需要多强的供电能力？
 &lt;/div>
-&lt;/h2>&lt;h3 id="标签上写的供电需求" >
+&lt;/h2>
+&lt;h3 id="标签上写的供电需求" >
 &lt;div>
 &lt;a href="#%e6%a0%87%e7%ad%be%e4%b8%8a%e5%86%99%e7%9a%84%e4%be%9b%e7%94%b5%e9%9c%80%e6%b1%82">
 ##
 &lt;/a>
 标签上写的供电需求
 &lt;/div>
-&lt;/h3>&lt;p>我们可以在硬盘上观察到 &lt;code>5V 0.55A&lt;/code>，&lt;code>12V 0.37A&lt;/code> 这样的标记（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
+&lt;/h3>
+&lt;p>我们可以在硬盘上观察到 &lt;code>5V 0.55A&lt;/code>，&lt;code>12V 0.37A&lt;/code> 这样的标记（以 &lt;code>SEAGATE ST4000VX007&lt;/code> 举例）&lt;/p>
 &lt;figure>
 &lt;img id="fig2" src="fig2.jpg" alt="view-service" width="400" />
 &lt;figcaption>Fig.2 - &lt;code>ST4000VX007&lt;/code> labels the operating power of &lt;code>12V 0.37A&lt;/code>.&lt;/figcaption>
@@ -36,7 +38,8 @@
 &lt;/a>
 硬盘实际的供电需求
 &lt;/div>
-&lt;/h3>&lt;p>查阅&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>我们可以发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
+&lt;/h3>
+&lt;p>查阅&lt;a href="https://www.seagate.com/www-content/datasheets/pdfs/skyhawk-3-5-hddDS1902-6-1710US-en_US.pdf">官方手册&lt;/a>我们可以发现，这块硬盘的「Average Operating Power」是「5.5W」，但是，还有一项非常重要的参数是&lt;/p>
 &lt;p>&lt;strong>&lt;code>「Startup Current, Typical (12V, 1.8A) 」&lt;/code>&lt;/strong>&lt;/p>
 &lt;p>这个指的是硬盘刚开始工作时的瞬间电流，&lt;code>ST4000VX007&lt;/code> 这块硬盘的瞬间电流可以达到 &lt;code>1.8A&lt;/code>，其他型号的硬盘甚至瞬间电流可以达到 &lt;code>2.0A&lt;/code>&lt;/p>
 &lt;figure>

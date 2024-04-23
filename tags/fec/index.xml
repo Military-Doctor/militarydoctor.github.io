@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FEC on Junyi's Lab</title><link>https://www.junyi.dev/tags/fec/</link><description>Junyi's Lab (FEC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 04 Aug 2020 15:19:38 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/fec/index.xml" rel="self" type="application/rss+xml"/><item><title>FEC - 前向纠错技术</title><link>https://www.junyi.dev/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>https://www.junyi.dev/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FEC on Junyi's Lab</title><link>/tags/fec/</link><description>Junyi's Lab (FEC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 04 Aug 2020 15:19:38 +0800</lastBuildDate><atom:link href="/tags/fec/index.xml" rel="self" type="application/rss+xml"/><item><title>FEC - 前向纠错技术</title><link>/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
 &lt;blockquote>
 &lt;p>FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。
 &lt;a href="https://zhuanlan.zhihu.com/p/104579290">https://zhuanlan.zhihu.com/p/104579290&lt;/a>&lt;/p>
@@ -10,7 +10,8 @@
 &lt;/a>
 Parity Check 奇偶校验
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
 // 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1
 1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1
 &lt;/code>&lt;/pre>&lt;p>每个字节的数据都计算一个校验位，数据和校验位一起发送出去，这样接收方可以根据校验位粗略地判断接收到的数据是否有误。&lt;/p>
@@ -21,7 +22,8 @@ Parity Check 奇偶校验
 &lt;/a>
 基于 XOR 的 FEC
 &lt;/div>
-&lt;/h1>&lt;p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。&lt;/p>
+&lt;/h1>
+&lt;p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。&lt;/p>
 &lt;p>但考虑到每 2 个 packet 就产生 1 个 fec packet，冗余度可能有点高（比较浪费带宽），我们能否每 3 个或者每 N 个 packet 再产生一个 fec packet 呢？当然可以，我们以每 3 个 packet（A、B、C） 产生 1 个 fec packet（D）为例来推导一下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>d = a ^ b ^ c
 a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d
@@ -35,7 +37,8 @@ c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
 &lt;/a>
 对象存储 - EC 纠删码
 &lt;/div>
-&lt;/h1>&lt;p>通过 K 个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。&lt;/p>
+&lt;/h1>
+&lt;p>通过 K 个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。&lt;/p>
 &lt;h2 id="reed-solomon-codes" >
 &lt;div>
 &lt;a href="#reed-solomon-codes">
@@ -43,28 +46,32 @@ c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
 &lt;/a>
 Reed-Solomon Codes
 &lt;/div>
-&lt;/h2>&lt;h1 id="rfc-草案-payload-flexible-fec" >
+&lt;/h2>
+&lt;h1 id="rfc-草案-payload-flexible-fec" >
 &lt;div>
 &lt;a href="#rfc-%e8%8d%89%e6%a1%88-payload-flexible-fec">
 ##
 &lt;/a>
 RFC 草案 Payload Flexible FEC
 &lt;/div>
-&lt;/h1>&lt;h2 id="11-奇偶校验码" >
+&lt;/h1>
+&lt;h2 id="11-奇偶校验码" >
 &lt;div>
 &lt;a href="#11-%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c%e7%a0%81">
 #
 &lt;/a>
 1.1 奇偶校验码
 &lt;/div>
-&lt;/h2>&lt;h3 id="111-一维-parity-fec-protection" >
+&lt;/h2>
+&lt;h3 id="111-一维-parity-fec-protection" >
 &lt;div>
 &lt;a href="#111-%e4%b8%80%e7%bb%b4-parity-fec-protection">
 ##
 &lt;/a>
 1.1.1 一维 Parity FEC Protection
 &lt;/div>
-&lt;/h3>&lt;p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）&lt;/p>
+&lt;/h3>
+&lt;p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）&lt;/p>
 &lt;p>一维连续 FEC 保护&lt;/p>
 &lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
 | 1 | X X | 4 | |R_1|
@@ -96,7 +103,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 1.1.2 二维 Parity FEC Protection
 &lt;/div>
-&lt;/h3>&lt;p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）&lt;/p>
+&lt;/h3>
+&lt;p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）&lt;/p>
 &lt;p>这种 FEC 保护被称作 二维奇偶校验前向纠错保护&lt;/p>
 &lt;p>但是如果发生特定的 loss pattern，这种保护模式依然会失效，比如：&lt;/p>
 &lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
@@ -130,7 +138,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 1.1.3 开销计算 Overhead Computation
 &lt;/div>
-&lt;/h3>&lt;p>开销（overhead）被定义为：&lt;/p>
+&lt;/h3>
+&lt;p>开销（overhead）被定义为：&lt;/p>
 &lt;p>修复包大小 / 源包大小&lt;/p>
 &lt;p>单位：Bytes&lt;/p>
 &lt;p>通常来说，修复包比源包更大。&lt;/p>
@@ -146,7 +155,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 3. 定义
 &lt;/div>
-&lt;/h1>&lt;p>L：表示列&lt;/p>
+&lt;/h1>
+&lt;p>L：表示列&lt;/p>
 &lt;p>D：表示行&lt;/p>
 &lt;p>bitmask：由 FEC 包保护的包的运行长度编码。如果掩码中的位 i 被设置为 1，源数据包的编号 N + i 被这个 FEC 包保护。这里，N 是数基数，FEC 包中也有表示。&lt;/p>
 &lt;h1 id="4-包格式" >
@@ -156,7 +166,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4. 包格式
 &lt;/div>
-&lt;/h1>&lt;p>这一小节定义了源包和修复包的格式&lt;/p>
+&lt;/h1>
+&lt;p>这一小节定义了源包和修复包的格式&lt;/p>
 &lt;h2 id="41-源包" >
 &lt;div>
 &lt;a href="#41-%e6%ba%90%e5%8c%85">
@@ -164,14 +175,16 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4.1 源包
 &lt;/div>
-&lt;/h2>&lt;h2 id="42-修复包" >
+&lt;/h2>
+&lt;h2 id="42-修复包" >
 &lt;div>
 &lt;a href="#42-%e4%bf%ae%e5%a4%8d%e5%8c%85">
 #
 &lt;/a>
 4.2 修复包
 &lt;/div>
-&lt;/h2>&lt;p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的 RTP 报头以及 RTP 有效负载中的另一个报头，我们将其称为 FEC 报头，如图 9 所示。&lt;/p>
+&lt;/h2>
+&lt;p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的 RTP 报头以及 RTP 有效负载中的另一个报头，我们将其称为 FEC 报头，如图 9 所示。&lt;/p>
 &lt;p>（注意，受特定 FEC 包保护的所有源流包都需要在同一个 RTP 会话中。）&lt;/p>
 &lt;pre tabindex="0">&lt;code>+------------------------------+
 | IP Header |
@@ -213,7 +226,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 8. 拥塞控制考虑
 &lt;/div>
-&lt;/h1>&lt;p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.&lt;/p>
+&lt;/h1>
+&lt;p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.&lt;/p>
 &lt;p>In particular, in bandwidth-limited networks, FEC repair flows may consume most or all of the available bandwidth and consequently may congest the network. In such cases, the applications MUST NOT arbitrarily increase the amount of FEC protection since doing so may lead to a congestion collapse. If desired, stronger FEC protection MAY be applied only after the source rate has been reduced.&lt;/p>
 &lt;h1 id="9-安全性考虑" >
 &lt;div>
@@ -222,7 +236,7 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 9. 安全性考虑
 &lt;/div>
-&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>https://www.junyi.dev/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
 （呕心沥血的翻译）&lt;/p>
 &lt;h1 id="4-packet-formats-包格式" >
 &lt;div>
@@ -231,7 +245,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4. Packet Formats 包格式
 &lt;/div>
-&lt;/h1>&lt;p>这一节定义了源包和修复包的格式&lt;/p>
+&lt;/h1>
+&lt;p>这一节定义了源包和修复包的格式&lt;/p>
 &lt;h2 id="41-source-packets-源包" >
 &lt;div>
 &lt;a href="#41-source-packets-%e6%ba%90%e5%8c%85">
@@ -239,7 +254,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4.1. Source Packets 源包
 &lt;/div>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>The source packets MUST contain the information that identifies the
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>The source packets MUST contain the information that identifies the
 source block and the position within the source block occupied by the
 packet. Since the source packets that are carried within an RTP
 stream already contain unique sequence numbers in their RTP headers
@@ -258,7 +274,8 @@ packets sent in the same multicast session.
 &lt;/a>
 4.2. Repair Packets 修复包
 &lt;/div>
-&lt;/h2>&lt;p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.&lt;/p>
+&lt;/h2>
+&lt;p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.&lt;/p>
 &lt;p>针对这个要求，修复包使用 RTP 的头，以及 RTP 载荷中的另一个头，我们把它叫做 FEC 头，具体请看 Figure 9&lt;/p>
 &lt;pre tabindex="0">&lt;code>+------------------------------+
 | IP Header |
@@ -431,7 +448,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5. Payload Format Parameters 载荷格式参数
 &lt;/div>
-&lt;/h1>&lt;p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。&lt;/p>
+&lt;/h1>
+&lt;p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。&lt;/p>
 &lt;h2 id="51-media-type-registration---parity-codes-媒体类型注册---奇偶码" >
 &lt;div>
 &lt;a href="#51-media-type-registration---parity-codes-%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%e6%b3%a8%e5%86%8c---%e5%a5%87%e5%81%b6%e7%a0%81">
@@ -439,14 +457,16 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.1. Media Type Registration - Parity Codes 媒体类型注册 - 奇偶码
 &lt;/div>
-&lt;/h2>&lt;h2 id="52-mapping-to-sdp-parameters-到-sdp-参数的映射" >
+&lt;/h2>
+&lt;h2 id="52-mapping-to-sdp-parameters-到-sdp-参数的映射" >
 &lt;div>
 &lt;a href="#52-mapping-to-sdp-parameters-%e5%88%b0-sdp-%e5%8f%82%e6%95%b0%e7%9a%84%e6%98%a0%e5%b0%84">
 #
 &lt;/a>
 5.2. Mapping to SDP Parameters 到 SDP 参数的映射
 &lt;/div>
-&lt;/h2>&lt;p>The mapping of the media type specification for “non-interleaved-parityfec” and “interleaved-parityfec” and their parameters in SDP is as follows:&lt;/p>
+&lt;/h2>
+&lt;p>The mapping of the media type specification for “non-interleaved-parityfec” and “interleaved-parityfec” and their parameters in SDP is as follows:&lt;/p>
 &lt;ul>
 &lt;li>The media type (e.g., “application”) goes into the “m=” line as the media name.&lt;/li>
 &lt;li>The media subtype goes into the “a=rtpmap” line as the encoding name. The RTP clock rate parameter (“rate”) also goes into the “a=rtpmap” line as the clock rate.&lt;/li>
@@ -460,7 +480,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.2.1. Offer-Answer Model Considerations
 &lt;/div>
-&lt;/h3>&lt;p>When offering 1-D interleaved parity FEC over RTP using SDP in an Offer/Answer model [RFC3264], the following considerations apply:&lt;/p>
+&lt;/h3>
+&lt;p>When offering 1-D interleaved parity FEC over RTP using SDP in an Offer/Answer model [RFC3264], the following considerations apply:&lt;/p>
 &lt;ul>
 &lt;li>不同 L 和 D 的组合会产生不同的 FEC 数据，并且无法与其它组合相互使用。发送者可能会想要提供多个有效的 L 和 D 的组合供接收者使用。接收者 SHOULD 正常选择有足够的 interleaving 的 offer。如果多个 offer 存在，接收者可能选择最低开小的或需要最小缓冲区的 offer。具体的选择跟场景要求有关&lt;/li>
 &lt;li>Repair-window 的值依赖于 L 和 D 的值，不能随便写。更具体的来讲，L 和 D 的值决定了 repair-window 大小的下限（最小值）。repair-window 的上限并不由 L 和 D 来决定。&lt;/li>
@@ -475,7 +496,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.2.2. Declarative Considerations
 &lt;/div>
-&lt;/h3>&lt;p>In declarative usage, like SDP in the Real-time Streaming Protocol (RTSP) [RFC2326] or the Session Announcement Protocol (SAP) [RFC2974], the following considerations apply:&lt;/p>
+&lt;/h3>
+&lt;p>In declarative usage, like SDP in the Real-time Streaming Protocol (RTSP) [RFC2326] or the Session Announcement Protocol (SAP) [RFC2974], the following considerations apply:&lt;/p>
 &lt;ul>
 &lt;li>载荷的格式配置参数全都是声明的，参与者 MUST 使用在 session 中被提供的配置&lt;/li>
 &lt;li>通过声明多个 RTP 载荷类型，一个以上的配置可能被提供。在这种情况下，receivers 应当选择一个最适合的 repair flow&lt;/li>
@@ -487,7 +509,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6. Protection and Recovery Procedures - Parity Codes 保护和恢复过程 - 奇偶码
 &lt;/div>
-&lt;/h1>&lt;p>这一章提供了对 1-D 和 2-D 奇偶码的完整定义和它们的 RTP 载荷格式&lt;/p>
+&lt;/h1>
+&lt;p>这一章提供了对 1-D 和 2-D 奇偶码的完整定义和它们的 RTP 载荷格式&lt;/p>
 &lt;h2 id="61-overview-概览" >
 &lt;div>
 &lt;a href="#61-overview-%e6%a6%82%e8%a7%88">
@@ -495,7 +518,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.1. Overview 概览
 &lt;/div>
-&lt;/h2>&lt;p>下面的章节详细介绍了生成修复包、通过修复包重建源包的具体步骤。&lt;/p>
+&lt;/h2>
+&lt;p>下面的章节详细介绍了生成修复包、通过修复包重建源包的具体步骤。&lt;/p>
 &lt;h2 id="62-repair-packet-construction-修复包的构造" >
 &lt;div>
 &lt;a href="#62-repair-packet-construction-%e4%bf%ae%e5%a4%8d%e5%8c%85%e7%9a%84%e6%9e%84%e9%80%a0">
@@ -503,7 +527,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.2. Repair Packet Construction 修复包的构造
 &lt;/div>
-&lt;/h2>&lt;p>修复包的头部已经在 Section 4.2 有了详细说明&lt;/p>
+&lt;/h2>
+&lt;p>修复包的头部已经在 Section 4.2 有了详细说明&lt;/p>
 &lt;p>FEC 的头部包含 12 字节（有可能扩展到 28 字节）。通过对每个源包的每一位进行异或操作来生成特定的修复包。给你一个修复包，那么源包的集合，可以通过 Section 6.3.1 中的公式计算出来。&lt;/p>
 &lt;p>通过将每个源包按照以下字段的顺序拼接在一起，我们就可以生成 bit string。&lt;/p>
 &lt;ul>
@@ -545,7 +570,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3. Source Packet Reconstruction 重建源包
 &lt;/div>
-&lt;/h2>&lt;p>这一小节描述了重建丢失源包的修复过程。&lt;/p>
+&lt;/h2>
+&lt;p>这一小节描述了重建丢失源包的修复过程。&lt;/p>
 &lt;p>修复过程有两步：&lt;/p>
 &lt;ol>
 &lt;li>FEC decoder 决定应该使用哪一个源包和修复包来恢复丢失的包&lt;/li>
@@ -561,7 +587,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3.1. Associating the Source and Repair Packets 源包与修复包之间的关联
 &lt;/div>
-&lt;/h3>&lt;p>根据&lt;strong>修复包&lt;/strong> p ，得出&lt;strong>源包&lt;/strong>的集合 T (p)。&lt;/p>
+&lt;/h3>
+&lt;p>根据&lt;strong>修复包&lt;/strong> p ，得出&lt;strong>源包&lt;/strong>的集合 T (p)。&lt;/p>
 &lt;p>注意的是，对于 L 列、 D 行的 source block， 集合 T 包含了 D 个源包 + 一个列修复包，还有 L 个源包 + 一个行修复包&lt;/p>
 &lt;p>列修复包：通过一列源包计算出来的修复包&lt;/p>
 &lt;p>行修复包：通过一行源包计算出来的修复包&lt;/p>
@@ -573,7 +600,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3.1.1. Signaled in SDP 在 SDP 中的交互
 &lt;/div>
-&lt;/h4>&lt;p>第一步是关联源包和修复包。如果 endpoint 整个依赖 out-of-band signaling（MSK=11, M=N=0），可以从 SDP 描述的 media type parameters 推断出这个信息。进一步来讲，RTP 头部的 payload type field 可以辅助 receiver 去 distinguish 交错的或非交错的 FEC 包。&lt;/p>
+&lt;/h4>
+&lt;p>第一步是关联源包和修复包。如果 endpoint 整个依赖 out-of-band signaling（MSK=11, M=N=0），可以从 SDP 描述的 media type parameters 推断出这个信息。进一步来讲，RTP 头部的 payload type field 可以辅助 receiver 去 distinguish 交错的或非交错的 FEC 包。&lt;/p>
 &lt;p>数学上来讲，对于接收到的任意的修复包 p， 我们可以确定出被保护的源包的 sequence number：
 $$
 p_snb + i \times {X_1} \left( modulo 65535 \right)
@@ -591,7 +619,8 @@ X_2，如果 FEC 包是交错式的，就被设置成 D，如果是非交错式�
 &lt;/a>
 6.3.1.2. Using bitmasks
 &lt;/div>
-&lt;/h4>&lt;p>当使用固定大小的 bitmasks （16-, 48-, 122-bits）的时候，FEC 头部的 SN base field 表示 lowest sequence number of the 源包 that forms the FEC packet.&lt;/p>
+&lt;/h4>
+&lt;p>当使用固定大小的 bitmasks （16-, 48-, 122-bits）的时候，FEC 头部的 SN base field 表示 lowest sequence number of the 源包 that forms the FEC packet.&lt;/p>
 &lt;p>bitmask 中的 “1” 其实是从 SN base 开始的 offset，表示被 FEC 保护的剩余 packet。&lt;/p>
 &lt;p>bitmasks 有能力表示任意的 protection patterns，比如 1-D interleaved，1-D non-interleaved, 2-D, staircase。&lt;/p>
 &lt;h4 id="6313-using-m-and-offsets" >
@@ -601,7 +630,8 @@ X_2，如果 FEC 包是交错式的，就被设置成 D，如果是非交错式�
 &lt;/a>
 6.3.1.3. Using M and Offsets
 &lt;/div>
-&lt;/h4>&lt;p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&amp;gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset&lt;/p>
+&lt;/h4>
+&lt;p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&amp;gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset&lt;/p>
 &lt;p>通过组合 interleaved 和 non-interleaved FEC 包，我们可以组成 2-D protection patterns。&lt;/p>
 &lt;p>数学上来讲，对于任意接收到的修复包 p*，我们可以通过以下方式确定被保护的源包的 sequence number：&lt;/p>
 &lt;pre tabindex="0">&lt;code>When N = 0:
@@ -615,7 +645,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 6.3.2. Recovering the RTP Header 恢复 RTP 头
 &lt;/div>
-&lt;/h3>&lt;p>略过，因为不需要实现&lt;/p>
+&lt;/h3>
+&lt;p>略过，因为不需要实现&lt;/p>
 &lt;h1 id="7-sdp-examples-有关-sdp-的例子" >
 &lt;div>
 &lt;a href="#7-sdp-examples-%e6%9c%89%e5%85%b3-sdp-%e7%9a%84%e4%be%8b%e5%ad%90">
@@ -623,7 +654,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 7. SDP Examples 有关 SDP 的例子
 &lt;/div>
-&lt;/h1>&lt;p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。&lt;/p>
+&lt;/h1>
+&lt;p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。&lt;/p>
 &lt;h2 id="71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping" >
 &lt;div>
 &lt;a href="#71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping">
@@ -631,7 +663,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 7.1. Example SDP for Flexible FEC Protection with in-band SSRC mapping
 &lt;/div>
-&lt;/h2>&lt;p>在这个例子里，我们有一个视频源流和一个 FEC 修复包流。源和修复包流被复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
+&lt;/h2>
+&lt;p>在这个例子里，我们有一个视频源流和一个 FEC 修复包流。源和修复包流被复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
 &lt;pre tabindex="0">&lt;code>v=0
 o=mo 1122334455 1122334466 IN IP4 fec.example.com
 s=FlexFEC minimal SDP signalling Example
@@ -648,7 +681,8 @@ a=fmtp:98; repair-window=200ms
 &lt;/a>
 7.2. Example SDP for Flex FEC Protection with explicit signalling in the SDP
 &lt;/div>
-&lt;/h2>&lt;p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。&lt;/p>
+&lt;/h2>
+&lt;p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。&lt;/p>
 &lt;p>我们跟 &lt;code>a=ssrc-group:FEC-FR 1234 2345&lt;/code> 构建一个 FEC groups。源和修复包流复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
 &lt;pre tabindex="0">&lt;code>v=0
 o=ali 1122334455 1122334466 IN IP4 fec.example.com
@@ -669,7 +703,8 @@ a=ssrc-group:FEC-FR 1234 2345
 &lt;/a>
 8. Congestion Control Considerations 拥塞控制的考虑
 &lt;/div>
-&lt;/h1>&lt;p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。&lt;/p>
+&lt;/h1>
+&lt;p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。&lt;/p>
 &lt;p>特别的是，在带宽限制的网络中，FEC 修复包的流动，可能成为带宽消耗的罪魁祸首，有可能会堵塞网络。在这个情况里，应用程序 MUST NOT 随意增加 FEC 保护的次数，因为这么做会有可能导致拥塞崩溃（Congestion Collapse）。&lt;/p>
 &lt;p>Congestive collapse (or congestion collapse) is the condition in which congestionprevents or limits useful communication.&lt;/p>
 &lt;p>如果你真的很想要 FEC 保护，那么你或许可以在源码率降低的时候采用更强的 FEC 保护。&lt;/p>
@@ -684,14 +719,16 @@ a=ssrc-group:FEC-FR 1234 2345
 &lt;/a>
 9. Security Considerations 安全考虑
 &lt;/div>
-&lt;/h1>&lt;h1 id="10-iana-considerations" >
+&lt;/h1>
+&lt;h1 id="10-iana-considerations" >
 &lt;div>
 &lt;a href="#10-iana-considerations">
 ##
 &lt;/a>
 10. IANA Considerations
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>New media subtypes are subject to IANA registration. For the
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>New media subtypes are subject to IANA registration. For the
 registration of the payload formats and their parameters introduced
 in this document, refer to Section 5.
 &lt;/code>&lt;/pre>&lt;h1 id="11-acknowledgements" >
@@ -701,7 +738,8 @@ in this document, refer to Section 5.
 &lt;/a>
 11. Acknowledgements
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>Some parts of this document are borrowed from [RFC5109]. Thus, the
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>Some parts of this document are borrowed from [RFC5109]. Thus, the
 author would like to thank the editor of [RFC5109] and those who
 contributed to [RFC5109].
 Thanks to Bernard Aboba , Rasmus Brandt , Roni Even , Stefan Holmer ,
@@ -716,4 +754,5 @@ feedback on earlier versions of this draft.
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item></channel></rss>
+&lt;/h1>
+&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item></channel></rss>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术文章 on Junyi's Lab</title><link>https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link><description>Junyi's Lab (技术文章)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Sep 2023 15:15:37 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System: Primary Backup Replication</title><link>https://www.junyi.dev/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术文章 on Junyi's Lab</title><link>/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/</link><description>Junyi's Lab (技术文章)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 12 Sep 2023 15:15:37 +0800</lastBuildDate><atom:link href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System: Primary Backup Replication</title><link>/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
 &lt;p>你有一个硬盘，存了很多重要资料，你担心这个硬盘某天坏了，怎么办？&lt;/p>
 &lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
 &lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
@@ -10,7 +10,8 @@
 &lt;/a>
 前提假设
 &lt;/div>
-&lt;/h2>&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
+&lt;/h2>
+&lt;p>我们假设所有的操作都是&lt;ruby>确定&lt;rt>deterministic&lt;/rt>&lt;/ruby>的&lt;/p>
 &lt;!--
 多线程那样，因为 scheduler 的原因导致每次执行的结果都不一样。 -->
 &lt;h2 id="最简单的-primary--backup" >
@@ -20,7 +21,8 @@
 &lt;/a>
 最简单的 primary &amp;amp; backup
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>client&lt;strong>s&lt;/strong> 发送 operation (Put, Get, Append) 到 primary-server&lt;/li>
 &lt;li>primary-server 决定 operation 的执行顺序&lt;/li>
 &lt;li>primary-server 把 operation 的执行顺序发送给 backup-server&lt;/li>
@@ -60,7 +62,8 @@
 &lt;/a>
 什么是 view-server 里的 view
 &lt;/div>
-&lt;/h2>&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
+&lt;/h2>
+&lt;p>一个 view 是一个 primary-server 和一个 backup-server 的集合，描述了当前状态&lt;strong>谁是 primary 谁是 backup&lt;/strong>。&lt;/p>
 &lt;p>注意，一个 view 里，只有一个 primary 和一个 backup，其它的 server 标记为 idle。（想想看为什么这样设计？）&lt;/p>
 &lt;p>view 由 view-server 进行管理，其他节点可以获取到当前系统的 view。&lt;/p>
 &lt;figure>
@@ -75,11 +78,11 @@
 &lt;p>&lt;strong>很简单嘛！这能有什么问题？&lt;/strong>&lt;/p>
 &lt;p>话音刚落，问题就来了。&lt;/p>
 &lt;p>请看下面这个情况：&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 1, primary=A, backup=B;`&lt;/span> 这时候 A 挂了，B 成为 primary，从 idle 里面挑一个 C 成为 backup，然后 B 发送状态给 C。
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 1, primary=A, backup=B;`&lt;/span> 这时候 A 挂了，B 成为 primary，从 idle 里面挑一个 C 成为 backup，然后 B 发送状态给 C。
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 2, primary=B, backup=C;`&lt;/span> B 发状态的时候挂了，C 成为 primary，idle 里面没机器了
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74">`View 3, primary=C, backup=_;`&lt;/span> C：😅？（此时 C 根本不知道系统的状态是什么）
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#5af78e">`View 3, primary=C, backup=_;`&lt;/span> C：😅？（此时 C 根本不知道系统的状态是什么）
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>所以我们刚刚对整个系统的描述，是有缺陷的。&lt;/p>
 &lt;p>怎么改呢，我们让 view-server 必须等待 primary-server &lt;ruby>确认&lt;rt>ACK&lt;/rt>&lt;/ruby> 当前的 view。&lt;/p>
 &lt;p>就算 primary-server 挂了，view-server 也要等 ACK。&lt;/p>
@@ -91,7 +94,8 @@
 &lt;/a>
 总结一下所有的规则
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>
 &lt;p>在 view i+1 的 primary 必须是 view i 的 backup&lt;/p>
 &lt;p>如果没有这个规则会怎样？&lt;span class="spoiler">&lt;strong>Split brain:&lt;/strong> primary A, backup B, but can&amp;rsquo;t reach view-server. C,D are promoted to primary and backup, C doesn&amp;rsquo;t know previous state.&lt;/span>&lt;/p>
@@ -121,7 +125,8 @@
 &lt;/a>
 脑裂 (Split-brain)
 &lt;/div>
-&lt;/h2>&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
+&lt;/h2>
+&lt;p>这个词有点吓人。。。其实是在说：&lt;strong>在网络故障时，两个及以上的节点都认为自己是 Leader (primary-server)。&lt;/strong>&lt;/p>
 &lt;blockquote>
 &lt;p>View 1, primary=A, backup=B; 这时候 A 网络出故障无法连接到 view-server，B 成为新的 primary。
 View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 primary&lt;/p>
@@ -135,7 +140,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 系统卡住
 &lt;/div>
-&lt;/h2>&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
+&lt;/h2>
+&lt;p>有哪些可能导致系统卡住（处理不了 client 的请求）的情况？&lt;/p>
 &lt;ol>
 &lt;li>view-server 挂了&lt;/li>
 &lt;li>整个网络挂了&lt;/li>
@@ -150,14 +156,16 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 重复写入
 &lt;/div>
-&lt;/h2>&lt;h2 id="为什么-primary-backup-比较难" >
+&lt;/h2>
+&lt;h2 id="为什么-primary-backup-比较难" >
 &lt;div>
 &lt;a href="#%e4%b8%ba%e4%bb%80%e4%b9%88-primary-backup-%e6%af%94%e8%be%83%e9%9a%be">
 #
 &lt;/a>
 为什么 Primary Backup 比较难
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>primary 可能挂掉&lt;/li>
 &lt;li>backup 可能挂掉&lt;/li>
 &lt;li>通讯可能 临时/永久 挂掉&lt;/li>
@@ -177,7 +185,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 总结一下 view-server 的缺点
 &lt;/div>
-&lt;/h2>&lt;ol>
+&lt;/h2>
+&lt;ol>
 &lt;li>view-server 自己存在单点故障问题&lt;/li>
 &lt;li>view-server 必须等待 primary 的 ack，即使 primary 可能挂了也要等&lt;/li>
 &lt;/ol>
@@ -188,7 +197,8 @@ View 2, primary=B, backup=_; B 是 新的 primary，但 A 也认为自己是 pri
 &lt;/a>
 &lt;ruby>状态机复制&lt;rt>State Machine Replication&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>&lt;strong>状态机有一个特性：&lt;/strong> 任何初始状态一样的状态机，如果执行的命令序列一样，则最终达到的状态也一样。&lt;/p>
 &lt;p>如果将此特性应用在多参与者进行协商共识上，可以理解为系统中存在多个具有完全相同的状态机（参与者），这些状态机能最终保持一致的关键就是起始状态完全一致和执行命令序列完全一致。&lt;/p>
 &lt;/blockquote>
@@ -216,7 +226,7 @@ color: white
 .spoiler:hover::before {
 display: none;
 } */
-&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>https://www.junyi.dev/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
+&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
 &lt;hr>
@@ -228,7 +238,8 @@ display: none;
 &lt;/a>
 &lt;ruby>最终一致性&lt;rt>Eventual Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>系统最终会达到一致的状态。&lt;/p>
+&lt;/h2>
+&lt;p>系统最终会达到一致的状态。&lt;/p>
 &lt;h2 id="ruby因果一致性rtcausal-consistencyrtruby" >
 &lt;div>
 &lt;a href="#ruby%e5%9b%a0%e6%9e%9c%e4%b8%80%e8%87%b4%e6%80%a7rtcausal-consistencyrtruby">
@@ -236,7 +247,8 @@ display: none;
 &lt;/a>
 &lt;ruby>因果一致性&lt;rt>Causal Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>比 Sequential Consistency 更弱。
+&lt;/h2>
+&lt;p>比 Sequential Consistency 更弱。
 如果操作 A 依赖于操作 B，那么操作 B 发生在操作 A 之前，但是如果操作 A 和操作 B 之间没有因果关系，那么操作 A 和操作 B 的顺序是不确定的。&lt;/p>
 &lt;blockquote>
 &lt;p>有因才有果，因在果之前&lt;/p>
@@ -253,7 +265,8 @@ display: none;
 &lt;/a>
 &lt;ruby>序列一致性&lt;rt>Sequential Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
+&lt;/h2>
+&lt;p>不管系统怎么运行，得到的结果就好像把所有节点的所有操作按照某个 sequential order 排序后运行，但是在这个 sequential order 中，来自同一个节点的操作仍然保持着它们在节点中被指定的顺序。&lt;/p>
 &lt;p>换句话说，物理意义上的时间，不能决定&lt;ruby>操作&lt;rt>operations&lt;/rt>&lt;/ruby>的执行顺序&lt;/p>
 &lt;p>用作 Transaction 时我们称之为 Serializability&lt;/p>
 &lt;p>常用在 银行、金融数据库、事务&lt;/p>
@@ -264,7 +277,8 @@ display: none;
 &lt;/a>
 &lt;ruby>线性一致性&lt;rt>Linearizable Consistency&lt;/rt>&lt;/ruby>
 &lt;/div>
-&lt;/h2>&lt;p>也叫 Linearizability&lt;/p>
+&lt;/h2>
+&lt;p>也叫 Linearizability&lt;/p>
 &lt;p>是【顺序一致性 + 按照物理时间顺序执行】。&lt;/p>
 &lt;p>满足线性一致性的数据结构，表现得像是一个单一的、无并发的实体。&lt;span style="color: #cd7a32;">&lt;strong>是最强的保证&lt;/strong>&lt;/span>&lt;/p>
 &lt;p>比如 Google Spanner&lt;/p>
@@ -277,13 +291,14 @@ display: none;
 &lt;/a>
 Lab 2
 &lt;/div>
-&lt;/h2>&lt;p>实现 Primary-backup replication：&lt;/p>
+&lt;/h2>
+&lt;p>实现 Primary-backup replication：&lt;/p>
 &lt;ol>
 &lt;li>client 发送请求给 primary-server&lt;/li>
 &lt;li>由一个 中央 view-server 决定谁是 primary 谁是 backup&lt;/li>
 &lt;li>primary 挂了，backup 顶上来&lt;/li>
 &lt;/ol>
-&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>https://www.junyi.dev/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>https://www.junyi.dev/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
 &lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
 &lt;hr>
 &lt;p>首先简单过一下这些基础概念&lt;/p>
@@ -294,7 +309,8 @@ Lab 2
 &lt;/a>
 Happens-before relationship
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>
 &lt;p>Within a process, A comes before B then A→B, it also means&lt;/p>
 &lt;blockquote>
@@ -324,7 +340,8 @@ Happens-before relationship
 &lt;/a>
 Lamport clock
 &lt;/div>
-&lt;/h2>&lt;img src="logical-clock.png" alt="drawing" width="400"/>
+&lt;/h2>
+&lt;img src="logical-clock.png" alt="drawing" width="400"/>
 &lt;p>We can use clocks to implement a lock.&lt;/p>
 &lt;p>&lt;strong>Our goals are:&lt;/strong>&lt;/p>
 &lt;ol>
@@ -401,7 +418,8 @@ Lamport clock
 &lt;/a>
 Vector clock
 &lt;/div>
-&lt;/h2>&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
+&lt;/h2>
+&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
 &lt;blockquote>
 &lt;p>(0, 0, 0) for a 3-node system&lt;/p>
 &lt;/blockquote>
@@ -429,17 +447,19 @@ Vector clock
 &lt;/a>
 Lab 1
 &lt;/div>
-&lt;/h2>&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
+&lt;/h2>
+&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>https://www.junyi.dev/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>https://www.junyi.dev/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
+&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #
 &lt;/a>
 背景
 &lt;/div>
-&lt;/h2>&lt;p>成为 NUS 的 Research Assistant， 我跑了 &lt;del>1,072&lt;/del> 3,172 个实验。&lt;/p>
+&lt;/h2>
+&lt;p>成为 NUS 的 Research Assistant， 我跑了 &lt;del>1,072&lt;/del> 3,172 个实验。&lt;/p>
 &lt;p>几周前，面对小老板的需求，我手足无措：&lt;/p>
 &lt;blockquote>
 &lt;p>“把 XX 数据集在 A B C 三个算法上跑一下”&lt;/p>
@@ -458,21 +478,22 @@ Lab 1
 &lt;/a>
 文件管理体系
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/data/mnist/
+&lt;/h2>
+&lt;p>&lt;strong>数据集文件夹&lt;/strong>使用统一的文件结构，用于存放各种数据集。（与项目无关）&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/data/mnist/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/cifar10/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/data/covtype/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>项目文件夹&lt;/strong>针对每一个项目单独设立（例如VertiBench和VertiLearn）&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiBench/
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiBench/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/home/junyi/project/VertiLearn/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/ &lt;span style="color:#75715e"># 实验文件夹&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/&lt;span style="color:#f92672">{&lt;/span>exp-name&lt;span style="color:#f92672">}&lt;/span>-&lt;span style="color:#f92672">{&lt;/span>timestamp&lt;span style="color:#f92672">}&lt;/span>/*.log
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./data/ &lt;span style="color:#75715e"># 软链接到数据集&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./code/ &lt;span style="color:#75715e"># 项目的仓库 / 相关代码&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/ &lt;span style="color:#75715e"># 回复 Reviewer 的&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/experiment/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/plot/
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#f92672">{&lt;/span>reviewer-id&lt;span style="color:#f92672">}&lt;/span>/comment/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/ &lt;span style="color:#78787e"># 实验文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./experiment/&lt;span style="color:#ff6ac1">{&lt;/span>exp-name&lt;span style="color:#ff6ac1">}&lt;/span>-&lt;span style="color:#ff6ac1">{&lt;/span>timestamp&lt;span style="color:#ff6ac1">}&lt;/span>/*.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./data/ &lt;span style="color:#78787e"># 软链接到数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./code/ &lt;span style="color:#78787e"># 项目的仓库 / 相关代码&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/ &lt;span style="color:#78787e"># 回复 Reviewer 的&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#ff6ac1">{&lt;/span>reviewer-id&lt;span style="color:#ff6ac1">}&lt;/span>/experiment/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#ff6ac1">{&lt;/span>reviewer-id&lt;span style="color:#ff6ac1">}&lt;/span>/plot/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ./rebuttal/&lt;span style="color:#ff6ac1">{&lt;/span>reviewer-id&lt;span style="color:#ff6ac1">}&lt;/span>/comment/
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="如何做实验" >
 &lt;div>
 &lt;a href="#%e5%a6%82%e4%bd%95%e5%81%9a%e5%ae%9e%e9%aa%8c">
@@ -480,7 +501,8 @@ Lab 1
 &lt;/a>
 如何做实验
 &lt;/div>
-&lt;/h2>&lt;ul>
+&lt;/h2>
+&lt;ul>
 &lt;li>
 &lt;p>&lt;strong>⭐️ 自动化&lt;/strong>: 跑太多的实验真的很麻烦，特别是出问题需要重跑特定的实验时会让人头大。我坚决反对手工操作，即使做手工实验，也务必记录每一个实验命令。&lt;/p>
 &lt;/li>
@@ -504,7 +526,8 @@ Lab 1
 &lt;/a>
 总结
 &lt;/div>
-&lt;/h2>&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
+&lt;/h2>
+&lt;p>这次 RA 感觉还蛮苦的，不过好在我 “闭门造车”，造出来一套属于我的文管理体系和进度追踪系统，提高了工作效率，也减少了很多心智负担。&lt;/p>
 &lt;blockquote>
 &lt;p>（后来有老师说，做 benchmark 确实是一个很苦的工作）&lt;/p>
 &lt;/blockquote>
@@ -519,14 +542,16 @@ Lab 1
 &lt;/a>
 后续更新
 &lt;/div>
-&lt;/h2>&lt;h3 id="2023-年-9-月-22-日更新" >
+&lt;/h2>
+&lt;h3 id="2023-年-9-月-22-日更新" >
 &lt;div>
 &lt;a href="#2023-%e5%b9%b4-9-%e6%9c%88-22-%e6%97%a5%e6%9b%b4%e6%96%b0">
 ##
 &lt;/a>
 2023 年 9 月 22 日更新
 &lt;/div>
-&lt;/h3>&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
+&lt;/h3>
+&lt;p>论文投 NeurIPS 2023 被拒了，转投 ICLR 2024，需要补一些实验，还好有&lt;strong>自动化脚本&lt;/strong>和&lt;strong>有序的文件结构&lt;/strong>，让我不用花太多时间就能完成这些实验。&lt;/p>
 &lt;h3 id="2023-年-10-月-2-日更新" >
 &lt;div>
 &lt;a href="#2023-%e5%b9%b4-10-%e6%9c%88-2-%e6%97%a5%e6%9b%b4%e6%96%b0">
@@ -534,7 +559,8 @@ Lab 1
 &lt;/a>
 2023 年 10 月 2 日更新
 &lt;/div>
-&lt;/h3>&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
+&lt;/h3>
+&lt;p>补了实验，重新画了图（我只需要把 log 放到对应的文件夹里，然后运行一下 Jupyter Notebook 就可以了）&lt;/p>
 &lt;h3 id="2023-年-11-月-16-日更新" >
 &lt;div>
 &lt;a href="#2023-%e5%b9%b4-11-%e6%9c%88-16-%e6%97%a5%e6%9b%b4%e6%96%b0">
@@ -542,7 +568,8 @@ Lab 1
 &lt;/a>
 2023 年 11 月 16 日更新
 &lt;/div>
-&lt;/h3>&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
+&lt;/h3>
+&lt;p>ICLR 2024 的 Rebuttal 期间，又补了 840 个实验&amp;hellip;.&lt;/p>
 &lt;h3 id="2024-年-3-月-4-日更新" >
 &lt;div>
 &lt;a href="#2024-%e5%b9%b4-3-%e6%9c%88-4-%e6%97%a5%e6%9b%b4%e6%96%b0">
@@ -550,17 +577,18 @@ Lab 1
 &lt;/a>
 2024 年 3 月 4 日更新
 &lt;/div>
-&lt;/h3>&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>https://www.junyi.dev/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>https://www.junyi.dev/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;/h3>
+&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
 &lt;p>苹果的&lt;ruby>隔空投送&lt;rt>AirDrop&lt;/rt>&lt;/ruby>并没有那么可靠，丢失文件的情况经常发生&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>近些年来，&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;容器&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;Container&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;技术极大地降低了服务的部署成本
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>近些年来，&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;容器&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;Container&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;技术极大地降低了服务的部署成本
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;功能进行系统管理
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#f92672">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>FEC - 前向纠错技术</title><link>https://www.junyi.dev/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>https://www.junyi.dev/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>FEC - 前向纠错技术</title><link>/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
 &lt;blockquote>
 &lt;p>FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。
 &lt;a href="https://zhuanlan.zhihu.com/p/104579290">https://zhuanlan.zhihu.com/p/104579290&lt;/a>&lt;/p>
@@ -572,7 +600,8 @@ Lab 1
 &lt;/a>
 Parity Check 奇偶校验
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>// 例如：求 10100001 中 1 的数量是奇数还是偶数
 // 结果为 1 就是奇数个 1，结果为 0 就是偶数个 1
 1 ^ 0 ^ 1 ^ 0 ^ 0 ^ 0 ^ 0 ^ 1 = 1
 &lt;/code>&lt;/pre>&lt;p>每个字节的数据都计算一个校验位，数据和校验位一起发送出去，这样接收方可以根据校验位粗略地判断接收到的数据是否有误。&lt;/p>
@@ -583,7 +612,8 @@ Parity Check 奇偶校验
 &lt;/a>
 基于 XOR 的 FEC
 &lt;/div>
-&lt;/h1>&lt;p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。&lt;/p>
+&lt;/h1>
+&lt;p>假设网络通信有 N 个 packet 需要发送，那么可以每 2 个 packet 生成一个 FEC packet，这样，连续的 3 个 packet 的任意一个 packet 丢失，都能通过另外 2 个恢复出来。&lt;/p>
 &lt;p>但考虑到每 2 个 packet 就产生 1 个 fec packet，冗余度可能有点高（比较浪费带宽），我们能否每 3 个或者每 N 个 packet 再产生一个 fec packet 呢？当然可以，我们以每 3 个 packet（A、B、C） 产生 1 个 fec packet（D）为例来推导一下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>d = a ^ b ^ c
 a = a ^ (b ^ b) ^ (c ^ c) = (b ^ c) ^ (a ^ b ^ c) = b ^ c ^ d
@@ -597,7 +627,8 @@ c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
 &lt;/a>
 对象存储 - EC 纠删码
 &lt;/div>
-&lt;/h1>&lt;p>通过 K 个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。&lt;/p>
+&lt;/h1>
+&lt;p>通过 K 个有效数据，产生 M 个 FEC 冗余包，这 K + M 个数据，任意丢失 M 个数据，都能把 K 个有效数据恢复出来。&lt;/p>
 &lt;h2 id="reed-solomon-codes" >
 &lt;div>
 &lt;a href="#reed-solomon-codes">
@@ -605,28 +636,32 @@ c = (a ^ a) ^ (b ^ b) ^ c = (a ^ b) ^ (a ^ b ^ c) = a ^ b ^ d
 &lt;/a>
 Reed-Solomon Codes
 &lt;/div>
-&lt;/h2>&lt;h1 id="rfc-草案-payload-flexible-fec" >
+&lt;/h2>
+&lt;h1 id="rfc-草案-payload-flexible-fec" >
 &lt;div>
 &lt;a href="#rfc-%e8%8d%89%e6%a1%88-payload-flexible-fec">
 ##
 &lt;/a>
 RFC 草案 Payload Flexible FEC
 &lt;/div>
-&lt;/h1>&lt;h2 id="11-奇偶校验码" >
+&lt;/h1>
+&lt;h2 id="11-奇偶校验码" >
 &lt;div>
 &lt;a href="#11-%e5%a5%87%e5%81%b6%e6%a0%a1%e9%aa%8c%e7%a0%81">
 #
 &lt;/a>
 1.1 奇偶校验码
 &lt;/div>
-&lt;/h2>&lt;h3 id="111-一维-parity-fec-protection" >
+&lt;/h2>
+&lt;h3 id="111-一维-parity-fec-protection" >
 &lt;div>
 &lt;a href="#111-%e4%b8%80%e7%bb%b4-parity-fec-protection">
 ##
 &lt;/a>
 1.1.1 一维 Parity FEC Protection
 &lt;/div>
-&lt;/h3>&lt;p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）&lt;/p>
+&lt;/h3>
+&lt;p>非交错，按行生成，一行里丢一个包可以，丢两个就没法恢复了（Burst Loss）&lt;/p>
 &lt;p>一维连续 FEC 保护&lt;/p>
 &lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
 | 1 | X X | 4 | |R_1|
@@ -658,7 +693,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 1.1.2 二维 Parity FEC Protection
 &lt;/div>
-&lt;/h3>&lt;p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）&lt;/p>
+&lt;/h3>
+&lt;p>互联网丢包是随机的、爆发式的，发送端应该生成 non-interleaved 和 interleaved 前项纠错包（FEC packets）&lt;/p>
 &lt;p>这种 FEC 保护被称作 二维奇偶校验前向纠错保护&lt;/p>
 &lt;p>但是如果发生特定的 loss pattern，这种保护模式依然会失效，比如：&lt;/p>
 &lt;pre tabindex="0">&lt;code>+---+ +---+ +===+
@@ -692,7 +728,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 1.1.3 开销计算 Overhead Computation
 &lt;/div>
-&lt;/h3>&lt;p>开销（overhead）被定义为：&lt;/p>
+&lt;/h3>
+&lt;p>开销（overhead）被定义为：&lt;/p>
 &lt;p>修复包大小 / 源包大小&lt;/p>
 &lt;p>单位：Bytes&lt;/p>
 &lt;p>通常来说，修复包比源包更大。&lt;/p>
@@ -708,7 +745,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 3. 定义
 &lt;/div>
-&lt;/h1>&lt;p>L：表示列&lt;/p>
+&lt;/h1>
+&lt;p>L：表示列&lt;/p>
 &lt;p>D：表示行&lt;/p>
 &lt;p>bitmask：由 FEC 包保护的包的运行长度编码。如果掩码中的位 i 被设置为 1，源数据包的编号 N + i 被这个 FEC 包保护。这里，N 是数基数，FEC 包中也有表示。&lt;/p>
 &lt;h1 id="4-包格式" >
@@ -718,7 +756,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4. 包格式
 &lt;/div>
-&lt;/h1>&lt;p>这一小节定义了源包和修复包的格式&lt;/p>
+&lt;/h1>
+&lt;p>这一小节定义了源包和修复包的格式&lt;/p>
 &lt;h2 id="41-源包" >
 &lt;div>
 &lt;a href="#41-%e6%ba%90%e5%8c%85">
@@ -726,14 +765,16 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4.1 源包
 &lt;/div>
-&lt;/h2>&lt;h2 id="42-修复包" >
+&lt;/h2>
+&lt;h2 id="42-修复包" >
 &lt;div>
 &lt;a href="#42-%e4%bf%ae%e5%a4%8d%e5%8c%85">
 #
 &lt;/a>
 4.2 修复包
 &lt;/div>
-&lt;/h2>&lt;p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的 RTP 报头以及 RTP 有效负载中的另一个报头，我们将其称为 FEC 报头，如图 9 所示。&lt;/p>
+&lt;/h2>
+&lt;p>修复包必须包含标识它们所属的源块的信息，以及包含的修复符号与原始源块之间的关系。为此，我们使用修复包的 RTP 报头以及 RTP 有效负载中的另一个报头，我们将其称为 FEC 报头，如图 9 所示。&lt;/p>
 &lt;p>（注意，受特定 FEC 包保护的所有源流包都需要在同一个 RTP 会话中。）&lt;/p>
 &lt;pre tabindex="0">&lt;code>+------------------------------+
 | IP Header |
@@ -775,7 +816,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 8. 拥塞控制考虑
 &lt;/div>
-&lt;/h1>&lt;p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.&lt;/p>
+&lt;/h1>
+&lt;p>in networks where the congestion is a major contributor to the packet loss, the potential impacts of using FEC SHOULD be considered carefully before injecting the repair flows into the network.&lt;/p>
 &lt;p>In particular, in bandwidth-limited networks, FEC repair flows may consume most or all of the available bandwidth and consequently may congest the network. In such cases, the applications MUST NOT arbitrarily increase the amount of FEC protection since doing so may lead to a congestion collapse. If desired, stronger FEC protection MAY be applied only after the source rate has been reduced.&lt;/p>
 &lt;h1 id="9-安全性考虑" >
 &lt;div>
@@ -784,7 +826,7 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 9. 安全性考虑
 &lt;/div>
-&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>https://www.junyi.dev/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
 （呕心沥血的翻译）&lt;/p>
 &lt;h1 id="4-packet-formats-包格式" >
 &lt;div>
@@ -793,7 +835,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4. Packet Formats 包格式
 &lt;/div>
-&lt;/h1>&lt;p>这一节定义了源包和修复包的格式&lt;/p>
+&lt;/h1>
+&lt;p>这一节定义了源包和修复包的格式&lt;/p>
 &lt;h2 id="41-source-packets-源包" >
 &lt;div>
 &lt;a href="#41-source-packets-%e6%ba%90%e5%8c%85">
@@ -801,7 +844,8 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 4.1. Source Packets 源包
 &lt;/div>
-&lt;/h2>&lt;pre tabindex="0">&lt;code>The source packets MUST contain the information that identifies the
+&lt;/h2>
+&lt;pre tabindex="0">&lt;code>The source packets MUST contain the information that identifies the
 source block and the position within the source block occupied by the
 packet. Since the source packets that are carried within an RTP
 stream already contain unique sequence numbers in their RTP headers
@@ -820,7 +864,8 @@ packets sent in the same multicast session.
 &lt;/a>
 4.2. Repair Packets 修复包
 &lt;/div>
-&lt;/h2>&lt;p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.&lt;/p>
+&lt;/h2>
+&lt;p>修复包中必须有能够区分 source block they pertain to 和 the relationship between the contained repair symbols and the original source block.&lt;/p>
 &lt;p>针对这个要求，修复包使用 RTP 的头，以及 RTP 载荷中的另一个头，我们把它叫做 FEC 头，具体请看 Figure 9&lt;/p>
 &lt;pre tabindex="0">&lt;code>+------------------------------+
 | IP Header |
@@ -993,7 +1038,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5. Payload Format Parameters 载荷格式参数
 &lt;/div>
-&lt;/h1>&lt;p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。&lt;/p>
+&lt;/h1>
+&lt;p>这一章节提供了对于非交错和交错的奇偶 FEC 的媒体子类型注册。这一章也通过这些参数配置 FEC 编码和解码。如果没有特定的 FEC code 被子类型所指明，那么 FEC code 默认是这一章里定义的奇偶码（parity code）。&lt;/p>
 &lt;h2 id="51-media-type-registration---parity-codes-媒体类型注册---奇偶码" >
 &lt;div>
 &lt;a href="#51-media-type-registration---parity-codes-%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%e6%b3%a8%e5%86%8c---%e5%a5%87%e5%81%b6%e7%a0%81">
@@ -1001,14 +1047,16 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.1. Media Type Registration - Parity Codes 媒体类型注册 - 奇偶码
 &lt;/div>
-&lt;/h2>&lt;h2 id="52-mapping-to-sdp-parameters-到-sdp-参数的映射" >
+&lt;/h2>
+&lt;h2 id="52-mapping-to-sdp-parameters-到-sdp-参数的映射" >
 &lt;div>
 &lt;a href="#52-mapping-to-sdp-parameters-%e5%88%b0-sdp-%e5%8f%82%e6%95%b0%e7%9a%84%e6%98%a0%e5%b0%84">
 #
 &lt;/a>
 5.2. Mapping to SDP Parameters 到 SDP 参数的映射
 &lt;/div>
-&lt;/h2>&lt;p>The mapping of the media type specification for “non-interleaved-parityfec” and “interleaved-parityfec” and their parameters in SDP is as follows:&lt;/p>
+&lt;/h2>
+&lt;p>The mapping of the media type specification for “non-interleaved-parityfec” and “interleaved-parityfec” and their parameters in SDP is as follows:&lt;/p>
 &lt;ul>
 &lt;li>The media type (e.g., “application”) goes into the “m=” line as the media name.&lt;/li>
 &lt;li>The media subtype goes into the “a=rtpmap” line as the encoding name. The RTP clock rate parameter (“rate”) also goes into the “a=rtpmap” line as the clock rate.&lt;/li>
@@ -1022,7 +1070,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.2.1. Offer-Answer Model Considerations
 &lt;/div>
-&lt;/h3>&lt;p>When offering 1-D interleaved parity FEC over RTP using SDP in an Offer/Answer model [RFC3264], the following considerations apply:&lt;/p>
+&lt;/h3>
+&lt;p>When offering 1-D interleaved parity FEC over RTP using SDP in an Offer/Answer model [RFC3264], the following considerations apply:&lt;/p>
 &lt;ul>
 &lt;li>不同 L 和 D 的组合会产生不同的 FEC 数据，并且无法与其它组合相互使用。发送者可能会想要提供多个有效的 L 和 D 的组合供接收者使用。接收者 SHOULD 正常选择有足够的 interleaving 的 offer。如果多个 offer 存在，接收者可能选择最低开小的或需要最小缓冲区的 offer。具体的选择跟场景要求有关&lt;/li>
 &lt;li>Repair-window 的值依赖于 L 和 D 的值，不能随便写。更具体的来讲，L 和 D 的值决定了 repair-window 大小的下限（最小值）。repair-window 的上限并不由 L 和 D 来决定。&lt;/li>
@@ -1037,7 +1086,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 5.2.2. Declarative Considerations
 &lt;/div>
-&lt;/h3>&lt;p>In declarative usage, like SDP in the Real-time Streaming Protocol (RTSP) [RFC2326] or the Session Announcement Protocol (SAP) [RFC2974], the following considerations apply:&lt;/p>
+&lt;/h3>
+&lt;p>In declarative usage, like SDP in the Real-time Streaming Protocol (RTSP) [RFC2326] or the Session Announcement Protocol (SAP) [RFC2974], the following considerations apply:&lt;/p>
 &lt;ul>
 &lt;li>载荷的格式配置参数全都是声明的，参与者 MUST 使用在 session 中被提供的配置&lt;/li>
 &lt;li>通过声明多个 RTP 载荷类型，一个以上的配置可能被提供。在这种情况下，receivers 应当选择一个最适合的 repair flow&lt;/li>
@@ -1049,7 +1099,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6. Protection and Recovery Procedures - Parity Codes 保护和恢复过程 - 奇偶码
 &lt;/div>
-&lt;/h1>&lt;p>这一章提供了对 1-D 和 2-D 奇偶码的完整定义和它们的 RTP 载荷格式&lt;/p>
+&lt;/h1>
+&lt;p>这一章提供了对 1-D 和 2-D 奇偶码的完整定义和它们的 RTP 载荷格式&lt;/p>
 &lt;h2 id="61-overview-概览" >
 &lt;div>
 &lt;a href="#61-overview-%e6%a6%82%e8%a7%88">
@@ -1057,7 +1108,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.1. Overview 概览
 &lt;/div>
-&lt;/h2>&lt;p>下面的章节详细介绍了生成修复包、通过修复包重建源包的具体步骤。&lt;/p>
+&lt;/h2>
+&lt;p>下面的章节详细介绍了生成修复包、通过修复包重建源包的具体步骤。&lt;/p>
 &lt;h2 id="62-repair-packet-construction-修复包的构造" >
 &lt;div>
 &lt;a href="#62-repair-packet-construction-%e4%bf%ae%e5%a4%8d%e5%8c%85%e7%9a%84%e6%9e%84%e9%80%a0">
@@ -1065,7 +1117,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.2. Repair Packet Construction 修复包的构造
 &lt;/div>
-&lt;/h2>&lt;p>修复包的头部已经在 Section 4.2 有了详细说明&lt;/p>
+&lt;/h2>
+&lt;p>修复包的头部已经在 Section 4.2 有了详细说明&lt;/p>
 &lt;p>FEC 的头部包含 12 字节（有可能扩展到 28 字节）。通过对每个源包的每一位进行异或操作来生成特定的修复包。给你一个修复包，那么源包的集合，可以通过 Section 6.3.1 中的公式计算出来。&lt;/p>
 &lt;p>通过将每个源包按照以下字段的顺序拼接在一起，我们就可以生成 bit string。&lt;/p>
 &lt;ul>
@@ -1107,7 +1160,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3. Source Packet Reconstruction 重建源包
 &lt;/div>
-&lt;/h2>&lt;p>这一小节描述了重建丢失源包的修复过程。&lt;/p>
+&lt;/h2>
+&lt;p>这一小节描述了重建丢失源包的修复过程。&lt;/p>
 &lt;p>修复过程有两步：&lt;/p>
 &lt;ol>
 &lt;li>FEC decoder 决定应该使用哪一个源包和修复包来恢复丢失的包&lt;/li>
@@ -1123,7 +1177,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3.1. Associating the Source and Repair Packets 源包与修复包之间的关联
 &lt;/div>
-&lt;/h3>&lt;p>根据&lt;strong>修复包&lt;/strong> p ，得出&lt;strong>源包&lt;/strong>的集合 T (p)。&lt;/p>
+&lt;/h3>
+&lt;p>根据&lt;strong>修复包&lt;/strong> p ，得出&lt;strong>源包&lt;/strong>的集合 T (p)。&lt;/p>
 &lt;p>注意的是，对于 L 列、 D 行的 source block， 集合 T 包含了 D 个源包 + 一个列修复包，还有 L 个源包 + 一个行修复包&lt;/p>
 &lt;p>列修复包：通过一列源包计算出来的修复包&lt;/p>
 &lt;p>行修复包：通过一行源包计算出来的修复包&lt;/p>
@@ -1135,7 +1190,8 @@ Figure 15: Protocol format for Retransmission
 &lt;/a>
 6.3.1.1. Signaled in SDP 在 SDP 中的交互
 &lt;/div>
-&lt;/h4>&lt;p>第一步是关联源包和修复包。如果 endpoint 整个依赖 out-of-band signaling（MSK=11, M=N=0），可以从 SDP 描述的 media type parameters 推断出这个信息。进一步来讲，RTP 头部的 payload type field 可以辅助 receiver 去 distinguish 交错的或非交错的 FEC 包。&lt;/p>
+&lt;/h4>
+&lt;p>第一步是关联源包和修复包。如果 endpoint 整个依赖 out-of-band signaling（MSK=11, M=N=0），可以从 SDP 描述的 media type parameters 推断出这个信息。进一步来讲，RTP 头部的 payload type field 可以辅助 receiver 去 distinguish 交错的或非交错的 FEC 包。&lt;/p>
 &lt;p>数学上来讲，对于接收到的任意的修复包 p， 我们可以确定出被保护的源包的 sequence number：
 $$
 p_snb + i \times {X_1} \left( modulo 65535 \right)
@@ -1153,7 +1209,8 @@ X_2，如果 FEC 包是交错式的，就被设置成 D，如果是非交错式�
 &lt;/a>
 6.3.1.2. Using bitmasks
 &lt;/div>
-&lt;/h4>&lt;p>当使用固定大小的 bitmasks （16-, 48-, 122-bits）的时候，FEC 头部的 SN base field 表示 lowest sequence number of the 源包 that forms the FEC packet.&lt;/p>
+&lt;/h4>
+&lt;p>当使用固定大小的 bitmasks （16-, 48-, 122-bits）的时候，FEC 头部的 SN base field 表示 lowest sequence number of the 源包 that forms the FEC packet.&lt;/p>
 &lt;p>bitmask 中的 “1” 其实是从 SN base 开始的 offset，表示被 FEC 保护的剩余 packet。&lt;/p>
 &lt;p>bitmasks 有能力表示任意的 protection patterns，比如 1-D interleaved，1-D non-interleaved, 2-D, staircase。&lt;/p>
 &lt;h4 id="6313-using-m-and-offsets" >
@@ -1163,7 +1220,8 @@ X_2，如果 FEC 包是交错式的，就被设置成 D，如果是非交错式�
 &lt;/a>
 6.3.1.3. Using M and Offsets
 &lt;/div>
-&lt;/h4>&lt;p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&amp;gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset&lt;/p>
+&lt;/h4>
+&lt;p>当 M 的值非零时，8-bit 的 field 表示由 interleaved（N&amp;gt;0） 或 non-interleaved（N=0） FEC 包所保护的数据包的 offset&lt;/p>
 &lt;p>通过组合 interleaved 和 non-interleaved FEC 包，我们可以组成 2-D protection patterns。&lt;/p>
 &lt;p>数学上来讲，对于任意接收到的修复包 p*，我们可以通过以下方式确定被保护的源包的 sequence number：&lt;/p>
 &lt;pre tabindex="0">&lt;code>When N = 0:
@@ -1177,7 +1235,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 6.3.2. Recovering the RTP Header 恢复 RTP 头
 &lt;/div>
-&lt;/h3>&lt;p>略过，因为不需要实现&lt;/p>
+&lt;/h3>
+&lt;p>略过，因为不需要实现&lt;/p>
 &lt;h1 id="7-sdp-examples-有关-sdp-的例子" >
 &lt;div>
 &lt;a href="#7-sdp-examples-%e6%9c%89%e5%85%b3-sdp-%e7%9a%84%e4%be%8b%e5%ad%90">
@@ -1185,7 +1244,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 7. SDP Examples 有关 SDP 的例子
 &lt;/div>
-&lt;/h1>&lt;p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。&lt;/p>
+&lt;/h1>
+&lt;p>这一节，提供了两个 SDP 的例子。例子里使用了在 RFC5956 中定义的 FEC grouping 语义。&lt;/p>
 &lt;h2 id="71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping" >
 &lt;div>
 &lt;a href="#71-example-sdp-for-flexible-fec-protection-with-in-band-ssrc-mapping">
@@ -1193,7 +1253,8 @@ p*_snb, p*_snb+(Mx1), p*_snb+(Mx2),..., p*_snb+(Mx(N-1)), p*_snb+(MxN)
 &lt;/a>
 7.1. Example SDP for Flexible FEC Protection with in-band SSRC mapping
 &lt;/div>
-&lt;/h2>&lt;p>在这个例子里，我们有一个视频源流和一个 FEC 修复包流。源和修复包流被复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
+&lt;/h2>
+&lt;p>在这个例子里，我们有一个视频源流和一个 FEC 修复包流。源和修复包流被复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
 &lt;pre tabindex="0">&lt;code>v=0
 o=mo 1122334455 1122334466 IN IP4 fec.example.com
 s=FlexFEC minimal SDP signalling Example
@@ -1210,7 +1271,8 @@ a=fmtp:98; repair-window=200ms
 &lt;/a>
 7.2. Example SDP for Flex FEC Protection with explicit signalling in the SDP
 &lt;/div>
-&lt;/h2>&lt;p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。&lt;/p>
+&lt;/h2>
+&lt;p>在这里例子里，我们有一个视频源流（ssrc：1234）和一个 FEC 修复包流（ssrc：2345）。&lt;/p>
 &lt;p>我们跟 &lt;code>a=ssrc-group:FEC-FR 1234 2345&lt;/code> 构建一个 FEC groups。源和修复包流复用在不同的 SSRC 里。repair-window 被设置成 200ms&lt;/p>
 &lt;pre tabindex="0">&lt;code>v=0
 o=ali 1122334455 1122334466 IN IP4 fec.example.com
@@ -1231,7 +1293,8 @@ a=ssrc-group:FEC-FR 1234 2345
 &lt;/a>
 8. Congestion Control Considerations 拥塞控制的考虑
 &lt;/div>
-&lt;/h1>&lt;p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。&lt;/p>
+&lt;/h1>
+&lt;p>FEC 为应用层对抗丢包提供了一种有效的方法。然而，如果在一个丢包是因为拥塞控制的网络中，那么在使用 FEC 之前，应该考虑到 FEC 注入到网络中潜在的影响。&lt;/p>
 &lt;p>特别的是，在带宽限制的网络中，FEC 修复包的流动，可能成为带宽消耗的罪魁祸首，有可能会堵塞网络。在这个情况里，应用程序 MUST NOT 随意增加 FEC 保护的次数，因为这么做会有可能导致拥塞崩溃（Congestion Collapse）。&lt;/p>
 &lt;p>Congestive collapse (or congestion collapse) is the condition in which congestionprevents or limits useful communication.&lt;/p>
 &lt;p>如果你真的很想要 FEC 保护，那么你或许可以在源码率降低的时候采用更强的 FEC 保护。&lt;/p>
@@ -1246,14 +1309,16 @@ a=ssrc-group:FEC-FR 1234 2345
 &lt;/a>
 9. Security Considerations 安全考虑
 &lt;/div>
-&lt;/h1>&lt;h1 id="10-iana-considerations" >
+&lt;/h1>
+&lt;h1 id="10-iana-considerations" >
 &lt;div>
 &lt;a href="#10-iana-considerations">
 ##
 &lt;/a>
 10. IANA Considerations
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>New media subtypes are subject to IANA registration. For the
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>New media subtypes are subject to IANA registration. For the
 registration of the payload formats and their parameters introduced
 in this document, refer to Section 5.
 &lt;/code>&lt;/pre>&lt;h1 id="11-acknowledgements" >
@@ -1263,7 +1328,8 @@ in this document, refer to Section 5.
 &lt;/a>
 11. Acknowledgements
 &lt;/div>
-&lt;/h1>&lt;pre tabindex="0">&lt;code>Some parts of this document are borrowed from [RFC5109]. Thus, the
+&lt;/h1>
+&lt;pre tabindex="0">&lt;code>Some parts of this document are borrowed from [RFC5109]. Thus, the
 author would like to thank the editor of [RFC5109] and those who
 contributed to [RFC5109].
 Thanks to Bernard Aboba , Rasmus Brandt , Roni Even , Stefan Holmer ,
@@ -1278,7 +1344,8 @@ feedback on earlier versions of this draft.
 &lt;/a>
 2023年8月23日更新
 &lt;/div>
-&lt;/h1>&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://www.junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+&lt;/h1>
+&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
 &lt;h1 id="说在前面" >
 &lt;div>
@@ -1287,7 +1354,8 @@ feedback on earlier versions of this draft.
 &lt;/a>
 说在前面
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
+&lt;/h1>
+&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
 &lt;p>翻译中遇到的问题：&lt;/p>
 &lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> 文章不能很好区分 indication 和 indication transaction&lt;/li>
@@ -1317,7 +1385,8 @@ feedback on earlier versions of this draft.
 &lt;/a>
 STUN
 &lt;/div>
-&lt;/h1>&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
+&lt;/h1>
+&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
 &lt;p>最新定义在 &lt;a href="https://datatracker.ietf.org/doc/rfc5389/">RFC 5389&lt;/a>&lt;/p>
 &lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透条件检测工具。&lt;/p>
@@ -1346,7 +1415,8 @@ STUN
 &lt;/a>
 3. 操作概述 Overview of Operation
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h1>
+&lt;blockquote>
 &lt;p>This section is descriptive only.&lt;/p>
 &lt;/blockquote>
 &lt;p>本节仅作描述性用途。&lt;/p>
@@ -1487,7 +1557,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#4-术语-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119 [RFC2119] and indicate requirement levels for compliant STUN implementations.&lt;/p>
 &lt;/blockquote>
 &lt;p>在这份文档中，“**&lt;em>必须&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必须不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必需要&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>不应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>建议&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>或许&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>可选&lt;/em>**”，将按照 BCP 14，RFC 2119 来解释说明 STUN 所需的的实现级别。&lt;/p>
@@ -1499,7 +1570,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#5-定义-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>STUN Agent: A STUN agent is an entity that implements the STUN protocol. The entity can be either a STUN client or a STUN server.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>STUN 代理&lt;/strong>：一个实现了 STUN 协议的实体被称为 STUN 代理。（既可以为客户端又可以为服务器）&lt;/p>
@@ -1561,7 +1633,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#6-STUN-消息结构-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>STUN messages are encoded in binary using network-oriented format (most significant byte or octet first, also commonly known as big-endian). The transmission order is described in detail in Appendix B of RFC 791 [RFC0791]. Unless otherwise noted, numeric constants are in decimal (base 10).&lt;/p>
 &lt;/blockquote>
 &lt;p>STUN 消息使用 MSB 的二进制格式编码（big-endian）。传输顺序在 RFC 791 的 Appendix B 中有详细描述。除了特别注明之外，数字常量都以 10 进制表示。&lt;/p>
@@ -1646,8 +1719,9 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 2023年8月23日注
 &lt;/div>
-&lt;/h1>&lt;p>之前写了好多格式，现在不支持，哎
-等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>https://www.junyi.dev/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>https://www.junyi.dev/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
+&lt;/h1>
+&lt;p>之前写了好多格式，现在不支持，哎
+等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
 &lt;p>在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别&lt;/p>
 &lt;h2 id="网络地址转换-nat-network-address-translation" >
 &lt;div>
@@ -1656,14 +1730,16 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 网络地址转换 NAT (Network Address Translation)
 &lt;/div>
-&lt;/h2>&lt;h3 id="基本网络地址转换-basic-nat" >
+&lt;/h2>
+&lt;h3 id="基本网络地址转换-basic-nat" >
 &lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e7%bd%91%e7%bb%9c%e5%9c%b0%e5%9d%80%e8%bd%ac%e6%8d%a2-basic-nat">
 ##
 &lt;/a>
 基本网络地址转换 Basic NAT
 &lt;/div>
-&lt;/h3>&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
+&lt;/h3>
+&lt;p>简单来讲，就是直接把内部 IP 翻译成外部 IP，这种转换技术受限于对外地址的数量，是 IP 到 IP 的转换（端口不换）&lt;/p>
 &lt;p>需要了解的名词有：&lt;/p>
 &lt;ul>
 &lt;li>SNAT：源地址转换&lt;/li>
@@ -1678,7 +1754,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 网络地址端口转换 NAPT
 &lt;/div>
-&lt;/h3>&lt;p>先明确几个概念：&lt;/p>
+&lt;/h3>
+&lt;p>先明确几个概念：&lt;/p>
 &lt;p>内网主机拥有的网络地址：&lt;code>(LocalIP:LocalPort)&lt;/code>&lt;/p>
 &lt;p>经由 NAT 转换后的网络地址：&lt;code>(PublicIP:PublicPort)&lt;/code>&lt;/p>
 &lt;p>外网主机拥有的网络地址：&lt;code>(RemoteIP:RemotePort)&lt;/code>&lt;/p>
@@ -1692,7 +1769,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 锥形 NAT
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
+&lt;/h2>
+&lt;p>&lt;strong>同一个内部主机的地址和端口，无论目的地址是否相同，NAT 都将它转换成同一个外部地址和端口。&lt;/strong>&lt;/p>
 &lt;p>192.168.1.2:8000 访问 Baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8000 都会被转化成 1.2.3.4:5000，baidu 看到的是 5000 端口，谷歌看到的也是&lt;/p>
 &lt;p>192.168.1.2:&lt;strong>8001&lt;/strong> 访问 baidu.com:80 和 google.com:80 时，经由 NAT 转换，内部的 192.168.1.2:8001 都会变成 1.2.3.4:&lt;strong>5001&lt;/strong>，baidu 看到的是 &lt;strong>5001&lt;/strong> 端口，google 看到的也是。&lt;/p>
 &lt;p>懂了吗，这就是锥形的由来&lt;/p>
@@ -1703,7 +1781,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 全锥形 NAT (Full Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
+&lt;/h2>
+&lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Full Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(任意远端IP:任意端口)&lt;/code>&lt;/p>
 &lt;p>当内部主机向外发送请求时，NAT 网关会打开一个端口创建一个公网映射，形成一个 IP 端口元组，然后会将传入这个端口的数据全部转发给内部主机。&lt;strong>一旦映射建立，那么任意一台主机，只要给映射出来的公网 IP 和端口发送数据，就可以直接到达后端服务&lt;/strong>：&lt;/p>
@@ -1715,7 +1794,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 地址限制锥形 NAT (Address Restricted Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
+&lt;/h2>
+&lt;p>远端 IP 地址受限，远端端口无所谓&lt;/p>
 &lt;p>内向外：&lt;code>(特定本地IP:特定本地端口)&lt;/code> –&amp;gt; &lt;code>(固定映射IP:固定映射端口)&lt;/code> –&amp;gt; &lt;code>(特定远端IP:特定远端端口)&lt;/code>&lt;/p>
 &lt;p>建立 Address Restricted Cone NAT 转换后&lt;/p>
 &lt;p>外向内：&lt;code>(特定本地IP:特定本地端口)&lt;/code> &amp;lt;– &lt;code>(固定映射IP:固定映射端口)&lt;/code> &amp;lt;– &lt;code>(特定远端IP:任意端口)&lt;/code>&lt;/p>
@@ -1729,7 +1809,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 端口限制锥形 NAT (Port Restricted Cone NAT)
 &lt;/div>
-&lt;/h2>&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
+&lt;/h2>
+&lt;p>远端 IP 地址和端口都受限，且只有内部主机向外发送过消息才可以建立。&lt;/p>
 &lt;p>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/p>
 &lt;p>内向外：(特定本地 IP:特定本地端口) –&amp;gt;(固定映射 IP:固定映射端口) –&amp;gt; (特定远端 IP:特定远端端口)&lt;/p>
 &lt;p>建立 Port Restricted Cone NAT 转换后&lt;/p>
@@ -1746,7 +1827,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 对称形 NAT（Symmetric NAT）
 &lt;/div>
-&lt;/h2>&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
+&lt;/h2>
+&lt;p>连接不同的外部目标，NAT 打开的端口不同。是一种「一对一映射关系」。&lt;/p>
 &lt;p>换句话讲，不同的 (iAddr:port, eAddr:port) 组合，NAT 网关会产生不同的链路。&lt;/p>
 &lt;p>看起来也就是对称的了。（本地地址：端口，目标地址：端口）&lt;/p>
 &lt;p>比如 &lt;strong>localA&lt;/strong>:8000 经过一台拥有 &lt;strong>global&lt;/strong> 的一台对称 NAT 的 Gateway，访问 &lt;strong>baidu&lt;/strong>:80 和 &lt;strong>google&lt;/strong>:80，&lt;/p>
@@ -1759,7 +1841,8 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 Symmetric 和 Port Restricted 的区别
 &lt;/div>
-&lt;/h2>&lt;p>&lt;strong>Port Restricted:&lt;/strong>
+&lt;/h2>
+&lt;p>&lt;strong>Port Restricted:&lt;/strong>
 &lt;img src="port-restricted.png" alt="drawing" width="400"/>&lt;/p>
 &lt;ul>
 &lt;li>一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。&lt;/li>
@@ -1776,7 +1859,8 @@ Symmetric 和 Port Restricted 的区别
 &lt;/a>
 References
 &lt;/div>
-&lt;/h2>&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
+&lt;/h2>
+&lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/136794983">[2] 网络之 NAT 和 N2N VPN&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.cnblogs.com/my_life/articles/11018457.html">[3] NAT 的四种类型及类型检测 2【很好】&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item></channel></rss>

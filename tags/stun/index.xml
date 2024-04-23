@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STUN on Junyi's Lab</title><link>https://www.junyi.dev/tags/stun/</link><description>Junyi's Lab (STUN)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2020 20:10:49 +0800</lastBuildDate><atom:link href="https://www.junyi.dev/tags/stun/index.xml" rel="self" type="application/rss+xml"/><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>https://www.junyi.dev/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>https://www.junyi.dev/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>STUN on Junyi's Lab</title><link>/tags/stun/</link><description>Junyi's Lab (STUN)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 27 Jun 2020 20:10:49 +0800</lastBuildDate><atom:link href="/tags/stun/index.xml" rel="self" type="application/rss+xml"/><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
 &lt;h1 id="说在前面" >
 &lt;div>
@@ -7,7 +7,8 @@
 &lt;/a>
 说在前面
 &lt;/div>
-&lt;/h1>&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
+&lt;/h1>
+&lt;p>&lt;strong>转载请注明作者及出处！&lt;/strong>&lt;/p>
 &lt;p>翻译中遇到的问题：&lt;/p>
 &lt;ul>
 &lt;li>&lt;input disabled="" type="checkbox"> 文章不能很好区分 indication 和 indication transaction&lt;/li>
@@ -37,7 +38,8 @@
 &lt;/a>
 STUN
 &lt;/div>
-&lt;/h1>&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
+&lt;/h1>
+&lt;p>STUN 全名叫 Session Traversal Utilities for NAT (STUN)&lt;/p>
 &lt;p>最新定义在 &lt;a href="https://datatracker.ietf.org/doc/rfc5389/">RFC 5389&lt;/a>&lt;/p>
 &lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透条件检测工具。&lt;/p>
@@ -66,7 +68,8 @@ STUN
 &lt;/a>
 3. 操作概述 Overview of Operation
 &lt;/div>
-&lt;/h1>&lt;blockquote>
+&lt;/h1>
+&lt;blockquote>
 &lt;p>This section is descriptive only.&lt;/p>
 &lt;/blockquote>
 &lt;p>本节仅作描述性用途。&lt;/p>
@@ -207,7 +210,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#4-术语-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119 [RFC2119] and indicate requirement levels for compliant STUN implementations.&lt;/p>
 &lt;/blockquote>
 &lt;p>在这份文档中，“**&lt;em>必须&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必须不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>必需要&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>不应当&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>最好不&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>建议&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>或许&lt;/em>&lt;strong>”，“&lt;/strong>&lt;em>可选&lt;/em>**”，将按照 BCP 14，RFC 2119 来解释说明 STUN 所需的的实现级别。&lt;/p>
@@ -219,7 +223,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#5-定义-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>STUN Agent: A STUN agent is an entity that implements the STUN protocol. The entity can be either a STUN client or a STUN server.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>STUN 代理&lt;/strong>：一个实现了 STUN 协议的实体被称为 STUN 代理。（既可以为客户端又可以为服务器）&lt;/p>
@@ -281,7 +286,8 @@ STUN
 &lt;/a>
 &lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#6-STUN-消息结构-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
 &lt;/div>
-&lt;/h2>&lt;blockquote>
+&lt;/h2>
+&lt;blockquote>
 &lt;p>STUN messages are encoded in binary using network-oriented format (most significant byte or octet first, also commonly known as big-endian). The transmission order is described in detail in Appendix B of RFC 791 [RFC0791]. Unless otherwise noted, numeric constants are in decimal (base 10).&lt;/p>
 &lt;/blockquote>
 &lt;p>STUN 消息使用 MSB 的二进制格式编码（big-endian）。传输顺序在 RFC 791 的 Appendix B 中有详细描述。除了特别注明之外，数字常量都以 10 进制表示。&lt;/p>
@@ -366,5 +372,6 @@ Figure 3: Format of STUN Message Type Field
 &lt;/a>
 2023年8月23日注
 &lt;/div>
-&lt;/h1>&lt;p>之前写了好多格式，现在不支持，哎
+&lt;/h1>
+&lt;p>之前写了好多格式，现在不支持，哎
 等哪天有空了把源代码找出来。。。&lt;/p></description></item></channel></rss>
