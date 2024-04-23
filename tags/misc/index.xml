@@ -122,6 +122,9 @@
 &lt;img id="fig1" src="fig1.png" alt="view-service" width="400" />
 &lt;figcaption>Fig.1 - The most common comments at ICLR 2024, keywords extrated by GPT4.&lt;/figcaption>
 &lt;/figure>
+&lt;blockquote>
+&lt;p>I’m sure someone will ask “but won’t that get my idea stolen?”. I’ve heard anecdotally of that happening, but not to me or anyone I know in my field. Most likely because the idea is only the first tiny piece of the thesis: the idea is always followed by a significant investment of labor to execute and evaluate. The people you talk to are too busy with their own work to invest all that labor on your idea. But they’ll be happy to give you feedback on it.&lt;/p>
+&lt;/blockquote>
 &lt;!-- # 如何写一个 Review
 一个 Review 要有：
 一段话对这个工作做总结，并且整理出这个工作的 contribution：
