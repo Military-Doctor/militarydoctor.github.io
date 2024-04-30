@@ -49,6 +49,12 @@ justify-content: center;
 &lt;div class="link-body">
 &lt;a href="https://blog.bj-yan.top" class="link-title">&lt;p>北屿小智障！&lt;/p>&lt;/a>
 &lt;/div>
+&lt;/div>
+&lt;div class="link-item">
+&lt;img src="https://z1.ax1x.com/2023/09/04/pPrMqrF.jpg" alt="friend-avatar" class="link-avatar">&lt;/img>
+&lt;div class="link-body">
+&lt;a href="https://ymiir.asia/" class="link-title">&lt;p>月梦の技术博客&lt;/p>&lt;/a>
+&lt;/div>
 &lt;/div></description></item><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
