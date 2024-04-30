@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TVM on Junyi's Lab</title><link>/tags/tvm/</link><description>Junyi's Lab (TVM)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 15 Apr 2021 20:39:13 +0800</lastBuildDate><atom:link href="/tags/tvm/index.xml" rel="self" type="application/rss+xml"/><item><title>TVM Dockerfile (CPU only)</title><link>/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><guid>/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TVM on Junyi's Lab</title><link>/tags/tvm/</link><description>Junyi's Lab (TVM)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Thu, 15 Apr 2021 20:39:13 +0800</lastBuildDate><atom:link href="/tags/tvm/index.xml" rel="self" type="application/rss+xml"/><item><title>TVM Dockerfile (CPU only)</title><link>/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
 &lt;p>映射 container 端口 22 即可使用 ssh，用户名密码都是 tvm&lt;/p>
 &lt;p>&lt;a href="https://gist.github.com/Junyi-99/dbfe984fe3e3af4d2a2c7d11a48ad151">在 GitHub 查看 Dockerfile&lt;/a>&lt;/p>
 &lt;p>构建指令：&lt;/p>
@@ -12,7 +12,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#78787e"># 运行一个容器，将容器内 22 端口映射到本地 2222，容器设置为交互模式，开启伪输入终端，容器 image 叫做 dockerjunyi/tvm_cpu:0.7.0-x86_64，同时执行容器内的 /bin/bash&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 2222:22 -it dockerjunyi/tvm_cpu:0.7.0-x86_64 /bin/bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>TVM AutoTVM 多 GPU 加速 Tuning</title><link>/posts/tvm-autotvm-tuning/</link><pubDate>Sat, 27 Feb 2021 23:32:44 +0800</pubDate><guid>/posts/tvm-autotvm-tuning/</guid><description>&lt;p>&lt;strong>场景&lt;/strong>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>TVM AutoTVM 多 GPU 加速 Tuning</title><link>/posts/tvm-autotvm-tuning/</link><pubDate>Sat, 27 Feb 2021 23:32:44 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-autotvm-tuning/</guid><description>&lt;p>&lt;strong>场景&lt;/strong>
 双 NVIDIA 1080Ti, Linux 服务器&lt;/p>
 &lt;p>&lt;strong>需求&lt;/strong>
 AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD 的没试过）&lt;/p>
@@ -77,7 +77,7 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 2023年8月23日 补充
 &lt;/div>
 &lt;/h2>
-&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
+&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
 &lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
 &lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
@@ -146,7 +146,7 @@ Prepare Pre-trained model
 &lt;/h1>
 &lt;p>RPC tracker - server 的模式，不能通过 frp 反代使用。&lt;/p>
 &lt;p>没有公网 IP 的话，必须 VPN 异地组网打洞才可以。&lt;/p>
-&lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><guid>/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
+&lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
 &lt;p>在 macOS 上编译 TVM 库，其实大家放弃就可以了，大家可能会很惊讶在 macOS 上怎么会放弃编译 TVM 库呢？但事实就是这样，小编也感到非常惊讶。&lt;/p>
 &lt;p>&lt;strong>前排提示：放弃吧！别想着在 macOS 上部署 TVM 了！老老实实在 Linux 上搞吧！&lt;/strong>&lt;/p>
 &lt;p>大概耗时：10 分钟～1 小时 （使用 llvm 10.0 的二进制发布版会快一些，在这里我自己编译了一份）&lt;/p>
@@ -182,7 +182,7 @@ Step2: 弃坑，macOS 根本搞不了，坑太多
 2023年8月23日更新
 &lt;/div>
 &lt;/h2>
-&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
 &lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
@@ -306,7 +306,7 @@ No OpenCL device&lt;/p>
 &lt;/div>
 &lt;/h2>
 &lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
-&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><guid>/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
+&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
 &lt;p>修改 &lt;code>AndroidManifest.xml&lt;/code> 的 &lt;code>application&lt;/code> 字段，添加 &lt;code>android:extractNativeLibs=&amp;quot;true&amp;quot;&lt;/code> 即可解决问题&lt;/p>
 &lt;pre tabindex="0">&lt;code>&amp;lt;application
 android:extractNativeLibs=&amp;#34;true&amp;#34;
@@ -329,7 +329,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>稍微做一下适配，也不会让我们这些后来者因为这些问题踩坑浪费这么多时间吧…&lt;/p>
 &lt;p>，&lt;/p>
 &lt;p>一说起这个我就想起来那些依然在用 python2 的人。&lt;/p>
-&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><guid>/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
 &lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##

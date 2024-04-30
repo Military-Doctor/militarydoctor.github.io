@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>🔬 科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>🔬 科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
@@ -142,7 +142,7 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+--></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
 &lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
 &lt;/blockquote>
 &lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
@@ -204,7 +204,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>
 &lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
-&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
+&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #
@@ -331,7 +331,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 2024 年 3 月 4 日更新
 &lt;/div>
 &lt;/h3>
-&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
@@ -341,7 +341,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to get motivated</title><link>/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><guid>/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to get motivated</title><link>/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
 &lt;h1 id="1-get-ready-the-night-before" >
 &lt;div>
 &lt;a href="#1-get-ready-the-night-before">
@@ -517,7 +517,7 @@ Reference
 &lt;/div>
 &lt;/h1>
 &lt;p>没想到已经过去了这么久，可惜自己好像从未尝试过文中的方法&lt;/p>
-&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>整理了一下博客</title><link>/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
+&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>整理了一下博客</title><link>/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
 &lt;p>这些文章都是我写了好久的。&lt;/p>
 &lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
 &lt;h2 id="2023年8月23日更新" >
@@ -528,7 +528,7 @@ Reference
 2023年8月23日更新
 &lt;/div>
 &lt;/h2>
-&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>购买硬盘盒遇到的坑</title><link>/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
 &lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 硬盘盒容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
 &lt;p>后来做了多方面调查，得出结论：&lt;/p>
@@ -578,17 +578,17 @@ Reference
 &lt;/figure>
 &lt;p>所以，硬盘盒提供的 &lt;code>12V 1A&lt;/code> 的供电能力是不足的。&lt;/p>
 &lt;p>&lt;strong>并且，大多数时候我们会开启「自动休眠」功能，让硬盘电机自动停转。每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
-&lt;p>解决方案是买个好点的电源。（&lt;code>12V 2A&lt;/code> 以上的电源）&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>小想法</title><link>/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;p>解决方案是买个好点的电源。（&lt;code>12V 2A&lt;/code> 以上的电源）&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>小想法</title><link>/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
 &lt;p>Automation 类的工具也可以啊。&lt;/p>
 &lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
 &lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
 &lt;p>那为什么不能利用「蓝牙 + 屏幕共享」这两个技术，实现一个自动化工具呢？&lt;/p>
 &lt;p>也不知道现在市面上有没有这种工具。。。&lt;/p>
 &lt;p>我的想法是直接用电脑的蓝牙模块跟手机连接，把电脑模拟成蓝牙鼠标。&lt;/p>
-&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><guid>/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
+&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
 &lt;p>9 月 28 日电动车被偷&lt;/p>
 &lt;p>10 月 1 日买了新的电动车&lt;/p>
-&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><guid>/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
+&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
 &lt;p>艹！&lt;/p>
 &lt;p>跟朋友一起上下学，三个人把三辆电动车都放在了横琴口岸&lt;/p>
 &lt;p>舍友 A：电动滑板车&lt;/p>
@@ -596,7 +596,7 @@ Reference
 &lt;p>然后我的被偷了&lt;/p>
 &lt;p>虽然第一时间联系了朋友，并且另一位跟我一起回来的朋友帮我找了一圈电动车，没有找到。然后我报了警。警察说你可以去做一下笔录，但是帮助不大，&lt;/p>
 &lt;p>估计是找不到了。&lt;/p>
-&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
+&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
 &lt;h3 id="基本配置-基本配置基本配置" >
 &lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
@@ -697,7 +697,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;/ul>
 &lt;p>最最可以的, 是可以让我在 Ubuntu 里也能用.&lt;/p>
 &lt;p>虚拟机好处多, 大家都来用吧.&lt;/p>
-&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>元宵节快乐</title><link>/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><guid>/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><guid>/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
+&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>元宵节快乐</title><link>/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
 &lt;blockquote>
 &lt;p>人生天地之间，若白驹过隙，忽然而已。 ——《庄子・知北游》&lt;/p>
 &lt;/blockquote>
@@ -708,10 +708,10 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>看起来自己似乎是个开拓者，其实自己一直都是一颗棋子，是一个肉鸡。&lt;/p>
 &lt;p>今天，再次迷茫。&lt;/p>
 &lt;p>我未来的路到底该怎么走？&lt;/p>
-&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>/posts/a-thought-06-27/</guid><description>&lt;blockquote>
+&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought-06-27/</guid><description>&lt;blockquote>
 &lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
-&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
-&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
 &lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
 &lt;p>They come through you but not from you,&lt;/p>
 &lt;p>And though they are with you, yet they belong not to you.&lt;/p>
@@ -731,8 +731,8 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>Let your bending in the archer’s hand be for gladness;&lt;/p>
 &lt;p>For even as He loves the arrow that flies，&lt;/p>
 &lt;p>So He loves also the bow that is stable.&lt;/p>
-&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><guid>/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
-&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>去做了心理咨询</title><link>/posts/psychological-counseling/</link><pubDate>Mon, 12 Mar 2018 16:30:19 +0800</pubDate><guid>/posts/psychological-counseling/</guid><description>&lt;p>周一啊，我去做了心理咨询。&lt;/p>
+&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
+&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>去做了心理咨询</title><link>/posts/psychological-counseling/</link><pubDate>Mon, 12 Mar 2018 16:30:19 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/psychological-counseling/</guid><description>&lt;p>周一啊，我去做了心理咨询。&lt;/p>
 &lt;p>心理咨询室里只有我和心理咨询师，咨询师是一位很年轻的女老师，跟咨询师聊了 1 小时，基本上都是我在说话。&lt;/p>
 &lt;p>咨询师说，她充当的是一面镜子的作用，帮助我进入我的内心，看清自己。 她说下次心理辅导的时候希望我讲一下我的家庭，还有我小时候的故事，&lt;/p>
 &lt;p>还有，她说我的思维太 “理科生” 了，把所有感情都分了 Category, 我仔细想了想，还真是。&lt;/p>
@@ -742,7 +742,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;p>心理咨询师跟我约了下一次的辅导时间，在 2018 年 3 月 19 日的 15:00 ~ 16:00&lt;/p>
 &lt;p>我内心平静地进入心理咨询室，内心平静的从里面走出来。&lt;/p>
 &lt;p>不知道脑子里在想什么，走的时候，甚至忘了给咨询师说 “谢谢”。&lt;/p>
-&lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><guid>/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><guid>/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
+&lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
 &lt;p>现在叫 「Junyi 的小屋」&lt;/p>
 &lt;h1 id="2023年8月23日注" >
 &lt;div>
@@ -752,7 +752,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 2023年8月23日注
 &lt;/div>
 &lt;/h1>
-&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
+&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
 &lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
 &lt;p>（不可恢复，之前的白写了 23333） 直到这篇文章发布（2018-2-21 0:10）&lt;/p>
 &lt;p>我&lt;/p>

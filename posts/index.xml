@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 24 Apr 2024 16:45:16 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><guid>/posts/boost-converter/</guid><description>&lt;figure>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Wed, 24 Apr 2024 16:45:16 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
@@ -80,7 +80,7 @@ PCB 设计
 &lt;/div>
 &lt;/div>
 &lt;figcaption>图 4 - 来自不同电压输入，输出 2.0V 稳压点亮 LED&lt;/figcaption>
-&lt;/figure></description></item><item><title>🙈 在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
+&lt;/figure></description></item><item><title>🙈 在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #
@@ -239,7 +239,7 @@ PCB 设计
 &lt;/div>
 &lt;/h2>
 &lt;p>在这个步骤中，你需要做的就是向 &lt;code>blog-src&lt;/code> &lt;strong>推送&lt;/strong> 一些提交，如果一切顺利的话，你的 GitHub Actions 将会自动执行，构建你的网站，并将其推送到 &lt;code>blog.github.io&lt;/code> 仓库。&lt;/p>
-&lt;p>（文章结束）&lt;/p></description></item><item><title>🔬 科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+&lt;p>（文章结束）&lt;/p></description></item><item><title>🔬 科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
@@ -383,7 +383,7 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+--></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
 &lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
 &lt;/blockquote>
 &lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
@@ -445,7 +445,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/div>
 &lt;/h2>
 &lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
-&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>🔐 使用 git-crypt 加密你的仓库</title><link>/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><guid>/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
+&lt;p>Is that too much to ask?&lt;/p></description></item><item><title>🔐 使用 git-crypt 加密你的仓库</title><link>/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
 &lt;p>&lt;img alt="BasicFlow" src="https://www.junyi.dev/posts/git-crypt/flow.svg">&lt;/p>
 &lt;h2 id="step-1-install-git-crypt" >
@@ -524,7 +524,7 @@ Results
 &lt;p>这个傻逼工具，是可以在你不 export symmetric key 的情况下，允许你 lock 仓库的。&lt;/p>
 &lt;p>然后我就在没有 export symmetric key 的情况下，把自己锁死了。&lt;/p>
 &lt;p>文件没有备份，因为我为了“安全”，只保留了加密后的 commit，历史的提交日志都删了。&lt;/p>
-&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><guid>/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
+&lt;p>😊 真是愉快的一天呢&lt;/p></description></item><item><title>🚦 优质博客指南</title><link>/posts/blog-share/</link><pubDate>Wed, 20 Sep 2023 20:21:47 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/blog-share/</guid><description>&lt;p>在这里记录一些优质博客，很感谢他们的无私奉献！&lt;/p>
 &lt;p>以下排名不分先后。&lt;/p>
 &lt;h2 id="-棒极了" >
 &lt;div>
@@ -625,7 +625,7 @@ Results
 &lt;summary>点击这里展开&lt;/summary>
 &lt;p>&lt;b>代码随想录：&lt;/b>作者给我一种半桶水的感觉，属于是新手看着费劲，老手觉得啰嗦，而且看他的题解会让思维变得混乱...&lt;/p>
 &lt;p>&lt;b>C++八股文-小贺：很水，开幕雷击的感觉&lt;/b>&lt;/p>
-&lt;/details> --></description></item><item><title>Distributed System: Primary Backup Replication</title><link>/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><guid>/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
+&lt;/details> --></description></item><item><title>Distributed System: Primary Backup Replication</title><link>/posts/paxos-review-3/</link><pubDate>Tue, 12 Sep 2023 15:15:37 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-3/</guid><description>&lt;p>开胃菜来了！&lt;/p>
 &lt;p>你有一个硬盘，存了很多重要资料，你担心这个硬盘某天坏了，怎么办？&lt;/p>
 &lt;p>当然是多买点硬盘，把数据备份在不同的硬盘上。&lt;/p>
 &lt;p>保证可靠，就是通过多个一致的数据副本来实现的。&lt;/p>
@@ -853,7 +853,7 @@ color: white
 .spoiler:hover::before {
 display: none;
 } */
-&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
+&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
 &lt;hr>
@@ -925,7 +925,7 @@ Lab 2
 &lt;li>由一个 中央 view-server 决定谁是 primary 谁是 backup&lt;/li>
 &lt;li>primary 挂了，backup 顶上来&lt;/li>
 &lt;/ol>
-&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
 &lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
 &lt;hr>
 &lt;p>首先简单过一下这些基础概念&lt;/p>
@@ -1078,7 +1078,7 @@ Lab 1
 &lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><guid>/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
+&lt;/ul></description></item><item><title>当 RA 的我学到了什么：如何优化实验流程</title><link>/posts/ra-experience/</link><pubDate>Fri, 25 Aug 2023 21:32:31 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/ra-experience/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #
@@ -1205,7 +1205,7 @@ Lab 1
 2024 年 3 月 4 日更新
 &lt;/div>
 &lt;/h3>
-&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
+&lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
@@ -1215,7 +1215,7 @@ Lab 1
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Zero Mq 注意事项</title><link>/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><guid>/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D(https://zeromq.org/)">ZeroMQ&lt;/a>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Zero Mq 注意事项</title><link>/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D(https://zeromq.org/)">ZeroMQ&lt;/a>&lt;/p>
 &lt;p>我用的实现版本：&lt;a href="https://github.com/zeromq/libzmq">libzmq&lt;/a>&lt;/p>
 &lt;p>对我个人来说，ZMQ 可以免去我「维持 socket 通信可靠性」、「高性能并发」等任务。&lt;/p>
 &lt;p>（虽然之前自己也写了一整套）&lt;/p>
@@ -1239,7 +1239,7 @@ Lab 1
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>send(socket, payload, length);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>send(socket, checksum, &lt;span style="color:#ff9f43">4&lt;/span>);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>而不是 ZeroMQ 的一收一发。&lt;/p>
-&lt;p>当然 ZeroMQ 有它的设计思路，我不喜欢这么写也只是我不喜欢这么写，就像我之前说的，我不喜欢这么写。&lt;p style="color: white">（什么废话文学）&lt;/p>&lt;/p></description></item><item><title>How to get motivated</title><link>/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><guid>/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
+&lt;p>当然 ZeroMQ 有它的设计思路，我不喜欢这么写也只是我不喜欢这么写，就像我之前说的，我不喜欢这么写。&lt;p style="color: white">（什么废话文学）&lt;/p>&lt;/p></description></item><item><title>How to get motivated</title><link>/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
 &lt;h1 id="1-get-ready-the-night-before" >
 &lt;div>
 &lt;a href="#1-get-ready-the-night-before">
@@ -1415,7 +1415,7 @@ Reference
 &lt;/div>
 &lt;/h1>
 &lt;p>没想到已经过去了这么久，可惜自己好像从未尝试过文中的方法&lt;/p>
-&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>Unity 开发学习(一)</title><link>/posts/unity-learning-1/</link><pubDate>Thu, 13 May 2021 01:47:05 +0800</pubDate><guid>/posts/unity-learning-1/</guid><description>&lt;p>今天跟 YZX 学了 Unity 的基本开发&lt;/p>
+&lt;p>目前又遇到了让自己焦虑的事情，这次准备把文中的方法执行一遍，而不是让它停留在纸上&lt;/p></description></item><item><title>Unity 开发学习(一)</title><link>/posts/unity-learning-1/</link><pubDate>Thu, 13 May 2021 01:47:05 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/unity-learning-1/</guid><description>&lt;p>今天跟 YZX 学了 Unity 的基本开发&lt;/p>
 &lt;p>内容包括：&lt;/p>
 &lt;p>场景创建与 Object 布局，Prefab，Material，Physics
 实现 WASD 移动角色
@@ -1431,7 +1431,7 @@ Scripts 编写
 2023年8月23日更新
 &lt;/div>
 &lt;/h2>
-&lt;p>我已经忘了自己学过这些了&lt;/p></description></item><item><title>整理了一下博客</title><link>/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><guid>/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
+&lt;p>我已经忘了自己学过这些了&lt;/p></description></item><item><title>整理了一下博客</title><link>/posts/blog-organization/</link><pubDate>Sun, 09 May 2021 02:45:33 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/blog-organization/</guid><description>&lt;p>稍微整理了一下博客，有 29 篇文章没有发出来。&lt;/p>
 &lt;p>这些文章都是我写了好久的。&lt;/p>
 &lt;p>里面有一部分是对生活的感悟，还有一部分不方便发出来。&lt;/p>
 &lt;h2 id="2023年8月23日更新" >
@@ -1442,7 +1442,7 @@ Scripts 编写
 2023年8月23日更新
 &lt;/div>
 &lt;/h2>
-&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><guid>/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>TVM Dockerfile (CPU only)</title><link>/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><guid>/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
+&lt;p>所以到底是哪29篇文章没更新出来，我已经不记得了，似乎写博客这件事情已经离我很远很远&amp;hellip;&lt;/p></description></item><item><title>耶，吃到了 Pokémon 联名的麦当劳</title><link>/posts/mcdonalds/</link><pubDate>Fri, 30 Apr 2021 19:30:07 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/mcdonalds/</guid><description>&lt;p>&lt;img alt="md1.png" src="https://www.junyi.dev/posts/mcdonalds/md1.png">&lt;/p></description></item><item><title>TVM Dockerfile (CPU only)</title><link>/posts/tvm-docker/</link><pubDate>Thu, 15 Apr 2021 20:39:13 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-docker/</guid><description>&lt;p>写了一个 Dockerfile，可以一键部署 TVM 的 CPU 版本&lt;/p>
 &lt;p>映射 container 端口 22 即可使用 ssh，用户名密码都是 tvm&lt;/p>
 &lt;p>&lt;a href="https://gist.github.com/Junyi-99/dbfe984fe3e3af4d2a2c7d11a48ad151">在 GitHub 查看 Dockerfile&lt;/a>&lt;/p>
 &lt;p>构建指令：&lt;/p>
@@ -1456,7 +1456,7 @@ Scripts 编写
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#78787e"># 运行一个容器，将容器内 22 端口映射到本地 2222，容器设置为交互模式，开启伪输入终端，容器 image 叫做 dockerjunyi/tvm_cpu:0.7.0-x86_64，同时执行容器内的 /bin/bash&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -p 2222:22 -it dockerjunyi/tvm_cpu:0.7.0-x86_64 /bin/bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>树莓派编译 RTL8812AU / RTL8814AU 网卡驱动</title><link>/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><guid>/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，运行起来容器之后，如果不想使用 docker 的交互模式，你也可以通过映射出的 ssh 端口来访问&lt;/p></description></item><item><title>树莓派编译 RTL8812AU / RTL8814AU 网卡驱动</title><link>/posts/raspberrypi-usb-wifi/</link><pubDate>Tue, 30 Mar 2021 15:49:16 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/raspberrypi-usb-wifi/</guid><description>&lt;p>本文仅用来记录 树莓派 4B 的各种成功的配置过程&lt;/p>
 &lt;p>环境仅适用于 Raspbery Pi OS&lt;/p>
 &lt;p>其他环境并未测试！&lt;/p>
 &lt;h2 id="安装-rtl8812au-驱动" >
@@ -1569,7 +1569,7 @@ Scripts 编写
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>blkid
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -l /dev/disk/by-uuid/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mount -t ext4 -U 这里写你的UUID /mnt/seagate/storage
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>购买硬盘盒遇到的坑</title><link>/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><guid>/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>购买硬盘盒遇到的坑</title><link>/posts/thought-about-hdd-case/</link><pubDate>Sat, 20 Mar 2021 20:41:30 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thought-about-hdd-case/</guid><description>&lt;p>最近买了一块 4T 的机械硬盘，想再选购一个硬盘盒&lt;/p>
 &lt;p>但是发现好多人吐槽「硬盘盒毁盘」「USB 硬盘盒容易掉盘」&lt;/p>
 &lt;p>我就纳闷了，凭什么一个盒子就能毁盘？&lt;/p>
 &lt;p>后来做了多方面调查，得出结论：&lt;/p>
@@ -1619,9 +1619,9 @@ Scripts 编写
 &lt;/figure>
 &lt;p>所以，硬盘盒提供的 &lt;code>12V 1A&lt;/code> 的供电能力是不足的。&lt;/p>
 &lt;p>&lt;strong>并且，大多数时候我们会开启「自动休眠」功能，让硬盘电机自动停转。每次停转、起转的时候，都会让电源负载电流超过最大值，电源无法供给，长此以往导致「掉盘」、「毁盘」&lt;/strong>&lt;/p>
-&lt;p>解决方案是买个好点的电源。（&lt;code>12V 2A&lt;/code> 以上的电源）&lt;/p></description></item><item><title>2021 好书推荐</title><link>/posts/books/</link><pubDate>Mon, 08 Mar 2021 16:27:52 +0800</pubDate><guid>/posts/books/</guid><description>&lt;ul>
+&lt;p>解决方案是买个好点的电源。（&lt;code>12V 2A&lt;/code> 以上的电源）&lt;/p></description></item><item><title>2021 好书推荐</title><link>/posts/books/</link><pubDate>Mon, 08 Mar 2021 16:27:52 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/books/</guid><description>&lt;ul>
 &lt;li>High Performance Browser Networking What every web developer should know about networking and web performance Kindle Edition by Ilya Grigorik - 2013&lt;/li>
-&lt;/ul></description></item><item><title>TVM AutoTVM 多 GPU 加速 Tuning</title><link>/posts/tvm-autotvm-tuning/</link><pubDate>Sat, 27 Feb 2021 23:32:44 +0800</pubDate><guid>/posts/tvm-autotvm-tuning/</guid><description>&lt;p>&lt;strong>场景&lt;/strong>
+&lt;/ul></description></item><item><title>TVM AutoTVM 多 GPU 加速 Tuning</title><link>/posts/tvm-autotvm-tuning/</link><pubDate>Sat, 27 Feb 2021 23:32:44 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-autotvm-tuning/</guid><description>&lt;p>&lt;strong>场景&lt;/strong>
 双 NVIDIA 1080Ti, Linux 服务器&lt;/p>
 &lt;p>&lt;strong>需求&lt;/strong>
 AutoTVM 的 Tuning 可以让两张 CUDA 显卡同时运行模型 （AMD 的没试过）&lt;/p>
@@ -1686,7 +1686,7 @@ Extract tasks 之后，你应该可以通过 &lt;code>nvidia-smi&lt;/code> 看�
 2023年8月23日 补充
 &lt;/div>
 &lt;/h2>
-&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><guid>/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
+&lt;p>看到自己之前写的文章，感觉好幼稚啊哈哈哈哈&lt;/p></description></item><item><title>TVM AutoTVM 树莓派 4B 调优</title><link>/posts/tvm-autotvm-raspberrypy/</link><pubDate>Thu, 25 Feb 2021 17:52:38 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-autotvm-raspberrypy/</guid><description>&lt;p>细节请参阅官方文档，这里只作相关内容记录和踩坑记录而已。&lt;/p>
 &lt;h1 id="build-tvm-runtim-on-raspberry-pi-4b" >
 &lt;div>
 &lt;a href="#build-tvm-runtim-on-raspberry-pi-4b">
@@ -1755,7 +1755,7 @@ Prepare Pre-trained model
 &lt;/h1>
 &lt;p>RPC tracker - server 的模式，不能通过 frp 反代使用。&lt;/p>
 &lt;p>没有公网 IP 的话，必须 VPN 异地组网打洞才可以。&lt;/p>
-&lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><guid>/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><guid>/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
+&lt;p>最终决定本地搭建一个 TVM 环境，用服务器进行 training，把模型下载到笔记本虚拟机，然后 tuning raspi&lt;/p></description></item><item><title>太好了，偷我电瓶车的小偷被抓到了</title><link>/posts/thief-get-caught/</link><pubDate>Fri, 15 Jan 2021 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-get-caught/</guid><description>&lt;p>发篇博客纪念一下&lt;/p></description></item><item><title>TVM 在 macOS 上的编译</title><link>/posts/tvm-compile-on-macos/</link><pubDate>Sun, 27 Dec 2020 15:02:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-compile-on-macos/</guid><description>&lt;p>在 macOS 上编译 TVM 库是怎么回事呢？macOS 相信大家都很熟悉，但是在 macOS 上编译 TVM 库是怎么回事呢，下面就让小编带大家一起了解吧。&lt;/p>
 &lt;p>在 macOS 上编译 TVM 库，其实大家放弃就可以了，大家可能会很惊讶在 macOS 上怎么会放弃编译 TVM 库呢？但事实就是这样，小编也感到非常惊讶。&lt;/p>
 &lt;p>&lt;strong>前排提示：放弃吧！别想着在 macOS 上部署 TVM 了！老老实实在 Linux 上搞吧！&lt;/strong>&lt;/p>
 &lt;p>大概耗时：10 分钟～1 小时 （使用 llvm 10.0 的二进制发布版会快一些，在这里我自己编译了一份）&lt;/p>
@@ -1791,17 +1791,17 @@ Step2: 弃坑，macOS 根本搞不了，坑太多
 2023年8月23日更新
 &lt;/div>
 &lt;/h2>
-&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>小想法</title><link>/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><guid>/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
+&lt;p>怎么这么调皮？&lt;/p></description></item><item><title>小想法</title><link>/posts/little-thought-animal-restaurant/</link><pubDate>Tue, 08 Dec 2020 16:55:20 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/little-thought-animal-restaurant/</guid><description>&lt;p>今天玩动物餐厅的时候觉得手动点击屏幕上的按钮实在是太麻烦了，能不能让 iOS 像 Android 一样，有一款自动点击的工具呢？&lt;/p>
 &lt;p>Automation 类的工具也可以啊。&lt;/p>
 &lt;p>然后看到桌子上有个蓝牙鼠标，于是把它连接到了 iPhone，发现可以代替手指点击屏幕。&lt;/p>
 &lt;p>但是依然需要腾出一只手操纵鼠标。&lt;/p>
 &lt;p>那为什么不能利用「蓝牙 + 屏幕共享」这两个技术，实现一个自动化工具呢？&lt;/p>
 &lt;p>也不知道现在市面上有没有这种工具。。。&lt;/p>
 &lt;p>我的想法是直接用电脑的蓝牙模块跟手机连接，把电脑模拟成蓝牙鼠标。&lt;/p>
-&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><guid>/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
+&lt;p>或者退而求其次，用 Android 手机来模拟蓝牙鼠标。&lt;/p></description></item><item><title>谁能想到我新买的电动车只用了一个月呢？</title><link>/posts/thief-again/</link><pubDate>Mon, 16 Nov 2020 15:13:53 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-again/</guid><description>&lt;p>WDNMD，小偷 NM$L&lt;/p>
 &lt;p>9 月 28 日电动车被偷&lt;/p>
 &lt;p>10 月 1 日买了新的电动车&lt;/p>
-&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><guid>/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
+&lt;p>11 月 11 日又 tm 被偷了&lt;/p></description></item><item><title>他妈的！电动自行车被偷了！</title><link>/posts/thief-first/</link><pubDate>Mon, 28 Sep 2020 01:11:23 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/thief-first/</guid><description>&lt;p>今天他妈的电动自行车被人偷了！&lt;/p>
 &lt;p>艹！&lt;/p>
 &lt;p>跟朋友一起上下学，三个人把三辆电动车都放在了横琴口岸&lt;/p>
 &lt;p>舍友 A：电动滑板车&lt;/p>
@@ -1809,7 +1809,7 @@ Step2: 弃坑，macOS 根本搞不了，坑太多
 &lt;p>然后我的被偷了&lt;/p>
 &lt;p>虽然第一时间联系了朋友，并且另一位跟我一起回来的朋友帮我找了一圈电动车，没有找到。然后我报了警。警察说你可以去做一下笔录，但是帮助不大，&lt;/p>
 &lt;p>估计是找不到了。&lt;/p>
-&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>FEC - 前向纠错技术</title><link>/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><guid>/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
+&lt;p>妈的，傻逼小偷！&lt;/p></description></item><item><title>FEC - 前向纠错技术</title><link>/posts/fec/</link><pubDate>Tue, 04 Aug 2020 15:19:38 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/fec/</guid><description>&lt;p>FEC：Forward Error Correction，前向纠错&lt;/p>
 &lt;blockquote>
 &lt;p>FEC 是一种通过在网络传输中增加数据包的冗余信息，使得接收端能够在网络发生丢包后利用这些冗余信息直接恢复出丢失的数据包的一种方法。
 &lt;a href="https://zhuanlan.zhihu.com/p/104579290">https://zhuanlan.zhihu.com/p/104579290&lt;/a>&lt;/p>
@@ -2047,7 +2047,7 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 9. 安全性考虑
 &lt;/div>
-&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
 （呕心沥血的翻译）&lt;/p>
 &lt;h1 id="4-packet-formats-包格式" >
 &lt;div>
@@ -2566,7 +2566,7 @@ feedback on earlier versions of this draft.
 2023年8月23日更新
 &lt;/div>
 &lt;/h1>
-&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
 &lt;h1 id="说在前面" >
 &lt;div>
@@ -2942,7 +2942,7 @@ Figure 3: Format of STUN Message Type Field
 &lt;/div>
 &lt;/h1>
 &lt;p>之前写了好多格式，现在不支持，哎
-等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><guid>/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
+等哪天有空了把源代码找出来。。。&lt;/p></description></item><item><title>P2P 技术</title><link>/posts/p2p/</link><pubDate>Fri, 26 Jun 2020 13:06:35 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/p2p/</guid><description>&lt;p>本文主要记录自己学习的 P2P 技术&lt;/p>
 &lt;p>在这篇文章里，主要区分了各种 NAT 的类型，包括全锥形、地址限制锥形、端口限制锥形的内容和区别&lt;/p>
 &lt;h2 id="网络地址转换-nat-network-address-translation" >
 &lt;div>
@@ -3084,7 +3084,7 @@ References
 &lt;p>&lt;a href="https://evilpan.com/2015/10/31/p2p-over-middle-box/">[1] P2P 通信原理与实现&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/136794983">[2] 网络之 NAT 和 N2N VPN&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.cnblogs.com/my_life/articles/11018457.html">[3] NAT 的四种类型及类型检测 2【很好】&lt;/a>&lt;/p>
-&lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><guid>/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
+&lt;p>&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2">[4] 网络地址转换 - Wikipedia&lt;/a>&lt;/p></description></item><item><title>我的开发环境是怎样的</title><link>/posts/my-dev-env/</link><pubDate>Sat, 11 Apr 2020 00:00:01 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/my-dev-env/</guid><description>&lt;p>电脑用了这么久，我也有了自己的一套开发工具和流程。&lt;/p>
 &lt;h3 id="基本配置-基本配置基本配置" >
 &lt;div>
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
@@ -3185,7 +3185,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;/ul>
 &lt;p>最最可以的, 是可以让我在 Ubuntu 里也能用.&lt;/p>
 &lt;p>虚拟机好处多, 大家都来用吧.&lt;/p>
-&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><guid>/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;p>(剩下的想起来再写)&lt;/p></description></item><item><title>TVM RPC Android 踩坑记</title><link>/posts/tvm-android-rpc2/</link><pubDate>Sat, 07 Mar 2020 00:56:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android-rpc2/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
 &lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
@@ -3309,7 +3309,7 @@ No OpenCL device&lt;/p>
 &lt;/div>
 &lt;/h2>
 &lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
-&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><guid>/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
+&lt;p>&lt;strong>READ THE OFFICIAL INSTRUCTIONS CAREFULLY!!&lt;/strong>&lt;/p></description></item><item><title>TVM Android 构建时千万不要用最新的工具</title><link>/posts/tvm-android/</link><pubDate>Tue, 03 Mar 2020 00:56:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android/</guid><description>&lt;p>遇到报错 &lt;code>[INSTALL_FAILED_INVALID_APK: Failed to extract native libraries, res=-2]&lt;/code>&lt;/p>
 &lt;p>修改 &lt;code>AndroidManifest.xml&lt;/code> 的 &lt;code>application&lt;/code> 字段，添加 &lt;code>android:extractNativeLibs=&amp;quot;true&amp;quot;&lt;/code> 即可解决问题&lt;/p>
 &lt;pre tabindex="0">&lt;code>&amp;lt;application
 android:extractNativeLibs=&amp;#34;true&amp;#34;
@@ -3332,7 +3332,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>稍微做一下适配，也不会让我们这些后来者因为这些问题踩坑浪费这么多时间吧…&lt;/p>
 &lt;p>，&lt;/p>
 &lt;p>一说起这个我就想起来那些依然在用 python2 的人。&lt;/p>
-&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><guid>/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
+&lt;p>print 加个括号就这么难吗？！&lt;/p></description></item><item><title>TVM RPC Android 部署踩坑</title><link>/posts/tvm-android-rpc/</link><pubDate>Tue, 03 Mar 2020 00:42:51 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/tvm-android-rpc/</guid><description>&lt;h1 id="先说结论-先说结论先说结论" >
 &lt;div>
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
@@ -3452,7 +3452,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;/div>
 &lt;/h1>
 &lt;p>其实一开始，在 android_rpc 这个目录里执行 &lt;code>gradle clean build&lt;/code> 是可以成功编译出文件的，但是在后面签名的时候给我报了个无法找到什么什么类的错误，然后我决定编译 android_deploy 试试，发现成功了，签名也正常，在 Android 10 手机上也可以正常运行，我就觉得肯定是这个项目的问题。&lt;/p>
-&lt;p>后来我再次尝试编译 android_rpc 的时候，出现了文章中描述的问题，技艺不精，导致这么长时间才解决这个问题，期间也查阅了大量的资料，中途也想过放弃，但是还是坚持下来了。最终把问题分析过程以及思路整理成这篇文章，希望后人遇到相关问题可以通过这篇文章节约大量时间。&lt;/p></description></item><item><title>元宵节快乐</title><link>/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><guid>/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><guid>/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
+&lt;p>后来我再次尝试编译 android_rpc 的时候，出现了文章中描述的问题，技艺不精，导致这么长时间才解决这个问题，期间也查阅了大量的资料，中途也想过放弃，但是还是坚持下来了。最终把问题分析过程以及思路整理成这篇文章，希望后人遇到相关问题可以通过这篇文章节约大量时间。&lt;/p></description></item><item><title>元宵节快乐</title><link>/posts/lantern-festival-2019/</link><pubDate>Tue, 19 Feb 2019 23:58:56 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/lantern-festival-2019/</guid><description>&lt;p>今天是 2019 年 2 月 19 日，元宵节，我并不快乐。&lt;/p></description></item><item><title>转瞬即逝的想法</title><link>/posts/a-thought/</link><pubDate>Wed, 04 Jul 2018 19:11:07 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought/</guid><description>&lt;p>“突然想到，怕以后忘了，就先写下来。”&lt;/p>
 &lt;blockquote>
 &lt;p>人生天地之间，若白驹过隙，忽然而已。 ——《庄子・知北游》&lt;/p>
 &lt;/blockquote>
@@ -3463,10 +3463,10 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>看起来自己似乎是个开拓者，其实自己一直都是一颗棋子，是一个肉鸡。&lt;/p>
 &lt;p>今天，再次迷茫。&lt;/p>
 &lt;p>我未来的路到底该怎么走？&lt;/p>
-&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><guid>/posts/a-thought-06-27/</guid><description>&lt;blockquote>
+&lt;p>有没有灯塔指引我一下&lt;/p></description></item><item><title>06-27</title><link>/posts/a-thought-06-27/</link><pubDate>Wed, 27 Jun 2018 21:10:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought-06-27/</guid><description>&lt;blockquote>
 &lt;p>我年纪还轻，阅历不深的时候， 我父亲教导过我一句话， 我至今还念念不忘。 “每逢你想要批评任何人的时候，” 他对我说， “你就记住，这个世界上所有的人， 并不是个个都有过你拥有的那些优越条件。” —— 菲茨杰拉德《了不起的盖茨比》&lt;/p>
-&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><guid>/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
-&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><guid>/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
+&lt;/blockquote></description></item><item><title>2018-4-14 0:00~10:00 梦</title><link>/posts/a-thought-04-14/</link><pubDate>Sat, 14 Apr 2018 11:48:52 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-thought-04-14/</guid><description>&lt;p>一个没有躯壳的人工智能偷了一个神奇的球&amp;hellip;&lt;/p>
+&lt;p>当它请求访问神奇球体的时候，获得了身体，它可以想存在在互联网上就存在在互联网上，想在现实中就在现实中，它可以控制自己的存在形式， 另我惊讶的是，它没有在现实中停留， 它一个转身，回到了互联网里，去找它的女朋友了…&lt;/p></description></item><item><title>On Children</title><link>/posts/on-children/</link><pubDate>Thu, 22 Mar 2018 18:35:50 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/on-children/</guid><description>&lt;p>Your children are not your children.&lt;/p>
 &lt;p>They are the sons and daughters of Life’s longing for itself.&lt;/p>
 &lt;p>They come through you but not from you,&lt;/p>
 &lt;p>And though they are with you, yet they belong not to you.&lt;/p>
@@ -3486,8 +3486,8 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>Let your bending in the archer’s hand be for gladness;&lt;/p>
 &lt;p>For even as He loves the arrow that flies，&lt;/p>
 &lt;p>So He loves also the bow that is stable.&lt;/p>
-&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><guid>/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
-&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>去做了心理咨询</title><link>/posts/psychological-counseling/</link><pubDate>Mon, 12 Mar 2018 16:30:19 +0800</pubDate><guid>/posts/psychological-counseling/</guid><description>&lt;p>周一啊，我去做了心理咨询。&lt;/p>
+&lt;p>——Kahlil Gibran&lt;/p></description></item><item><title>记一次跟朋友的语音聊天</title><link>/posts/a-phone-call/</link><pubDate>Thu, 15 Mar 2018 19:38:42 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-phone-call/</guid><description>&lt;p>SS 今天找到我，说他们学校也有黑科技群，问我能不能教教他黑科技。&lt;/p>
+&lt;p>SS 说我可以认识一些大佬之类的人，可能会对我以后有帮助。 后来，他说 LSH 现在很厉害了。 我想知道 LSH 现在怎么样了，于是问 SS 能不能语音电话聊，打字太慢。 他说，LSH 现在是 S 大的 ACM 负责人了。 我很惊讶，也很佩服。 SS 给我说了他最近在做的项目，是一个零钱换电子余额的项目，但是现在缺程序员。 …… 后来我们聊了好多好多好多，各种聊天，各种话题，似乎说不完。 从编程，到高中生活，再到大学舍友，还有未来规划，还有目前的在做的项目，我们都聊了一遍。 我感慨了一句：“还是跟高中同学聊得来” SS 说我得找一个团队，不然自己实现想法的话，很难。 后来，SS 说他准备在暑假的时候，跟 WHY 一起徒步旅行，还说珠穆朗玛峰那件事往后放放。 2333 SS 说，我应该多出去走走，跟同学一起。 这样能开拓视野，不然光在教室里呆着眼界放不开。 聊了 57 分钟，感触很多，如果不是因为我马上要去图书馆，我们还会聊下去。 （哦对，SS 说我的英语水平有了明显提升哈哈哈）&lt;/p></description></item><item><title>去做了心理咨询</title><link>/posts/psychological-counseling/</link><pubDate>Mon, 12 Mar 2018 16:30:19 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/psychological-counseling/</guid><description>&lt;p>周一啊，我去做了心理咨询。&lt;/p>
 &lt;p>心理咨询室里只有我和心理咨询师，咨询师是一位很年轻的女老师，跟咨询师聊了 1 小时，基本上都是我在说话。&lt;/p>
 &lt;p>咨询师说，她充当的是一面镜子的作用，帮助我进入我的内心，看清自己。 她说下次心理辅导的时候希望我讲一下我的家庭，还有我小时候的故事，&lt;/p>
 &lt;p>还有，她说我的思维太 “理科生” 了，把所有感情都分了 Category, 我仔细想了想，还真是。&lt;/p>
@@ -3497,7 +3497,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;p>心理咨询师跟我约了下一次的辅导时间，在 2018 年 3 月 19 日的 15:00 ~ 16:00&lt;/p>
 &lt;p>我内心平静地进入心理咨询室，内心平静的从里面走出来。&lt;/p>
 &lt;p>不知道脑子里在想什么，走的时候，甚至忘了给咨询师说 “谢谢”。&lt;/p>
-&lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><guid>/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><guid>/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
+&lt;p>就这些，，，我希望我能变得正常一些。。。&lt;/p></description></item><item><title>2018-3-1 0:36 没有标题</title><link>/posts/self-reflection/</link><pubDate>Thu, 01 Mar 2018 00:37:23 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/self-reflection/</guid><description>&lt;p>0:40 睡觉 明早 8:00 起来写自我反省。 printf (“Goodbye World. “);&lt;/p></description></item><item><title>博客改名啦</title><link>/posts/blog-rename/</link><pubDate>Sat, 24 Feb 2018 19:54:52 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/blog-rename/</guid><description>&lt;p>原先叫 「Junyi 的故事客栈」&lt;/p>
 &lt;p>现在叫 「Junyi 的小屋」&lt;/p>
 &lt;h1 id="2023年8月23日注" >
 &lt;div>
@@ -3507,7 +3507,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 2023年8月23日注
 &lt;/div>
 &lt;/h1>
-&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><guid>/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
+&lt;p>好像现在叫 Junyi&amp;rsquo;s Lab 了&lt;/p></description></item><item><title>2018 除旧 迎新</title><link>/posts/2018-remove-all/</link><pubDate>Wed, 21 Feb 2018 00:11:05 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/2018-remove-all/</guid><description>&lt;p>2018 年的 2 月，对我来说，不同寻常&lt;/p>
 &lt;p>我毫不犹豫地删掉了之前写的所有文章&lt;/p>
 &lt;p>（不可恢复，之前的白写了 23333） 直到这篇文章发布（2018-2-21 0:10）&lt;/p>
 &lt;p>我&lt;/p>
