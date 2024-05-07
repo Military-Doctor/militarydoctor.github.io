@@ -333,14 +333,20 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;/h3>
 &lt;p>ICLR 2024 中稿了！欢迎大家参观我们的&lt;a href="https://openreview.net/forum?id=glwwbaeKm2">论文&lt;/a>、&lt;a href="https://vertibench.xtra.science/">网站&lt;/a> 和 &lt;a href="https://github.com/Xtra-Computing/VertiBench">GitHub&lt;/a>&lt;/p></description></item><item><title>一个标注名词的方式</title><link>/posts/a-writing-trick/</link><pubDate>Fri, 17 Dec 2021 21:13:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/a-writing-trick/</guid><description>&lt;p>在写技术博客的时候，难免会写到一些单词的中文版本，为了防止歧义，我们可以通过 &lt;code>&amp;lt;ruby&amp;gt;&lt;/code> 标签把原始单词标注出来&lt;/p>
 &lt;p>下面是一些例子：&lt;/p>
+&lt;blockquote>
 &lt;p>近些年来，&lt;ruby>容器&lt;rt>Container&lt;/rt>&lt;/ruby>技术极大地降低了服务的部署成本&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
 &lt;p>在 Linux 系统中，我们可以通过&lt;ruby>定时任务&lt;rt>cron job&lt;/rt>&lt;/ruby>功能进行系统管理&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
 &lt;p>苹果的&lt;ruby>隔空投送&lt;rt>AirDrop&lt;/rt>&lt;/ruby>并没有那么可靠，丢失文件的情况经常发生&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>近些年来，&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;容器&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;Container&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;技术极大地降低了服务的部署成本
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>近些年来，&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;容器&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;Container&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;技术极大地降低了服务的部署成本
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to get motivated</title><link>/posts/how-to-get-motivated/</link><pubDate>Thu, 13 May 2021 13:17:34 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/how-to-get-motivated/</guid><description>&lt;p>最近发现了一个关于如何让自己 motivated 的方法视频，整理了一下 PPT 里的内容，感觉部分方法确实适合我自己。在这里分享给大家。&lt;/p>
 &lt;h1 id="1-get-ready-the-night-before" >
 &lt;div>
