@@ -1123,7 +1123,51 @@ Lab 1
 &lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>👋 欢迎来到 Junyi 的画廊</title><link>/gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/gallery/</guid><description>&lt;figure>
+&lt;/ul></description></item><item><title>&lt;ruby>垂直联邦学习&lt;rt>Vertical Federated Learning (VFL)&lt;/rt>&lt;/ruby></title><link>/posts/vfl-1/</link><pubDate>Sat, 26 Aug 2023 19:32:24 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/vfl-1/</guid><description>&lt;blockquote>
+&lt;p>这是一个科普性质的文章&lt;/p>
+&lt;/blockquote>
+&lt;p>之前很抗拒做 VFL，因为我认为 VFL 只是一个训练模型的工作。&lt;/p>
+&lt;p>但是，我刚刚意识到 VFL 不只是深度学习。（一种突然开窍的感觉）&lt;/p>
+&lt;p>实际上，&lt;ruby>垂直联邦学习&lt;rt>Vertical Federated Learning&lt;/rt>&lt;/ruby> 在 &lt;ruby>联邦学习&lt;rt>Federated Learning&lt;/rt>&lt;/ruby> 领域里，研究的核心是 &lt;code>Record Linkage&lt;/code> / &lt;code>Data Integration&lt;/code>。&lt;/p>
+&lt;p>这玩意被深度学习包装一下就变成了 VFL。&lt;/p>
+&lt;p>研究 HFL 的人比研究 VFL 的人多。因为 VFL 的数据太难获得了！&lt;/p>
+&lt;figure>
+&lt;div style="display: flex; align-items: end">
+&lt;div style="">
+&lt;img src="https://www.junyi.dev/posts/vfl-1/hfl.png" alt="Horizontal Federated Learning" />
+&lt;figcaption>&lt;/figcaption>
+&lt;/div>
+&lt;div style="">
+&lt;img src="https://www.junyi.dev/posts/vfl-1/vfl.png" alt="Vertical Federated Learning"/>
+&lt;figcaption>&lt;/figcaption>
+&lt;/div>
+&lt;/div>
+&lt;figcaption>图 1 - HFL 和 VFL 的区别在于如何对待数据的 Column(Feature) &lt;/figcaption>
+&lt;/figure>
+&lt;!-- &lt;figure>
+&lt;img width="250" src="https://www.junyi.dev/posts/vfl-1/procedure.png" alt="Procedure of Vertical Federated Learning"/>
+&lt;figcaption>图 2 - VFL 的一般流程（SplitNN）&lt;/figcaption>
+&lt;/figure> -->
+&lt;p>想想看，什么样的场景需要用到 VFL 呢？&lt;/p>
+&lt;p>比如银行和医院可以合作训练一个模型，预测用户的健康状态 / 还款能力。&lt;/p>
+&lt;p>训练这样一个模型之前，我们应该先把银行和医院的数据对齐一下（做一下 Record Linkage）。&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Record Linkage&lt;/strong>: the process of identifying and linking records that correspond to the same individual across different databases.&lt;/p>
+&lt;/blockquote>
+&lt;figure>
+&lt;img src="https://www.junyi.dev/posts/vfl-1/rl.png" alt="Vertical Federated Learning"/>
+&lt;figcaption>图 2 - 经过 Record Linkage 过程，我们找到了银行和医院中的 Junyi Hou。&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="https://www.junyi.dev/posts/vfl-1/pprl.png" alt="Vertical Federated Learning"/>
+&lt;figcaption>图 3 - 在 Privacy Preserving (保护隐私) 的情况下，Record Linkage 变得困难。 &lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;strong>在 Privacy Preserving 的情况下，如何做 Record Linkage 呢？&lt;/strong>&lt;/p>
+&lt;p>一个方法是 &lt;a href="https://github.com/Xtra-Computing/FedSim">FedSim (NeurIPS2022)&lt;/a>，取 TopK 个最相关的 record 做 linkage &amp;hellip;.&lt;/p>
+&lt;p>&lt;strong>VFL 数据不够的情况下，我们怎么广泛评估算法好坏呢？&lt;/strong>&lt;/p>
+&lt;p>大部分研究者手动切分数据集，要么随机切，要么平均切，要么看心情切。&lt;/p>
+&lt;p>比如数据集有 16 个 feature，我分成 2 个 party，partyA 有 9 个 feature，partyB 有 7 个 feature。&lt;/p>
+&lt;p>直到 &lt;a href="https://vertibench.xtra.science/">VertiBench (ICLR2024)&lt;/a> 这篇工作，我们才有一个切分数据集的&lt;strong>指导纲领&lt;/strong>（两个指标）。&lt;/p></description></item><item><title>👋 欢迎来到 Junyi 的画廊</title><link>/gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/gallery/</guid><description>&lt;figure>
 &lt;img src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>Ultra Boost Converter&lt;/figcaption>
 &lt;/figure>
