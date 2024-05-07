@@ -236,7 +236,7 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 9. 安全性考虑
 &lt;/div>
-&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
 （呕心沥血的翻译）&lt;/p>
 &lt;h1 id="4-packet-formats-包格式" >
 &lt;div>

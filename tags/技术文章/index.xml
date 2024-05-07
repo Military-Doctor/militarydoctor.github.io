@@ -832,7 +832,7 @@ RFC 草案 Payload Flexible FEC
 &lt;/a>
 9. 安全性考虑
 &lt;/div>
-&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC 翻译</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
+&lt;/h1></description></item><item><title>RFC8627 - Payload Flexible FEC</title><link>/posts/rfc8627-payload-flex-fec/</link><pubDate>Sun, 02 Aug 2020 11:08:57 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc8627-payload-flex-fec/</guid><description>&lt;p>FEC 还蛮有意思的，这篇翻译的内容是 Payload Flexible FEC 的 RFC 细节
 （呕心沥血的翻译）&lt;/p>
 &lt;h1 id="4-packet-formats-包格式" >
 &lt;div>
@@ -1351,7 +1351,7 @@ feedback on earlier versions of this draft.
 2023年8月23日更新
 &lt;/div>
 &lt;/h1>
-&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT 翻译</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
+&lt;p>我靠，我当时怎么啃下来的这个？？？&lt;/p></description></item><item><title>RFC5389 - Session Traversal Utilities for NAT</title><link>/posts/rfc5389-stun/</link><pubDate>Sat, 27 Jun 2020 20:10:49 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/rfc5389-stun/</guid><description>&lt;p>STUN 是一种协议，用于检查两个终端之间的连通性，可以工作在多种 NAT 之中，不需要 NAT 对其有任何行为。&lt;/p>
 &lt;p>STUN 本身不是一个 NAT 穿透的解决方案，而是一个 NAT 穿透&lt;strong>条件检测工具&lt;/strong>。&lt;/p>
 &lt;h1 id="说在前面" >
 &lt;div>
