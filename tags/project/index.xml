@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on Junyi's Lab</title><link>/tags/project/</link><description>Junyi's Lab (Project)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="/tags/project/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 自制超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Project on Junyi's Lab</title><link>/tags/project/</link><description>Junyi's Lab (Project)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Fri, 29 Mar 2024 16:42:00 +0800</lastBuildDate><atom:link href="/tags/project/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img style="border-radius:0.5em; box-shadow: 0px 0px 5px rgba(0,0,0,0.2)" src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
@@ -10,7 +10,7 @@
 芯片选型
 &lt;/div>
 &lt;/h2>
-&lt;p>接了一个奇葩的需求，需要我把 0.5V 的电压转换到 2.0V。&lt;/p>
+&lt;p>接了一个很有挑战的需求，需要我把 0.5V 的电压转换到 2.0V。&lt;/p>
 &lt;p>传统的 Boost-Buck 电路无法实现这个需求，因为一个普通二极管的压降约为 0.7V，可是电源只能提供 0.5V 的电压。&lt;/p>
 &lt;p>大部分现有的电压转换芯片，需要 0.9V 的启动电压，电源不能满足这个要求。&lt;/p>
 &lt;p>找了很久，发现了 TPS6200 这款芯片，它支持 0.3V-5.5V 的输入，并且以 1.8V - 5.5V 的电压输出（可调且固定）&lt;/p>
@@ -81,4 +81,23 @@ PCB 设计
 &lt;/div>
 &lt;/div>
 &lt;figcaption>图 3 - 来自不同电压输入，输出 2.0V 稳压点亮 LED&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;div style="display: flex">
+&lt;div style="width:50%">
+&lt;img src="https://www.junyi.dev/posts/boost-converter/new_version.jpg" alt="New Boost Converter" />
+&lt;!-- &lt;figcaption>(a) 使用 3.0V 纽扣电池&lt;/figcaption> -->
+&lt;/div>
+&lt;div>
+&lt;p style="padding-left:1em">&lt;strong>2024 年 6 月 15 日 更新内容：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>移除了排针&lt;/li>
+&lt;li>移除了纽扣电池座&lt;/li>
+&lt;li>移除了 POWERSAVE 选项（默认 enable）&lt;/li>
+&lt;li>可调输出电压从 0.5V~3.3V 改进到 0.5V~5.5V&lt;/li>
+&lt;li>更换为 3mm 电位器，反馈电路距离变短&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;/div>
+&lt;figcaption>图 4 - 升级之后的 Ultra Boost Converter&lt;/figcaption>
 &lt;/figure></description></item></channel></rss>
