@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技术文章，Distributed System on Junyi's Lab</title><link>/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0distributed-system/</link><description>Junyi's Lab (技术文章，Distributed System)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Tue, 12 Sep 2023 11:32:04 +0800</lastBuildDate><atom:link href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0distributed-system/index.xml" rel="self" type="application/rss+xml"/><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li 讲的蛮好，尽管实现了 Basic Paxos 和 Multi Paxos（多亏了 Junhui 的 cheatsheet&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;!-- （而且没实现分布式事务） -->
+&lt;p>所以，赶紧开一篇博客把想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
+&lt;hr>
+&lt;p>首先简单过一下这些基础概念&lt;/p>
+&lt;h2 id="happens-before-relationship" >
+&lt;div>
+&lt;a href="#happens-before-relationship">
+#
+&lt;/a>
+Happens-before relationship
+&lt;/div>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Within a process, A comes before B then A→B, it also means&lt;/p>
+&lt;blockquote>
+&lt;p>B &lt;strong>could&lt;/strong> have been influenced by A&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>If a → b, then b !→ a&lt;/p>
+&lt;blockquote>
+&lt;p>What about a!→b, does that mean b→a? &lt;span style="color: white">&lt;strong>NO&lt;/strong>&lt;/span>&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>If a → b, and b → c, then a → c (transitivity)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>a !→ b and b !→ a, means a and b are &lt;strong>concurrent&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>no one can tell whether a or b happened first!&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="lamport-clock" >
+&lt;div>
+&lt;a href="#lamport-clock">
+#
+&lt;/a>
+Lamport clock
+&lt;/div>
+&lt;/h2>
+&lt;img src="logical-clock.png" alt="drawing" width="400"/>
+&lt;p>We can use clocks to implement a lock.&lt;/p>
+&lt;p>&lt;strong>Our goals are:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>Only one process can hold the lock at a time.&lt;/li>
+&lt;li>Grant the lock &lt;strong>in request order&lt;/strong>.&lt;/li>
+&lt;li>Requesting processes &lt;strong>eventually&lt;/strong> get the lock.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Our assumptions are:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>In order&lt;/strong> point-to-point message delivery.&lt;/li>
+&lt;li>&lt;strong>No failures&lt;/strong>.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Implementation:&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>Each message carries a timestamp $T_m$&lt;/li>
+&lt;li>Three message types:
+&lt;ul>
+&lt;li>request&lt;/li>
+&lt;li>release&lt;/li>
+&lt;li>acknowledge&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Each node&amp;rsquo;s state:
+&lt;ul>
+&lt;li>A queue of requested messaged, ordered by $T_m$.&lt;/li>
+&lt;li>The latest timestamp it received from each node.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>On receiving&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>receiving a request
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;li>add the request to the queue&lt;/li>
+&lt;li>send an acknowledge&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>receiving a release
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;li>remove the request from the queue&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>receiving an acknowledge
+&lt;ul>
+&lt;li>record the timestamp&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>To perform&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>To acquire a lock
+&lt;ul>
+&lt;li>send request to every node, including itself&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>To release a lock
+&lt;ul>
+&lt;li>send release to every node, including itself&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>The lock is acquired when&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>My request is at the head of the queue.&lt;/li>
+&lt;li>I&amp;rsquo;ve received higher timestamp &lt;strong>from every node&lt;/strong>.&lt;/li>
+&lt;li>So my request must be the earliest.&lt;/li>
+&lt;/ol>
+&lt;h2 id="vector-clock" >
+&lt;div>
+&lt;a href="#vector-clock">
+#
+&lt;/a>
+Vector clock
+&lt;/div>
+&lt;/h2>
+&lt;p>Clock is a vector C, length = # of nodes.&lt;/p>
+&lt;blockquote>
+&lt;p>(0, 0, 0) for a 3-node system&lt;/p>
+&lt;/blockquote>
+&lt;p>On node i, increment C[i] on each event.&lt;/p>
+&lt;blockquote>
+&lt;p>node 0 (3,5,2), after event: (4,5,2)&lt;/p>
+&lt;/blockquote>
+&lt;p>On node i, received a message, increment C[i], and take the max of each element.&lt;/p>
+&lt;blockquote>
+&lt;p>node 0 (4,5,2), received message (2,7,0): (4,7,2)&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>If Cx[i] &amp;lt; Cy[i] and Cx[j] &amp;gt; Cy[j] for some i, j&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Cx and Cy are concurrent&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>if Cx[i] &amp;lt;= Cy[i] for all i, and there exist j such that Cx[j] &amp;lt; Cy[j]&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Cx happens before Cy&lt;/li>
+&lt;/ul>
+&lt;img src="vector-lock.jpg" width="400" alt="vector-lock" />
+&lt;h2 id="lab-1" >
+&lt;div>
+&lt;a href="#lab-1">
+#
+&lt;/a>
+Lab 1
+&lt;/div>
+&lt;/h2>
+&lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
+&lt;ul>
+&lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
+&lt;/ul>
+&lt;h2 id="reference" >
+&lt;div>
+&lt;a href="#reference">
+#
+&lt;/a>
+Reference
+&lt;/div>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://jzhu.xyz/posts/paxos">https://jzhu.xyz/posts/paxos&lt;/a> (Cheatsheet of MultiPaxos Impl)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

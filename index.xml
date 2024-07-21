@@ -917,7 +917,32 @@ color: white
 .spoiler:hover::before {
 display: none;
 } */
-&lt;/style></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
+&lt;/style>
+&lt;h2 id="tips" >
+&lt;div>
+&lt;a href="#tips">
+#
+&lt;/a>
+Tips
+&lt;/div>
+&lt;/h2>
+&lt;p>实现 Paxos 的注意事项可以参考 Junhui 的 Cheatsheet&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;h2 id="reference" >
+&lt;div>
+&lt;a href="#reference">
+#
+&lt;/a>
+Reference
+&lt;/div>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://jzhu.xyz/posts/paxos">https://jzhu.xyz/posts/paxos&lt;/a> (Cheatsheet of MultiPaxos Impl)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Distributed System: Consistency</title><link>/posts/paxos-review-2/</link><pubDate>Tue, 12 Sep 2023 14:06:01 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-2/</guid><description>&lt;p>这篇文章主要是对分布式系统中的&lt;ruby>一致性&lt;rt>Consistency&lt;/rt>&lt;/ruby>进行区分&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>弱一致性&lt;rt>Weak Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：允许系统的行为与单一系统的行为不一致。&lt;/p>
 &lt;p>&lt;strong>&lt;ruby>强一致性&lt;rt>Strong Consistency&lt;/rt>&lt;/ruby>&lt;/strong>：整个系统表现得像是一个单一的、无并发的实体。&lt;/p>
 &lt;hr>
@@ -989,8 +1014,9 @@ Lab 2
 &lt;li>由一个 中央 view-server 决定谁是 primary 谁是 backup&lt;/li>
 &lt;li>primary 挂了，backup 顶上来&lt;/li>
 &lt;/ol>
-&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li Jialin 讲的蛮好，虽然我实现了 Basic Paxos 和 Multi Paxos（没实现分布式事务），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
-&lt;p>所以，赶紧开一篇博客，把我的想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
+&lt;img src="pbr.png" alt="drawing" width="400"/></description></item><item><title>Distributed System: Ordering of events</title><link>/posts/paxos-review-1/</link><pubDate>Tue, 12 Sep 2023 11:32:04 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/paxos-review-1/</guid><description>&lt;p>上个学期的 &lt;a href="https://nusmods.com/courses/CS5223/distributed-systems">CS5223 Distributed Systems&lt;/a> ，Prof. Li 讲的蛮好，尽管实现了 Basic Paxos 和 Multi Paxos（多亏了 Junhui 的 cheatsheet&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>），但是耐不住时间的拷打，写的 Paxos 都快忘光了&amp;hellip;&lt;/p>
+&lt;!-- （而且没实现分布式事务） -->
+&lt;p>所以，赶紧开一篇博客把想法都记录下来，以便&lt;strong>之后的复习&lt;/strong>。&lt;/p>
 &lt;hr>
 &lt;p>首先简单过一下这些基础概念&lt;/p>
 &lt;h2 id="happens-before-relationship" >
@@ -1142,7 +1168,23 @@ Lab 1
 &lt;p>实现一个 at-most-once 的 KV Store&lt;/p>
 &lt;ul>
 &lt;li>RPC 要么最多执行一次，要么不执行&lt;/li>
-&lt;/ul></description></item><item><title>&lt;ruby>垂直联邦学习&lt;rt>Vertical Federated Learning (VFL)&lt;/rt>&lt;/ruby></title><link>/posts/vfl-1/</link><pubDate>Sat, 26 Aug 2023 19:32:24 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/vfl-1/</guid><description>&lt;blockquote>
+&lt;/ul>
+&lt;h2 id="reference" >
+&lt;div>
+&lt;a href="#reference">
+#
+&lt;/a>
+Reference
+&lt;/div>
+&lt;/h2>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://jzhu.xyz/posts/paxos">https://jzhu.xyz/posts/paxos&lt;/a> (Cheatsheet of MultiPaxos Impl)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>&lt;ruby>垂直联邦学习&lt;rt>Vertical Federated Learning (VFL)&lt;/rt>&lt;/ruby></title><link>/posts/vfl-1/</link><pubDate>Sat, 26 Aug 2023 19:32:24 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/vfl-1/</guid><description>&lt;blockquote>
 &lt;p>这是一个科普性质的文章&lt;/p>
 &lt;/blockquote>
 &lt;p>之前很抗拒做 VFL，因为我认为 VFL 只是一个训练模型的工作。&lt;/p>
