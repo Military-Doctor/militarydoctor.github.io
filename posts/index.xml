@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Wed, 08 May 2024 14:05:19 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Junyi's Lab</title><link>/posts/</link><description>Junyi's Lab (Posts)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Thu, 25 Jul 2024 12:57:21 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>eSim</title><link>/posts/esim-101/</link><pubDate>Thu, 25 Jul 2024 12:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/esim-101/</guid><description>&lt;p>1223t&lt;/p></description></item><item><title>超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img style="border-radius:0.5em; box-shadow: 0px 0px 5px rgba(0,0,0,0.2)" src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
@@ -100,7 +100,7 @@ PCB 设计
 &lt;/div>
 &lt;/div>
 &lt;figcaption>图 4 - 升级之后的 Ultra Boost Converter&lt;/figcaption>
-&lt;/figure></description></item><item><title>🙈 在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
+&lt;/figure></description></item><item><title>在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #

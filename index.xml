@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Wed, 08 May 2024 14:05:19 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>🎉 友情链接</title><link>/friends/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/friends/</guid><description>&lt;style>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Thu, 25 Jul 2024 12:57:21 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>eSim</title><link>/posts/esim-101/</link><pubDate>Thu, 25 Jul 2024 12:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/esim-101/</guid><description>&lt;p>1223t&lt;/p></description></item><item><title>🎉 友情链接</title><link>/friends/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/friends/</guid><description>&lt;style>
 .links {
 /* background-color: red; */
 }
@@ -143,7 +143,7 @@ justify-content: center;
 &lt;summary>点击这里展开&lt;/summary>
 &lt;p>&lt;b>代码随想录：&lt;/b>作者给我一种半桶水的感觉，属于是新手看着费劲，老手觉得啰嗦，而且看他的题解会让思维变得混乱...&lt;/p>
 &lt;p>&lt;b>C++八股文-小贺：很水，开幕雷击的感觉&lt;/b>&lt;/p>
-&lt;/details> --></description></item><item><title>🚀 超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
+&lt;/details> --></description></item><item><title>超低电压输入的升降压电路（0.3V 转 5V）</title><link>/posts/boost-converter/</link><pubDate>Fri, 29 Mar 2024 16:42:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/boost-converter/</guid><description>&lt;figure>
 &lt;img style="border-radius:0.5em; box-shadow: 0px 0px 5px rgba(0,0,0,0.2)" src="https://www.junyi.dev/posts/boost-converter/pic1.JPG" alt="Boost Converter by Junyi" width="500" />
 &lt;figcaption>图 1 - Ultra Boost Converter 实拍&lt;/figcaption>
 &lt;/figure>
@@ -245,7 +245,7 @@ PCB 设计
 &lt;/div>
 &lt;/div>
 &lt;figcaption>图 4 - 升级之后的 Ultra Boost Converter&lt;/figcaption>
-&lt;/figure></description></item><item><title>🙈 在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
+&lt;/figure></description></item><item><title>在 GitHub Pages 博客上隐藏敏感文章</title><link>/posts/github-actions/</link><pubDate>Mon, 18 Mar 2024 19:57:21 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/github-actions/</guid><description>&lt;h2 id="背景" >
 &lt;div>
 &lt;a href="#%e8%83%8c%e6%99%af">
 #
