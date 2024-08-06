@@ -149,7 +149,7 @@ Step 4. Push to &lt;code>blog-src&lt;/code>
 &lt;/div>
 &lt;/h2>
 &lt;p>All you need to do in this step is &lt;strong>push&lt;/strong> some commits to &lt;code>blog-src&lt;/code>, and if all goes well, your GitHub Actions will automatically execute, build your site, and push it to the &lt;code>blog.github.io&lt;/code> repository.&lt;/p>
-&lt;p>(END OF THE POST)&lt;/p></description></item><item><title>🤬 Who cares about your default value??!</title><link>/en/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/en/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+&lt;p>(END OF THE POST)&lt;/p></description></item><item><title>Who cares about your default value??!</title><link>/en/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/en/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
 &lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
 &lt;/blockquote>
 &lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>

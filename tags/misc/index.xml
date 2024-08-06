@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>🔬 科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MISC on Junyi's Lab</title><link>/tags/misc/</link><description>Junyi's Lab (MISC)</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Mon, 04 Mar 2024 13:02:12 +0800</lastBuildDate><atom:link href="/tags/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>科研路上的思考与实践</title><link>/posts/research-101/</link><pubDate>Mon, 04 Mar 2024 13:02:12 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/research-101/</guid><description>&lt;p>以下内容整理自每周的组会&lt;/p>
 &lt;h2 id="读-paper" >
 &lt;div>
 &lt;a href="#%e8%af%bb-paper">
@@ -142,7 +142,7 @@ Weakness：
 3. Weakness 3
 Minor Components：
 一个paper也就4、5个 findings
---></description></item><item><title>🤬 谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
+--></description></item><item><title>谁他妈在乎你的默认值？？！！</title><link>/posts/who-cares-about-your-default-value/</link><pubDate>Thu, 08 Feb 2024 15:59:48 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/who-cares-about-your-default-value/</guid><description>&lt;blockquote>
 &lt;p>⛔️ &lt;strong>Caution:&lt;/strong> Content below may offend some readers. All narratives and opinions are fictional and for illustrative purposes only — no direct references to real individuals or events intended.&lt;/p>
 &lt;/blockquote>
 &lt;p>Seriously, enough with the nonsensical log naming circus! Nobody has the time or psychic powers to decipher your default values or to dive into the abyss of your source code!!!&lt;/p>
