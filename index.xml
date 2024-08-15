@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg (Junyi Hou)</managingEditor><webMaster>junyi.h@comp.nus.edu.sg (Junyi Hou)</webMaster><lastBuildDate>Thu, 25 Jul 2024 12:57:21 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>🎉 友情链接</title><link>/friends/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/friends/</guid><description>&lt;style>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Junyi's Lab</title><link>/</link><description>Junyi's Lab</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>junyi.h@comp.nus.edu.sg
+(Junyi Hou)</managingEditor><lastBuildDate>Thu, 25 Jul 2024 12:57:21 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>🎉 友情链接</title><link>/friends/</link><pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/friends/</guid><description>&lt;style>
 .links {
 /* background-color: red; */
 }
@@ -51,9 +52,9 @@ justify-content: center;
 &lt;/div>
 &lt;/div>
 &lt;div class="link-item">
-&lt;img src="https://ymiir.asia/assets/img/touxiang.jpg" alt="friend-avatar" class="link-avatar">&lt;/img>
+&lt;img src="https://avatars.githubusercontent.com/u/44336448?v=4" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://ymiir.asia/" class="link-title">&lt;p>月梦の技术博客&lt;/p>&lt;/a>
+&lt;a href="https://ymiir.asia/" class="link-title">&lt;p>Lundrea's 技术博客&lt;/p>&lt;/a>
 &lt;/div>
 &lt;/div>
 &lt;hr>
