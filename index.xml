@@ -22,39 +22,53 @@ justify-content: center;
 .link-title {
 }
 .link-desc {
+display: flex;
+flex-direction: row;
 }
 &lt;/style>
 &lt;div class="links">
 &lt;div class="link-item">
 &lt;img src="https://avatars.githubusercontent.com/u/48405589" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://jzhu.xyz/" class="link-title">&lt;p>Daniel Zhu&lt;/p>&lt;/a>
+&lt;a href="https://jzhu.xyz/" class="link-title" target="_blank">&lt;p>Daniel Zhu&lt;/p>&lt;/a>
 &lt;p class="link-desc">A speck of dust within the galaxy&lt;/p>
 &lt;/div>
 &lt;/div>
 &lt;div class="link-item">
 &lt;img src="https://avatars.githubusercontent.com/u/34486262" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://SeanYancy.github.io" class="link-title">&lt;p>Sean, the sheep🐑&lt;/p>&lt;/a>
+&lt;a href="https://SeanYancy.github.io" class="link-title" target="_blank">&lt;p>Sean, the sheep🐑&lt;/p>&lt;/a>
 &lt;/div>
 &lt;/div>
 &lt;div class="link-item">
 &lt;img src="https://avatars.githubusercontent.com/u/10968322" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://www.h4ckm310n.com" class="link-title">&lt;p>h4ckm310n&lt;/p>&lt;/a>
+&lt;a href="https://www.h4ckm310n.com" class="link-title" target="_blank">&lt;p>h4ckm310n&lt;/p>&lt;/a>
 &lt;p class="link-desc">重新开始，记得备份！！&lt;/p>
 &lt;/div>
 &lt;/div>
 &lt;div class="link-item">
 &lt;img src="https://avatars.githubusercontent.com/u/44976445" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://blog.bj-yan.top" class="link-title">&lt;p>北屿小智障！&lt;/p>&lt;/a>
+&lt;a href="https://blog.bj-yan.top" class="link-title" target="_blank">&lt;p>北屿小智障！&lt;/p>&lt;/a>
 &lt;/div>
 &lt;/div>
 &lt;div class="link-item">
 &lt;img src="https://avatars.githubusercontent.com/u/44336448?v=4" alt="friend-avatar" class="link-avatar">&lt;/img>
 &lt;div class="link-body">
-&lt;a href="https://ymiir.asia/" class="link-title">&lt;p>Lundrea's 技术博客&lt;/p>&lt;/a>
+&lt;a href="https://ymiir.asia/" class="link-title" target="_blank">&lt;p>Lundrea's 技术博客&lt;/p>&lt;/a>
+&lt;/div>
+&lt;/div>
+&lt;div class="link-item">
+&lt;img src="https://github.com/skyone-wzw.png" alt="friend-avatar" class="link-avatar">&lt;/img>
+&lt;div class="link-body">
+&lt;a href="https://www.skyone.host" class="link-title" target="_blank">&lt;p>Skyone Blog&lt;/p>&lt;/a>
+&lt;div class="link-desc">
+&lt;span>Skyone 的个人博客&lt;/span>
+&lt;a href="https://github.com/skyone-wzw.gpg" target="_blank" alt="GPG-Key">
+&lt;svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock-share">&lt;path stroke="none" d="M0 0h24v24H0z" fill="none"/>&lt;path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />&lt;path d="M12 21h-5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2" />&lt;path d="M8 11v-4a4 4 0 1 1 8 0v4" />&lt;path d="M16 22l5 -5" />&lt;path d="M21 21.5v-4.5h-4.5" />&lt;/svg>
+&lt;/a>
+&lt;/div>
 &lt;/div>
 &lt;/div>
 &lt;hr>
