@@ -627,7 +627,7 @@ Disclaimer? Here&amp;rsquo;s Your &amp;ldquo;Disclaimer&amp;rdquo;
 &lt;p>Don&amp;rsquo;t twist my words. &lt;strong>I never said jam every detail into the filename.&lt;/strong> What I&amp;rsquo;m demanding is some basic, human decency in naming. Can&amp;rsquo;t fit all variables in the name? Fine. But at least have the courtesy to clearly document your parameters at the start of the log file. Use tools, use your brain, make it understandable. We&amp;rsquo;re trying to do science here, not solve a mystery.&lt;/p>
 &lt;p>Is that too much to ask?&lt;/p></description></item><item><title>使用 git-crypt 加密你的仓库</title><link>/posts/git-crypt/</link><pubDate>Tue, 30 Jan 2024 13:12:00 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/git-crypt/</guid><description>&lt;p>&lt;code>git-crypt&lt;/code> enables transparent encryption and decryption of files in a git repository.&lt;/p>
 &lt;p>Here is a demo of how to use &lt;code>git-crypt&lt;/code> to encrypt files in a git repository.&lt;/p>
-&lt;p>&lt;img alt="BasicFlow" src="https://www.junyi.dev/posts/git-crypt/flow.svg">&lt;/p>
+&lt;p>&lt;img src="https://www.junyi.dev/posts/git-crypt/flow.svg" alt="BasicFlow">&lt;/p>
 &lt;h2 id="step-1-install-git-crypt" >
 &lt;div>
 &lt;a href="#step-1-install-git-crypt">
@@ -683,7 +683,7 @@ Results
 &lt;/div>
 &lt;/h2>
 &lt;p>The beancount file is encrypted.&lt;/p>
-&lt;p>&lt;img alt="Alt text" src="https://www.junyi.dev/posts/git-crypt/image-1.png">&lt;/p>
+&lt;p>&lt;img src="https://www.junyi.dev/posts/git-crypt/image-1.png" alt="Alt text">&lt;/p>
 &lt;h2 id="后续更新" >
 &lt;div>
 &lt;a href="#%e5%90%8e%e7%bb%ad%e6%9b%b4%e6%96%b0">
@@ -1405,7 +1405,7 @@ GitHub&lt;/a> 找到更多信息&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>在 Linux 系统中，我们可以通过&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;定时任务&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;cron job&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;功能进行系统管理
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>苹果的&amp;lt;&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;隔空投送&amp;lt;&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;AirDrop&amp;lt;/&lt;span style="color:#ff6ac1">rt&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff6ac1">ruby&lt;/span>&amp;gt;并没有那么可靠，丢失文件的情况经常发生
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Zero Mq 注意事项</title><link>/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D(https://zeromq.org/)">ZeroMQ&lt;/a>&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Zero Mq 注意事项</title><link>/posts/zero-mq/</link><pubDate>Thu, 01 Jul 2021 09:48:45 +0800</pubDate><author>junyi.h@comp.nus.edu.sg (Junyi Hou)</author><guid>/posts/zero-mq/</guid><description>&lt;p>官方网站：&lt;a href="https://www.junyi.dev/2021/07/01/ZeroMQ%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%5BZeroMQ%5D%28https://zeromq.org/%29">ZeroMQ&lt;/a>&lt;/p>
 &lt;p>我用的实现版本：&lt;a href="https://github.com/zeromq/libzmq">libzmq&lt;/a>&lt;/p>
 &lt;p>对我个人来说，ZMQ 可以免去我「维持 socket 通信可靠性」、「高性能并发」等任务。&lt;/p>
 &lt;p>（虽然之前自己也写了一整套）&lt;/p>
@@ -2784,7 +2784,7 @@ feedback on earlier versions of this draft.
 &lt;li>&lt;input disabled="" type="checkbox"> 或、且，是否全都是左右两边加逗号&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>译者注：&lt;/strong>&lt;/p>
-&lt;p>本翻译仅供参考，目的是让读者更好地理解 STUN 协议（&lt;a href="https://www.junyi.dev/">RFC 5389&lt;/a>）。&lt;/p>
+&lt;p>本翻译仅供参考，目的是让读者更好地理解 STUN 协议（&lt;a href="">RFC 5389&lt;/a>）。&lt;/p>
 &lt;p>&lt;strong>我个人&lt;/strong>对翻译的要求是逻辑严密准确，且文章&lt;strong>核心内容&lt;/strong>与英文原版一致。&lt;/p>
 &lt;p>为了更方便读者理解，本翻译 &lt;strong>不保证&lt;/strong> 部分措辞细节与英文原版一致。&lt;/p>
 &lt;p>为了保证文章的准确性，个别名词将不会进行翻译。&lt;/p>
@@ -2969,7 +2969,7 @@ STUN
 &lt;a href="#4-%e6%9c%af%e8%af%ad-terminology-4-%e6%9c%af%e8%af%ad-terminology4-%e6%9c%af%e8%af%ad-terminology">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#4-术语-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#4-%e6%9c%af%e8%af%ad-Terminology" title="4. 术语 Terminology">&lt;/a>4. 术语 Terminology
 &lt;/div>
 &lt;/h2>
 &lt;blockquote>
@@ -2982,7 +2982,7 @@ STUN
 &lt;a href="#5-%e5%ae%9a%e4%b9%89-definitions-5-%e5%ae%9a%e4%b9%89-definitions5-%e5%ae%9a%e4%b9%89-definitions">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#5-定义-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#5-%e5%ae%9a%e4%b9%89-Definitions" title="5. 定义 Definitions">&lt;/a>5. 定义 Definitions
 &lt;/div>
 &lt;/h2>
 &lt;blockquote>
@@ -3045,7 +3045,7 @@ STUN
 &lt;a href="#6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure-6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure6-stun-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-stun-message-structure">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#6-STUN-消息结构-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
+&lt;a href="https://www.junyi.dev/posts/rfc5389-stun/#6-STUN-%e6%b6%88%e6%81%af%e7%bb%93%e6%9e%84-STUN-Message-Structure" title="6. STUN 消息结构 STUN Message Structure">&lt;/a>6. STUN 消息结构 STUN Message Structure
 &lt;/div>
 &lt;/h2>
 &lt;blockquote>
@@ -3283,7 +3283,7 @@ References
 &lt;a href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae-%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/my-dev-env/#基本配置" title="基本配置">&lt;/a>基本配置
+&lt;a href="https://www.junyi.dev/posts/my-dev-env/#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae" title="基本配置">&lt;/a>基本配置
 &lt;/div>
 &lt;/h3>
 &lt;p>先说一下我电脑的基本配置:&lt;/p>
@@ -3310,7 +3310,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/my-dev-env/#开发环境" title="开发环境">&lt;/a>开发环境
+&lt;a href="https://www.junyi.dev/posts/my-dev-env/#%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83" title="开发环境">&lt;/a>开发环境
 &lt;/div>
 &lt;/h3>
 &lt;p>目前我把那块 512G 的 SSD 划成了两个部分, 第一个部分 300G 给 Windows 用, 第二个部分 200G 给 Ubuntu 用.&lt;/p>
@@ -3343,7 +3343,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#windows-%e5%b7%a5%e5%85%b7-windows-%e5%b7%a5%e5%85%b7windows-%e5%b7%a5%e5%85%b7">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/my-dev-env/#Windows-工具" title="Windows 工具">&lt;/a>Windows 工具
+&lt;a href="https://www.junyi.dev/posts/my-dev-env/#Windows-%e5%b7%a5%e5%85%b7" title="Windows 工具">&lt;/a>Windows 工具
 &lt;/div>
 &lt;/h3>
 &lt;ul>
@@ -3383,7 +3383,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#先说结论" title="先说结论">&lt;/a>先说结论
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba" title="先说结论">&lt;/a>先说结论
 &lt;/div>
 &lt;/h1>
 &lt;p>系统环境：Ubuntu 18.04 LTS&lt;/p>
@@ -3398,7 +3398,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82-%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#问题细节" title="问题细节">&lt;/a>问题细节
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82" title="问题细节">&lt;/a>问题细节
 &lt;/div>
 &lt;/h1>
 &lt;h2 id="第一天-no-opencl-platform-第一天-no-opencl-platform第一天-no-opencl-platform" >
@@ -3406,7 +3406,7 @@ HDD: 不知道哪个厂商的 1T 硬盘, 由于放小姐姐太多导致不够用
 &lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform-%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第一天-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%b8%80%e5%a4%a9-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
 &lt;/div>
 &lt;/h2>
 &lt;p>遇到了一个错误：&lt;/p>
@@ -3470,7 +3470,7 @@ You should enable only ONE option but not both.&lt;/p>
 &lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device-%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第二天-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%ba%8c%e5%a4%a9-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
 &lt;/div>
 &lt;/h2>
 &lt;p>睡了一觉，第二天了，&lt;/p>
@@ -3498,7 +3498,7 @@ No OpenCL device&lt;/p>
 &lt;a href="#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3-%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第三天-解决" title="第三天 解决">&lt;/a>第三天 解决
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3" title="第三天 解决">&lt;/a>第三天 解决
 &lt;/div>
 &lt;/h2>
 &lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
@@ -3530,7 +3530,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#先说结论" title="先说结论">&lt;/a>先说结论
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba" title="先说结论">&lt;/a>先说结论
 &lt;/div>
 &lt;/h1>
 &lt;p>&lt;strong>环境&lt;/strong>：Ubuntu 18.04 LTS （非虚拟机）&lt;/p>
@@ -3544,7 +3544,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e9%83%a8%e7%bd%b2-android-rpc-%e9%83%a8%e7%bd%b2-android_rpc%e9%83%a8%e7%bd%b2-android_rpc">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#部署-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e9%83%a8%e7%bd%b2-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
 &lt;/div>
 &lt;/h1>
 &lt;p>按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。&lt;/p>
@@ -3560,7 +3560,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e8%b8%a9%e5%9d%91-%e8%b8%a9%e5%9d%91%e8%b8%a9%e5%9d%91">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#踩坑" title="踩坑">&lt;/a>踩坑
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e8%b8%a9%e5%9d%91" title="踩坑">&lt;/a>踩坑
 &lt;/div>
 &lt;/h1>
 &lt;p>Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。&lt;/p>
@@ -3592,7 +3592,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8-%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#灵机一动" title="灵机一动">&lt;/a>灵机一动
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8" title="灵机一动">&lt;/a>灵机一动
 &lt;/div>
 &lt;/h1>
 &lt;p>配置这么大型的项目，而且网上没有多少参考资料，搜索也几乎很难找到结果。手中的设备千差万别，想要真正部署起来真的太麻烦了。在我快疯了的时候，突然想到：&lt;strong>草！我干嘛不看看他的脚本怎么写的呢？&lt;/strong>&lt;/p>
@@ -3617,7 +3617,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3-%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#问题解决" title="问题解决">&lt;/a>问题解决
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3" title="问题解决">&lt;/a>问题解决
 &lt;/div>
 &lt;/h1>
 &lt;p>（上面的那些就是发发牢骚，这里才是解决问题的部分）&lt;/p>
@@ -3641,7 +3641,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e6%80%bb%e7%bb%93-%e6%80%bb%e7%bb%93%e6%80%bb%e7%bb%93">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#总结" title="总结">&lt;/a>总结
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e6%80%bb%e7%bb%93" title="总结">&lt;/a>总结
 &lt;/div>
 &lt;/h1>
 &lt;p>其实一开始，在 android_rpc 这个目录里执行 &lt;code>gradle clean build&lt;/code> 是可以成功编译出文件的，但是在后面签名的时候给我报了个无法找到什么什么类的错误，然后我决定编译 android_deploy 试试，发现成功了，签名也正常，在 Android 10 手机上也可以正常运行，我就觉得肯定是这个项目的问题。&lt;/p>

@@ -4,7 +4,7 @@
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#先说结论" title="先说结论">&lt;/a>先说结论
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba" title="先说结论">&lt;/a>先说结论
 &lt;/div>
 &lt;/h1>
 &lt;p>系统环境：Ubuntu 18.04 LTS&lt;/p>
@@ -19,7 +19,7 @@
 &lt;a href="#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82-%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#问题细节" title="问题细节">&lt;/a>问题细节
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e9%97%ae%e9%a2%98%e7%bb%86%e8%8a%82" title="问题细节">&lt;/a>问题细节
 &lt;/div>
 &lt;/h1>
 &lt;h2 id="第一天-no-opencl-platform-第一天-no-opencl-platform第一天-no-opencl-platform" >
@@ -27,7 +27,7 @@
 &lt;a href="#%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform-%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform%e7%ac%ac%e4%b8%80%e5%a4%a9-no-opencl-platform">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第一天-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%b8%80%e5%a4%a9-No-OpenCL-platform" title="第一天 No OpenCL platform">&lt;/a>第一天 No OpenCL platform
 &lt;/div>
 &lt;/h2>
 &lt;p>遇到了一个错误：&lt;/p>
@@ -91,7 +91,7 @@ You should enable only ONE option but not both.&lt;/p>
 &lt;a href="#%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device-%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device%e7%ac%ac%e4%ba%8c%e5%a4%a9-no-opencl-device">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第二天-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%ba%8c%e5%a4%a9-No-OpenCL-device" title="第二天 No OpenCL device">&lt;/a>第二天 No OpenCL device
 &lt;/div>
 &lt;/h2>
 &lt;p>睡了一觉，第二天了，&lt;/p>
@@ -119,7 +119,7 @@ No OpenCL device&lt;/p>
 &lt;a href="#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3-%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3">
 #
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#第三天-解决" title="第三天 解决">&lt;/a>第三天 解决
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc2/#%e7%ac%ac%e4%b8%89%e5%a4%a9-%e8%a7%a3%e5%86%b3" title="第三天 解决">&lt;/a>第三天 解决
 &lt;/div>
 &lt;/h2>
 &lt;p>When you compile android_rpc, you &lt;strong>HAVE TO&lt;/strong> specify the libOpenCL.so in jni/config.mk, which pulled from your Android phone. Then, download CL-headers from github!&lt;/p>
@@ -151,7 +151,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba-%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#先说结论" title="先说结论">&lt;/a>先说结论
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba" title="先说结论">&lt;/a>先说结论
 &lt;/div>
 &lt;/h1>
 &lt;p>&lt;strong>环境&lt;/strong>：Ubuntu 18.04 LTS （非虚拟机）&lt;/p>
@@ -165,7 +165,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e9%83%a8%e7%bd%b2-android-rpc-%e9%83%a8%e7%bd%b2-android_rpc%e9%83%a8%e7%bd%b2-android_rpc">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#部署-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e9%83%a8%e7%bd%b2-android-rpc" title="部署 android_rpc">&lt;/a>部署 android_rpc
 &lt;/div>
 &lt;/h1>
 &lt;p>按照官方教程来走，先是基于源代码安装 TVM 库，安装之前要把 LLVM 装好。&lt;/p>
@@ -181,7 +181,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e8%b8%a9%e5%9d%91-%e8%b8%a9%e5%9d%91%e8%b8%a9%e5%9d%91">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#踩坑" title="踩坑">&lt;/a>踩坑
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e8%b8%a9%e5%9d%91" title="踩坑">&lt;/a>踩坑
 &lt;/div>
 &lt;/h1>
 &lt;p>Gradle 版本不对，Ubuntu 18.04 默认给安装的是 3.x 版本，后来添加的源，upgrade 一下才可以。&lt;/p>
@@ -213,7 +213,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8-%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#灵机一动" title="灵机一动">&lt;/a>灵机一动
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e7%81%b5%e6%9c%ba%e4%b8%80%e5%8a%a8" title="灵机一动">&lt;/a>灵机一动
 &lt;/div>
 &lt;/h1>
 &lt;p>配置这么大型的项目，而且网上没有多少参考资料，搜索也几乎很难找到结果。手中的设备千差万别，想要真正部署起来真的太麻烦了。在我快疯了的时候，突然想到：&lt;strong>草！我干嘛不看看他的脚本怎么写的呢？&lt;/strong>&lt;/p>
@@ -238,7 +238,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3-%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#问题解决" title="问题解决">&lt;/a>问题解决
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3" title="问题解决">&lt;/a>问题解决
 &lt;/div>
 &lt;/h1>
 &lt;p>（上面的那些就是发发牢骚，这里才是解决问题的部分）&lt;/p>
@@ -262,7 +262,7 @@ android:label=&amp;#34;@string/app\_name&amp;#34;
 &lt;a href="#%e6%80%bb%e7%bb%93-%e6%80%bb%e7%bb%93%e6%80%bb%e7%bb%93">
 ##
 &lt;/a>
-&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#总结" title="总结">&lt;/a>总结
+&lt;a href="https://www.junyi.dev/posts/tvm-android-rpc/#%e6%80%bb%e7%bb%93" title="总结">&lt;/a>总结
 &lt;/div>
 &lt;/h1>
 &lt;p>其实一开始，在 android_rpc 这个目录里执行 &lt;code>gradle clean build&lt;/code> 是可以成功编译出文件的，但是在后面签名的时候给我报了个无法找到什么什么类的错误，然后我决定编译 android_deploy 试试，发现成功了，签名也正常，在 Android 10 手机上也可以正常运行，我就觉得肯定是这个项目的问题。&lt;/p>
